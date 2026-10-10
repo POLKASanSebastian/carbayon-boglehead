@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carbayón Boglehead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: banda azul de la cubierta arriba (libro + título), índice de capítulos como lista de lectura debajo */
+:root{
+  --navy:#2f4a72; --navy-deep:#223a5c; --on-navy:#f2f5fa; --on-navy-soft:#b9c6db;
+  --paper:#f2f4f7; --surface:#ffffff; --ink:#18212f; --muted:#5b6678; --line:#d8dee8;
+  --done:#1f7a5c; --done-soft:#dff1e9;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-ui:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-read:"Source Serif 4",Georgia,"Iowan Old Style",serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --navy:#2a4268; --navy-deep:#1c2e4b; --on-navy:#eef2f8; --on-navy-soft:#a9b8d0;
+  --paper:#0f141c; --surface:#161e2a; --ink:#e6ebf2; --muted:#9aa6b8; --line:#283345;
+  --done:#58c39c; --done-soft:#173a2f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --navy:#2a4268; --navy-deep:#1c2e4b; --on-navy:#eef2f8; --on-navy-soft:#a9b8d0;
+  --paper:#0f141c; --surface:#161e2a; --ink:#e6ebf2; --muted:#9aa6b8; --line:#283345;
+  --done:#58c39c; --done-soft:#173a2f; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--f-ui)}
+a{color:inherit}
+:focus-visible{outline:3px solid #8fb3ff;outline-offset:2px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--on-navy);border-bottom:6px solid var(--navy-deep)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:48px;align-items:center;padding-block:48px 52px}
+.book{margin:0;transform:rotate(-2.5deg);filter:drop-shadow(0 18px 28px rgba(0,0,0,.35));max-width:100%}
+.book img{display:block;width:100%;height:auto;border-radius:3px 8px 8px 3px}
+.eyebrow{font:600 13px/1 var(--f-ui);letter-spacing:.16em;text-transform:uppercase;color:var(--on-navy-soft);margin:0 0 14px}
+h1{font:700 clamp(46px,8vw,92px)/.92 var(--f-display);text-transform:uppercase;letter-spacing:.005em;margin:0;text-wrap:balance}
+.tag{font:400 clamp(19px,2.4vw,24px)/1.3 var(--f-ui);margin:16px 0 6px;max-width:30ch}
+.author{font:700 16px/1 var(--f-display);letter-spacing:.22em;text-transform:uppercase;color:var(--on-navy-soft);margin:0 0 28px}
+.prog{max-width:420px}
+.prog-row{display:flex;justify-content:space-between;gap:12px;font:500 14px/1.2 var(--f-ui);color:var(--on-navy-soft);margin-bottom:8px;font-variant-numeric:tabular-nums}
+.prog-row b{color:var(--on-navy);font-weight:600}
+.bar{height:8px;background:rgba(255,255,255,.18);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--on-navy);border-radius:99px;transition:width .4s ease}
+.cta{display:inline-flex;align-items:center;gap:10px;margin-top:22px;background:var(--on-navy);color:var(--navy-deep);text-decoration:none;font:600 16px/1 var(--f-ui);padding:14px 20px;border-radius:999px}
+.cta:hover{background:#fff}
+.cta small{font-weight:500;opacity:.7}
+
+/* Index */
+main .wrap{padding-block:36px 24px}
+.head{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:end;justify-content:space-between;margin-bottom:18px}
+h2{font:700 34px/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em;margin:0}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{font:16px/1.2 var(--f-ui);padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);width:min(260px,100%)}
+.chips{display:flex;gap:6px}
+.chip{font:600 14px/1 var(--f-ui);padding:10px 13px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+ol.list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;border-top:2px solid var(--ink)}
+.ch{display:grid;grid-template-columns:64px minmax(0,1fr) 28px;gap:14px;align-items:start;padding:18px 4px;border-bottom:1px solid var(--line);text-decoration:none;height:100%}
+.ch:hover .ttl{text-decoration:underline;text-underline-offset:3px}
+.num{font:700 40px/.9 var(--f-display);color:var(--navy);font-variant-numeric:tabular-nums}
+.ttl{display:block;font:600 19px/1.25 var(--f-read);text-wrap:balance}
+.bl{display:block;margin-top:5px;color:var(--muted);font:15px/1.45 var(--f-ui)}
+.st{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);margin-top:4px;display:grid;place-items:center}
+.ch.is-done .st{background:var(--done);border-color:var(--done)}
+.ch.is-done .st::after{content:"";width:9px;height:5px;border:2.5px solid var(--surface);border-top:0;border-right:0;transform:translate(0,-1px) rotate(-45deg)}
+.ch.is-done .num{color:var(--done)}
+.empty{color:var(--muted);padding:24px 4px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .num{color:#8fb0de}}
+:root[data-theme="dark"] .num{color:#8fb0de}
+
+/* Pilares */
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:40px 0 0;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+.pillars div{padding:18px 20px;border-left:1px solid var(--line)}
+.pillars div:first-child{border-left:0}
+.pillars b{display:block;font:700 22px/1 var(--f-display);text-transform:uppercase;letter-spacing:.03em;color:var(--navy);margin-bottom:6px}
+.pillars span{color:var(--muted);font-size:15px}
+.pillars-cap{font:600 12px/1 var(--f-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:40px 0 10px}
+.pillars-cap + .pillars{margin-top:0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pillars b{color:#8fb0de}}
+:root[data-theme="dark"] .pillars b{color:#8fb0de}
+footer{color:var(--muted);font-size:13px;padding-block:28px 40px}
+.reset{background:none;border:0;color:inherit;text-decoration:underline;font:inherit;cursor:pointer;padding:0}
+
+@media (max-width:820px){ol.list{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:28px;padding-block:28px 34px}
+  .book{width:min(200px,60%);margin-inline:auto}
+  .pillars{grid-template-columns:minmax(0,1fr)}
+  .pillars div{border-left:0;border-top:1px solid var(--line)}
+  .pillars div:first-child{border-top:0}
+  .ch{grid-template-columns:44px minmax(0,1fr) 26px;gap:12px}
+  .num{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <figure class="book"><img src="img/portada.jpg" alt="Portada del libro Carbayón Boglehead, de David Blanco" width="900" height="1466"></figure>
+    <div>
+      <p class="eyebrow">Apuntes de estudio · 18 capítulos</p>
+      <h1>Carbayón<br>Boglehead</h1>
+      <p class="tag">De la inversión pasiva a la libertad financiera</p>
+      <p class="author">David Blanco</p>
+      <div class="prog">
+        <div class="prog-row"><span>Tu lectura</span><span><b id="pDone">0</b> de 18 leídos</span></div>
+        <div class="bar" role="progressbar" aria-label="Capítulos leídos" aria-valuemin="0" aria-valuemax="18" aria-valuenow="0" id="pBar"><i id="pFill"></i></div>
+      </div>
+      <a class="cta" id="cta" href="capitulos/capitulo-1-inversion-pasiva.html">Empezar a leer <small id="ctaSub">Capítulo 1</small></a>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="head">
+      <h2>Capítulos</h2>
+      <div class="tools">
+        <input class="search" id="q" type="search" placeholder="Buscar: dividendos, FIRE, pisos…" aria-label="Buscar capítulo">
+        <div class="chips" role="group" aria-label="Filtrar">
+          <button class="chip" type="button" id="fAll" data-f="all" aria-pressed="true">Todos</button>
+          <button class="chip" type="button" id="fTodo" data-f="todo" aria-pressed="false">Pendientes</button>
+          <button class="chip" type="button" id="fDone" data-f="done" aria-pressed="false">Leídos</button>
+        </div>
+      </div>
+    </div>
+    <ol class="list" id="list">
+      <li><a class="ch" href="capitulos/capitulo-1-inversion-pasiva.html" data-slug="capitulo-1-inversion-pasiva" data-q="el impacto de la inversión pasiva en el largo plazo el erizo y el zorro, los tres pilares de bogle, el coste de las comisiones y el mito de los dividendos.">
+        <span class="num">1</span>
+        <span class="txt"><span class="ttl">El impacto de la inversión pasiva en el largo plazo</span><span class="bl">El erizo y el zorro, los tres pilares de Bogle, el coste de las comisiones y el mito de los dividendos.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-2-asignacion-60-40.html" data-slug="capitulo-2-asignacion-60-40" data-q="una asignación probada: la cartera 60/40 por qué repartir 60% en acciones y 40% en bonos ha aguantado un siglo de crisis.">
+        <span class="num">2</span>
+        <span class="txt"><span class="ttl">Una asignación probada: la cartera 60/40</span><span class="bl">Por qué repartir 60% en acciones y 40% en bonos ha aguantado un siglo de crisis.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-3-frontera-eficiente.html" data-slug="capitulo-3-frontera-eficiente" data-q="frontera eficiente y optimización del riesgo la máxima rentabilidad por cada unidad de riesgo, y cómo el fomo te empuja a romperla.">
+        <span class="num">3</span>
+        <span class="txt"><span class="ttl">Frontera eficiente y optimización del riesgo</span><span class="bl">La máxima rentabilidad por cada unidad de riesgo, y cómo el FOMO te empuja a romperla.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-4-tasa-retirada.html" data-slug="capitulo-4-tasa-retirada" data-q="tasa de retirada segura cuánto puedes sacar cada año sin quedarte sin dinero, y cómo tributan esas retiradas en españa.">
+        <span class="num">4</span>
+        <span class="txt"><span class="ttl">Tasa de retirada segura</span><span class="bl">Cuánto puedes sacar cada año sin quedarte sin dinero, y cómo tributan esas retiradas en España.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-5-dca-lump-sum.html" data-slug="capitulo-5-dca-lump-sum" data-q="dca o lump sum ¿todo de golpe, en varias compras o esperar a que baje? lo que dicen los datos.">
+        <span class="num">5</span>
+        <span class="txt"><span class="ttl">DCA o Lump Sum</span><span class="bl">¿Todo de golpe, en varias compras o esperar a que baje? Lo que dicen los datos.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-6-psicologia-financiera.html" data-slug="capitulo-6-psicologia-financiera" data-q="psicología financiera elegir la cartera es fácil. lo difícil es no estropearla cuando el mercado cae.">
+        <span class="num">6</span>
+        <span class="txt"><span class="ttl">Psicología financiera</span><span class="bl">Elegir la cartera es fácil. Lo difícil es no estropearla cuando el mercado cae.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-7-implementar-cartera.html" data-slug="capitulo-7-implementar-cartera" data-q="cómo implementar la cartera con qué productos montarla, cuánto cuesta cada opción y si tu dinero está seguro.">
+        <span class="num">7</span>
+        <span class="txt"><span class="ttl">Cómo implementar la cartera</span><span class="bl">Con qué productos montarla, cuánto cuesta cada opción y si tu dinero está seguro.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-8-riesgos-especulacion.html" data-slug="capitulo-8-riesgos-especulacion" data-q="los riesgos de la especulación invertir, especular, jugar y caer en una estafa: cómo distinguirlos antes de caer.">
+        <span class="num">8</span>
+        <span class="txt"><span class="ttl">Los riesgos de la especulación</span><span class="bl">Invertir, especular, jugar y caer en una estafa: cómo distinguirlos antes de caer.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-9-diversificacion-geografica.html" data-slug="capitulo-9-diversificacion-geografica" data-q="la diversificación geográfica ninguna región gana siempre: por qué repartir entre países y continentes.">
+        <span class="num">9</span>
+        <span class="txt"><span class="ttl">La diversificación geográfica</span><span class="bl">Ninguna región gana siempre: por qué repartir entre países y continentes.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-10-control-emocional.html" data-slug="capitulo-10-control-emocional" data-q="el control emocional paciencia y disciplina: lo que separa al inversor que llega del que se baja a mitad.">
+        <span class="num">10</span>
+        <span class="txt"><span class="ttl">El control emocional</span><span class="bl">Paciencia y disciplina: lo que separa al inversor que llega del que se baja a mitad.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-11-finanzas-personales.html" data-slug="capitulo-11-finanzas-personales" data-q="finanzas personales ordenar la casa antes de invertir: cómo repartir lo que entra y los diez niveles hacia la libertad.">
+        <span class="num">11</span>
+        <span class="txt"><span class="ttl">Finanzas personales</span><span class="bl">Ordenar la casa antes de invertir: cómo repartir lo que entra y los diez niveles hacia la libertad.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-12-aleatoriedad-predicciones.html" data-slug="capitulo-12-aleatoriedad-predicciones" data-q="aleatoriedad y predicciones el cerebro ve patrones donde solo hay azar. el análisis técnico, desmontado.">
+        <span class="num">12</span>
+        <span class="txt"><span class="ttl">Aleatoriedad y predicciones</span><span class="bl">El cerebro ve patrones donde solo hay azar. El análisis técnico, desmontado.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-13-value-era-informacion.html" data-slug="capitulo-13-value-era-informacion" data-q="value en la era de la información por qué la ventaja de comprar barato casi ha desaparecido para el inversor particular.">
+        <span class="num">13</span>
+        <span class="txt"><span class="ttl">Value en la era de la información</span><span class="bl">Por qué la ventaja de comprar barato casi ha desaparecido para el inversor particular.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-14-cartera-mono.html" data-slug="capitulo-14-cartera-mono" data-q="la cartera del mono el experimento de malkiel y qué valor tienen de verdad los gurús de las redes.">
+        <span class="num">14</span>
+        <span class="txt"><span class="ttl">La cartera del mono</span><span class="bl">El experimento de Malkiel y qué valor tienen de verdad los gurús de las redes.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-15-mito-ladrillo.html" data-slug="capitulo-15-mito-ladrillo" data-q="desmontando el mito del ladrillo pisos para alquilar frente a fondos indexados: impuestos, liquidez, diversificación y más.">
+        <span class="num">15</span>
+        <span class="txt"><span class="ttl">Desmontando el mito del ladrillo</span><span class="bl">Pisos para alquilar frente a fondos indexados: impuestos, liquidez, diversificación y más.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-16-movimiento-fire.html" data-slug="capitulo-16-movimiento-fire" data-q="el movimiento f.i.r.e. independencia financiera y retiro anticipado: la idea y su matemática.">
+        <span class="num">16</span>
+        <span class="txt"><span class="ttl">El movimiento F.I.R.E.</span><span class="bl">Independencia financiera y retiro anticipado: la idea y su matemática.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-17-legado-hijos.html" data-slug="capitulo-17-legado-hijos" data-q="legado y educación de los hijos qué dejar a los hijos y, sobre todo, qué enseñarles sobre el dinero.">
+        <span class="num">17</span>
+        <span class="txt"><span class="ttl">Legado y educación de los hijos</span><span class="bl">Qué dejar a los hijos y, sobre todo, qué enseñarles sobre el dinero.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+      <li><a class="ch" href="capitulos/capitulo-final-reflexiones.html" data-slug="capitulo-final-reflexiones" data-q="reflexiones finales la teoría es sencilla. lo difícil es mantener el rumbo durante décadas.">
+        <span class="num">Fin</span>
+        <span class="txt"><span class="ttl">Reflexiones finales</span><span class="bl">La teoría es sencilla. Lo difícil es mantener el rumbo durante décadas.</span></span>
+        <span class="st" aria-hidden="true"></span>
+      </a></li>
+    </ol>
+    <p class="empty" id="none" hidden>Ningún capítulo coincide con la búsqueda.</p>
+
+    <p class="pillars-cap">Los tres pilares de Bogle</p>
+    <div class="pillars">
+      <div><b>Largo plazo</b><span>Comprar y mantener. El tiempo hace el trabajo.</span></div>
+      <div><b>Costes mínimos</b><span>Cada euro de comisión deja de componer para ti.</span></div>
+      <div><b>Diversificar</b><span>Miles de empresas y países. Nunca dependes de una.</span></div>
+    </div>
+    <footer>Resúmenes y explicaciones propias de cada capítulo, hechas a partir del libro. Tu progreso de lectura se guarda solo en este navegador. <button class="reset" type="button" id="reset">Borrar progreso</button></footer>
+  </div>
+</main>
+<script>
+(function(){
+  var K="cb-leidos", CH=[{"n": "01", "slug": "capitulo-1-inversion-pasiva", "t": "El impacto de la inversión pasiva en el largo plazo", "b": "El erizo y el zorro, los tres pilares de Bogle, el coste de las comisiones y el mito de los dividendos."}, {"n": "02", "slug": "capitulo-2-asignacion-60-40", "t": "Una asignación probada: la cartera 60/40", "b": "Por qué repartir 60% en acciones y 40% en bonos ha aguantado un siglo de crisis."}, {"n": "03", "slug": "capitulo-3-frontera-eficiente", "t": "Frontera eficiente y optimización del riesgo", "b": "La máxima rentabilidad por cada unidad de riesgo, y cómo el FOMO te empuja a romperla."}, {"n": "04", "slug": "capitulo-4-tasa-retirada", "t": "Tasa de retirada segura", "b": "Cuánto puedes sacar cada año sin quedarte sin dinero, y cómo tributan esas retiradas en España."}, {"n": "05", "slug": "capitulo-5-dca-lump-sum", "t": "DCA o Lump Sum", "b": "¿Todo de golpe, en varias compras o esperar a que baje? Lo que dicen los datos."}, {"n": "06", "slug": "capitulo-6-psicologia-financiera", "t": "Psicología financiera", "b": "Elegir la cartera es fácil. Lo difícil es no estropearla cuando el mercado cae."}, {"n": "07", "slug": "capitulo-7-implementar-cartera", "t": "Cómo implementar la cartera", "b": "Con qué productos montarla, cuánto cuesta cada opción y si tu dinero está seguro."}, {"n": "08", "slug": "capitulo-8-riesgos-especulacion", "t": "Los riesgos de la especulación", "b": "Invertir, especular, jugar y caer en una estafa: cómo distinguirlos antes de caer."}, {"n": "09", "slug": "capitulo-9-diversificacion-geografica", "t": "La diversificación geográfica", "b": "Ninguna región gana siempre: por qué repartir entre países y continentes."}, {"n": "10", "slug": "capitulo-10-control-emocional", "t": "El control emocional", "b": "Paciencia y disciplina: lo que separa al inversor que llega del que se baja a mitad."}, {"n": "11", "slug": "capitulo-11-finanzas-personales", "t": "Finanzas personales", "b": "Ordenar la casa antes de invertir: cómo repartir lo que entra y los diez niveles hacia la libertad."}, {"n": "12", "slug": "capitulo-12-aleatoriedad-predicciones", "t": "Aleatoriedad y predicciones", "b": "El cerebro ve patrones donde solo hay azar. El análisis técnico, desmontado."}, {"n": "13", "slug": "capitulo-13-value-era-informacion", "t": "Value en la era de la información", "b": "Por qué la ventaja de comprar barato casi ha desaparecido para el inversor particular."}, {"n": "14", "slug": "capitulo-14-cartera-mono", "t": "La cartera del mono", "b": "El experimento de Malkiel y qué valor tienen de verdad los gurús de las redes."}, {"n": "15", "slug": "capitulo-15-mito-ladrillo", "t": "Desmontando el mito del ladrillo", "b": "Pisos para alquilar frente a fondos indexados: impuestos, liquidez, diversificación y más."}, {"n": "16", "slug": "capitulo-16-movimiento-fire", "t": "El movimiento F.I.R.E.", "b": "Independencia financiera y retiro anticipado: la idea y su matemática."}, {"n": "17", "slug": "capitulo-17-legado-hijos", "t": "Legado y educación de los hijos", "b": "Qué dejar a los hijos y, sobre todo, qué enseñarles sobre el dinero."}, {"n": "F", "slug": "capitulo-final-reflexiones", "t": "Reflexiones finales", "b": "La teoría es sencilla. Lo difícil es mantener el rumbo durante décadas."}];
+  function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+  function set(l){try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}}
+  var filter="all";
+  function paint(){
+    var done=get(), n=0;
+    document.querySelectorAll(".ch").forEach(function(a){var on=done.indexOf(a.dataset.slug)>-1;a.classList.toggle("is-done",on);a.setAttribute("aria-label",a.querySelector(".ttl").textContent+(on?" (leído)":""));if(on)n++;});
+    document.getElementById("pDone").textContent=n;
+    document.getElementById("pFill").style.width=(n/CH.length*100)+"%";
+    document.getElementById("pBar").setAttribute("aria-valuenow",n);
+    var next=CH.find(function(c){return done.indexOf(c.slug)<0}), cta=document.getElementById("cta");
+    if(!next){cta.firstChild.nodeValue="Libro terminado ";document.getElementById("ctaSub").textContent="Repasar desde el 1";cta.href="capitulos/"+CH[0].slug+".html";}
+    else{cta.firstChild.nodeValue=(n?"Seguir leyendo ":"Empezar a leer ");document.getElementById("ctaSub").textContent=next.n==="F"?"Reflexiones finales":"Capítulo "+parseInt(next.n,10);cta.href="capitulos/"+next.slug+".html";}
+    apply();
+  }
+  function apply(){
+    var q=document.getElementById("q").value.trim().toLowerCase(), shown=0;
+    document.querySelectorAll(".ch").forEach(function(a){
+      var ok=(!q||a.dataset.q.indexOf(q)>-1)&&(filter==="all"||(filter==="done")===a.classList.contains("is-done"));
+      a.parentNode.hidden=!ok; if(ok)shown++;
+    });
+    document.getElementById("none").hidden=shown>0;
+  }
+  document.getElementById("q").addEventListener("input",apply);
+  document.querySelectorAll(".chip").forEach(function(b){b.addEventListener("click",function(){
+    filter=b.dataset.f; document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===b)}); apply();
+  })});
+  var r=document.getElementById("reset"), armed=false;
+  r.addEventListener("click",function(){ if(!armed){armed=true;r.textContent="Pulsa otra vez para confirmar";setTimeout(function(){armed=false;r.textContent="Borrar progreso"},4000);return;} set([]);armed=false;r.textContent="Progreso borrado";paint(); });
+  window.addEventListener("pageshow",paint);
+  paint();
+})();
+</script>
+</body>
+</html>
