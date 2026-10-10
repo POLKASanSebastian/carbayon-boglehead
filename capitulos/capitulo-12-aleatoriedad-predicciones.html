@@ -1,0 +1,521 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 12 · 12 de 18</span></div></nav>
+<title>Capítulo 12 · Aleatoriedad y predicciones</title>
+<style>
+/* Mismo sistema que los capítulos 1–11: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --em:#8a5aa8; --em-soft:#f1e8f6;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+    --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+  --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:21px;line-height:1.4;text-align:center;padding:22px 18px;background:var(--accent-soft);border-color:transparent}
+.quote small{display:block;margin-top:8px;font:13px/1.4 var(--sans);color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs.three{grid-template-columns:repeat(3,1fr)}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+.vs .blue{background:var(--cash-soft);border-color:transparent} .vs .blue h3{color:var(--cash)}
+.vs .em{background:var(--em-soft);border-color:transparent} .vs .em h3{color:var(--em)}
+@media (max-width:620px){.vs.three{grid-template-columns:1fr}}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.vs p{font:15px/1.5 var(--sans);margin:0}
+.big{font:700 26px/1.1 var(--sans);font-variant-numeric:tabular-nums;margin:2px 0 6px}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--accent);text-align:center;background:var(--accent-soft);border-radius:50%;width:28px;height:28px}
+.step p{margin:0;min-width:0}
+.loopnote{font:13px/1.4 var(--sans);color:var(--muted);text-align:center;margin:-2px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font:14px/1.4 var(--sans);min-width:520px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+td i{color:var(--muted)}
+
+/* Laboratorio de paseo aleatorio */
+.lab .chart{margin:12px 0 4px;background:var(--bg);border-radius:10px;overflow:hidden}
+.lab svg{display:block;width:100%;height:auto}
+.lab .ctl{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btn{font:600 14px/1 var(--sans);padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn.up{border-color:var(--accent);color:var(--accent)}
+.btn.down{border-color:var(--bad);color:var(--bad)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.status{font:600 15px/1.45 var(--sans);margin:10px 0 0}
+.status .ok{color:var(--accent)} .status .ko{color:var(--bad)}
+
+/* Calculadoras */
+.calc label{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px/1.3 var(--sans);margin:12px 0 0}
+.calc label output{font-variant-numeric:tabular-nums;color:var(--accent)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.res.two{grid-template-columns:repeat(2,1fr)}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.res b{display:block;font:700 21px/1.15 var(--sans);font-variant-numeric:tabular-nums}
+.res small{font:13px/1.35 var(--sans);color:var(--muted)}
+.res .g b{color:var(--accent)} .res .r b{color:var(--bad)} .res .c b{color:var(--cash)}
+@media (max-width:480px){.res,.res.two{grid-template-columns:1fr}}
+.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;margin-top:14px}
+.dots span{aspect-ratio:1;border-radius:50%;background:var(--line);max-width:100%}
+.dots span.hit{background:var(--bad)}
+
+/* Test */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 12 · Apuntes de estudio</div>
+  <h1>Aleatoriedad y predicciones</h1>
+  <p class="sub">Nuestro cerebro está hecho para encontrar patrones, incluso donde solo hay azar. Este capítulo desmonta el análisis técnico: por qué los soportes y resistencias en números redondos "funcionan" a veces, por qué se rompen, y qué dicen los estudios cuando se mide de verdad.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Tendemos a ver <b>orden en el ruido</b> y a llamar "habilidad" a lo que casi siempre es <span class="mark">suerte</span>.</li>
+    <li>Los precios se mueven de forma muy parecida a un <b>paseo aleatorio</b>: lo pasado no predice lo que viene.</li>
+    <li>Los <b>números redondos</b> (5.400, 5.500, 6.000) funcionan como soporte o resistencia solo porque mucha gente actúa igual: es una <b>profecía autocumplida</b>, no una ley.</li>
+    <li>Noticias inesperadas, política, geopolítica y emociones <b>rompen</b> esos niveles sin avisar.</li>
+    <li>Si existiera un método secreto para batir al mercado, al copiarse <b>dejaría de funcionar</b>.</li>
+    <li>Los estudios serios muestran que la ventaja aparente del análisis técnico <b>desaparece al descontar costes</b> y el sesgo de buscar en los datos hasta encontrar algo.</li>
+    <li>Conclusión Boglehead: diversificar, costes bajos y quedarse invertido.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Ver patrones donde no los hay</h2>
+<p>El capítulo abre con una idea de William Bernstein: buscar patrones es parte de la naturaleza humana, y lo hacemos también donde no existen. Cuando algo sale bien atribuimos el mérito a nuestra habilidad, aunque la suerte suela ser la explicación más probable.</p>
+<p>Esta idea, compartida por Burton Malkiel y otros pioneros de la inversión pasiva, parte de que los mercados se comportan de forma aleatoria. No hay una fórmula mágica ni una secuencia de patrones que permita predecir los precios de forma sistemática. Eso choca de frente con el <b>análisis técnico</b>, que se basa justo en encontrar patrones en los gráficos pasados para anticipar los movimientos futuros.</p>
+<div class="vs">
+  <div class="card bad">
+    <h3>Lo que hace la mente</h3>
+    <p>Ve ciclos, tendencias y figuras (hombro-cabeza-hombro, triángulos, canales) y les da poder predictivo.</p>
+  </div>
+  <div class="card good">
+    <h3>Lo que suele ser en realidad</h3>
+    <p>Coincidencias sin fundamento. Atribuirles "habilidad" es dejarse engañar por la suerte.</p>
+  </div>
+</div>
+
+<h2><span class="n">02</span>El paseo aleatorio y los mercados eficientes</h2>
+<p>La teoría del <b>paseo aleatorio</b> y la <b>hipótesis de los mercados eficientes</b> sostienen que los precios se mueven de manera impredecible, porque toda la información conocida ya está incorporada en ellos. Lo único que los mueve es información nueva, y la información nueva, por definición, no se puede anticipar.</p>
+<p>Por eso cualquier señal que se identifica <b>mirando hacia atrás</b> suele fallar cuando se usa en tiempo real: en retrospectiva todo parece obvio, pero esas "figuras" son una interpretación subjetiva de datos llenos de ruido.</p>
+
+<h3>Laboratorio: ¿ves patrones en el azar?</h3>
+<div class="card lab">
+  <p style="font:15px/1.5 var(--sans);margin:0">Este gráfico <b>no es de ningún índice</b>: es lanzar una moneda 160 veces (cara sube, cruz baja, con un poco de tamaño variable). Fíjate en las "tendencias", "rebotes en soportes" y "techos" que aparecen. Después intenta adivinar los próximos 10 movimientos.</p>
+  <div class="chart" id="chartBox"><svg id="rw" viewBox="0 0 640 300" role="img" aria-label="Gráfico de precios generado al azar"></svg></div>
+  <div class="ctl">
+    <button class="btn" id="newChart" type="button">Generar otro gráfico al azar</button>
+    <button class="btn pri" id="startGame" type="button">Adivinar los 10 siguientes</button>
+  </div>
+  <div class="ctl" id="guessBtns" hidden>
+    <button class="btn up" id="gUp" type="button">▲ Sube</button>
+    <button class="btn down" id="gDown" type="button">▼ Baja</button>
+  </div>
+  <p class="status" id="gStatus" aria-live="polite">Las líneas punteadas marcan los números redondos, los "soportes" y "resistencias" favoritos de los gráficos.</p>
+  <p class="foot" id="gTotal"></p>
+</div>
+<p class="foot">Si juegas varias rondas, tu porcentaje de aciertos tenderá al 50 %. Da igual lo convincente que parezca el dibujo: no hay nada que predecir.</p>
+
+<div class="card note">
+  <b>Ojo, un matiz que el propio Malkiel reconoce.</b> El mercado no es un paseo aleatorio <i>perfecto</i>. Andrew Lo, profesor del MIT, escribió un libro entero (<i>A Non-Random Walk Down Wall Street</i>) mostrando desviaciones estadísticas. Malkiel lo acepta, pero añade que el mercado está tan cerca del azar que esas grietas no dan para ganar dinero de forma fiable. La conclusión práctica del capítulo se mantiene.
+</div>
+
+<h2><span class="n">03</span>El ritual de los números redondos</h2>
+<p>Un fenómeno curioso es el uso casi ritual de cifras redondas como 5.400, 5.500 o 6.000 para marcar soportes y resistencias. Muchos analistas técnicos y especuladores se fijan en ellas, y eso tiene un fuerte <b>componente psicológico</b>.</p>
+<p>El libro lo compara con un <b>efecto placebo</b>: el nivel no tiene ninguna base económica, pero como todo el mundo lo mira, mucha gente actúa igual al llegar a él. Si el índice se acerca a 5.400, una multitud decide vender (o comprar) pensando que será un obstáculo, y con ello refuerza su importancia.</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Creencia compartida.</b> "En 5.400 hay resistencia."</p></div>
+  <div class="step"><b class="k">2</b><p><b>Acción coordinada.</b> Muchos ponen órdenes de venta justo en ese nivel.</p></div>
+  <div class="step"><b class="k">3</b><p><b>El precio rebota.</b> Por la presión vendedora, no por una razón económica.</p></div>
+  <div class="step"><b class="k">4</b><p><b>"Confirmación".</b> Los analistas lo ven como prueba de que el nivel funciona, y la creencia se refuerza.</p></div>
+</div>
+<p class="loopnote">… y vuelta al paso 1, hasta que una noticia o una emoción lo pulveriza.</p>
+<p>Es una <b>profecía autocumplida</b>: el soporte no se confirma por una razón económica, sino porque muchos operadores hacen lo mismo. Y desaparece en cuanto llega una noticia o una emoción que lo desborda.</p>
+
+<div class="card note">
+  <b>Ojo, el efecto existe, pero es pequeño.</b> Hay investigación seria sobre esto. Carol Osler, de la Reserva Federal de Nueva York, estudió las órdenes en el mercado de divisas y vio que se acumulan en los números redondos, lo que explica que el precio a veces frene o se acelere allí. Pero el efecto era pequeño y duraba horas. Le da la razón al libro: el nivel "funciona" por la gente, no por magia, y no basta para ganar dinero de forma sistemática.
+</div>
+
+<h2><span class="n">04</span>Por qué los niveles se rompen</h2>
+<p>La rigidez de los soportes y resistencias choca con la realidad. El precio depende de muchos factores externos que nadie puede prever:</p>
+<div class="vs">
+  <div class="card blue">
+    <h3>Lo que llega de fuera</h3>
+    <ul>
+      <li>Noticias inesperadas.</li>
+      <li>Cambios en la política económica.</li>
+      <li>Crisis geopolíticas.</li>
+      <li>"Cisnes negros": sucesos raros y de gran impacto.</li>
+    </ul>
+  </div>
+  <div class="card em">
+    <h3>Lo que llevamos dentro</h3>
+    <ul>
+      <li>Miedo y euforia.</li>
+      <li>Avaricia y desesperanza.</li>
+      <li>Movimientos bruscos que rara vez respetan líneas teóricas.</li>
+      <li>Cuando las respetan, dura poco.</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:12px">La realidad es una mezcla caótica de azar e información nueva. La volatilidad desplaza esos niveles con rapidez, y lo que parecía un muro se convierte en un simple freno psicológico. Por eso basar una estrategia en ellos, sin tener en cuenta lo imprevisible, da resultados limitados o incluso contraproducentes.</p>
+
+<h2><span class="n">05</span>Falsos positivos: confundir señal con ruido</h2>
+<p>Los analistas técnicos tienden a buscar patrones que <b>confirmen lo que ya esperaban</b> (el sesgo de confirmación) e ignoran la posibilidad de que todo sea casualidad. La narrativa resulta atractiva, pero se apoya en interpretaciones a posteriori y en coincidencias de señales, no en estadística rigurosa.</p>
+<div class="vs">
+  <div class="card bad">
+    <h3>Falso positivo</h3>
+    <p>El indicador da una señal de compra o venta que no anticipa nada real. Te lleva a una decisión precipitada.</p>
+  </div>
+  <div class="card good">
+    <h3>Señal real</h3>
+    <p>Un movimiento con causa y continuidad. El problema es que, en el momento, se distingue muy mal del ruido.</p>
+  </div>
+</div>
+<p style="margin-top:12px">Ni siquiera los algoritmos más avanzados lo resuelven: los modelos entrenados con datos históricos no capturan la complejidad ni la incertidumbre del mercado. La historia está llena de predicciones técnicas basadas en tendencias pasadas que fallaron ante sucesos inesperados.</p>
+
+<h2><span class="n">06</span>Si existiera un método mágico…</h2>
+<p>…no seguiría siendo secreto mucho tiempo. Los inversores lo adoptarían en masa y, al reflejarse en los precios, su efecto desaparecería. Toda la información conocida ya está en el precio.</p>
+<p>John Bogle lo explicaba así: si un gestor activo encuentra una ineficiencia y la explota, la ventaja se esfuma en cuanto otros la copian. Por eso el buen resultado de algunos gestores se explica más por suerte que por una habilidad que se mantenga en el tiempo.</p>
+<div class="vs">
+  <div class="card bad">
+    <h3>Según el libro (SPIVA)</h3>
+    <div class="big">&gt; 85 %</div>
+    <p>de los fondos activos se quedan por detrás de su índice a largo plazo.</p>
+  </div>
+  <div class="card bad">
+    <h3>Último dato SPIVA Europa</h3>
+    <div class="big">97 %</div>
+    <p>de los fondos activos de renta variable quedaron por detrás de su índice a 10 años (cierre de 2025).</p>
+  </div>
+</div>
+<p class="foot">El dato del libro es incluso prudente. En el informe de cierre de 2025, alrededor del 82 % de los fondos de renta variable europeos perdió contra su índice en un solo año, y el porcentaje sube al 97 % a 10 años.</p>
+<p style="margin-top:12px">Buscar el "método mágico" es una quimera. El único método que ha demostrado funcionar de forma constante en el tiempo es <b>diversificar globalmente, mantener los costes bajos y seguir invertido a largo plazo</b>. Es decir, la inversión indexada.</p>
+
+<div class="card quote">
+  Los soportes en números redondos son un arma de doble filo: dan sensación de orden en el caos, pero crean dependencia de patrones ilusorios.
+  <small>Idea del autor, resumida</small>
+</div>
+
+<h2><span class="n">07</span>Qué dicen los estudios</h2>
+<p>El método científico exige pruebas que se puedan repetir y resultados consistentes. En el análisis técnico no hay evidencia sólida de que funcione de forma sistemática para batir al mercado a largo plazo. Al contrario: su eficacia aparente se diluye cuando se descuentan los <b>costes de transacción</b> y los <b>sesgos de selección</b>. El libro cita cuatro ejemplos de entre cientos:</p>
+<div class="tbl card" style="padding:6px 10px">
+<table>
+  <thead><tr><th>Estudio</th><th>Dónde y cuándo</th><th>Qué analiza y concluye</th></tr></thead>
+  <tbody>
+    <tr><td><b>Technical Trading Revisited</b><br><i>Falsos descubrimientos, persistencia y costes</i></td><td class="num">Journal of Financial Economics, 2012</td><td>Reglas técnicas sobre el Dow Jones de 1897 a 2011. Controla el "minado de datos" con la tasa de falsos descubrimientos.</td></tr>
+    <tr><td><b>The Predictive Ability of Technical Trading Rules</b><br><i>Mercados desarrollados y emergentes</i></td><td class="num">Financial Markets and Portfolio Management, 2023</td><td>Un gran conjunto de reglas aplicadas a índices de todo el mundo, con pruebas avanzadas para ver si alguna bate a comprar y mantener.</td></tr>
+    <tr><td><b>Profitability of Simple Technical Trading Rules</b><br><i>Índices chinos</i></td><td class="num">Physica A, 2015</td><td>Medias móviles y rupturas de rango en Shanghái y Shenzhen. Las ganancias sin contar costes <b>desaparecen al incluirlos</b>.</td></tr>
+    <tr><td><b>Technical Analysis in Cryptocurrency Markets</b><br><i>¿Importan los costes y las burbujas?</i></td><td class="num">Journal of International Financial Markets, 2022</td><td>Los costes de transacción y las burbujas <b>reducen mucho</b> las ganancias del trading en cripto, sobre todo en periodos de burbuja.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="foot">Del primero, que conozco mejor: sus autores (Bajgrowicz y Scaillet) concluyen que, una vez corregido el minado de datos y descontados los costes, las mejores reglas no mantienen su ventaja fuera de la muestra. El libro no da la conclusión del segundo; tampoco la invento aquí.</p>
+
+<h3>Calculadora: cuántas reglas "ganadoras" salen por pura suerte</h3>
+<p>Este es el problema del <b>minado de datos</b>. Si pruebas muchas reglas sobre datos históricos, algunas parecerán funcionar solo por azar. Con un listón estadístico típico del 5 %, una de cada veinte reglas inútiles "pasa la prueba".</p>
+<div class="card calc">
+  <label for="nRules">Reglas técnicas probadas (todas inútiles) <output id="oRules"></output><input id="nRules" type="range" min="1" max="1000" step="1" value="100"></label>
+  <div class="res">
+    <div class="r"><b id="vFalse"></b><small>"ganadoras" esperadas por pura suerte</small></div>
+    <div class="r"><b id="vAny"></b><small>probabilidad de encontrar al menos una</small></div>
+    <div class="g"><b>0</b><small>reglas con ventaja real</small></div>
+  </div>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+  <p class="foot">Los puntos rojos son las reglas que, por azar, parecerían funcionar en una muestra de 100. Quien vende "el indicador que ha acertado los últimos 10 años" suele enseñarte uno de esos puntos rojos.</p>
+</div>
+
+<h3>Calculadora: la ventaja bruta contra los costes</h3>
+<div class="card calc">
+  <label for="edge">Ventaja bruta que crees tener al año <output id="oEdge"></output><input id="edge" type="range" min="0" max="10" step="0.5" value="3"></label>
+  <label for="ops">Operaciones al año (compra + venta) <output id="oOps"></output><input id="ops" type="range" min="1" max="200" step="1" value="50"></label>
+  <label for="cost">Coste por operación (comisión + horquilla) <output id="oCost"></output><input id="cost" type="range" min="0.02" max="0.5" step="0.01" value="0.1"></label>
+  <div class="res">
+    <div class="g"><b id="vGross"></b><small>ventaja bruta</small></div>
+    <div class="r"><b id="vCostT"></b><small>costes al año</small></div>
+    <div><b id="vNet"></b><small id="vNetTxt">resultado neto frente al índice</small></div>
+  </div>
+  <p class="foot">Simplificación: no incluye impuestos sobre cada ganancia realizada, que en España empeorarían aún más el resultado del trading frente a un fondo indexado que traspasas sin tributar.</p>
+</div>
+
+<h2><span class="n">08</span>La escena que se repite en redes</h2>
+<p>El libro describe algo que se ve a menudo: una gran empresa sube durante mucho tiempo (pone el ejemplo reciente de <b>Novo Nordisk</b>), y los especuladores técnicos se suben al carro del <b>momentum</b>, convencidos de que seguir la corriente es ganar. Ven la pendiente del gráfico y dan por hecho que seguirá igual.</p>
+<p>Entonces ocurre lo que no esperaban: el precio cae sin que el gráfico haya dibujado ninguna figura de aviso. Se rompe la ilusión y empiezan las quejas: "el mercado se ha vuelto loco", "esta caída no tiene sentido". La realidad es más simple. Cambiaron las expectativas de los participantes, y el nuevo precio ya refleja la nueva información.</p>
+<p>En activos muy líquidos, seguidos por millones de analistas, algoritmos y gestores, no hay ventaja informativa posible. Creer que uno ve en un gráfico lo que el mercado aún no ha descontado es una forma sofisticada de autoengaño.</p>
+
+<div class="card note">
+  <b>Ojo, tres matices sobre este pasaje.</b>
+  <ul style="margin:6px 0 0;font:15px/1.5 var(--sans)">
+    <li><b>Novo Nordisk no cayó "sin motivo".</b> Sus grandes caídas de 2024 y 2025 llegaron el día de noticias concretas: resultados decepcionantes de un ensayo clínico y una rebaja de previsiones, con bajadas de alrededor del 20 % en una sola sesión. Esto refuerza la tesis del libro: lo que mueve el precio es información nueva que el gráfico no podía anticipar.</li>
+    <li><b>La frase de Malkiel.</b> El libro le atribuye que, si el análisis técnico funcionara, los ricos serían todos astrólogos. No he podido localizar esa frase literal. Lo que sí escribe en <i>Un paseo aleatorio por Wall Street</i> es una comparación parecida: que la predicción financiera hace parecer respetable a la astrología. La idea es suya; la cita exacta, probablemente no.</li>
+    <li><b>El momentum como factor.</b> En la academia, el "momentum" de carteras amplias sí tiene evidencia (Jegadeesh y Titman, 1993). Pero sufre caídas brutales y repentinas, exige mucha rotación y sus costes se comen buena parte del premio. No es lo mismo que seguir el gráfico de una sola acción porque "va para arriba".</li>
+  </ul>
+</div>
+
+<h2><span class="n">09</span>Conclusión</h2>
+<p>La inversión pasiva parte de una premisa: predecir el mercado es, en el fondo, inútil. Dejar de buscar patrones que son más efecto placebo que lógica evita errores caros y la volatilidad de las apuestas especulativas. La evidencia (SPIVA y los estudios académicos) respalda que, de media, la inversión pasiva supera con claridad a las estrategias técnicas, sobre todo al contar los costes.</p>
+<div class="chips">
+  <span class="chip">El azar parece orden</span>
+  <span class="chip">Suerte ≠ habilidad</span>
+  <span class="chip">Redondos = placebo</span>
+  <span class="chip">Noticias rompen niveles</span>
+  <span class="chip">Costes matan la ventaja</span>
+  <span class="chip">Diversifica y quédate</span>
+</div>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿verdad o mito?</h2>
+<p>Decide si cada frase encaja con el capítulo.</p>
+<div class="card score"><span id="score">0 de 8 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Análisis técnico</dt><dd>Intentar predecir precios estudiando gráficos, figuras e indicadores del pasado.</dd>
+  <dt>Paseo aleatorio</dt><dd>Teoría según la cual los cambios de precio son impredecibles: el siguiente paso no depende de los anteriores.</dd>
+  <dt>Mercado eficiente</dt><dd>Mercado en el que toda la información conocida ya está reflejada en el precio.</dd>
+  <dt>Soporte / resistencia</dt><dd>Niveles donde, según el análisis técnico, el precio tiende a dejar de bajar (soporte) o de subir (resistencia).</dd>
+  <dt>Profecía autocumplida</dt><dd>Una creencia que se cumple porque mucha gente actúa según ella, no porque fuera cierta de antemano.</dd>
+  <dt>Falso positivo</dt><dd>Señal que parece anticipar un movimiento, pero que es solo ruido.</dd>
+  <dt>Minado de datos</dt><dd>Probar muchas reglas sobre datos pasados hasta encontrar alguna que "funcione" por azar.</dd>
+  <dt>Cisne negro</dt><dd>Suceso raro, imprevisible y de gran impacto, que solo parece obvio a posteriori.</dd>
+  <dt>Momentum</dt><dd>Tendencia de lo que ha subido a seguir subiendo durante un tiempo. Como estrategia, tiene costes altos y caídas bruscas.</dd>
+  <dt>SPIVA</dt><dd>Informe de S&amp;P que compara cada año los fondos activos con sus índices de referencia.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Por qué vemos patrones en los gráficos aunque no existan?</summary><p>Porque el cerebro está programado para encontrar orden, incluso en el azar. Además, atribuimos los aciertos a nuestra habilidad cuando la suerte suele explicarlos mejor.</p></details>
+<details><summary>¿Por qué un soporte en 5.400 puede "funcionar" alguna vez?</summary><p>Porque muchos operadores ponen sus órdenes allí y actúan igual. Es una profecía autocumplida: funciona por la gente, no por una razón económica, y se rompe con la siguiente noticia o emoción fuerte.</p></details>
+<details><summary>¿Qué rompe los soportes y resistencias?</summary><p>Lo imprevisible: noticias, cambios de política económica, crisis geopolíticas y emociones como el miedo o la euforia.</p></details>
+<details><summary>¿Por qué no puede existir un método secreto para batir al mercado de forma duradera?</summary><p>Porque en cuanto se conociera, todos lo copiarían y su ventaja quedaría incorporada en los precios, hasta desaparecer.</p></details>
+<details><summary>¿Qué le pasa al análisis técnico cuando se mide con rigor?</summary><p>Su ventaja aparente se diluye al descontar los costes de transacción y al corregir el minado de datos (probar muchas reglas hasta que alguna parece funcionar por azar).</p></details>
+<details><summary>Según el libro, ¿qué método sí ha funcionado de forma constante?</summary><p>Diversificar globalmente, mantener los costes bajos y quedarse invertido a largo plazo: la inversión indexada.</p></details>
+
+<footer>Apuntes del Capítulo 12 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 104–109; la última página termina a mitad del argumento, así que el capítulo podría continuar). El laboratorio de paseo aleatorio, las calculadoras, el test, el dato actualizado de SPIVA y las notas sobre Andrew Lo, Osler, Novo Nordisk, la cita de Malkiel y el momentum son añadidos propios, no del libro. No es asesoramiento financiero.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var num=function(n,d){return n.toLocaleString('es-ES',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
+  var pct=function(n,d){return num(n,d==null?1:d)+' %'};
+  var NS='http://www.w3.org/2000/svg';
+
+  /* ---------- Paseo aleatorio ---------- */
+  var N=160, HID=10, data=[], shown=N, game=false, step=0, hits=0, tot=0, totHits=0;
+  function gen(){
+    data=[5400]; var p=5400;
+    for(var i=1;i<N+HID;i++){ var r=(Math.random()<.5?-1:1)*(10+Math.random()*45); p=Math.max(100,p+r); data.push(p); }
+  }
+  function draw(){
+    var svg=$('rw'); while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var W=640,H=300,L=52,R=12,T=14,B=22, total=N+HID;
+    var vis=data.slice(0,shown);
+    var all=data.slice(0,N+HID);
+    var lo=Math.min.apply(null,all), hi=Math.max.apply(null,all);
+    var pad=(hi-lo)*.08+20; lo-=pad; hi+=pad;
+    var x=function(i){return L+(W-L-R)*i/(total-1)};
+    var y=function(v){return T+(H-T-B)*(1-(v-lo)/(hi-lo))};
+    var cs=getComputedStyle(document.documentElement);
+    var col=function(n){return cs.getPropertyValue(n).trim()};
+    // niveles redondos
+    var stepR=(hi-lo)>600?200:100;
+    for(var lv=Math.ceil(lo/stepR)*stepR; lv<=hi; lv+=stepR){
+      var ln=document.createElementNS(NS,'line');
+      ln.setAttribute('x1',L); ln.setAttribute('x2',W-R); ln.setAttribute('y1',y(lv)); ln.setAttribute('y2',y(lv));
+      ln.setAttribute('stroke',col(lv%500===0?'--warn':'--line')); ln.setAttribute('stroke-width',lv%500===0?1.5:1); ln.setAttribute('stroke-dasharray','4 4');
+      svg.appendChild(ln);
+      var tx=document.createElementNS(NS,'text');
+      tx.setAttribute('x',L-6); tx.setAttribute('y',y(lv)+4); tx.setAttribute('text-anchor','end');
+      tx.setAttribute('font-size','11'); tx.setAttribute('font-family','system-ui,sans-serif');
+      tx.setAttribute('fill',col(lv%500===0?'--warn':'--muted')); tx.textContent=num(lv);
+      svg.appendChild(tx);
+    }
+    // zona oculta
+    if(game||shown>N){
+      var rc=document.createElementNS(NS,'rect');
+      rc.setAttribute('x',x(N-1)); rc.setAttribute('y',T); rc.setAttribute('width',x(total-1)-x(N-1)); rc.setAttribute('height',H-T-B);
+      rc.setAttribute('fill',col('--accent-soft')); svg.appendChild(rc);
+    }
+    // línea de precio
+    var d=vis.map(function(v,i){return (i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)}).join(' ');
+    var path=document.createElementNS(NS,'path');
+    path.setAttribute('d',d); path.setAttribute('fill','none'); path.setAttribute('stroke',col('--cash')); path.setAttribute('stroke-width','2'); path.setAttribute('stroke-linejoin','round');
+    svg.appendChild(path);
+    var last=vis.length-1, dot=document.createElementNS(NS,'circle');
+    dot.setAttribute('cx',x(last)); dot.setAttribute('cy',y(vis[last])); dot.setAttribute('r','4'); dot.setAttribute('fill',col('--cash'));
+    svg.appendChild(dot);
+  }
+  function newChart(){ gen(); shown=N; game=false; $('guessBtns').hidden=true; $('startGame').disabled=false;
+    $('gStatus').textContent='Las líneas punteadas marcan los números redondos, los "soportes" y "resistencias" favoritos de los gráficos.'; draw(); }
+  function startGame(){ if(shown>N){ gen(); shown=N; } game=true; step=0; hits=0; $('guessBtns').hidden=false; $('startGame').disabled=true;
+    $('gStatus').textContent='Movimiento 1 de '+HID+': ¿sube o baja?'; draw(); }
+  function guess(up){
+    if(!game) return;
+    var real=data[N+step]>data[N+step-1]; var ok=(real===up);
+    if(ok) hits++; step++; shown=N+step; draw();
+    if(step<HID){
+      $('gStatus').innerHTML='<span class="'+(ok?'ok':'ko')+'">'+(ok?'Acierto':'Fallo')+'</span> · llevas '+hits+' de '+step+'. Movimiento '+(step+1)+' de '+HID+'.';
+    } else {
+      game=false; tot+=HID; totHits+=hits; $('guessBtns').hidden=true; $('startGame').disabled=false;
+      $('gStatus').innerHTML='Ronda terminada: <b>'+hits+' de '+HID+'</b>. Pulsa "Adivinar" para otra ronda con un gráfico nuevo.';
+      $('gTotal').textContent='Acumulado: '+totHits+' de '+tot+' ('+pct(100*totHits/tot,0)+'). Cuantas más rondas, más cerca del 50 %.';
+    }
+  }
+  $('newChart').addEventListener('click',newChart);
+  $('startGame').addEventListener('click',function(){ if(shown>N) gen(); startGame(); });
+  $('gUp').addEventListener('click',function(){guess(true)});
+  $('gDown').addEventListener('click',function(){guess(false)});
+  try{ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw); }catch(e){}
+  new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  newChart();
+
+  /* ---------- Minado de datos ---------- */
+  var dots=$('dots');
+  for(var i=0;i<100;i++){ dots.appendChild(document.createElement('span')); }
+  var hitIdx=[];
+  function shuffleHits(){ var idx=[]; for(var i=0;i<100;i++) idx.push(i); for(var j=99;j>0;j--){var k=Math.floor(Math.random()*(j+1)); var t=idx[j]; idx[j]=idx[k]; idx[k]=t;} hitIdx=idx.slice(0,5); }
+  shuffleHits();
+  function mine(){
+    var n=+$('nRules').value; $('oRules').textContent=num(n);
+    $('vFalse').textContent=num(n*.05,n<20?2:0).replace(/,00$/,'');
+    $('vAny').textContent=pct(100*(1-Math.pow(.95,n)),0);
+    dots.querySelectorAll('span').forEach(function(s,i){ s.classList.toggle('hit',hitIdx.indexOf(i)>=0); });
+  }
+  $('nRules').addEventListener('input',mine); mine();
+
+  /* ---------- Ventaja vs costes ---------- */
+  function costs(){
+    var e=+$('edge').value, o=+$('ops').value, c=+$('cost').value;
+    $('oEdge').textContent=pct(e); $('oOps').textContent=num(o); $('oCost').textContent=pct(c,2);
+    var ct=o*c, net=e-ct;
+    $('vGross').textContent='+'+pct(e); $('vCostT').textContent='−'+pct(ct);
+    var b=$('vNet'); b.textContent=(net>=0?'+':'−')+pct(Math.abs(net));
+    b.parentNode.className=net>=0?'g':'r';
+    $('vNetTxt').textContent=net>=0?'te queda frente al índice (si la ventaja fuera real)':'pierdes frente al índice aunque la ventaja fuera real';
+  }
+  ['edge','ops','cost'].forEach(function(id){$(id).addEventListener('input',costs)}); costs();
+
+  /* ---------- Test ---------- */
+  var items=[
+    ['Si un patrón se ve claro en un gráfico pasado, servirá para predecir el futuro.','M','Lo que se ve en retrospectiva suele fallar en tiempo real. Es una interpretación de datos llenos de ruido.'],
+    ['Un soporte en 5.500 puede funcionar porque mucha gente opera en ese nivel.','V','Es una profecía autocumplida: funciona por la acción coordinada, no por una razón económica.'],
+    ['Los números redondos tienen una base económica sólida.','M','Su importancia la impone la expectativa colectiva. Es un efecto placebo.'],
+    ['Una noticia inesperada puede romper un soporte sin previo aviso.','V','Noticias, política y geopolítica alteran el sentimiento y pulverizan esos niveles.'],
+    ['Si alguien descubre un método para batir al mercado, funcionará para siempre.','M','Al copiarse, su efecto se incorpora a los precios y desaparece.'],
+    ['Según SPIVA, la mayoría de fondos activos quedan por detrás de su índice a largo plazo.','V','El libro dice más del 85 %. En Europa, a 10 años, el último dato ronda el 97 %.'],
+    ['Si pruebas 100 reglas inútiles, lo normal es que ninguna parezca funcionar.','M','Por puro azar, unas 5 pasarán un listón estadístico del 5 %. Es el minado de datos.'],
+    ['Las ganancias de muchas reglas técnicas desaparecen al contar los costes de transacción.','V','Es lo que encuentran estudios como el de los índices chinos o el de criptomonedas.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'v" data-v="V">Verdad</button><button type="button" id="q'+n+'m" data-v="M">Mito</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick'); w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='V'?'Verdad':'Mito')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-11-finanzas-personales.html"><small>← Anterior · Cap. 11</small>Finanzas personales</a><a class="next" href="capitulo-13-value-era-informacion.html"><small>Siguiente · Cap. 13 →</small>Value en la era de la información</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-12-aleatoriedad-predicciones",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

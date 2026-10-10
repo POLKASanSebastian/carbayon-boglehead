@@ -1,0 +1,555 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 16 · 16 de 18</span></div></nav>
+<title>Capítulo 16 · El movimiento FIRE</title>
+<style>
+/* Mismo sistema que los capítulos 1–11: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --em:#8a5aa8; --em-soft:#f1e8f6;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+    --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+  --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:21px;line-height:1.4;text-align:center;padding:22px 18px;background:var(--accent-soft);border-color:transparent}
+.quote small{display:block;margin-top:8px;font:13px/1.4 var(--sans);color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs.three{grid-template-columns:repeat(3,1fr)}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+.vs .blue{background:var(--cash-soft);border-color:transparent} .vs .blue h3{color:var(--cash)}
+.vs .em{background:var(--em-soft);border-color:transparent} .vs .em h3{color:var(--em)}
+@media (max-width:620px){.vs.three{grid-template-columns:1fr}}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.vs p{font:15px/1.5 var(--sans);margin:0}
+.big{font:700 26px/1.1 var(--sans);font-variant-numeric:tabular-nums;margin:2px 0 6px}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--accent);text-align:center;background:var(--accent-soft);border-radius:50%;width:28px;height:28px}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font:14px/1.4 var(--sans);min-width:460px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Acrónimo FIRE */
+.acro{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.acro div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0;font:14px/1.35 var(--sans);color:var(--muted)}
+.acro b{display:block;font:700 30px/1 var(--serif);color:var(--accent);margin-bottom:6px}
+.acro i{display:block;font-style:normal;font-weight:700;color:var(--ink);margin-bottom:2px}
+@media (max-width:540px){.acro{grid-template-columns:repeat(2,1fr)}}
+
+/* Reparto: flujo trabajadores → pensionistas */
+.flow{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin:12px 0}
+.flow .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-align:center;font:14px/1.4 var(--sans);min-width:0}
+.flow .box b{display:block;font-size:16px}
+.flow .arrow{font:700 13px/1.3 var(--sans);color:var(--cash);text-align:center}
+.flow .arrow span{display:block;font-size:24px;line-height:1}
+@media (max-width:480px){.flow{grid-template-columns:1fr}.flow .arrow span{transform:rotate(90deg)}}
+
+/* Calculadoras */
+.calc label{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px/1.3 var(--sans);margin:12px 0 0}
+.calc label output{font-variant-numeric:tabular-nums;color:var(--accent)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.res.two{grid-template-columns:repeat(2,1fr)}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.res b{display:block;font:700 21px/1.15 var(--sans);font-variant-numeric:tabular-nums}
+.res small{font:13px/1.35 var(--sans);color:var(--muted)}
+.res .g b{color:var(--accent)} .res .r b{color:var(--bad)} .res .c b{color:var(--cash)}
+@media (max-width:480px){.res,.res.two{grid-template-columns:1fr}}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.seg button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.seglbl{font:600 12px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+
+/* Barras tasa de ahorro → años */
+.bars{display:grid;gap:5px;margin-top:16px}
+.bar{display:grid;grid-template-columns:44px 1fr 64px;gap:8px;align-items:center;font:13px/1 var(--sans);font-variant-numeric:tabular-nums}
+.bar .lab{color:var(--muted);text-align:right}
+.bar .track{height:14px;background:var(--bg);border-radius:7px;overflow:hidden;min-width:0}
+.bar .fill{height:100%;background:var(--line);border-radius:7px}
+.bar .yr{color:var(--muted)}
+.bar.on .fill{background:var(--accent)} .bar.on .lab,.bar.on .yr{color:var(--ink);font-weight:700}
+
+/* Gráfico pensión vs cartera */
+.chart{margin-top:14px;overflow-x:auto}
+.chart svg{display:block;width:100%;min-width:320px;height:auto}
+.chart text{font:11px var(--sans);fill:var(--muted)}
+.key{display:flex;flex-wrap:wrap;gap:14px;font:13px/1.3 var(--sans);color:var(--muted);margin-top:6px}
+.key i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+
+/* Test */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+@media (prefers-reduced-motion:no-preference){.bar .fill{transition:width .25s ease}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 16 · Apuntes de estudio</div>
+  <h1>El movimiento F.I.R.E.</h1>
+  <p class="sub">Independencia financiera y retiro anticipado. El capítulo arranca con una crítica al trabajo asalariado como única vía, explica qué es el FIRE y su matemática, lo compara con la mentalidad española de confiar en la pensión pública, enfrenta a un pensionista con un inversor y termina calculando cuánto capital hace falta para vivir de las rentas en EE.UU. y en España.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Trabajar es necesario para empezar, pero el autor sostiene que quedarse solo en el salario es <b>depender siempre</b>. La salida es que el dinero trabaje para ti.</li>
+    <li><b>FIRE</b> = Financial Independence, Retire Early. Ahorrar mucho e invertir para no depender del trabajo mucho antes de los 65.</li>
+    <li>Lo que decide cuánto tardas es la <span class="mark">tasa de ahorro</span>. Ahorrando un 50–75 % se llega en menos de 20 años.</li>
+    <li>En EE.UU. el FIRE nace de la autonomía; en España domina la <b>confianza en la pensión pública</b>, un sistema de reparto cada vez más cuestionado.</li>
+    <li>La pensión da <b>seguridad con techo</b>. La cartera da <b>crecimiento, flexibilidad y herencia</b>, a cambio de no estar garantizada.</li>
+    <li>Capital necesario = gastos anuales × 25 (regla del 4 %): <b>750.000 €</b> para 2.500 €/mes, <b>450.000 €</b> para 1.500 €/mes con casa propia.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>La tesis del autor: el salario como trampa</h2>
+<p>El capítulo empieza con un tono duro. El autor defiende que el sistema se presenta como una meritocracia, pero que en la práctica pesan más el capital, los contactos y la herencia que el esfuerzo. Nos educan para trabajar al servicio del capital, no para entenderlo.</p>
+<p>El salario da una seguridad aparente, pero cambia tiempo por dinero y mantiene la dependencia. Trabajar es digno y necesario para empezar; el problema, según el libro, es quedarse ahí para siempre.</p>
+<div class="vs">
+  <div class="card bad">
+    <h3>Trabajar por dinero</h3>
+    <ul>
+      <li>Tu tiempo es la única fuente de ingresos.</li>
+      <li>Si dejas de trabajar, deja de entrar dinero.</li>
+      <li>La riqueza se mide por lo que cobras.</li>
+    </ul>
+  </div>
+  <div class="card good">
+    <h3>Poner el dinero a trabajar</h3>
+    <ul>
+      <li>Inviertes, creas, generas activos.</li>
+      <li>Los activos producen aunque tú no estés.</li>
+      <li>La riqueza se mide por cuánto dependes menos.</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:12px">La salida que propone no es huir del sistema ni destruirlo, sino <b>entenderlo y usarlo a tu favor</b>: dejar de obedecerlo a ciegas y usarlo como plataforma. Salir de la zona de confort no significa dejar el trabajo, sino cambiar tu relación con el dinero. Y no se trata de acumular por codicia, sino de comprar libertad.</p>
+
+<div class="card note">
+  <b>Ojo, esto es opinión.</b> La primera página es la visión del autor sobre la sociedad, no un dato. Cuánto pesan el mérito, la herencia o la suerte es un debate abierto entre economistas. Lo que sí es útil para estos apuntes es la idea práctica que saca de ahí: no depender solo del sueldo y construir activos.
+</div>
+
+<div class="card quote">
+  La verdadera riqueza no es tener más, sino depender menos.
+  <small>Idea central del capítulo</small>
+</div>
+
+<h2><span class="n">02</span>¿Qué es el FIRE?</h2>
+<div class="acro">
+  <div><b>F</b><i>Financial</i>financiera</div>
+  <div><b>I</b><i>Independence</i>independencia</div>
+  <div><b>R</b><i>Retire</i>retirarse</div>
+  <div><b>E</b><i>Early</i>pronto</div>
+</div>
+<p>Un movimiento que se hizo popular en EE.UU. a través de blogs, foros y redes sociales. Su premisa: con una gestión estricta del dinero, ahorrando e invirtiendo mucho, se puede alcanzar la libertad financiera a una edad temprana, mucho antes de los 65 que marca la jubilación tradicional.</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Gastar lo mínimo posible</b> y ahorrar una parte muy alta de los ingresos (es habitual un 50–75 %).</p></div>
+  <div class="step"><b class="k">2</b><p><b>Invertir lo ahorrado</b> en activos que generen rentabilidad: fondos indexados, inmuebles o negocios propios.</p></div>
+  <div class="step"><b class="k">3</b><p><b>Llegar al número</b>: un patrimonio cuyas rentas cubran los gastos de vida de forma indefinida, sin necesidad de trabajar.</p></div>
+</div>
+
+<h2><span class="n">03</span>La matemática: tasa de ahorro → años</h2>
+<p>La palanca que más pesa no es el sueldo, sino el <b>porcentaje que ahorras</b>. Hace dos cosas a la vez: aumenta lo que inviertes cada año y reduce lo que necesitas para vivir, y por tanto el capital objetivo. Por eso subir la tasa de ahorro recorta los años de forma tan brusca.</p>
+<div class="card calc">
+  <label for="sr">Tasa de ahorro (sobre ingresos netos) <output id="oSr"></output><input id="sr" type="range" min="5" max="85" step="5" value="50"></label>
+  <label for="rr">Rentabilidad real (descontada la inflación) <output id="oRr"></output><input id="rr" type="range" min="2" max="7" step="0.5" value="5"></label>
+  <div class="seglbl">Tasa de retirada</div>
+  <div class="seg" role="group" aria-label="Tasa de retirada para años hasta FIRE">
+    <button type="button" id="y4" data-r="4" aria-pressed="true">4 %</button>
+    <button type="button" id="y35" data-r="3.5" aria-pressed="false">3,5 %</button>
+    <button type="button" id="y3" data-r="3" aria-pressed="false">3 %</button>
+  </div>
+  <div class="res">
+    <div class="g"><b id="vYears"></b><small>años hasta la independencia, empezando de cero</small></div>
+    <div><b id="vMult"></b><small>veces tus gastos anuales que necesitas</small></div>
+    <div class="c"><b id="vEach"></b><small>cada año ahorrado te compra estos meses de libertad</small></div>
+  </div>
+  <div class="bars" id="bars" aria-hidden="true"></div>
+  <p class="foot">Supone que empiezas con 0 €, que tus gastos son lo que no ahorras y que se mantienen constantes en términos reales. Sin impuestos ni comisiones. Un ejemplo: ahorrando el 50 % al 5 % real y con regla del 4 %, unos 16–17 años.</p>
+</div>
+
+<div class="card note">
+  <b>Ojo, el rango del libro es algo conservador.</b> Dice que ahorrando entre el 50 % y el 75 % se llega en 10 a 20 años. Al calcularlo (al 3–5 % real y regla del 4 %), el 50 % lleva unos <b>17–19 años</b>, que encaja, pero el 75 % lleva solo unos <b>7–8 años</b>, por debajo de los 10. Si para un FIRE largo usas un 3 % de retirada, súmale unos años a todo. La conclusión del libro se mantiene: con tasas altas de ahorro, la independencia llega en muy poco tiempo.
+</div>
+
+<h2><span class="n">04</span>FIRE en EE.UU. frente a la mentalidad española</h2>
+<p>La diferencia de fondo es <b>quién controla tu futuro financiero</b>: tú o el Estado.</p>
+<div class="tbl card" style="padding:6px 10px">
+<table>
+  <thead><tr><th>&nbsp;</th><th>FIRE (EE.UU.)</th><th>Mentalidad tradicional en España</th></tr></thead>
+  <tbody>
+    <tr><td><b>Idea base</b></td><td>Autonomía financiera: el control está en tus manos.</td><td>Dependencia del sistema público: el Estado como garante.</td></tr>
+    <tr><td><b>Jubilación</b></td><td>Cuando tu patrimonio lo permita, aunque sea a los 40.</td><td>Cuando llegue la edad legal y empiece a cobrarse la pensión.</td></tr>
+    <tr><td><b>Fuente de ingresos</b></td><td>Varias: fondos indexados, inmuebles, negocios propios.</td><td>Una principal: la pensión pública.</td></tr>
+    <tr><td><b>Relación con el trabajo</b></td><td>Desencanto con el trabajo asalariado: quiere salir de él.</td><td>Cultura de "trabajar hasta la jubilación".</td></tr>
+    <tr><td><b>Valor central</b></td><td>Autodeterminación y libertad.</td><td>Confianza implícita en las decisiones del gobierno.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>El libro remarca que la propia idea de jubilarse pronto choca de frente con el modelo de pensiones públicas, pensado para mantener a la gente en el sistema laboral hasta una edad avanzada.</p>
+
+<h2><span class="n">05</span>El sistema de pensiones español</h2>
+<p>España usa un <b>sistema de reparto</b>: las pensiones de hoy no salen de lo que cada jubilado ahorró, sino de lo que cotizan los trabajadores actuales.</p>
+<div class="flow">
+  <div class="box"><b>Trabajadores activos</b>cotizan cada mes</div>
+  <div class="arrow"><span>→</span>cotizaciones</div>
+  <div class="box"><b>Jubilados actuales</b>cobran su pensión</div>
+</div>
+<p>El modelo funciona mientras haya muchos cotizantes por cada pensionista. El libro señala tres factores que lo ponen en duda:</p>
+<div class="vs three">
+  <div class="card bad"><h3>Envejecimiento</h3><p>Cada vez hay más jubilados y viven más años cobrando.</p></div>
+  <div class="card bad"><h3>Baja natalidad</h3><p>Entran menos personas nuevas al mercado laboral.</p></div>
+  <div class="card bad"><h3>Empleo precario</h3><p>Sueldos bajos y contratos inestables cotizan poco.</p></div>
+</div>
+<p style="margin-top:12px">Aun así, la mentalidad común sigue confiando en que el Estado responderá. El riesgo, según el autor, es una <b>falsa sensación de seguridad</b>: las prestaciones pueden no ser suficientes, y mucha gente queda atrapada en un modelo laboral que no le deja ahorrar ni invertir, sin otra opción que esperar a la pensión.</p>
+<p>¿Está cambiando? Sí, poco a poco. Cada vez más jóvenes buscan invertir y retirarse antes, y los roboadvisors y los fondos indexados han puesto las herramientas al alcance de todos. Pero el reto es cultural y el cambio irá despacio.</p>
+
+<h2><span class="n">06</span>Pensionista frente a inversor</h2>
+<p>El libro compara a un funcionario prejubilado con derecho a pensión con un inversor que vive de una cartera diversificada. Es el contraste entre <b>seguridad inmediata</b> y <b>crecimiento a largo plazo</b>.</p>
+<div class="tbl card" style="padding:6px 10px">
+<table>
+  <thead><tr><th>&nbsp;</th><th>Pensión pública</th><th>Cartera de inversión</th></tr></thead>
+  <tbody>
+    <tr><td><b>Garantía</b></td><td>Renta vitalicia garantizada por el Estado.</td><td>No garantizada: depende de los mercados.</td></tr>
+    <tr><td><b>Cuánto cobras</b></td><td>Fijado por años cotizados y base reguladora. Techo desde el primer día.</td><td>Lo decides tú según el tamaño de la cartera.</td></tr>
+    <tr><td><b>Crecimiento</b></td><td>Se revaloriza con la inflación: mantiene poder de compra, no lo multiplica.</td><td>Con peso en renta variable, rentabilidad esperada por encima de la inflación: puede subir tu capacidad de gasto.</td></tr>
+    <tr><td><b>Flexibilidad</b></td><td>Ninguna: lo decide la normativa, que además puede cambiar.</td><td>Total: cuánto retirar, cuánto riesgo, cómo organizar la liquidez.</td></tr>
+    <tr><td><b>Al fallecer</b></td><td>Desaparece (salvo viudedad u orfandad).</td><td>Es patrimonio heredable que sigue generando riqueza.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Simulador: misma renta inicial, dos caminos</h3>
+<p>Los dos empiezan cobrando lo mismo. La pensión se queda plana en términos reales. La cartera paga cada año un porcentaje de lo que vale en ese momento (la retirada flexible del capítulo 4).</p>
+<div class="card calc">
+  <label for="cap">Capital de la cartera <output id="oCap"></output><input id="cap" type="range" min="150000" max="1500000" step="10000" value="750000"></label>
+  <label for="pr">Rentabilidad real anual de la cartera <output id="oPr"></output><input id="pr" type="range" min="1" max="7" step="0.5" value="5"></label>
+  <label for="pw">Retirada anual (sobre el valor de cada año) <output id="oPw"></output><input id="pw" type="range" min="3" max="6" step="0.5" value="4"></label>
+  <div class="res">
+    <div><b id="vInc1"></b><small>al mes el primer año, en ambos casos</small></div>
+    <div class="g"><b id="vInc30"></b><small id="vInc30t">al mes en el año 30 con la cartera</small></div>
+    <div class="c"><b id="vCap30"></b><small>capital que queda en el año 30 (heredable). La pensión deja 0 €</small></div>
+  </div>
+  <div class="chart" id="chart"></div>
+  <div class="key">
+    <span><i style="background:var(--accent)"></i>Renta de la cartera</span>
+    <span><i style="background:var(--cash)"></i>Pensión</span>
+  </div>
+  <p class="foot">Euros de hoy, con una rentabilidad constante cada año. En la realidad la bolsa sube y baja: en los años malos la renta de la cartera bajaría, y eso es lo que la pensión te ahorra. Si la retirada supera a la rentabilidad, la renta va bajando con el tiempo.</p>
+</div>
+
+<div class="card note">
+  <b>Ojo con "el capital se mantiene intacto".</b> El libro dice que una cartera con una retirada prudente conserva el capital y lo hace crecer. Es lo que pasa en el escenario medio, pero no está asegurado: si los primeros años de retiro coinciden con una caída fuerte (riesgo de secuencia, capítulo 4), el capital puede menguar. La ventaja real de la cartera es que puedes reaccionar retirando menos esos años; la de la pensión es que no tienes que hacerlo.
+</div>
+
+<h2><span class="n">07</span>¿Cuánto capital necesitas?</h2>
+<p>El número depende de dónde vivas y de si tienes casa pagada. El libro usa una cartera equilibrada 60/40 y la regla del 4 %: <b>capital = gasto anual ÷ 0,04 = gasto anual × 25</b>.</p>
+<div class="vs three">
+  <div class="card blue">
+    <h3>Gran ciudad de EE.UU.</h3>
+    <div class="big">1.200.000 $</div>
+    <p>Para 4.000 $ al mes en Nueva York, San Francisco o Los Ángeles.</p>
+  </div>
+  <div class="card good">
+    <h3>Madrid o Barcelona</h3>
+    <div class="big">750.000 €</div>
+    <p>Para 2.500 € al mes, un nivel de vida parecido.</p>
+  </div>
+  <div class="card em">
+    <h3>Pueblo, casa pagada</h3>
+    <div class="big">450.000 €</div>
+    <p>Para 1.500 € al mes, sin alquiler ni hipoteca.</p>
+  </div>
+</div>
+<p class="foot">He comprobado las tres cifras y son correctas: 48.000 $ × 25, 30.000 € × 25 y 18.000 € × 25.</p>
+
+<div class="card calc">
+  <div class="seglbl" style="margin-top:0">Punto de partida</div>
+  <div class="seg" role="group" aria-label="Escenario de gasto">
+    <button type="button" id="sc1" data-g="2500" aria-pressed="true">Ciudad · 2.500 €</button>
+    <button type="button" id="sc2" data-g="1500" aria-pressed="false">Pueblo, casa pagada · 1.500 €</button>
+  </div>
+  <label for="gm">Tu gasto mensual <output id="oGm"></output><input id="gm" type="range" min="800" max="6000" step="50" value="2500"></label>
+  <div class="seglbl">Tasa de retirada</div>
+  <div class="seg" role="group" aria-label="Tasa de retirada para capital">
+    <button type="button" id="c4" data-r="4" aria-pressed="true">4 % · clásica</button>
+    <button type="button" id="c35" data-r="3.5" aria-pressed="false">3,5 %</button>
+    <button type="button" id="c3" data-r="3" aria-pressed="false">3 % · FIRE joven</button>
+  </div>
+  <div class="res">
+    <div><b id="vGa"></b><small>gasto al año</small></div>
+    <div class="g"><b id="vNum"></b><small>capital para la independencia</small></div>
+    <div class="c"><b id="vRent"></b><small>de alquiler al mes que "cuesta" en capital (×25 al 4 %)</small></div>
+  </div>
+  <p class="foot" id="rentTxt"></p>
+</div>
+
+<div class="card note">
+  <b>Tres matices que el libro no menciona.</b>
+  <ul style="margin:6px 0 0;font:15px/1.5 var(--sans)">
+    <li><b>Impuestos.</b> Los 2.500 € son lo que quieres gastar. En España, al vender participaciones pagas IRPF por la parte de ganancia, así que conviene apuntar algo más alto (lo vimos en el capítulo 4).</li>
+    <li><b>Horizonte.</b> La regla del 4 % se estudió para 30 años de retiro. Si te retiras a los 45 y la cartera tiene que durar 45 o 50 años, lo prudente es un 3–3,5 %, que sube el capital necesario entre un 14 % y un 33 %.</li>
+    <li><b>Los 4.000 $.</b> Para Nueva York o San Francisco esa cifra se queda probablemente corta, porque solo el alquiler puede llevarse buena parte. Tómala como ejemplo para comparar, no como presupuesto real.</li>
+  </ul>
+</div>
+
+<h2><span class="n">08</span>Conclusión</h2>
+<p>El FIRE no es una fórmula mágica ni exige odiar el trabajo. Es una forma de mirar el dinero: tu tiempo vale, cada euro ahorrado e invertido compra libertad futura y no conviene dejar todo el futuro en manos del sistema de pensiones. En España aún es minoritario, pero las herramientas ya están al alcance de cualquiera. La pensión pone un techo; la cartera, bien construida y retirada con prudencia, abre la puerta a crecer, decidir y dejar herencia.</p>
+<div class="chips">
+  <span class="chip">Depender menos</span>
+  <span class="chip">Tasa de ahorro</span>
+  <span class="chip">Gastos × 25</span>
+  <span class="chip">Reparto ≠ ahorro propio</span>
+  <span class="chip">Seguridad vs crecimiento</span>
+  <span class="chip">Casa pagada = menos capital</span>
+</div>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿verdad o mito?</h2>
+<p>Decide si cada frase encaja con el capítulo.</p>
+<div class="card score"><span id="score">0 de 8 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>FIRE</dt><dd>Financial Independence, Retire Early. Ahorrar e invertir mucho para poder dejar de depender del trabajo antes de la edad de jubilación.</dd>
+  <dt>Independencia financiera</dt><dd>Tener un patrimonio cuyas rentas cubren tus gastos de forma indefinida sin trabajar.</dd>
+  <dt>Tasa de ahorro</dt><dd>Porcentaje de los ingresos netos que no gastas e inviertes. La variable que más acorta el camino.</dd>
+  <dt>Sistema de reparto</dt><dd>Modelo de pensiones en el que los trabajadores de hoy pagan las pensiones de los jubilados de hoy.</dd>
+  <dt>Base reguladora</dt><dd>La media de lo cotizado en un periodo, sobre la que se calcula la pensión.</dd>
+  <dt>Revalorización</dt><dd>Subida anual de la pensión. En España se liga al IPC para mantener el poder de compra.</dd>
+  <dt>Regla del 4 %</dt><dd>Con 25 veces tus gastos anuales invertidos, retirar un 4 % al año debería cubrirlos durante unos 30 años.</dd>
+  <dt>Cartera 60/40</dt><dd>60 % renta variable y 40 % renta fija. La cartera equilibrada que el libro usa de referencia.</dd>
+  <dt>Riesgo de secuencia</dt><dd>El daño extra que hace una caída de bolsa si llega justo al principio del retiro, cuando ya estás retirando.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Qué critica el autor del salario?</summary><p>Que da una seguridad aparente pero te mantiene dependiente: cambias tiempo por dinero y, si dejas de trabajar, deja de entrar. Trabajar es necesario para empezar; quedarse solo ahí es depender siempre.</p></details>
+<details><summary>¿Cuál es la premisa del FIRE?</summary><p>Que ahorrando una parte muy alta de los ingresos e invirtiéndola se puede llegar a un patrimonio que cubra los gastos indefinidamente, mucho antes de los 65.</p></details>
+<details><summary>¿Por qué la tasa de ahorro pesa tanto?</summary><p>Porque actúa por dos lados: aumenta lo que inviertes y baja lo que necesitas para vivir, y por tanto el capital objetivo. Pasar del 10 % al 50 % recorta el camino de unos 50 años a unos 17.</p></details>
+<details><summary>¿Cómo funciona el sistema de reparto y por qué se cuestiona?</summary><p>Los cotizantes actuales pagan las pensiones actuales. Se cuestiona porque el envejecimiento, la baja natalidad y el empleo precario reducen los cotizantes por cada pensionista.</p></details>
+<details><summary>¿Qué ventaja tiene la pensión frente a la cartera, y al revés?</summary><p>La pensión está garantizada y no depende de la bolsa, pero tiene techo, no es flexible y desaparece al morir. La cartera puede crecer por encima de la inflación, la controlas tú y se hereda, pero no está garantizada.</p></details>
+<details><summary>¿Cuánto capital necesitas para vivir con 2.500 € al mes?</summary><p>Con la regla del 4 %: 2.500 × 12 = 30.000 € al año, × 25 = 750.000 €. Con casa pagada y 1.500 € al mes bastarían 450.000 €.</p></details>
+<details><summary>¿Por qué alguien que se retira muy joven debería usar menos del 4 %?</summary><p>Porque la regla del 4 % se estudió para 30 años. Si la cartera tiene que durar 45 o 50, un 3–3,5 % da más margen ante caídas al principio del retiro.</p></details>
+
+<footer>Apuntes del Capítulo 16 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 123–128). Las calculadoras, el simulador pensión vs cartera, el test, la nota sobre la opinión del autor, la corrección del rango de años, la nota sobre el capital intacto y los tres matices finales son añadidos propios, no del libro. No es asesoramiento financiero ni fiscal.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  var pct=function(n){return n.toLocaleString('es-ES',{maximumFractionDigits:1})+' %'};
+  var num=function(n,d){return n.toLocaleString('es-ES',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
+  function segs(group,cb){
+    group.forEach(function(b){
+      b.addEventListener('click',function(){
+        group.forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+        cb(b);
+      });
+    });
+  }
+
+  /* Años hasta FIRE */
+  var yRate=4;
+  function yrs(s,r,w){ if(s>=1)return 0; var k=(1-s)/s*r/w; return r===0?(1-s)/s/w:Math.log(1+k)/Math.log(1+r); }
+  var bars=$('bars'), rates=[10,20,30,40,50,60,70,80];
+  rates.forEach(function(v){
+    var d=document.createElement('div'); d.className='bar'; d.setAttribute('data-s',v);
+    d.innerHTML='<span class="lab">'+v+' %</span><span class="track"><span class="fill" style="display:block"></span></span><span class="yr"></span>';
+    bars.appendChild(d);
+  });
+  function fire(){
+    var S=+$('sr').value/100, R=+$('rr').value/100, W=yRate/100;
+    $('oSr').textContent=pct(S*100); $('oRr').textContent=pct(R*100);
+    var n=yrs(S,R,W);
+    $('vYears').textContent=num(n,1)+' años';
+    $('vMult').textContent=num(1/W,1)+'×';
+    $('vEach').textContent=num(12*S/(1-S),1)+' meses';
+    var max=yrs(.1,R,W);
+    bars.querySelectorAll('.bar').forEach(function(b){
+      var s=+b.getAttribute('data-s')/100, y=yrs(s,R,W);
+      b.querySelector('.fill').style.width=Math.max(2,y/max*100)+'%';
+      b.querySelector('.yr').textContent=num(y,1)+' años';
+      b.classList.toggle('on',Math.abs(s-S)<.001);
+    });
+  }
+  ['sr','rr'].forEach(function(id){$(id).addEventListener('input',fire)});
+  segs([$('y4'),$('y35'),$('y3')],function(b){yRate=+b.getAttribute('data-r');fire();});
+  fire();
+
+  /* Pensión vs cartera */
+  function sim(){
+    var C=+$('cap').value, R=+$('pr').value/100, W=+$('pw').value/100;
+    $('oCap').textContent=eur(C); $('oPr').textContent=pct(R*100); $('oPw').textContent=pct(W*100);
+    var P=C, inc=[], pen=C*W;
+    for(var t=0;t<=30;t++){ inc.push(P*W); P=P*(1-W)*(1+R); }
+    var capEnd=C*Math.pow((1-W)*(1+R),30);
+    $('vInc1').textContent=eur(pen/12);
+    $('vInc30').textContent=eur(inc[30]/12);
+    var ch=(inc[30]/pen-1)*100;
+    $('vInc30t').textContent='al mes en el año 30 con la cartera ('+(ch>=0?'+':'')+num(ch,0)+' % frente a la pensión)';
+    $('vCap30').textContent=eur(capEnd);
+    draw(inc,pen);
+  }
+  function draw(inc,pen){
+    var w=640,h=220,l=64,r=12,t=12,b=28;
+    var mx=Math.max.apply(null,inc.concat([pen]))*1.08, mn=Math.min.apply(null,inc.concat([pen]))*0.85;
+    var lo=Math.floor(mn/12/100)*100, hi=Math.ceil(mx/12/100)*100;
+    if(hi-lo<300){hi=lo+300;}
+    var x=function(i){return l+(w-l-r)*i/30}, y=function(m){return t+(h-t-b)*(1-(m-lo)/(hi-lo))};
+    var s='<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="Renta mensual de la cartera frente a la pensión durante 30 años">';
+    var step=Math.max(100,Math.ceil((hi-lo)/4/100)*100);
+    for(var v=lo;v<=hi+1;v+=step){
+      s+='<line x1="'+l+'" x2="'+(w-r)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="var(--line)" stroke-width="1"/>';
+      s+='<text x="'+(l-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+num(v)+' €</text>';
+    }
+    [0,10,20,30].forEach(function(i){ s+='<text x="'+x(i)+'" y="'+(h-8)+'" text-anchor="middle">Año '+i+'</text>'; });
+    s+='<line x1="'+x(0)+'" x2="'+x(30)+'" y1="'+y(pen/12)+'" y2="'+y(pen/12)+'" stroke="var(--cash)" stroke-width="2.5" stroke-dasharray="6 4"/>';
+    var d=''; inc.forEach(function(v,i){ d+=(i?'L':'M')+x(i).toFixed(1)+' '+y(v/12).toFixed(1); });
+    s+='<path d="'+d+'" fill="none" stroke="var(--accent)" stroke-width="2.5"/>';
+    s+='<circle cx="'+x(30)+'" cy="'+y(inc[30]/12)+'" r="4" fill="var(--accent)"/>';
+    s+='</svg>';
+    $('chart').innerHTML=s;
+  }
+  ['cap','pr','pw'].forEach(function(id){$(id).addEventListener('input',sim)}); sim();
+
+  /* Capital necesario */
+  var cRate=4;
+  function need(){
+    var G=+$('gm').value; $('oGm').textContent=eur(G);
+    var A=G*12, T=A/(cRate/100);
+    $('vGa').textContent=eur(A); $('vNum').textContent=eur(T);
+    $('vRent').textContent=eur(800*12/(cRate/100));
+    $('vRent').nextElementSibling.textContent='de capital extra que exigen 800 € de alquiler al mes';
+    $('rentTxt').textContent='Por eso tener la casa pagada pesa tanto: cada euro de gasto mensual que eliminas te ahorra '+num(12/(cRate/100))+' € de capital a reunir.';
+  }
+  segs([$('sc1'),$('sc2')],function(b){$('gm').value=b.getAttribute('data-g');need();});
+  segs([$('c4'),$('c35'),$('c3')],function(b){cRate=+b.getAttribute('data-r');need();});
+  $('gm').addEventListener('input',function(){
+    var v=+$('gm').value;
+    [$('sc1'),$('sc2')].forEach(function(b){b.setAttribute('aria-pressed',String(+b.getAttribute('data-g')===v));});
+    need();
+  });
+  need();
+
+  /* Test */
+  var items=[
+    ['El autor propone dejar el trabajo cuanto antes y salirse del sistema.','M','Propone entender el sistema y usarlo a tu favor. Trabajar es necesario para empezar; lo que cambia es tu relación con el dinero.'],
+    ['FIRE significa Financial Independence, Retire Early.','V','Independencia financiera y retiro anticipado.'],
+    ['En el FIRE es habitual ahorrar entre el 50 % y el 75 % de los ingresos.','V','Por eso se llega en mucho menos tiempo que con un ahorro normal del 10–20 %.'],
+    ['En el sistema de reparto, tu pensión sale de lo que tú ahorraste durante tu vida laboral.','M','Sale de lo que cotizan los trabajadores de hoy. Por eso importa cuántos cotizantes hay por pensionista.'],
+    ['La pensión pública multiplica el poder de compra con los años.','M','Se revaloriza con la inflación: lo mantiene, no lo multiplica. Eso sí puede hacerlo una cartera con renta variable.'],
+    ['Una cartera, a diferencia de la pensión, se puede heredar.','V','La pensión desaparece al fallecer (salvo viudedad u orfandad). La cartera es patrimonio que pasa a la siguiente generación.'],
+    ['Con 2.500 € de gasto al mes y la regla del 4 % hacen falta 750.000 €.','V','30.000 € al año × 25 = 750.000 €.'],
+    ['Si te retiras a los 40, lo más prudente es usar una tasa de retirada mayor del 4 %.','M','Al revés: la cartera tiene que durar más, así que conviene una tasa menor, del 3–3,5 %.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'v" data-v="V">Verdad</button><button type="button" id="q'+n+'m" data-v="M">Mito</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick'); w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='V'?'Verdad':'Mito')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-15-mito-ladrillo.html"><small>← Anterior · Cap. 15</small>Desmontando el mito del ladrillo</a><a class="next" href="capitulo-17-legado-hijos.html"><small>Siguiente · Cap. 17 →</small>Legado y educación de los hijos</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-16-movimiento-fire",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

@@ -1,0 +1,466 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 4 · 4 de 18</span></div></nav>
+<title>Capítulo 4 · Tasa de Retirada</title>
+<style>
+/* Mismo sistema que el Capítulo 1: papel claro, verde pino como acento, serif para leer y sans para rótulos */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,"Iowan Old Style",serif;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 64px}
+header .kicker{font:600 13px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 system-ui,sans-serif;margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 system-ui,sans-serif;margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.note p:last-child,.card p:last-child{margin-bottom:0}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+.pillar{background:var(--accent-soft);border-radius:12px;padding:14px}
+.pillar b{display:block;font:700 15px/1.3 system-ui,sans-serif;color:var(--accent);margin-bottom:4px}
+.pillar span{font-size:15px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+@media (max-width:520px){.vs{grid-template-columns:1fr}}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font:15px/1.4 system-ui,sans-serif}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{font:14px/1.3 system-ui,sans-serif}
+.bar-row{display:grid;grid-template-columns:110px 1fr 84px;gap:8px;align-items:center;margin:8px 0}
+.bar-row span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.bar{height:16px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px}
+.calc label{display:block;font:600 14px/1.3 system-ui,sans-serif;margin:12px 0 4px}
+.calc label output{float:right;color:var(--accent)}
+.calc input[type=range]{width:100%;accent-color:var(--accent)}
+.calc input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;font:14px/1.3 system-ui,sans-serif;min-width:0}
+.res strong{display:block;font-size:20px;margin-top:4px;font-variant-numeric:tabular-nums}
+.res small{display:block;color:var(--muted);margin-top:3px}
+.res .full{grid-column:1/-1}
+.res .good{background:var(--accent-soft)}
+.res .good strong{color:var(--accent)}
+.res .lost{background:var(--bad-soft)}
+.res .lost strong{color:var(--bad)}
+.hint{font:13px/1.5 system-ui,sans-serif;color:var(--muted);margin:12px 0 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 system-ui,sans-serif}
+details p{margin:10px 0 0}
+dl{margin:0}
+dt{font:700 15px/1.3 system-ui,sans-serif;margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 system-ui,sans-serif}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 4 · Apuntes de estudio</div>
+  <h1>Tasa de retirada segura e ingresos sostenibles</h1>
+  <p class="sub">Cuánto puedes sacar cada año de tu cartera sin quedarte sin dinero, cómo hacer que la renta crezca sola y cómo tributan esas retiradas en España.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>La <b>regla del 4%</b>: con una cartera mixta, retirar el 4% el primer año (y subirlo con la inflación) ha aguantado históricamente 30 años o más.</li>
+    <li>El autor prefiere una <b>retirada flexible</b>: un porcentaje fijo del valor <i>actual</i> de la cartera, recalculado una vez al año.</li>
+    <li>Si retiras <span class="mark">menos de lo que rinde la cartera</span>, el capital crece y la renta sube sola, sin tocar el porcentaje.</li>
+    <li>Las simulaciones de <b>Monte Carlo</b> dicen que un 2–2,5% casi asegura que el capital crece; desde el 3% esa probabilidad baja. El autor usa como máximo un 3%.</li>
+    <li>Las retiradas son <b>brutas</b>. Pero en un fondo solo tributa la parte de ganancia de lo que reembolsas, y puedes compensar pérdidas (<i>tax loss harvesting</i>).</li>
+    <li>El mayor error no es de fórmula: es vender por miedo en una caída.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>El miedo de fondo: quedarse sin dinero</h2>
+<p>Quien piensa vivir de su cartera tiene una duda principal: ¿cuánto puedo sacar al año sin agotarla antes de tiempo? De esa pregunta nace la <b>tasa de retirada segura</b> (SWR, <i>Safe Withdrawal Rate</i>).</p>
+<div class="card">
+  <ul>
+    <li><b>1994 · William Bengen</b>: un asesor estadounidense que estudió con datos históricos qué porcentaje habría aguantado en los peores momentos del mercado.</li>
+    <li><b>1998 · Estudio Trinity</b>: tres profesores de la Universidad Trinity repitieron el análisis con distintas carteras y plazos. Popularizó la cifra.</li>
+  </ul>
+  <p>El objetivo de ambos: encontrar el porcentaje que se puede retirar cada año <b>sin agotar la cartera antes de tiempo</b>.</p>
+</div>
+
+<h2><span class="n">02</span>La regla del 4%</h2>
+<p>Con una asignación entre un <b>50% y un 75% en renta variable</b> (el resto en renta fija), un inversor podía retirar el 4% de la cartera el primer año y después ajustar esa cantidad por la inflación, sin quedarse sin dinero durante al menos 30 años.</p>
+<div class="card">
+  <h3 style="margin-top:0">Ejemplo del libro</h3>
+  <div class="tw"><table>
+    <tr><th>Año</th><th>Qué se hace</th><th class="num">Retirada</th></tr>
+    <tr><td>1</td><td>4% de 500.000 €</td><td class="num">20.000 €</td></tr>
+    <tr><td>2</td><td>Lo mismo + 2% de inflación</td><td class="num">20.400 €</td></tr>
+    <tr><td>3…</td><td>Se sigue subiendo con la inflación, haga lo que haga el mercado</td><td class="num">…</td></tr>
+  </table></div>
+  <p class="hint">La clave: en la regla clásica la cantidad ya no depende de cómo vaya la cartera. Solo de la inflación.</p>
+</div>
+<div class="card note">
+  <p><b>Ojo con la cifra de Bengen.</b> El libro dice que Bengen actualizó la regla al 4,6% al incluir empresas pequeñas. En su libro de 2025 (<i>A Richer Retirement</i>) la cifra que propone es el <b>4,7%</b>: las pequeñas compañías llevan la tasa hasta el 4,5% y el resto lo aportan medianas, microcaps e internacional. Y recuerda que es un dato histórico de EE. UU., no una garantía.</p>
+</div>
+
+<h2><span class="n">03</span>Retirada fija o retirada flexible</h2>
+<p>El autor no ajusta por inflación. Usa una <b>estrategia flexible</b>: retirar cada año un porcentaje del valor que tenga la cartera en ese momento.</p>
+<div class="vs">
+  <div class="card">
+    <h3>📏 Fija (regla clásica)</h3>
+    <p>Calculas el 4% una sola vez, el primer año. Después solo la subes con la inflación.</p>
+    <p>Ventaja: renta estable y previsible. Riesgo: si el mercado cae fuerte al principio, sigues sacando lo mismo de una cartera más pequeña.</p>
+  </div>
+  <div class="card">
+    <h3>🔄 Flexible (la del autor)</h3>
+    <p>Fijas un porcentaje base (3% o 4%) y, una vez al año, lo aplicas sobre el valor <b>actual</b>. Él lo hace en diciembre, para preparar el año siguiente.</p>
+    <p>Si la cartera creció, cobras más. Si cayó, cobras menos y proteges el capital.</p>
+  </div>
+</div>
+<h3>Ejemplo del libro: 200.000 € al 4% flexible</h3>
+<div class="card bars">
+  <div class="bar-row"><span>Año 1</span><div class="bar"><i style="width:87%;background:var(--muted)"></i></div><span>666,67 €/mes</span></div>
+  <div class="bar-row"><span>Año 2</span><div class="bar"><i style="width:100%;background:var(--accent)"></i></div><span>766,67 €/mes</span></div>
+  <p style="margin:8px 0 0">Año 1: 4% de 200.000 € = 8.000 € al año. El mercado sube y, ya descontadas las retiradas, la cartera llega a 230.000 €. Año 2: 4% de 230.000 € = <b>9.200 € al año</b>. La renta sube un 15% sin tocar el porcentaje.</p>
+</div>
+<p>Esa flexibilidad funciona en los dos sentidos: más renta en años buenos y menos en los malos. Por eso reduce el riesgo de agotar la cartera y a la vez permite cierta holgura en el nivel de vida.</p>
+
+<h2><span class="n">04</span>Tres palancas de la estrategia flexible</h2>
+<div class="pillars">
+  <div class="pillar"><b>Bajar al 3% en mercados bajistas</b><span>Sacar menos cuando la cartera cae mejora mucho la supervivencia del capital.</span></div>
+  <div class="pillar"><b>Colchón de 1–2 años de gastos</b><span>Liquidez guardada al empezar a vivir de la cartera, para no tener que vender en plena corrección.</span></div>
+  <div class="pillar"><b>Ajustar según el ciclo</b><span>Hasta el 4% en mercados alcistas si hace falta; 3% en los bajistas.</span></div>
+</div>
+<div class="card note">
+  <p><b>Un error común.</b> Mucha gente que empieza a retirar ve cada venta de participaciones como "perder capital". Lo que importa no es cuántas participaciones te quedan, sino el <b>valor total</b> de la cartera y su capacidad de regenerarse. Si rinde un 5% neto y sacas un 3–4%, el capital se mantiene o crece mientras vives de él.</p>
+</div>
+
+<h2><span class="n">05</span>La renta que crece sola</h2>
+<p>Es la idea menos intuitiva del capítulo y la más potente. La regla es simple: <span class="mark">si cada año retiras un porcentaje menor que la rentabilidad media</span>, lo que no sacas se queda dentro, se reinvierte y el capital crece. Como retiras un porcentaje del nuevo valor, la cantidad en euros también crece.</p>
+<p>Ejemplo del libro: retirar un 2% con una cartera que rinde un 4–5% neto deja un sobrante de 2–3 puntos cada año. No hay que hacer nada: es la mecánica del interés compuesto más la disciplina de no sacar más de lo que se regenera.</p>
+<div class="vs">
+  <div class="card"><h3>Implicación 1</h3><p>Preservas el capital a largo plazo: nunca consumes más de lo que la cartera repone.</p></div>
+  <div class="card"><h3>Implicación 2</h3><p>El gasto se ajusta solo: el porcentaje es el mismo, pero los euros suben cuando sube la cartera.</p></div>
+</div>
+
+<h3>Pruébalo tú: retirada flexible a 30 años</h3>
+<div class="card calc">
+  <label for="sc">Capital inicial <output id="oSc"></output></label>
+  <input id="sc" type="range" min="50000" max="1000000" step="10000" value="200000">
+  <label for="sw">Porcentaje que retiras cada año <output id="oSw"></output></label>
+  <input id="sw" type="range" min="1.5" max="5" step="0.25" value="3">
+  <label for="sr">Rentabilidad media anual (nominal) <output id="oSr"></output></label>
+  <input id="sr" type="range" min="2" max="9" step="0.5" value="5">
+  <label for="si">Inflación media <output id="oSi"></output></label>
+  <input id="si" type="range" min="0" max="4" step="0.5" value="2">
+  <label for="sy">Años <output id="oSy"></output></label>
+  <input id="sy" type="range" min="10" max="40" step="1" value="30">
+  <div class="res">
+    <div>Renta año 1<strong id="s1"></strong><small id="s1m"></small></div>
+    <div>Renta último año<strong id="sN"></strong><small id="sNr"></small></div>
+    <div class="full" id="sBox">Capital al final<strong id="sF"></strong><small id="sFr"></small></div>
+  </div>
+  <div class="bars" style="margin-top:14px" id="sBars"></div>
+  <p class="hint" id="sMsg"></p>
+</div>
+<p>Fíjate en un detalle que el libro no remarca: para que la renta crezca <b>de verdad</b> (en poder de compra), la rentabilidad tiene que superar la suma de lo que retiras más la inflación. Con un 5% nominal, un 2% de inflación y un 3% de retirada, la renta en euros sube, pero en euros de hoy se queda prácticamente igual.</p>
+
+<h2><span class="n">06</span>Tasa para sobrevivir o tasa para acumular</h2>
+<div class="vs">
+  <div class="card">
+    <h3>Tasa de sostenibilidad</h3>
+    <p>La de Trinity y Bengen. Responde a: ¿cuánto puedo sacar sin que el dinero se acabe antes que yo?</p>
+    <p>Busca que la cartera <b>dure</b>, no que crezca. Puede llegar casi a cero al final y aun así cuenta como éxito.</p>
+  </div>
+  <div class="card">
+    <h3>Tasa de acumulación</h3>
+    <p>La que busca el autor. Responde a: ¿cuánto puedo sacar para que el capital <b>siga creciendo</b> mientras vivo de él?</p>
+    <p>Es más baja y convierte la libertad financiera en algo progresivo, no estático.</p>
+  </div>
+</div>
+
+<h2><span class="n">07</span>Monte Carlo: probar miles de futuros</h2>
+<p>Los estudios clásicos usan solo la historia real, que tiene pocas muestras de 30 años y no incluye futuros que nunca ocurrieron. Por eso hoy se completan con <b>simulaciones de Monte Carlo</b>: se generan miles de trayectorias posibles a partir de supuestos de rentabilidad, volatilidad, correlación entre activos e inflación.</p>
+<div class="card">
+  <p><b>De dónde viene.</b> Se ideó en los años cuarenta, en el Proyecto Manhattan, por científicos como Stanislaw Ulam y John von Neumann, para estudiar procesos aleatorios como la difusión de partículas. Luego pasó a la física, la ingeniería y las finanzas.</p>
+  <p><b>Por qué es útil.</b> En vez de suponer una rentabilidad media y una línea recta, muestra todo el abanico de resultados, del más optimista al más pesimista, y te dice con qué probabilidad tu cartera soporta las retiradas.</p>
+</div>
+<h3>Lo que dicen las simulaciones (según el libro, cartera mixta)</h3>
+<div class="tw"><table>
+  <tr><th>Retirada</th><th>Resultado</th></tr>
+  <tr><td><b>2%</b></td><td>El capital crece prácticamente en todos los escenarios. A cambio, vives con menos de lo que la cartera permitiría.</td></tr>
+  <tr><td><b>2,5%</b></td><td>Probabilidad muy alta de éxito, más comodidad hoy y poco efecto sobre la acumulación.</td></tr>
+  <tr><td><b>3%</b></td><td>La probabilidad de que el capital se mantenga y crezca baja de forma sensible, pero sigue siendo viable en la mayoría de escenarios.</td></tr>
+  <tr><td><b>4%</b></td><td>La regla clásica: pensada para que el dinero dure 30 años, no necesariamente para que crezca.</td></tr>
+</table></div>
+
+<h3>Pruébalo tú: mini Monte Carlo</h3>
+<div class="card calc">
+  <label for="mw">Porcentaje de retirada <output id="oMw"></output></label>
+  <input id="mw" type="range" min="1.5" max="5" step="0.25" value="3">
+  <label for="mm">Rentabilidad real media (ya sin inflación) <output id="oMm"></output></label>
+  <input id="mm" type="range" min="2" max="7" step="0.5" value="5">
+  <label for="ms">Volatilidad anual <output id="oMs"></output></label>
+  <input id="ms" type="range" min="5" max="18" step="1" value="10">
+  <div class="res">
+    <div class="good">Flexible: capital final ≥ inicial<strong id="m1"></strong><small>% de escenarios a 30 años, en euros de hoy</small></div>
+    <div>Flexible: renta año 30 (mediana)<strong id="m2"></strong><small id="m2s"></small></div>
+    <div class="good">Fija + inflación: el dinero dura 30 años<strong id="m3"></strong><small>% de escenarios (regla clásica)</small></div>
+    <div class="lost">Flexible: renta año 30 en el 10% peor<strong id="m4"></strong><small>respecto a la renta del año 1</small></div>
+  </div>
+  <p class="hint">2.000 escenarios de 30 años con rentabilidades aleatorias. Los supuestos por defecto (5% real, 10% de volatilidad) son una aproximación sencilla a una cartera 60/40 global; no es una previsión. La retirada flexible nunca deja la cartera a cero, pero en los malos escenarios la renta baja: ese es su precio.</p>
+</div>
+
+<h2><span class="n">08</span>La estrategia del autor</h2>
+<div class="card tldr">
+  <p><b>Máximo un 3% al año.</b> Le basta para cubrir sus necesidades y deja que la cartera siga creciendo. Solo subiría hasta el 4% ante una necesidad extrema y puntual.</p>
+  <p>Con eso persigue dos cosas:</p>
+  <ul>
+    <li>Que el capital siga creciendo, para aprovechar el compuesto y tener más renta en el futuro.</li>
+    <li>Tener margen frente a la volatilidad, para que una mala racha no le obligue a vender en mal momento.</li>
+  </ul>
+  <p style="margin-top:10px">Resultado: sin aportar nada nuevo y retirando cada mes para sus gastos, el patrimonio sube. Con el mismo porcentaje, cada año tiene más dinero para gastar. Su nivel de vida mejora por el crecimiento del capital, no por subir la retirada.</p>
+</div>
+
+<h2><span class="n">09</span>El error que más cuesta</h2>
+<p>Más allá de fórmulas y estudios, el error más caro es <b>no confiar en la estrategia y vender por miedo</b> cuando hay volatilidad. Entender cómo funciona la SWR, aplicarla con la mentalidad adecuada y tener algo de flexibilidad marca la diferencia entre un retiro seguro y un fracaso.</p>
+<div class="card note">
+  <p><b>Las retiradas son brutas.</b> Todo lo anterior es antes de impuestos. Lo que te queda en el bolsillo depende de cómo tributen esas retiradas, que es la segunda mitad del capítulo.</p>
+</div>
+
+<h2><span class="n">10</span>Fondos frente a dividendos y alquiler</h2>
+<p>La tesis del autor: para generar rentas, los fondos indexados son mucho más eficientes fiscalmente. Dentro del fondo, los dividendos de las empresas se reinvierten solos, sin pasar por tu cuenta ni por Hacienda. Solo tributas cuando reembolsas, y solo por la ganancia.</p>
+<div class="tw"><table>
+  <tr><th></th><th>Fondo indexado</th><th>Dividendos</th><th>Alquiler</th></tr>
+  <tr><td><b>Cuándo tributas</b></td><td>Solo al reembolsar</td><td>Cada vez que cobras</td><td>Cada año, por lo cobrado</td></tr>
+  <tr><td><b>Sobre qué</b></td><td>Solo la parte de ganancia</td><td>Todo el dividendo</td><td>El rendimiento neto (ingresos menos gastos deducibles)</td></tr>
+  <tr><td><b>¿Se puede diferir?</b></td><td>Sí, y los traspasos entre fondos no tributan</td><td>No</td><td>No</td></tr>
+  <tr><td><b>Tipo de base</b></td><td>Ahorro</td><td>Ahorro</td><td>General (tipo marginal)</td></tr>
+</table></div>
+<p class="hint">La última fila es un añadido mío: el alquiler va a la base general del IRPF, con tipos más altos que la del ahorro, aunque con reducciones si es vivienda. El libro no lo menciona y refuerza su argumento.</p>
+<p style="margin-top:12px">Cuando alguien le pregunta si "también pagas impuestos", el autor responde que sí, igual que el asalariado paga impuestos sobre su sueldo bruto. La diferencia es que el inversor tiene herramientas para reducirlos y aplazarlos.</p>
+
+<h2><span class="n">11</span>Cuánto se paga: los tramos del ahorro</h2>
+<p>Las ganancias de acciones, bonos y fondos van a la <b>base imponible del ahorro</b>, que tributa por tramos: cuanto más ganas, más alto el porcentaje del tramo superior.</p>
+<div class="tw"><table>
+  <tr><th>Ganancia del año</th><th class="num">Según el libro</th><th class="num">Escala común 2025</th></tr>
+  <tr><td>Hasta 6.000 €</td><td class="num">19%</td><td class="num">19%</td></tr>
+  <tr><td>6.000 – 50.000 €</td><td class="num">21%</td><td class="num">21%</td></tr>
+  <tr><td>50.000 – 200.000 €</td><td class="num">23%</td><td class="num">23%</td></tr>
+  <tr><td>200.000 – 300.000 €</td><td class="num">26%</td><td class="num">27%</td></tr>
+  <tr><td>Más de 300.000 €</td><td class="num">27%</td><td class="num">30%</td></tr>
+</table></div>
+<p style="margin-top:12px">Ejemplo: 10.000 € de ganancia con la escala común = 6.000 × 19% + 4.000 × 21% = <b>1.980 €</b> de impuesto.</p>
+<div class="card note">
+  <p><b>Ojo con dos cosas.</b> Primero, los dos últimos tramos del libro están desfasados: desde 2023 son el 27% y el 28%, y desde 2025 el último sube al 30%. Afecta solo a ganancias muy grandes.</p>
+  <p>Segundo, <b>en Gipuzkoa el IRPF es foral</b> y la escala del ahorro es otra (en 2025 iba del 20% al 25%, y se ha reformado para 2026). Si vives en el País Vasco, confirma los tramos vigentes con tu asesor antes de hacer números.</p>
+</div>
+
+<h2><span class="n">12</span>Tax loss harvesting: usar las pérdidas</h2>
+<p>Consiste en vender una inversión que está en pérdidas para que esa pérdida reste de las ganancias de otra. Así baja la base sobre la que pagas.</p>
+<div class="card bars">
+  <div class="bar-row"><span>Ganancia fondo A</span><div class="bar"><i style="width:100%;background:var(--accent)"></i></div><span>+8.000 €</span></div>
+  <div class="bar-row"><span>Pérdida fondo B</span><div class="bar"><i style="width:25%;background:var(--bad)"></i></div><span>−2.000 €</span></div>
+  <div class="bar-row"><span>Tributas por</span><div class="bar"><i style="width:75%;background:var(--warn)"></i></div><span>6.000 €</span></div>
+</div>
+<h3>Por qué encaja con una cartera de indexados</h3>
+<ul>
+  <li><b>Activos con correlación negativa</b>: renta fija y variable no suelen caer a la vez, así que casi siempre hay algún fondo en pérdidas que aprovechar al retirar.</li>
+  <li><b>Poca rotación</b>: la gestión pasiva genera pocas ventas con ganancia dentro del fondo.</li>
+  <li><b>En España los traspasos entre fondos no tributan</b>, lo que facilita planificar.</li>
+  <li><b>Sin grandes costes de transacción</b>, al contrario que con acciones sueltas.</li>
+</ul>
+<div class="card note">
+  <p><b>Detalles prácticos que el libro no cuenta.</b> Para que la pérdida cuente tienes que <b>reembolsar</b>, no traspasar (el traspaso no genera ni ganancia ni pérdida). Y si vuelves a comprar el <b>mismo fondo</b> en los dos meses siguientes, Hacienda no te deja computar esa pérdida todavía. La forma habitual es pasar a un fondo parecido pero distinto (otro índice u otra gestora). Las pérdidas que no uses se pueden compensar en los cuatro años siguientes.</p>
+</div>
+
+<h2><span class="n">13</span>Cómo tributa un reembolso</h2>
+<p>Cuando sacas dinero de un fondo, Hacienda no lo trata como una "renta". Lo trata como una <b>venta de participaciones</b>. Cada participación tiene dos valores: lo que te costó y lo que vale hoy. Solo tributa la diferencia; el resto es devolución de tu propio dinero.</p>
+<div class="card">
+  <h3 style="margin-top:0">Ejemplo del libro</h3>
+  <p>Invertiste 100.000 €, hoy valen 140.000 € y retiras 10.000 €. Esos 10.000 € son en parte capital aportado y en parte ganancia. Solo pagas impuestos por la parte de ganancia.</p>
+</div>
+<div class="card note">
+  <p><b>Ojo con el cálculo del libro.</b> El libro dice que, como la ganancia es del 40%, de los 10.000 € son ganancia 4.000 €. Pero ese 40% es sobre lo que pusiste, no sobre lo que vale hoy. De cada euro que vale la cartera, la ganancia es 40.000 / 140.000 = <b>28,6%</b>. Así que de los 10.000 € son ganancia <b>2.857 €</b> y capital 7.143 €. La idea del libro se sostiene, y el impuesto es incluso menor.</p>
+  <p>Y otro matiz: el libro afirma en otra página que al reembolsar sale primero el capital y luego las plusvalías. No es así. En España se venden primero las participaciones <b>más antiguas</b> (FIFO), y cada una lleva su propia ganancia. Si fuiste aportando durante años, las primeras participaciones suelen ser las que más han ganado.</p>
+</div>
+
+<h3>Pruébalo tú: qué parte de tu retirada tributa</h3>
+<div class="card calc">
+  <label for="ti">Dinero aportado <output id="oTi"></output></label>
+  <input id="ti" type="range" min="10000" max="500000" step="10000" value="100000">
+  <label for="tg">Revalorización acumulada <output id="oTg"></output></label>
+  <input id="tg" type="range" min="-30" max="200" step="5" value="40">
+  <label for="tw">Cantidad que retiras <output id="oTw"></output></label>
+  <input id="tw" type="range" min="1000" max="60000" step="1000" value="10000">
+  <div class="res">
+    <div>Devolución de capital<strong id="tc"></strong><small>no tributa</small></div>
+    <div>Parte de ganancia<strong id="tgn"></strong><small id="tgp"></small></div>
+    <div class="full lost" id="tBox">Impuesto estimado<strong id="tt"></strong><small id="tts"></small></div>
+  </div>
+  <p class="hint">Supone una sola aportación inicial y aplica la escala común 2025 solo a esta ganancia. No incluye otras ganancias del año ni la escala foral vasca.</p>
+</div>
+<h3>Consecuencias cuando vives de la cartera</h3>
+<ul>
+  <li>Al principio la mayor parte de lo que sacas es capital, así que pagas poco.</li>
+  <li>Los impuestos se aplazan y ese dinero sigue trabajando dentro del fondo.</li>
+  <li>Más capital invertido durante más tiempo = el compuesto amplía la diferencia.</li>
+</ul>
+
+<h2><span class="n">14</span>Asalariado frente a inversor</h2>
+<div class="vs">
+  <div class="card">
+    <h3>💼 El asalariado</h3>
+    <p>Cobra en neto: la retención ya se ha descontado antes de que el sueldo llegue a su cuenta. Tributa desde el primer euro, con tipos progresivos del IRPF.</p>
+    <p>Tiene deducciones, pero nada equivalente al <i>tax loss harvesting</i> ni la opción de aplazar.</p>
+  </div>
+  <div class="card">
+    <h3>📈 El inversor paciente</h3>
+    <p>Mientras no vende, no paga. Las ganancias brutas siguen generando rentabilidad sin interrupción.</p>
+    <p>Controla su <b>calendario fiscal</b>: decide cuándo y cuánto realiza, y compensa pérdidas con ganancias.</p>
+  </div>
+</div>
+<p>Moraleja del autor: el sistema premia a quien invierte a largo plazo y aplaza el consumo. Diferir impuestos no es un detalle técnico: cambia toda la trayectoria hacia la independencia financiera y ayuda a que una cartera pequeña coja la inercia para hacerse grande.</p>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>SWR (tasa de retirada segura)</dt><dd>Porcentaje de la cartera que se puede retirar cada año sin agotarla en un plazo dado.</dd>
+  <dt>Regla del 4%</dt><dd>Retirar el 4% el primer año y subirlo con la inflación. Históricamente aguantó 30 años en EE. UU.</dd>
+  <dt>Estudio Trinity</dt><dd>Estudio de 1998 de la Universidad Trinity que popularizó la regla del 4%.</dd>
+  <dt>Retirada flexible</dt><dd>Aplicar cada año el mismo porcentaje sobre el valor actual de la cartera. La cantidad sube o baja con el mercado.</dd>
+  <dt>Colchón de liquidez</dt><dd>1–2 años de gastos en efectivo para no vender en una caída.</dd>
+  <dt>Simulación de Monte Carlo</dt><dd>Miles de futuros aleatorios generados con supuestos de rentabilidad y volatilidad, para medir probabilidades.</dd>
+  <dt>Base imponible del ahorro</dt><dd>Parte del IRPF donde tributan intereses, dividendos y ganancias de inversiones, con su propia escala.</dd>
+  <dt>Tax loss harvesting</dt><dd>Vender inversiones en pérdidas para compensar ganancias y pagar menos.</dd>
+  <dt>FIFO</dt><dd>"Primero en entrar, primero en salir": al reembolsar se venden primero las participaciones más antiguas.</dd>
+  <dt>Reembolso vs. traspaso</dt><dd>El reembolso saca el dinero y tributa la ganancia. El traspaso lo mueve a otro fondo sin tributar.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Qué dice exactamente la regla del 4%?</summary><p>Que con una cartera de entre un 50% y un 75% en renta variable, retirar el 4% el primer año y subirlo luego con la inflación ha aguantado históricamente al menos 30 años.</p></details>
+<details><summary>¿En qué se diferencia la retirada flexible?</summary><p>En que el porcentaje se aplica cada año sobre el valor actual de la cartera. Si sube, cobras más; si baja, cobras menos y proteges el capital.</p></details>
+<details><summary>¿Cómo puede crecer la renta sin subir el porcentaje?</summary><p>Retirando menos de lo que rinde la cartera. El sobrante se reinvierte, el capital crece y el mismo porcentaje da más euros. Para que crezca en poder de compra, la rentabilidad debe superar retirada más inflación.</p></details>
+<details><summary>¿Qué aporta Monte Carlo frente a los datos históricos?</summary><p>Prueba miles de futuros posibles, no solo los pocos periodos de 30 años que tiene la historia, y da probabilidades de éxito.</p></details>
+<details><summary>¿Qué porcentaje usa el autor y por qué?</summary><p>Un 3% como máximo: cubre sus gastos, deja crecer el capital y le da margen ante caídas. Solo subiría al 4% de forma excepcional.</p></details>
+<details><summary>Si retiro 10.000 € de un fondo de 140.000 € en el que puse 100.000 €, ¿por cuánto tributo?</summary><p>Por unos 2.857 € (el 28,6% de lo retirado), no por 10.000 €. El resto es devolución de capital.</p></details>
+<details><summary>¿Cómo hago tax loss harvesting sin que Hacienda me lo anule?</summary><p>Reembolsando el fondo en pérdidas (no traspasando) y sin volver a comprar el mismo fondo en los dos meses siguientes. Se suele pasar a uno similar pero distinto.</p></details>
+
+<footer>Apuntes del Capítulo 4 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 35–44). Los datos fiscales y las simulaciones son orientativos; no es asesoramiento financiero ni fiscal.</footer>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const eur=n=>Math.round(n).toLocaleString('es-ES')+' €';
+  const pct=n=>n.toLocaleString('es-ES',{maximumFractionDigits:2})+' %';
+
+  /* 05 · Retirada flexible */
+  function sim(){
+    const c=+$('sc').value,w=+$('sw').value/100,r=+$('sr').value/100,inf=+$('si').value/100,y=+$('sy').value;
+    $('oSc').textContent=eur(c); $('oSw').textContent=pct(w*100); $('oSr').textContent=pct(r*100);
+    $('oSi').textContent=pct(inf*100); $('oSy').textContent=y+' años';
+    let v=c; const W=[];
+    for(let t=1;t<=y;t++){const wd=v*w; W.push(wd); v=(v-wd)*(1+r);}
+    const realN=W[y-1]/Math.pow(1+inf,y-1), realF=v/Math.pow(1+inf,y);
+    $('s1').textContent=eur(W[0]); $('s1m').textContent=eur(W[0]/12)+' al mes';
+    $('sN').textContent=eur(W[y-1]); $('sNr').textContent=eur(realN)+' en euros de hoy';
+    $('sF').textContent=eur(v); $('sFr').textContent=eur(realF)+' en euros de hoy';
+    $('sBox').className='full '+(realF>=c?'good':'lost');
+    const pts=[1,Math.round(y/2),y], vals=pts.map(t=>W[t-1]/Math.pow(1+inf,t-1)), mx=Math.max(...vals);
+    $('sBars').innerHTML=pts.map((t,i)=>'<div class="bar-row"><span>Año '+t+' (real)</span><div class="bar"><i style="width:'+(vals[i]/mx*100).toFixed(1)+'%;background:'+(i?'var(--accent)':'var(--muted)')+'"></i></div><span>'+eur(vals[i]/12)+'/mes</span></div>').join('');
+    const gap=((1-w)*(1+r)/(1+inf)-1)*100;
+    $('sMsg').textContent= gap>0.05 ? 'En poder de compra, la renta crece cerca de un '+pct(Math.round(gap*10)/10)+' al año.'
+      : gap<-0.05 ? 'En poder de compra, la renta baja cerca de un '+pct(Math.round(-gap*10)/10)+' al año: retiras más de lo que la cartera repone por encima de la inflación.'
+      : 'En poder de compra, la renta se queda prácticamente plana.';
+  }
+  ['sc','sw','sr','si','sy'].forEach(id=>$(id).addEventListener('input',sim)); sim();
+
+  /* 07 · Mini Monte Carlo (semilla fija para resultados estables) */
+  function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function mc(){
+    const w=+$('mw').value/100,m=+$('mm').value/100,s=+$('ms').value/100,N=2000,Y=30;
+    $('oMw').textContent=pct(w*100); $('oMm').textContent=pct(m*100); $('oMs').textContent=pct(s*100);
+    const rand=rng(20261010); let grow=0,survive=0; const ratios=[];
+    for(let k=0;k<N;k++){
+      let vf=1,vx=1,alive=true,w1=w,wl=0;
+      for(let t=1;t<=Y;t++){
+        const u1=rand()||1e-9,u2=rand(); const z=Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2);
+        const ret=Math.max(-0.9,m+s*z);
+        const wd=vf*w; if(t===Y) wl=wd; vf=(vf-wd)*(1+ret);
+        if(alive){vx=(vx-w)*(1+ret); if(vx<=0){alive=false;}}
+      }
+      if(vf>=1) grow++; if(alive) survive++; ratios.push(wl/w1);
+    }
+    ratios.sort((a,b)=>a-b);
+    const med=ratios[Math.floor(N/2)], p10=ratios[Math.floor(N*0.1)];
+    $('m1').textContent=Math.round(grow/N*100)+' %';
+    $('m2').textContent=Math.round(med*100)+' %';
+    $('m2s').textContent='de la renta del año 1, en euros de hoy';
+    $('m3').textContent=Math.round(survive/N*100)+' %';
+    $('m4').textContent=Math.round(p10*100)+' %';
+  }
+  ['mw','mm','ms'].forEach(id=>$(id).addEventListener('input',mc)); mc();
+
+  /* 13 · Fiscalidad de un reembolso */
+  function tax(g){const b=[[6000,.19],[50000,.21],[200000,.23],[300000,.27],[Infinity,.30]];let t=0,prev=0;for(const [lim,r] of b){if(g<=prev)break;t+=(Math.min(g,lim)-prev)*r;prev=lim;}return t;}
+  function tx(){
+    const inv=+$('ti').value,g=+$('tg').value/100,val=inv*(1+g);
+    const wmax=Math.max(1000,Math.floor(val/1000)*1000); $('tw').max=wmax;
+    const w=Math.min(+$('tw').value,val);
+    $('oTi').textContent=eur(inv); $('oTg').textContent=(g>0?'+':'')+Math.round(g*100)+' % (vale '+eur(val)+')'; $('oTw').textContent=eur(w);
+    const frac=(val-inv)/val, gain=w*frac, cap=w-gain;
+    $('tc').textContent=eur(cap);
+    $('tgn').textContent=eur(gain);
+    $('tgp').textContent=gain>=0?Math.round(frac*1000)/10+' % de lo retirado':'pérdida compensable';
+    if(gain>0){const t=tax(gain);$('tt').textContent=eur(t);$('tts').textContent='un '+pct(Math.round(t/w*1000)/10)+' de lo que retiras';$('tBox').className='full lost';}
+    else{$('tt').textContent='0 €';$('tts').textContent=gain<0?'hay pérdida: puede restar de otras ganancias':'no hay ganancia';$('tBox').className='full good';}
+  }
+  ['ti','tg','tw'].forEach(id=>$(id).addEventListener('input',tx)); tx();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-3-frontera-eficiente.html"><small>← Anterior · Cap. 3</small>Frontera eficiente y optimización del riesgo</a><a class="next" href="capitulo-5-dca-lump-sum.html"><small>Siguiente · Cap. 5 →</small>DCA o Lump Sum</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-4-tasa-retirada",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

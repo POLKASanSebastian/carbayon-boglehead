@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capítulo 1 · Inversión Pasiva</title>
+<style>
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,"Iowan Old Style",serif;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 64px}
+header .kicker{font:600 13px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 system-ui,sans-serif;margin:36px 0 10px;display:flex;gap:10px;align-items:baseline}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 system-ui,sans-serif;margin:18px 0 6px}
+p{margin:0 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0;padding-left:20px}
+.tldr li{margin:4px 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}
+.pillar{background:var(--accent-soft);border-radius:12px;padding:14px}
+.pillar b{display:block;font:700 15px/1.3 system-ui,sans-serif;color:var(--accent);margin-bottom:4px}
+.pillar span{font-size:15px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0}
+.vs h3{margin-top:0}
+@media (max-width:520px){.vs{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font:15px/1.4 system-ui,sans-serif}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{font:14px/1.3 system-ui,sans-serif}
+.bar-row{display:grid;grid-template-columns:110px 1fr 64px;gap:8px;align-items:center;margin:8px 0}
+.bar{height:16px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px}
+.calc label{display:block;font:600 14px/1.3 system-ui,sans-serif;margin:12px 0 4px}
+.calc label output{float:right;color:var(--accent)}
+.calc input[type=range]{width:100%;accent-color:var(--accent)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;font:14px/1.3 system-ui,sans-serif}
+.res strong{display:block;font-size:20px;margin-top:4px;font-variant-numeric:tabular-nums}
+.res .lost{grid-column:1/-1;background:var(--bad-soft)}
+.res .lost strong{color:var(--bad)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 system-ui,sans-serif}
+details p{margin:10px 0 0}
+dl{margin:0}
+dt{font:700 15px/1.3 system-ui,sans-serif;margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 system-ui,sans-serif}
+</style>
+<style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head>
+<body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 1 · 1 de 18</span></div></nav>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 1 · Apuntes de estudio</div>
+  <h1>El impacto de la inversión pasiva en el largo plazo</h1>
+  <p class="sub">Las ideas del capítulo explicadas con mis palabras, con los datos del libro y algo de cálculo para entenderlas.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Gana el <span class="mark">enfoque</span>, no la inteligencia: una idea simple seguida durante décadas.</li>
+    <li>Los tres pilares de Bogle: <b>largo plazo</b>, <b>costes mínimos</b> y <b>diversificación amplia</b>.</li>
+    <li>Un índice se depura solo: los perdedores pierden peso y salen; los ganadores lo ganan.</li>
+    <li>Pequeñas comisiones anuales se convierten en enormes diferencias a 30 años.</li>
+    <li>Lo que importa es la <b>rentabilidad total</b> (precio + dividendos), no cobrar dividendos.</li>
+    <li>La simplicidad reduce errores: menos decisiones, menos emociones, mejores resultados.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>El erizo y el zorro</h2>
+<p>La metáfora viene de un verso del poeta griego Arquíloco que el filósofo Isaiah Berlin popularizó: el zorro sabe muchas cosas, el erizo sabe una sola, pero importante.</p>
+<div class="vs">
+  <div class="card">
+    <h3>🦊 El zorro</h3>
+    <p>Listo, curioso, versátil. Salta de idea en idea: análisis técnico, rotación de sectores, apuestas macro, selección de acciones. Gasta mucha energía y se dispersa.</p>
+    <p>Es el <b>inversor activo</b>. Las estadísticas le castigan: la gran mayoría de fondos activos no baten a su índice en plazos largos.</p>
+  </div>
+  <div class="card">
+    <h3>🦔 El erizo</h3>
+    <p>Parece más limitado, pero tiene una sola idea clara y no la abandona. No intenta adivinar el futuro ni reacciona a titulares.</p>
+    <p>Es el <b>inversor pasivo</b>: todo el mercado, barato, durante décadas. Su fuerza está en la <span class="mark">consistencia</span>.</p>
+  </div>
+</div>
+<p>Moraleja: no hace falta saberlo todo, solo <b>saber lo que importa</b> y tener la disciplina de sostenerlo.</p>
+
+<h2><span class="n">02</span>John Bogle y los tres pilares</h2>
+<p>Bogle fundó Vanguard y en 1975 lanzó el primer fondo indexado para particulares (que acabaría llamándose Vanguard 500 Index Fund). Su idea: en lugar de intentar batir al mercado, igualarlo con el menor coste posible. Wall Street se burló de él por "conformarse con la media". El tiempo le dio la razón: hoy millones de inversores (los <i>Bogleheads</i>) siguen su filosofía.</p>
+<div class="pillars">
+  <div class="pillar"><b>1 · Largo plazo</b><span>Comprar y mantener. El tiempo es el que hace el trabajo, no tus decisiones.</span></div>
+  <div class="pillar"><b>2 · Costes mínimos</b><span>Cada euro de comisión es un euro que deja de componer para ti.</span></div>
+  <div class="pillar"><b>3 · Diversificar mucho</b><span>Miles de empresas, todos los sectores y países. Nunca dependes de una.</span></div>
+</div>
+
+<h2><span class="n">03</span>Por qué el índice funciona: un filtro automático</h2>
+<p>Las empresas nacen y mueren, pero el mercado en conjunto sigue creciendo. Un índice ponderado por capitalización se ajusta solo:</p>
+<div class="card">
+  <ul>
+    <li>Si una empresa <b>sube</b>, pesa más en el índice. Si <b>cae</b>, pesa menos.</li>
+    <li>Si deja de cumplir requisitos (tamaño, liquidez…), <b>sale</b> y entra otra más fuerte.</li>
+    <li>Todo ocurre sin gestor, sin emociones y sin que tú hagas nada.</li>
+  </ul>
+</div>
+<h3>Ejemplos que usa el libro</h3>
+<table>
+  <tr><th>Empresa</th><th>Qué pasó</th><th>Qué hizo el índice</th></tr>
+  <tr><td><b>Kodak</b></td><td>Gigante "blue chip" que no se adaptó a lo digital. Bancarrota en 2012.</td><td>Fue reduciendo su peso mientras caía hasta expulsarla.</td></tr>
+  <tr><td><b>General Electric</b></td><td>Llegó a ser la empresa más valiosa; años de mala gestión.</td><td>Expulsada del índice en 2018.</td></tr>
+  <tr><td><b>Lehman Brothers</b></td><td>Quebró en 2008 y desapareció.</td><td>Ya pesaba poco cuando quebró.</td></tr>
+</table>
+<p style="margin-top:12px">El gestor activo, en cambio, puede quedarse atrapado por orgullo, por esperar la recuperación o por apego a una historia pasada. El índice no se enamora de nadie.</p>
+
+<h2><span class="n">04</span>Diversificación global: qué te protege y qué no</h2>
+<div class="vs">
+  <div class="card">
+    <h3>✅ Te protege de…</h3>
+    <p>Perderlo todo. Con un fondo global (tipo MSCI World o FTSE Global All Cap) tienes miles de empresas de todos los tamaños, sectores y países. Para perder todo tendría que quebrar a la vez toda la economía mundial.</p>
+    <p>Incluso en la Gran Depresión o la Segunda Guerra Mundial los mercados globales cayeron, pero no llegaron a cero y se recuperaron.</p>
+  </div>
+  <div class="card">
+    <h3>❌ No te protege de…</h3>
+    <p>La volatilidad ni las caídas temporales. Habrá años de −30% o −50%. Eso es el precio de entrada a la rentabilidad.</p>
+    <p>Por eso el autor combina <b>renta variable y renta fija</b>: la renta variable para crecer, la fija para amortiguar.</p>
+  </div>
+</div>
+
+<h2><span class="n">05</span>Interés compuesto: el motor</h2>
+<p>La gran ventaja de una cartera diversificada a largo plazo es dejar que la rentabilidad genere más rentabilidad. Ejemplo del libro: <b>100.000 € al 7% anual compuesto durante 20 años → unos 387.000 €</b>.</p>
+<div class="card bars">
+  <div class="bar-row"><span>Año 0</span><div class="bar"><i style="width:26%;background:var(--muted)"></i></div><span>100.000</span></div>
+  <div class="bar-row"><span>Año 10</span><div class="bar"><i style="width:51%;background:var(--accent)"></i></div><span>196.715</span></div>
+  <div class="bar-row"><span>Año 20</span><div class="bar"><i style="width:100%;background:var(--accent)"></i></div><span>386.968</span></div>
+</div>
+<p>Fíjate: en los primeros 10 años ganas ~97.000 €; en los 10 siguientes, ~190.000 €. El compuesto acelera al final, por eso <b>no interrumpirlo</b> es lo más valioso.</p>
+
+<h2><span class="n">06</span>Costes: el enemigo silencioso</h2>
+<p>El autor cuenta que, de joven, compró acciones de una aseguradora y descubrió que las comisiones de compra, venta y mantenimiento (unos 72 € en total) superaban los dividendos que cobraba. Ahí entendió que <b>los costes mandan</b>.</p>
+<table>
+  <tr><th>Tipo de producto</th><th>Coste anual típico</th></tr>
+  <tr><td>Fondos de gestión activa</td><td class="num">1,5% o más</td></tr>
+  <tr><td>Fondos indexados</td><td class="num">0,1% – 0,3%</td></tr>
+</table>
+<p style="margin-top:12px">Ejemplo del libro: 100.000 € a 30 años con un 6% bruto. Con un indexado al 0,2% la rentabilidad neta queda en 5,8%; con un activo al 1,5%, en 4,5%. La diferencia final es enorme y <b>no tiene nada que ver con la habilidad del gestor</b>: es solo la comisión.</p>
+<div class="card note">
+  <b>Ojo con las cifras del libro.</b> El libro da como resultado 474.349 € (indexado) y 332.194 € (activo), con una diferencia de ~142.000 €. Si se hace el cálculo con los porcentajes que el propio libro indica (5,8% y 4,5% netos), salen unos <b>542.700 €</b> y <b>374.500 €</b>: una diferencia de <b>~168.000 €</b>. La conclusión es la misma (y aún más fuerte), pero los números exactos del libro no cuadran con sus porcentajes.
+</div>
+
+<h3>Pruébalo tú: calculadora de comisiones</h3>
+<div class="card calc">
+  <label>Capital inicial <output id="oC"></output></label>
+  <input id="c" type="range" min="10000" max="500000" step="10000" value="100000">
+  <label>Años <output id="oY"></output></label>
+  <input id="y" type="range" min="5" max="40" step="1" value="30">
+  <label>Rentabilidad bruta anual <output id="oR"></output></label>
+  <input id="r" type="range" min="2" max="10" step="0.5" value="6">
+  <label>Comisión fondo indexado <output id="oF1"></output></label>
+  <input id="f1" type="range" min="0.05" max="1" step="0.05" value="0.2">
+  <label>Comisión fondo activo <output id="oF2"></output></label>
+  <input id="f2" type="range" min="0.5" max="2.5" step="0.1" value="1.5">
+  <div class="res">
+    <div>Indexado<strong id="v1"></strong></div>
+    <div>Activo<strong id="v2"></strong></div>
+    <div class="lost">Lo que te come la comisión extra<strong id="vd"></strong></div>
+  </div>
+</div>
+
+<h2><span class="n">07</span>Impuestos: dejar que el dinero componga entero</h2>
+<p>En muchos países (en España, con los traspasos entre fondos) puedes mover dinero de un fondo a otro <b>sin tributar</b> hasta que reembolsas. Con acciones sueltas, cada venta con ganancia paga impuestos en el momento.</p>
+<ul>
+  <li>Puedes <b>rebalancear</b> dentro de los fondos sin coste fiscal.</li>
+  <li>Los fondos de <b>acumulación</b> reinvierten los dividendos automáticamente y no tributan hasta el reembolso.</li>
+  <li>Cada euro que no pagas hoy en impuestos sigue componiendo durante años: el diferimiento fiscal se traduce en más crecimiento.</li>
+</ul>
+
+<h2><span class="n">08</span>El mito de los dividendos</h2>
+<p>Vivir de dividendos suena muy bien: cobrar cada mes sin vender nada. Pero el libro desmonta varias ideas:</p>
+<div class="card">
+  <ul>
+    <li><b>El dividendo no es dinero gratis.</b> El día que se paga, la cotización baja lo mismo. Y además tributa ese año.</li>
+    <li><b>Lo que cuenta es la rentabilidad total</b> = subida de precio + dividendos. Da igual de dónde venga.</li>
+    <li><b>Centrarte en dividendos concentra la cartera</b> en sectores maduros (utilities, bancos, telecos) y te deja fuera de empresas que crecen sin repartir.</li>
+    <li><b>En las crisis, los dividendos también caen</b> o se suspenden justo cuando más los necesitas.</li>
+  </ul>
+</div>
+<p>Datos del libro sobre los <b>Dividend Aristocrats</b> (empresas del S&amp;P 500 con 25+ años subiendo el dividendo): no han batido de forma sistemática al índice. Entre mayo de 2005 y febrero de 2025 hicieron en torno a un 14% anual frente a un 14,8% del S&amp;P 500 con dividendos reinvertidos, y con menos diversificación.</p>
+
+<h3>Si vives de la cartera</h3>
+<p>Cuando retiras dinero de una cartera de fondos, primero sale el capital aportado (que no tributa) y las ganancias siguen dentro, componiendo. Con dividendos, tributas desde el primer euro.</p>
+<p>Y el riesgo de una cartera 100% renta variable es real. En la burbuja puntocom (2000–2002):</p>
+<div class="card bars">
+  <div class="bar-row"><span>Nasdaq</span><div class="bar"><i style="width:75%;background:var(--bad)"></i></div><span>−75%+</span></div>
+  <div class="bar-row"><span>S&amp;P 500</span><div class="bar"><i style="width:50%;background:var(--bad)"></i></div><span>≈ −50%</span></div>
+  <div class="bar-row"><span>Cartera 60/40</span><div class="bar"><i style="width:20%;background:var(--warn)"></i></div><span>≈ −20%*</span></div>
+  <p style="margin:8px 0 0;color:var(--muted)">*Ajustado a la inflación, según el libro.</p>
+</div>
+
+<h2><span class="n">09</span>Simplicidad: menos decisiones, menos errores</h2>
+<p>Una vez elegido el fondo y la asignación, basta con programar aportaciones y rebalancear de vez en cuando. No hay que analizar empresas, ni mirar ratios, ni adivinar recortes. Cada decisión que no tomas es un error emocional que no cometes.</p>
+<p>Las acciones individuales no garantizan nada: Tesla, Coca-Cola o Amazon hoy parecen sólidas, pero nadie sabe cuáles serán las ganadoras de la próxima década. Comprar una acción famosa es comprar algo cuyo precio ya refleja todo lo que se sabe de ella.</p>
+<p>La mayoría de inversores particulares compiten contra profesionales con más información, más rapidez y más herramientas. Es jugar en la mesa del casino con las reglas del crupier. El índice te saca de esa partida.</p>
+
+<h2><span class="n">10</span>¿Y si quiero probar ideas propias?</h2>
+<div class="card tldr">
+  <p>Se puede, pero <b>separado</b> del núcleo de la cartera. El autor propone limitar la parte especulativa a algo como el <b>10% del patrimonio</b> y tratarla como lo que es: un experimento personal, una forma de aprender.</p>
+  <p style="margin:0">El núcleo (indexado, diversificado, barato) es el que te lleva a la independencia financiera. Esa parte no se toca por corazonadas.</p>
+</div>
+
+<h2><span class="n">11</span>No es solo para principiantes</h2>
+<p>Pensar que lo pasivo es "para los que no saben" es otra trampa, a menudo alimentada por quien quiere cobrarte comisiones altas. Muchos inversores con años de experiencia acaban aquí después de probar de todo. El autor la considera una de sus mejores decisiones financieras: gestionar su patrimonio sin preocupaciones.</p>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Fondo indexado</dt><dd>Fondo que copia un índice (todas sus empresas en su proporción) en lugar de elegir acciones.</dd>
+  <dt>Gestión activa</dt><dd>Un gestor elige qué comprar y vender intentando batir al mercado. Suele ser cara.</dd>
+  <dt>Ponderar por capitalización</dt><dd>Cada empresa pesa en el índice según lo que vale en bolsa.</dd>
+  <dt>MSCI World / FTSE Global All Cap</dt><dd>Índices globales. El segundo incluye también emergentes y empresas pequeñas.</dd>
+  <dt>Comisión (TER)</dt><dd>Lo que cobra el fondo cada año, en % de tu dinero.</dd>
+  <dt>Acumulación vs. distribución</dt><dd>Acumulación reinvierte los dividendos; distribución te los paga (y tributan).</dd>
+  <dt>Rentabilidad total</dt><dd>Revalorización del precio + dividendos.</dd>
+  <dt>Rebalancear</dt><dd>Devolver la cartera a sus porcentajes objetivo (p. ej., 60/40) vendiendo lo que subió y comprando lo que bajó.</dd>
+  <dt>Traspaso</dt><dd>Mover dinero de un fondo a otro sin pagar impuestos en ese momento (España).</dd>
+  <dt>Roboadvisor</dt><dd>Gestor automatizado que invierte en indexados, rebalancea y optimiza impuestos por una comisión baja.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Por qué el erizo "gana" al zorro en inversión?</summary><p>Porque la clave no es la inteligencia sino el enfoque y la constancia. Una estrategia simple sostenida décadas supera a muchas ideas brillantes abandonadas a medias.</p></details>
+<details><summary>¿Cuáles son los tres pilares de Bogle?</summary><p>Invertir a largo plazo, reducir al mínimo los costes y diversificar ampliamente.</p></details>
+<details><summary>¿Qué le pasó a Kodak dentro del índice?</summary><p>Mientras su cotización caía, su peso se reducía solo, hasta que salió y la reemplazó otra empresa. El inversor indexado no tuvo que hacer nada.</p></details>
+<details><summary>¿Un fondo global te protege de una caída del 40%?</summary><p>No. Te protege de perderlo todo, no de las caídas temporales. Para amortiguar caídas se combina con renta fija.</p></details>
+<details><summary>¿Por qué un 1,3% de diferencia en comisión importa tanto?</summary><p>Porque se descuenta cada año y deja de componer. A 30 años puede suponer más de 150.000 € sobre 100.000 € invertidos.</p></details>
+<details><summary>¿Por qué el dividendo no es "dinero gratis"?</summary><p>Porque la cotización baja en lo mismo que se paga, tributa ese año y lo que de verdad cuenta es la rentabilidad total.</p></details>
+<details><summary>Si quiero especular, ¿cómo lo hago sin romper el plan?</summary><p>Con una parte pequeña y separada (en torno al 10% del total), tratada como experimento. El núcleo indexado no se toca.</p></details>
+
+<footer>Apuntes del Capítulo 1 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas; los cálculos de comprobación están hechos aparte.</footer>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const eur=n=>Math.round(n).toLocaleString('es-ES')+' €';
+  function calc(){
+    const c=+$('c').value,y=+$('y').value,r=+$('r').value,f1=+$('f1').value,f2=+$('f2').value;
+    $('oC').textContent=eur(c); $('oY').textContent=y+' años';
+    $('oR').textContent=r.toLocaleString('es-ES')+' %';
+    $('oF1').textContent=f1.toLocaleString('es-ES')+' %';
+    $('oF2').textContent=f2.toLocaleString('es-ES')+' %';
+    const v1=c*Math.pow(1+(r-f1)/100,y), v2=c*Math.pow(1+(r-f2)/100,y);
+    $('v1').textContent=eur(v1); $('v2').textContent=eur(v2);
+    $('vd').textContent=eur(v1-v2)+' ('+Math.round((1-v2/v1)*100)+'% menos)';
+  }
+  ['c','y','r','f1','f2'].forEach(id=>$(id).addEventListener('input',calc));
+  calc();
+})();
+</script>
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><span class="empty"></span><a class="next" href="capitulo-2-asignacion-60-40.html"><small>Siguiente · Cap. 2 →</small>Una asignación probada: la cartera 60/40</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-1-inversion-pasiva",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body>
+</html>

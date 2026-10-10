@@ -1,0 +1,365 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 2 · 2 de 18</span></div></nav>
+<title>Capítulo 2 · La cartera 60/40</title>
+<style>
+/* Mismo sistema que el Capítulo 1: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --bond:#3d6a9e; --bond-soft:#e4edf7;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --bond:#86b2e3; --bond-soft:#1f2b3a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --bond:#86b2e3; --bond-soft:#1f2b3a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.quote{font-size:20px;line-height:1.4;font-style:italic;border-left:4px solid var(--accent);padding:4px 0 4px 16px;margin:18px 0}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.split{display:flex;height:34px;border-radius:10px;overflow:hidden;font:700 14px/34px var(--sans);margin:12px 0 4px}
+.split .rv{background:var(--accent);color:var(--card);flex:60;padding-left:12px}
+.split .rf{background:var(--bond);color:var(--card);flex:40;padding-left:12px}
+.legend{font:13px/1.4 var(--sans);color:var(--muted)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:12px 0}
+.pillar{background:var(--accent-soft);border-radius:12px;padding:14px}
+.pillar.b{background:var(--bond-soft)}
+.pillar b{display:block;font:700 15px/1.3 var(--sans);color:var(--accent);margin-bottom:4px}
+.pillar.b b{color:var(--bond)}
+.pillar span{font-size:15px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font:15px/1.4 var(--sans)}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{font:14px/1.3 var(--sans)}
+.bar-row{display:grid;grid-template-columns:120px 1fr 74px;gap:8px;align-items:center;margin:8px 0}
+.bar-row > span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.bar{height:16px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px}
+.foot{margin:8px 0 0;color:var(--muted);font-size:13px}
+.calc label{display:block;font:600 14px/1.3 var(--sans);margin:12px 0 4px}
+.calc label output{float:right;color:var(--accent);font-variant-numeric:tabular-nums}
+.calc input[type=range]{width:100%;accent-color:var(--accent)}
+.calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;font:14px/1.3 var(--sans);min-width:0}
+.res strong{display:block;font-size:20px;margin-top:4px;font-variant-numeric:tabular-nums}
+.res .wide{grid-column:1/-1}
+.res .lost{background:var(--bad-soft)}
+.res .lost strong{color:var(--bad)}
+.res .good{background:var(--accent-soft)}
+.res .good strong{color:var(--accent)}
+.grp{font:700 13px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 2 · Apuntes de estudio</div>
+  <h1>Una asignación de activos probada: la cartera 60/40</h1>
+  <p class="sub">Por qué repartir 60% en acciones y 40% en bonos ha aguantado un siglo de crisis, y qué matemáticas hay detrás.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Cómo repartes entre acciones y bonos pesa más en tu resultado que qué fondo concreto eliges.</li>
+    <li>La 60/40 combina el <b>motor</b> (renta variable) con el <b>amortiguador</b> (renta fija).</li>
+    <li>Cuanto más cae una cartera, mucho más tiene que subir para recuperarse: −50% exige +100%.</li>
+    <li>La volatilidad <span class="mark">se come la rentabilidad compuesta</span>: la media no es lo que acabas cobrando.</li>
+    <li>Pasar del 75–80% en acciones añade poca rentabilidad y mucho sufrimiento.</li>
+    <li>El éxito depende más de <b>no abandonar el plan</b> que de afinar los porcentajes.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Qué es la 60/40 y por qué funciona</h2>
+<div class="split" role="img" aria-label="60% renta variable, 40% renta fija"><span class="rv">60% acciones</span><span class="rf">40% bonos</span></div>
+<p class="legend">Renta variable para crecer · renta fija para estabilizar</p>
+<p>El autor parte de una idea: la <b>asignación de activos</b> es la decisión que más influye en lo que ganas y en lo tranquilo que duermes. De todas las combinaciones, la 60/40 es de las más usadas y de las que más datos tienen detrás. No es mágica, pero ha resistido ciclos, crisis y modas.</p>
+<div class="pillars">
+  <div class="pillar"><b>Crecimiento</b><span>Las acciones son las que hacen crecer el capital a largo plazo.</span></div>
+  <div class="pillar b"><b>Protección en caídas</b><span>Los bonos suelen aguantar o subir cuando la bolsa se hunde: correlación normalmente negativa.</span></div>
+  <div class="pillar"><b>Rebalanceo</b><span>Tener dos activos que se mueven distinto te deja vender caro y comprar barato sin especular.</span></div>
+</div>
+
+<h3>Quién está detrás de la idea</h3>
+<div class="tw"><table>
+  <tr><th>Autor</th><th>Qué aporta</th></tr>
+  <tr><td><b>Harry Markowitz</b></td><td>Premio Nobel. Su teoría moderna de carteras explica por qué combinar activos distintos reduce riesgo (se ve en el capítulo 3).</td></tr>
+  <tr><td><b>Benjamin Graham</b></td><td>Proponía un 50/50 de base, moviéndose entre 25% y 75% en acciones según el mercado y el inversor.</td></tr>
+  <tr><td><b>John Bogle</b></td><td>Usaba a menudo la 60/40 en su propia cartera.</td></tr>
+  <tr><td><b>Trinity Study</b></td><td>Concluye que tener al menos un 50–60% en acciones es lo que mejor ha permitido que una cartera aguante 30 años retirando un 4% anual ajustado por inflación.</td></tr>
+</table></div>
+
+<h2><span class="n">02</span>Ni poco ni demasiado en acciones</h2>
+<p>Pensando en vivir de la cartera retirando un 4% al año, el libro marca dos límites:</p>
+<div class="vs">
+  <div class="card" style="background:var(--bond-soft);border-color:transparent">
+    <h3>Menos del 50% en acciones</h3>
+    <p>La cartera crece poco. Con los bonos solos, el riesgo es que se agote antes de tiempo por falta de rentabilidad.</p>
+  </div>
+  <div class="card" style="background:var(--bad-soft);border-color:transparent">
+    <h3>Más del 75% en acciones</h3>
+    <p>Demasiado volátil. Si cae fuerte mientras retiras, vendes barato y la cartera dura menos.</p>
+  </div>
+</div>
+<p style="margin-top:12px">Dato del libro: una 60/40 en EE. UU. desde 1926 habría sostenido ese 4% ajustado por inflación durante más de 30 años en el <b>95%</b> de los escenarios simulados.</p>
+
+<h3>El riesgo de secuencia</h3>
+<p>No solo importa cuánto rinde la cartera de media, sino <b>en qué orden</b> llegan los años buenos y malos. Si la caída llega justo al empezar a retirar, vendes participaciones a precio de saldo y esas ya no se recuperan. Una 80/20 o 90/10 rinde algo más de media, pero tiene más papeletas de que eso ocurra.</p>
+
+<h2><span class="n">03</span>Cuánto cae cada cartera</h2>
+<p>Ejemplo del libro con un desplome del −40% en la bolsa (suponiendo que los bonos se quedan planos):</p>
+<div class="tw"><table>
+  <tr><th>Cartera</th><th class="num">Rent. media</th><th class="num">Volatilidad</th><th class="num">Caída</th></tr>
+  <tr><td><b>A · 60/40</b></td><td class="num">6%</td><td class="num">9%</td><td class="num">−24%</td></tr>
+  <tr><td><b>B · 90/10</b></td><td class="num">7%</td><td class="num">16%</td><td class="num">−36%</td></tr>
+</table></div>
+<p style="margin-top:12px">La cuenta es sencilla: −40% × 60% = −24%, y −40% × 90% = −36%.</p>
+
+<h3>El caso real: la crisis de 2007–2009</h3>
+<div class="card bars">
+  <div class="bar-row"><span>100% acciones (MSCI World)</span><div class="bar"><i style="width:54%;background:var(--bad)"></i></div><span>≈ −54%</span></div>
+  <div class="bar-row"><span>Cartera 60/40 global</span><div class="bar"><i style="width:22.5%;background:var(--warn)"></i></div><span>−20/−25%</span></div>
+  <p class="foot">La 100% acciones tardó más de cinco años en recuperar su valor; la 60/40, menos de tres.</p>
+</div>
+
+<h2><span class="n">04</span>La trampa de la recuperación</h2>
+<p>Si pierdes un 20%, no basta con ganar un 20%. Con 100 € que caen a 80 €, un 20% de subida te deja en 96 €: necesitas un <b>25%</b>. La subida se calcula sobre una base más pequeña.</p>
+<div class="tw"><table>
+  <tr><th>Si caes…</th><th class="num">Te quedan (de 100 €)</th><th class="num">Necesitas subir</th></tr>
+  <tr><td>−20%</td><td class="num">80 €</td><td class="num">+25%</td></tr>
+  <tr><td>−24% (60/40)</td><td class="num">76 €</td><td class="num">+32%</td></tr>
+  <tr><td>−36% (90/10)</td><td class="num">64 €</td><td class="num">+56%</td></tr>
+  <tr><td>−50%</td><td class="num">50 €</td><td class="num">+100%</td></tr>
+  <tr><td>−54% (2008)</td><td class="num">46 €</td><td class="num">+117%</td></tr>
+</table></div>
+<p style="margin-top:12px">Por eso las caídas grandes son tan peligrosas: el esfuerzo para volver crece mucho más rápido que la propia caída.</p>
+
+<h3>Pruébalo tú: caída y recuperación</h3>
+<div class="card calc">
+  <label for="md">Caída de la bolsa <output id="oMd"></output></label>
+  <input id="md" type="range" min="5" max="60" step="1" value="40">
+  <label for="eq">% de tu cartera en acciones <output id="oEq"></output></label>
+  <input id="eq" type="range" min="0" max="100" step="5" value="60">
+  <div class="res">
+    <div class="lost">Cae tu cartera<strong id="pd"></strong></div>
+    <div>Para volver necesitas<strong id="pr"></strong></div>
+  </div>
+  <p class="foot">Simplificación: los bonos se quedan planos. En crisis reales los bonos de calidad a menudo suben, así que la caída suele ser algo menor.</p>
+</div>
+
+<h2><span class="n">05</span>La penalización de la varianza</h2>
+<p>Esta es la idea más importante del capítulo. Solemos pensar en el interés compuesto como si cada año dieras la rentabilidad media. Pero con volatilidad, <b>la rentabilidad compuesta siempre es menor que la media aritmética</b>: las pérdidas pesan más que las ganancias del mismo tamaño.</p>
+<div class="vs">
+  <div class="card">
+    <h3>+50% y luego −50%</h3>
+    <p>Media: 0%. Resultado: 100 → 150 → <b>75 €</b>. Has perdido una cuarta parte.</p>
+  </div>
+  <div class="card">
+    <h3>+10% y luego −10%</h3>
+    <p>Media: 0%. Resultado: 100 → 110 → <b>99 €</b>. Una cartera que da 0% fijo acaba en 100 €.</p>
+  </div>
+</div>
+<p style="margin-top:12px">Una regla útil para estimarlo: <b>rentabilidad compuesta ≈ media − volatilidad² ÷ 2</b>. Con un 16% de volatilidad pierdes unos 1,3 puntos al año; con un 9%, solo unos 0,4.</p>
+<p>Por eso el libro dice que una cartera que "promete" un 8% con mucha volatilidad puede acabar con menos dinero que otra del 6% más estable. Con esta regla, pasa cuando la volatilidad supera el 20% aproximadamente.</p>
+
+<div class="card note">
+  <b>Lo que esconden los números del ejemplo A/B.</b> Aplicando esa regla a las dos carteras del libro, la 60/40 (6%, vol. 9%) compone a un ~5,6% y la 90/10 (7%, vol. 16%) a un ~5,7–5,8%. El punto de ventaja de la 90/10 <b>se queda en unas dos décimas</b>. Con 100.000 € a 30 años sin retiradas, serían unos 515.000 € frente a 544.000 €: un 5% más, a cambio de casi el doble de volatilidad y caídas de −36% en vez de −24%. Cálculo propio, no viene en el libro.
+</div>
+
+<h3>Pruébalo tú: media frente a lo que de verdad compones</h3>
+<div class="card calc">
+  <p class="grp">Cartera A</p>
+  <label for="ra">Rentabilidad media <output id="oRa"></output></label>
+  <input id="ra" type="range" min="2" max="10" step="0.5" value="6">
+  <label for="va">Volatilidad <output id="oVa"></output></label>
+  <input id="va" type="range" min="0" max="30" step="1" value="9">
+  <p class="grp">Cartera B</p>
+  <label for="rb">Rentabilidad media <output id="oRb"></output></label>
+  <input id="rb" type="range" min="2" max="10" step="0.5" value="7">
+  <label for="vb">Volatilidad <output id="oVb"></output></label>
+  <input id="vb" type="range" min="0" max="30" step="1" value="16">
+  <label for="yy">Años (100.000 € iniciales) <output id="oYy"></output></label>
+  <input id="yy" type="range" min="5" max="40" step="1" value="30">
+  <div class="res">
+    <div>A compone a<strong id="ga"></strong></div>
+    <div>B compone a<strong id="gb"></strong></div>
+    <div>A acaba en<strong id="fa"></strong></div>
+    <div>B acaba en<strong id="fb"></strong></div>
+    <div class="wide" id="verdictBox">Diferencia<strong id="vd"></strong></div>
+  </div>
+  <p class="foot">Estimación con la regla de la volatilidad² ÷ 2, sin retiradas. Si estás retirando dinero, la cartera más volátil sale todavía peor por el riesgo de secuencia.</p>
+</div>
+
+<h2><span class="n">06</span>Por qué los bonos ayudan tanto</h2>
+<ul>
+  <li><b>Refugio en crisis.</b> Los bonos de alta calidad suelen subir o mantenerse cuando caen las acciones, y amortiguan el golpe total.</li>
+  <li><b>Comportamiento.</b> Ver tu cartera caer más del 50% genera tanta ansiedad que mucha gente vende en el peor momento. Ver un −20% se aguanta mejor.</li>
+  <li><b>Rebalanceo.</b> En la caída vendes bonos (que han aguantado) y compras acciones baratas. Eso acelera la recuperación.</li>
+</ul>
+<p>La pregunta que propone el autor no es cuánto ganas cuando todo va bien, sino <b>cuánto aguantas cuando todo va mal</b>, y si puedes aguantarlo una y otra vez. Habrá más crisis; hay que prepararse para ellas.</p>
+
+<h2><span class="n">07</span>Qué rentabilidad esperar</h2>
+<p>La referencia del libro para una cartera mixta global: <b>alrededor de un 5% anual real</b> (ya descontada la inflación) a lo largo del último siglo.</p>
+<div class="tw"><table>
+  <tr><th>Fuente</th><th>Qué dice</th></tr>
+  <tr><td><b>Global Investment Returns Yearbook</b> (UBS, antes Credit Suisse, con la London Business School)</td><td>Datos desde 1900 en 35 mercados: una mixta global ha dado en torno a un 5% real anual durante décadas.</td></tr>
+  <tr><td><b>Global Investment Returns Sourcebook</b></td><td>Confirma el mismo rango y la importancia de diversificar por países y tipos de activo.</td></tr>
+  <tr><td><b>Trinity Study</b> (EE. UU.)</td><td>Mezclas de acciones y bonos dieron más de un 5% real en la mayoría de periodos de 30 años; incluso retirando un 4%, el capital solía crecer.</td></tr>
+</table></div>
+<div class="card note">
+  <b>Ojo con una cifra.</b> El libro dice que la probabilidad de lograr entre un 4% y un 6% real anual en 30 años supera el 75%. Con un modelo sencillo y una volatilidad típica de una 60/40 (en torno al 10%), sale más bien un <b>40%</b>; para llegar al 75% haría falta una volatilidad cercana al 5%. Lo razonable: el 5% es una buena referencia central, pero el resultado real puede quedar algo por encima o por debajo.
+</div>
+
+<h2><span class="n">08</span>La "muerte" de la 60/40, cada año</h2>
+<p>Cada cierto tiempo alguien la da por muerta: que los tipos están bajos y los bonos ya no protegen, que acciones y bonos ahora se mueven juntos, que hay estrategias más sofisticadas. Esas críticas se repiten desde hace décadas y la 60/40 ha sobrevivido a crisis de inflación, desplomes y cambios de política monetaria.</p>
+<p>Las alternativas de los "expertos" suelen aparecer en las caídas con el lema de que esta vez es diferente. Casi siempre suponen más riesgo, más costes y más rotación. Para el autor, la complejidad sirve sobre todo para esconder comisiones y justificar el sueldo de quien la vende.</p>
+
+<h2><span class="n">09</span>¿Cuánto en acciones? El límite del 75–80%</h2>
+<p>Según el estudio de Michael Kitces que cita el libro, por encima del 80% en acciones la rentabilidad extra es mínima comparada con lo que sube la volatilidad. Lo que se gana arriba se pierde por la penalización de la varianza.</p>
+<div class="card bars">
+  <div class="bar-row"><span>De 40% a 60%</span><div class="bar"><i style="width:80%;background:var(--accent)"></i></div><span>vale la pena</span></div>
+  <div class="bar-row"><span>De 60% a 75%</span><div class="bar"><i style="width:50%;background:var(--accent)"></i></div><span>aún compensa</span></div>
+  <div class="bar-row"><span>Más de 80%</span><div class="bar"><i style="width:15%;background:var(--warn)"></i></div><span>casi nada</span></div>
+  <p class="foot">Esquema de la idea, no datos medidos: cada punto extra de acciones aporta menos.</p>
+</div>
+<p>Ejemplo del libro: una 60/40 puede esperar cerca de un 6% anual; una 80/20, solo un 7%, pero con mucha más volatilidad y caídas.</p>
+<p>La postura del autor: <b>no pasar del 75% en renta variable</b>. Su regla de bolsillo es que un 75% en acciones te da en torno al 90% de la rentabilidad de un 100%, con el 60% del sufrimiento.</p>
+<div class="card note">
+  <b>Para afinar esa regla.</b> Con supuestos habituales (acciones 7–8%, bonos 2–3%), un 75/25 da más bien el 82–86% de la rentabilidad. La volatilidad baja al ~75% y la varianza, al ~57%. El mensaje es correcto aunque la cifra del 90% es algo optimista.
+</div>
+<h3>Los 3–5 primeros años de retiro</h3>
+<p>Son el tramo crítico del riesgo de secuencia. Una caída fuerte justo al empezar a vivir de la cartera puede romper el plan. Receta del autor: tasa de retirada baja y asignación eficiente. Si superas esos años sin un desplome, el riesgo se reduce mucho.</p>
+
+<h2><span class="n">10</span>El tamaño de la cartera cambia el riesgo que necesitas</h2>
+<div class="vs">
+  <div class="card">
+    <h3>Cartera pequeña</h3>
+    <p>Tienta arriesgar mucho para llegar antes. Pero una caída grande puede retrasarte años o hacerte abandonar.</p>
+  </div>
+  <div class="card">
+    <h3>Cartera grande</h3>
+    <p>Lo que importa son los euros totales (capital × rentabilidad). Con mucho capital, una cartera prudente ya cubre lo que necesitas.</p>
+  </div>
+</div>
+<p style="margin-top:12px">Para llegar a la independencia financiera pesan mucho más el <b>ahorro sistemático</b>, el tiempo invertido y la constancia que perseguir rentabilidades altas.</p>
+
+<h2><span class="n">11</span>No busques la cartera perfecta</h2>
+<p>Cada asesor deja su sello: Rick Ferri con su <i>Four Core Portfolio</i>, William Bernstein con su <i>No Brainer Portfolio</i>, y muchas variantes con algo de REITs (inmobiliario cotizado), materias primas, oro o liquidez.</p>
+<p>Para el autor, da igual si llevas un 8% en REITs y un 2% en oro, o un 5% más en bonos. Cada ajuste es una apuesta sobre el futuro, y nadie sabe qué activo irá mejor.</p>
+<p class="quote">«No busques el plan perfecto cuando ya tienes un buen plan.»</p>
+<p>Una cartera optimizada hasta el último decimal no sirve de nada si no aguantas las caídas o la cambias cada vez que algo va mejor. El reto real es <b>mantenerse invertido y no sabotear tu propia estrategia</b>.</p>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Asignación de activos</dt><dd>Cómo repartes el dinero entre tipos de activo (acciones, bonos, liquidez…).</dd>
+  <dt>60/40</dt><dd>60% en renta variable (acciones) y 40% en renta fija (bonos).</dd>
+  <dt>SWR (Safe Withdrawal Rate)</dt><dd>Tasa de retirada segura: el % que puedes sacar cada año sin que la cartera se agote. La referencia clásica es el 4%.</dd>
+  <dt>Drawdown</dt><dd>Caída desde el máximo anterior hasta el mínimo.</dd>
+  <dt>Riesgo de secuencia</dt><dd>Riesgo de que los años malos lleguen justo cuando empiezas a retirar dinero.</dd>
+  <dt>Penalización de la varianza</dt><dd>La diferencia entre la rentabilidad media y la compuesta, causada por la volatilidad.</dd>
+  <dt>Correlación negativa</dt><dd>Cuando un activo baja, el otro tiende a subir.</dd>
+  <dt>Rentabilidad real</dt><dd>Rentabilidad una vez descontada la inflación.</dd>
+  <dt>REITs</dt><dd>Sociedades cotizadas que invierten en inmuebles.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Qué aporta cada parte de la 60/40?</summary><p>Las acciones aportan el crecimiento; los bonos, la estabilidad en las caídas y la posibilidad de rebalancear.</p></details>
+<details><summary>Si tu cartera cae un 50%, ¿cuánto tiene que subir para recuperarse?</summary><p>Un 100%. De 100 € a 50 €, necesitas duplicar para volver a 100 €.</p></details>
+<details><summary>¿Por qué +10% y −10% no te dejan igual?</summary><p>Porque el −10% se aplica sobre 110 €, no sobre 100 €. Acabas en 99 €. Es la penalización de la varianza.</p></details>
+<details><summary>¿Por qué más acciones no siempre da más dinero?</summary><p>Porque la volatilidad extra reduce la rentabilidad compuesta. Por encima del 75–80%, lo que ganas de media lo pierdes casi todo por la varianza, y además sufres caídas mayores.</p></details>
+<details><summary>¿Qué es el riesgo de secuencia?</summary><p>Que la caída llegue al empezar a retirar. Vendes barato y esas participaciones ya no se recuperan. Los primeros 3–5 años son los críticos.</p></details>
+<details><summary>¿Qué rentabilidad real cabe esperar de una mixta global?</summary><p>En torno a un 5% anual por encima de la inflación, según los datos históricos que cita el libro.</p></details>
+<details><summary>¿Merece la pena buscar la combinación perfecta de activos?</summary><p>No. Cada ajuste es una apuesta sobre el futuro. Lo que decide el resultado es mantener el plan.</p></details>
+
+<footer>Apuntes del Capítulo 2 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas. Las notas marcadas como «ojo» son comprobaciones propias, no del libro.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var pct=function(n,d){return n.toLocaleString('es-ES',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})+' %'};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  function drop(){
+    var md=+$('md').value, eq=+$('eq').value;
+    $('oMd').textContent='−'+md+' %'; $('oEq').textContent=eq+' %';
+    var d=md*eq/100, need=d>=100?Infinity:(1/(1-d/100)-1)*100;
+    $('pd').textContent='−'+pct(d,1); $('pr').textContent='+'+pct(need,0);
+  }
+  function comp(r,v){var m=r/100,s=v/100;return (1+m)*Math.exp(-(s*s)/(2*(1+m)*(1+m)))-1;}
+  function vari(){
+    var ra=+$('ra').value,va=+$('va').value,rb=+$('rb').value,vb=+$('vb').value,y=+$('yy').value;
+    $('oRa').textContent=pct(ra,1);$('oVa').textContent=pct(va);
+    $('oRb').textContent=pct(rb,1);$('oVb').textContent=pct(vb);$('oYy').textContent=y+' años';
+    var ga=comp(ra,va),gb=comp(rb,vb),fa=1e5*Math.pow(1+ga,y),fb=1e5*Math.pow(1+gb,y);
+    $('ga').textContent=pct(ga*100,2);$('gb').textContent=pct(gb*100,2);
+    $('fa').textContent=eur(fa);$('fb').textContent=eur(fb);
+    var diff=fb-fa,box=$('verdictBox');
+    box.className='wide '+(Math.abs(diff)<1?'':(diff>0?'good':'lost'));
+    $('vd').textContent=(diff>=0?'B gana ':'B pierde ')+eur(Math.abs(diff))+' (media: '+(rb-ra>=0?'+':'')+(rb-ra).toLocaleString('es-ES')+' pts; compuesta: '+((gb-ga)*100>=0?'+':'')+((gb-ga)*100).toLocaleString('es-ES',{maximumFractionDigits:2})+' pts)';
+  }
+  ['md','eq'].forEach(function(id){$(id).addEventListener('input',drop)});
+  ['ra','va','rb','vb','yy'].forEach(function(id){$(id).addEventListener('input',vari)});
+  drop(); vari();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-1-inversion-pasiva.html"><small>← Anterior · Cap. 1</small>El impacto de la inversión pasiva en el largo plazo</a><a class="next" href="capitulo-3-frontera-eficiente.html"><small>Siguiente · Cap. 3 →</small>Frontera eficiente y optimización del riesgo</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-2-asignacion-60-40",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

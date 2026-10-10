@@ -1,0 +1,444 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 13 · 13 de 18</span></div></nav>
+<title>Capítulo 13 · Value en la era de la información</title>
+<style>
+/* Mismo sistema que los capítulos 1–11: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --em:#8a5aa8; --em-soft:#f1e8f6;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+    --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+  --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:21px;line-height:1.4;text-align:center;padding:22px 18px;background:var(--accent-soft);border-color:transparent}
+.quote small{display:block;margin-top:8px;font:13px/1.4 var(--sans);color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs.three{grid-template-columns:repeat(3,1fr)}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+.vs .blue{background:var(--cash-soft);border-color:transparent} .vs .blue h3{color:var(--cash)}
+.vs .em{background:var(--em-soft);border-color:transparent} .vs .em h3{color:var(--em)}
+@media (max-width:620px){.vs.three{grid-template-columns:1fr}}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.vs p{font:15px/1.5 var(--sans);margin:0}
+.big{font:700 26px/1.1 var(--sans);font-variant-numeric:tabular-nums;margin:2px 0 6px}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--accent);text-align:center;background:var(--accent-soft);border-radius:50%;width:28px;height:28px}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font:14px/1.4 var(--sans);min-width:460px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Línea de tiempo: de Graham a los algoritmos */
+.era{display:grid;gap:8px;margin:12px 0}
+.era .row{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.era .yr{font:700 14px/1.3 var(--sans);color:var(--accent);font-variant-numeric:tabular-nums}
+.era .row p{margin:0;font:15px/1.5 var(--sans);min-width:0}
+.era .row b{display:block;font:700 15px/1.3 var(--sans);margin-bottom:2px}
+@media (max-width:420px){.era .row{grid-template-columns:1fr;gap:4px}}
+
+/* Barras de la apuesta */
+.bars{display:grid;gap:12px;margin:14px 0 4px}
+.bar .lbl{display:flex;justify-content:space-between;gap:10px;font:600 14px/1.3 var(--sans);margin-bottom:5px}
+.bar .lbl span:last-child{font-variant-numeric:tabular-nums}
+.bar .track{height:30px;background:var(--bg);border-radius:8px;overflow:hidden;display:flex}
+.bar .base{background:var(--line);height:100%}
+.bar .gain{height:100%}
+.bar.idx .gain{background:var(--accent)}
+.bar.hf .gain{background:var(--bad)}
+.legend2{display:flex;flex-wrap:wrap;gap:14px;font:13px/1.3 var(--sans);color:var(--muted);margin-top:6px}
+.legend2 i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:5px}
+
+/* Reparto 90/10 */
+.split{display:flex;height:44px;border-radius:10px;overflow:hidden;margin:14px 0 6px}
+.split div{display:flex;align-items:center;justify-content:center;font:700 13px/1 var(--sans);color:var(--bg);white-space:nowrap;overflow:hidden;min-width:0;padding:0 6px}
+
+/* Calculadoras */
+.calc label{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px/1.3 var(--sans);margin:12px 0 0}
+.calc label output{font-variant-numeric:tabular-nums;color:var(--accent)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.res b{display:block;font:700 21px/1.15 var(--sans);font-variant-numeric:tabular-nums}
+.res small{font:13px/1.35 var(--sans);color:var(--muted)}
+.res .g b{color:var(--accent)} .res .r b{color:var(--bad)} .res .c b{color:var(--cash)}
+@media (max-width:480px){.res{grid-template-columns:1fr}}
+
+/* Test */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 13 · Apuntes de estudio</div>
+  <h1>La selección value en la era de la información</h1>
+  <p class="sub">Comprar empresas sólidas por debajo de su valor fue durante décadas el camino seguro para batir al mercado. Este capítulo explica por qué hoy esa ventaja casi ha desaparecido para el inversor particular, y por qué hasta Warren Buffett, el gran inversor value, recomienda un fondo indexado.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>En tiempos de Graham la información era <b>escasa, lenta y desigual</b>. Quien la buscaba encontraba gangas.</li>
+    <li>Hoy la información es <b>instantánea</b> y la analizan algoritmos y fondos cuantitativos en segundos. Las gangas obvias duran segundos.</li>
+    <li>El value no ha muerto, <b>ha mutado</b>: un PER bajo puede ser una trampa y el valor hoy está en lo intangible (marca, datos, ecosistemas).</li>
+    <li>La evidencia es clara: <span class="mark">la gran mayoría de fondos activos no bate a su índice</span> a 10 años, y las comisiones agravan el problema.</li>
+    <li>Buffett ganó su apuesta de 10 años contra los hedge funds con un simple fondo indexado al S&amp;P 500.</li>
+    <li>Su consejo para su propia familia: <b>90 % en un indexado barato al S&amp;P 500 y 10 % en bonos del Tesoro a corto plazo</b>.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>De la calculadora al algoritmo</h2>
+<p>La ventaja del inversor value siempre fue saber algo antes que los demás, o mirar donde nadie miraba. Lo que ha cambiado es el acceso a esa información.</p>
+<div class="era">
+  <div class="row"><span class="yr">Época de Graham</span><p><b>Información escasa y lenta</b>Para ver las cuentas de una empresa había que pedirlas por correo, esperar semanas y analizarlas con calculadora y lápiz. Había ineficiencias y había tiempo para aprovecharlas.</p></div>
+  <div class="row"><span class="yr">Hace 30 años</span><p><b>Herramientas de profesional</b>Las bases de datos financieras eran caras y estaban reservadas a bancos y gestoras con sueldos de seis cifras.</p></div>
+  <div class="row"><span class="yr">Hoy</span><p><b>Información instantánea para todos</b>Los resultados se publican online y se distribuyen en segundos. Plataformas como Bloomberg, Morningstar, Finviz o Seeking Alpha filtran miles de empresas en minutos. Cualquiera con internet tiene lo que antes era de élite.</p></div>
+  <div class="row"><span class="yr">Y además</span><p><b>Máquinas compitiendo contigo</b>Fondos cuantitativos como Renaissance Technologies, Two Sigma o AQR procesan millones de datos en tiempo real. Cuando tú detectas una acción barata, ellos ya la han comprado y han reajustado su posición.</p></div>
+</div>
+<p>La paradoja: <b>cuanta más información tenemos, más difícil es obtener ventaja</b>. Democratizar los datos no ha nivelado el terreno, ha subido el listón para todos.</p>
+
+<h2><span class="n">02</span>La Hipótesis del Mercado Eficiente</h2>
+<p>Este fenómeno es la base de la <b>Hipótesis del Mercado Eficiente (HME)</b>: si los precios ya reflejan toda la información pública relevante, batir al mercado de forma consistente es muy difícil sin asumir riesgos extra.</p>
+<div class="vs">
+  <div class="card bad">
+    <h3>Lo que ya no funciona solo</h3>
+    <ul>
+      <li>Filtrar por PER bajo.</li>
+      <li>Buscar valor contable elevado.</li>
+      <li>Elegir por dividendo atractivo.</li>
+    </ul>
+    <p style="margin-top:8px">Millones de inversores y fondos automatizados aplican estos filtros a la vez. La oportunidad desaparece en segundos.</p>
+  </div>
+  <div class="card good">
+    <h3>Lo que sí sigue valiendo</h3>
+    <ul>
+      <li>El análisis fundamental como herramienta de comprensión.</li>
+      <li>Aplicado a la gestión empresarial o a la inversión privada.</li>
+      <li>Saber qué tienes en cartera y por qué.</li>
+    </ul>
+    <p style="margin-top:8px">Lo que ya no da es ventaja fácil al inversor particular en bolsa.</p>
+  </div>
+</div>
+<p style="margin-top:12px">El mito del inversor solitario que encuentra la joya escondida desde el sofá con una hoja de Excel es eso: un mito romántico que no aguanta la estadística.</p>
+
+<h2><span class="n">03</span>Las tres ilusiones del inversor value</h2>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Copiar a los grandes.</b> Muchos gestores replican los movimientos de Buffett, Munger o Lynch olvidando que sus estructuras no se pueden copiar. Buffett compra empresas enteras, negocia con sus equipos directivos y entra en condiciones preferentes. Un particular con un bróker online no juega a lo mismo.</p></div>
+  <div class="step"><b class="k">2</b><p><b>Barato = oportunidad.</b> Un PER bajo puede reflejar un negocio estancado, mala dirección, problemas estructurales o riesgos regulatorios. Si una empresa parece barata, probablemente lo sea por una buena razón. En mercados líquidos no hay almuerzos gratis.</p></div>
+  <div class="step"><b class="k">3</b><p><b>Las métricas de siempre siguen valiendo igual.</b> La propia definición de valor ha cambiado. Antes eran fábricas, maquinaria e inmuebles; hoy es marca, datos, fidelidad de cliente y ecosistema digital, cosas que no salen bien en el balance.</p></div>
+</div>
+
+<h3>¿Qué PER debería tener Amazon?</h3>
+<p>Una empresa que reinvierte constantemente todo lo que gana apenas reporta beneficios, así que su PER parece absurdo. Aplicar el PER clásico a un negocio con márgenes del 30 % que reinvierte para crecer es como medir la salud de un atleta olímpico con los baremos médicos del siglo XIX.</p>
+<div class="vs">
+  <div class="card blue">
+    <h3>Economía de ayer</h3>
+    <p>El índice lo dominaban ferrocarriles, acerías y tabacaleras. Los beneficios crecían de forma casi lineal y el análisis clásico funcionaba bien.</p>
+  </div>
+  <div class="card em">
+    <h3>Economía de hoy</h3>
+    <p>Lo dominan Apple, Microsoft, Amazon o Alphabet, con capacidad de escalar cada dólar a nivel global. Su valor está en algoritmos, redes de usuarios y capacidad de capturar datos.</p>
+  </div>
+</div>
+<p style="margin-top:12px">Por eso quienes repiten que el índice "está caro" suelen ser los que llevan diez años esperando una corrección para entrar. Mientras, las empresas siguen innovando y ellos siguen con el dinero parado. La inversión pasiva no necesita adivinar el futuro, ni acertar cuándo comprar barato: solo tiempo y disciplina.</p>
+
+<h2><span class="n">04</span>Value contra growth: el tren perdido</h2>
+<p>Entre 2007 y 2020 el factor value vivió uno de sus peores periodos de la historia moderna. Mientras las tecnológicas (growth) lideraban, muchas acciones value languidecían en sectores maduros, cíclicos o poco escalables. Los fondos orientados al value quedaron sistemáticamente por detrás de los índices globales.</p>
+<p>Los tipos de interés bajos favorecieron además a las empresas de crecimiento, porque un dinero barato hace más valiosos los beneficios lejanos en el tiempo. En ese contexto, las valoraciones "bajas" no eran garantía de nada.</p>
+<div class="vs">
+  <div class="card bad">
+    <h3>Pequeñas value de EE. UU.</h3>
+    <div class="big">≈ −48 %</div>
+    <p>Caída en el primer trimestre de 2020, según el libro.</p>
+  </div>
+  <div class="card good">
+    <h3>Grandes growth de EE. UU.</h3>
+    <div class="big">≈ −30 %</div>
+    <p>Caída en el mismo periodo, según el libro.</p>
+  </div>
+</div>
+<p style="margin-top:12px">En los momentos extremos, como la pandemia, las acciones value fueron las que más sufrieron, justo cuando en teoría tenían que ser el refugio barato. Muchos gestores activos no supieron anticipar la recuperación, liderada por las tecnológicas.</p>
+<div class="card note">
+  <b>Ojo con las cifras de 2020.</b> Las caídas exactas dependen del índice que uses y de si mides el trimestre cerrado o de máximo a mínimo (de mediados de febrero a finales de marzo). Al cierre del trimestre, los índices de pequeñas value más usados cayeron en torno a un 35 % y los de grandes growth bastante menos. La idea del libro es correcta: el value pequeño cayó mucho más que el growth grande.
+</div>
+
+<h2><span class="n">05</span>Las comisiones: el factor que no perdona</h2>
+<p>A todo lo anterior se suma un factor estructural. Un fondo value activo que logra la misma rentabilidad que el mercado pero cobra un 1,5 % anual pierde contra un ETF indexado que cobra un 0,07 %. Esa diferencia, acumulada durante años, anula cualquier ventaja que el gestor pueda sacar.</p>
+<div class="card calc">
+  <label for="cap">Capital invertido <output id="oCap"></output><input id="cap" type="range" min="5000" max="500000" step="5000" value="100000"></label>
+  <label for="yrs">Años <output id="oYrs"></output><input id="yrs" type="range" min="5" max="40" step="1" value="30"></label>
+  <label for="gr">Rentabilidad bruta del mercado <output id="oGr"></output><input id="gr" type="range" min="3" max="10" step="0.5" value="7"></label>
+  <label for="fee">Comisión del fondo activo <output id="oFee"></output><input id="fee" type="range" min="0.5" max="2.5" step="0.1" value="1.5"></label>
+  <div class="res">
+    <div class="g"><b id="vEtf"></b><small>ETF indexado (0,07 %)</small></div>
+    <div class="r"><b id="vAct"></b><small id="vActTxt">fondo activo</small></div>
+    <div class="c"><b id="vLost"></b><small id="vLostTxt">se queda por el camino</small></div>
+  </div>
+  <p class="foot">Suponemos que el gestor activo consigue exactamente la rentabilidad del mercado antes de comisiones, como en el ejemplo del libro. Sin impuestos. Con los valores de partida, 100.000 € a 30 años al 7 % se convierten en unos 746.000 € con el ETF y en unos 506.000 € con el activo.</p>
+</div>
+
+<p>Por eso cada vez más inversores, incluso institucionales, se pasan a la gestión pasiva. No es que hayan perdido la fe en el análisis: es que el juego favorece a quien minimiza errores y costes. En mercados eficientes, sobrevivir no consiste en intentar ganar más que los demás.</p>
+
+<h2><span class="n">06</span>La evidencia: año tras año</h2>
+<div class="vs three">
+  <div class="card blue">
+    <h3>Informes SPIVA</h3>
+    <p>S&amp;P Dow Jones Indices compara cada año los fondos activos con sus índices. La mayoría no los bate a largo plazo, incluidos los value.</p>
+  </div>
+  <div class="card blue">
+    <h3>Fama y French</h3>
+    <p>Su investigación respalda que los precios reflejan rápido la información disponible. Intentar explotar ineficiencias se vuelve una apuesta especulativa.</p>
+  </div>
+  <div class="card blue">
+    <h3>John Bogle</h3>
+    <p>El fundador de Vanguard avisó de que perseguir rentabilidades superiores era una trampa: costes, errores emocionales y falsa confianza.</p>
+  </div>
+</div>
+<div class="card quote">
+  No busques la aguja en el pajar. Compra el pajar entero.
+  <small>John Bogle, la idea que resume la gestión pasiva</small>
+</div>
+<p>Si los profesionales con miles de millones, equipos de analistas y acceso privilegiado a datos no consiguen batir al mercado de forma consistente, ¿qué probabilidad real tiene un particular desde su casa con una hoja de Excel?</p>
+
+<div class="card note">
+  <b>Ojo, la cifra del SPIVA es incluso peor.</b> El libro dice que cerca del 80 % de los fondos de renta variable estadounidense no superaron al S&amp;P 500 en 10 años. En el informe SPIVA de mediados de 2023, el porcentaje de fondos de gran capitalización de EE. UU. que quedó por detrás del S&amp;P 500 a 10 años fue del <b>86 %</b>, y a plazos más largos sube aún más. El argumento del libro sale reforzado.
+</div>
+<div class="card note">
+  <b>Un matiz curioso sobre Fama y French.</b> Son los mismos investigadores que en los años 90 documentaron la "prima value": a muy largo plazo, las empresas baratas tendieron a rendir algo más que las caras. Su conclusión no es que el value no exista, sino que esa prima se explica por asumir más riesgo y que capturarla con éxito eligiendo acciones sueltas es muy difícil. Por eso hay fondos indexados de factor value, que la buscan de forma sistemática y barata.
+</div>
+
+<h2><span class="n">07</span>Dónde queda el value hoy</h2>
+<p>La selección value se ha desplazado hacia mercados menos desarrollados, empresas pequeñas o en crisis y situaciones especiales. Pero incluso ahí los riesgos se multiplican: falta de transparencia, poca liquidez, riesgo político, más volatilidad. Una acción puede parecer barata y terminar siendo una <b>trampa de valor</b>.</p>
+<div class="card">
+  <p style="margin:0"><b>La paradoja:</b> cuanto más escondida está la ganga, menos probable es que sea real. Y cuanto más visible es, más riesgo implica. El value sigue teniendo sentido teórico, pero en la práctica pide paciencia, disciplina, tiempo y recursos que pocos tienen. Y aun así, el resultado sigue siendo incierto.</p>
+</div>
+<p>La estrategia más razonable para la mayoría es la que defendía Bogle: asumir que no se puede ganar al mercado y, por tanto, replicarlo con bajo coste. Lo demás es apostar.</p>
+
+<h2><span class="n">08</span>La apuesta de Buffett</h2>
+<p>En 2007 Warren Buffett lanzó una apuesta pública: en un plazo de diez años, un simple fondo indexado al S&amp;P 500 superaría a una selección de fondos gestionados por profesionales. La aceptó <b>Protégé Partners</b>, una firma especializada en elegir gestores de hedge funds. Eligieron cinco fondos de fondos de hedge funds. Buffett puso su parte en el <b>Vanguard 500 Index Fund Admiral Shares (VFIAX)</b>.</p>
+<p>El periodo fue de 2008 a 2017, con la gran crisis financiera justo al principio: un arranque que en teoría favorecía a los gestores activos, que pueden protegerse.</p>
+<div class="card">
+  <b style="font:700 15px/1.3 var(--sans)">Qué fue de 100 € en cada lado (2008–2017)</b>
+  <div class="bars">
+    <div class="bar idx">
+      <div class="lbl"><span>Fondo indexado S&amp;P 500</span><span>225,8 € · +125,8 %</span></div>
+      <div class="track"><div class="base" style="width:44.3%"></div><div class="gain" style="width:55.7%"></div></div>
+    </div>
+    <div class="bar hf">
+      <div class="lbl"><span>Media de los 5 fondos de hedge funds</span><span>136,3 € · +36,3 %</span></div>
+      <div class="track"><div class="base" style="width:44.3%"></div><div class="gain" style="width:16.1%"></div></div>
+    </div>
+  </div>
+  <div class="legend2"><span><i style="background:var(--line)"></i>Capital inicial</span><span><i style="background:var(--accent)"></i>Ganancia del indexado</span><span><i style="background:var(--bad)"></i>Ganancia de los hedge funds</span></div>
+  <p class="foot">Al año: unos <b>8,5 %</b> el indexado frente a unos <b>3,1 %</b> la media de los cinco. Cifras finales de la carta de Buffett a los accionistas de 2017, que el libro recoge bien.</p>
+</div>
+<p>Buffett no solo desafió la sabiduría de Wall Street: dejó en evidencia las comisiones excesivas y lo difícil que es para los gestores activos batir al mercado de forma constante. Más allá del dinero, la apuesta fue una declaración de principios sobre la inversión: para el inversor medio, lo más sensato y rentable a largo plazo es un fondo indexado de bajo coste mantenido durante décadas.</p>
+
+<div class="card note">
+  <b>Ojo con "triplicó".</b> El libro dice que el fondo pasivo prácticamente triplicó la rentabilidad de los activos. Es cierto si miras solo la <b>ganancia</b>: 125,8 % frente a 36,3 % es unas 3,5 veces más. Pero el <b>patrimonio final</b> fue 1,66 veces mayor (225,8 € frente a 136,3 €), porque los dos partían de los mismos 100 €. Las dos lecturas son válidas, solo hay que saber cuál se usa.
+</div>
+<div class="card note">
+  <b>Sobre el premio.</b> El libro dice que se donó un millón de dólares a Girls Inc. of Omaha. La apuesta era de un millón, pero el dinero se depositó en bonos que a mitad de camino se cambiaron por acciones de Berkshire Hathaway. Por eso, al final, a la organización benéfica le llegaron unos <b>2,2 millones de dólares</b>.
+</div>
+
+<h2><span class="n">09</span>La carta de 2013: el testamento de Buffett</h2>
+<p>La apuesta no fue un gesto aislado. En su carta anual a los accionistas de Berkshire Hathaway de 2013, Buffett explicó las instrucciones que había dejado en su testamento para la herencia de su esposa. No recomendó gestores profesionales, hedge funds ni estrategias sofisticadas:</p>
+<div class="split" aria-hidden="true">
+  <div style="width:90%;background:var(--accent)">90 % · indexado barato al S&amp;P 500</div>
+  <div style="width:10%;background:var(--cash)">10 %</div>
+</div>
+<p class="foot" style="margin-bottom:14px">90 % en un fondo indexado de bajo coste al S&amp;P 500 (sugirió el de Vanguard) y 10 % en bonos del Tesoro a corto plazo. Según él, a largo plazo esto daría mejores resultados que la mayoría de inversores que pagan gestores caros.</p>
+<p>Esta declaración pesa por tres razones:</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p>Buffett no habla de lo que cree que funcionará para otros, sino de lo que quiere para <b>su propia familia</b> cuando él ya no esté.</p></div>
+  <div class="step"><b class="k">2</b><p>Va contra los intereses de la industria financiera, que vive de las comisiones de la gestión activa.</p></div>
+  <div class="step"><b class="k">3</b><p>No la elige por falta de alternativas. Tras toda una vida analizando inversiones, concluye que es la opción más segura y rentable a largo plazo.</p></div>
+</div>
+<p>Si el mejor inversor del siglo XX considera que un indexado al S&amp;P 500 es la mejor forma de proteger y hacer crecer el patrimonio de su familia, ¿qué sentido tiene complicarse con predicciones, análisis técnico o gestores estrella?</p>
+<p>Buffett no defiende la mediocridad. Defiende la estadística: sabe que la mayoría de fondos activos no bate a su índice, y que el comportamiento a largo plazo de los mercados premia la constancia y la sencillez por encima de la complejidad y el exceso de confianza.</p>
+
+<div class="card note">
+  <b>Para un inversor europeo.</b> Buffett habla en clave estadounidense: S&amp;P 500 y bonos del Tesoro de EE. UU. Lo que se traslada es el principio (indexado, barato, diversificado, mantenido décadas). Para un inversor en euros, el enfoque Boglehead que viste en el capítulo 9 prefiere un índice <b>global</b> en lugar de un solo país, y renta fija en euros en lugar de bonos en dólares.
+</div>
+
+<h2><span class="n">10</span>Conclusión</h2>
+<p>El value nació en un mundo de información escasa, y ahí tenía ventaja quien trabajaba más. Hoy la información es de todos y la procesan máquinas, así que esa ventaja casi ha desaparecido para el particular. El valor tampoco está ya donde estaba, y las comisiones se comen lo poco que quede. Hasta el gran maestro del value, cuando piensa en su familia, elige el fondo indexado.</p>
+<div class="chips">
+  <span class="chip">Información = ya no es ventaja</span>
+  <span class="chip">PER bajo ≠ ganga</span>
+  <span class="chip">Cuidado con la trampa de valor</span>
+  <span class="chip">Comisiones bajas</span>
+  <span class="chip">Compra el pajar</span>
+  <span class="chip">90 / 10 de Buffett</span>
+</div>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿verdad o mito?</h2>
+<p>Decide si cada frase encaja con el capítulo.</p>
+<div class="card score"><span id="score">0 de 8 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Value investing</dt><dd>Comprar acciones que cotizan por debajo de su valor intrínseco, con un margen de seguridad. Lo formalizó Benjamin Graham.</dd>
+  <dt>Valor intrínseco</dt><dd>Lo que realmente vale una empresa según sus beneficios y activos, aunque el precio de bolsa diga otra cosa.</dd>
+  <dt>PER</dt><dd>Precio de la acción dividido entre el beneficio por acción. Cuántos años de beneficios estás pagando.</dd>
+  <dt>Value / growth</dt><dd>Value: empresas baratas por múltiplos, a menudo maduras. Growth: empresas de alto crecimiento, que cotizan con múltiplos más altos.</dd>
+  <dt>Hipótesis del Mercado Eficiente (HME)</dt><dd>Idea de que los precios reflejan rápidamente toda la información pública, por lo que es muy difícil batir al mercado de forma consistente.</dd>
+  <dt>Trampa de valor</dt><dd>Acción que parece barata y sigue bajando, porque lo barato era el reflejo de un negocio en declive.</dd>
+  <dt>Fondo cuantitativo</dt><dd>Fondo que invierte con modelos matemáticos y algoritmos que procesan enormes cantidades de datos.</dd>
+  <dt>Moat (foso)</dt><dd>Ventaja competitiva duradera que protege los márgenes de una empresa frente a sus rivales.</dd>
+  <dt>SPIVA</dt><dd>Informes de S&amp;P Dow Jones Indices que comparan fondos activos con su índice de referencia.</dd>
+  <dt>Hedge fund</dt><dd>Fondo de inversión alternativa, con estrategias complejas y comisiones altas. Los fondos de fondos invierten en varios de ellos y añaden otra capa de comisiones.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Por qué el value funcionaba mejor en tiempos de Graham?</summary><p>Porque la información era escasa, lenta y desigual. Quien se esforzaba en conseguirla y analizarla encontraba gangas antes que el resto, y había tiempo para aprovecharlas.</p></details>
+<details><summary>¿Ha muerto el value investing?</summary><p>No, ha mutado. Los filtros simples (PER bajo, dividendo alto) ya no dan ventaja porque los aplican millones de inversores y algoritmos a la vez, y el valor de las empresas hoy está mucho en lo intangible.</p></details>
+<details><summary>¿Por qué un PER bajo puede ser una mala señal?</summary><p>Porque puede reflejar un negocio estancado, mala gestión o riesgos regulatorios. En mercados líquidos, si algo parece barato, suele haber una razón.</p></details>
+<details><summary>¿Por qué no se puede copiar a Buffett?</summary><p>Porque Buffett compra empresas enteras, negocia con sus directivos y entra en condiciones preferentes. Un particular comprando acciones en un bróker online no tiene esas armas.</p></details>
+<details><summary>Si un gestor activo consigue lo mismo que el mercado, ¿por qué pierde?</summary><p>Por las comisiones. Un 1,5 % al año frente a un 0,07 % se acumula: a 30 años puede dejarte con un tercio menos de patrimonio.</p></details>
+<details><summary>¿Qué resultado tuvo la apuesta de Buffett?</summary><p>De 2008 a 2017, el indexado al S&amp;P 500 ganó un 125,8 % y la media de cinco fondos de hedge funds un 36,3 %. Unos 8,5 % frente a 3,1 % al año.</p></details>
+<details><summary>¿Qué dejó Buffett escrito para la herencia de su esposa?</summary><p>90 % en un fondo indexado de bajo coste al S&amp;P 500 y 10 % en bonos del Tesoro a corto plazo.</p></details>
+
+<footer>Apuntes del Capítulo 13 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 110–117). La calculadora de comisiones, las barras de la apuesta, el test, la nota sobre las cifras de 2020, la del SPIVA, la de Fama y French, la de "triplicó", la del premio y la del inversor europeo son añadidos propios, no del libro. No es asesoramiento financiero.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  var pct=function(n,d){return n.toLocaleString('es-ES',{minimumFractionDigits:d||0,maximumFractionDigits:d==null?1:d})+' %'};
+
+  /* Comisiones */
+  function fees(){
+    var C=+$('cap').value,Y=+$('yrs').value,G=+$('gr').value/100,F=+$('fee').value/100;
+    $('oCap').textContent=eur(C); $('oYrs').textContent=Y+' años'; $('oGr').textContent=pct(G*100); $('oFee').textContent=pct(F*100,1);
+    var etf=C*Math.pow(1+G-0.0007,Y), act=C*Math.pow(1+G-F,Y), lost=etf-act;
+    $('vEtf').textContent=eur(etf);
+    $('vAct').textContent=eur(act); $('vActTxt').textContent='fondo activo ('+pct(F*100,1)+')';
+    $('vLost').textContent=eur(lost); $('vLostTxt').textContent='se quedan en comisiones ('+pct(lost/etf*100,0)+' del resultado)';
+  }
+  ['cap','yrs','gr','fee'].forEach(function(id){$(id).addEventListener('input',fees)}); fees();
+
+  /* Test */
+  var items=[
+    ['Hoy un particular con internet tiene acceso a datos que hace 30 años eran solo de profesionales.','V','Por eso precisamente la información ya no da ventaja: la tienen todos.'],
+    ['Si una acción tiene un PER bajo, es una ganga casi segura.','M','Puede ser una trampa de valor: el precio bajo suele reflejar problemas reales del negocio.'],
+    ['El value investing ha muerto.','M','Ha mutado. Sigue teniendo sentido teórico, pero los filtros simples ya no dan ventaja.'],
+    ['Copiar las compras de Buffett da los mismos resultados que Buffett.','M','Él compra empresas enteras y negocia condiciones preferentes. Esa estructura no se puede copiar.'],
+    ['Un fondo activo que iguala al mercado pero cobra un 1,5 % pierde contra un ETF del 0,07 %.','V','La diferencia de comisiones, acumulada durante años, se come el resultado.'],
+    ['Entre 2007 y 2020 el value fue de los estilos que mejor lo hicieron.','M','Fue uno de sus peores periodos de la historia moderna, mientras lideraban las tecnológicas.'],
+    ['En la apuesta de Buffett, los hedge funds empezaron con ventaja por la crisis de 2008.','V','En teoría la gestión activa puede protegerse en una caída. Aun así, el indexado ganó con claridad.'],
+    ['Para su herencia, Buffett pidió repartir el dinero entre los mejores gestores activos.','M','Pidió 90 % en un indexado barato al S&P 500 y 10 % en bonos del Tesoro a corto plazo.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'v" data-v="V">Verdad</button><button type="button" id="q'+n+'m" data-v="M">Mito</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick'); w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='V'?'Verdad':'Mito')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-12-aleatoriedad-predicciones.html"><small>← Anterior · Cap. 12</small>Aleatoriedad y predicciones</a><a class="next" href="capitulo-14-cartera-mono.html"><small>Siguiente · Cap. 14 →</small>La cartera del mono</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-13-value-era-informacion",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

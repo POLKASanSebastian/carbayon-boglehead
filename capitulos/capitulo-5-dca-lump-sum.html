@@ -1,0 +1,318 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 5 · 5 de 18</span></div></nav>
+<title>Capítulo 5 · DCA o Lump Sum</title>
+<style>
+/* Mismo sistema que los capítulos 1–4: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:20px;line-height:1.4;font-style:italic;border-left:4px solid var(--accent);padding:4px 0 4px 16px;margin:18px 0}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:12px 0}
+.opt{border-radius:12px;padding:14px;min-width:0}
+.opt b{display:block;font:700 15px/1.3 var(--sans);margin-bottom:4px}
+.opt span{font-size:15px}
+.opt.ls{background:var(--accent-soft)} .opt.ls b{color:var(--accent)}
+.opt.dca{background:var(--cash-soft)} .opt.dca b{color:var(--cash)}
+.opt.wait{background:var(--bad-soft)} .opt.wait b{color:var(--bad)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font:15px/1.4 var(--sans)}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{font:14px/1.3 var(--sans)}
+.bar-row{display:grid;grid-template-columns:118px 1fr 78px;gap:8px;align-items:center;margin:8px 0}
+.bar-row > span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.bar{height:16px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+.tranches{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:12px 0 4px}
+.tranches div{background:var(--cash-soft);border-radius:8px;padding:8px 4px;text-align:center;font:600 13px/1.3 var(--sans);color:var(--cash)}
+.tranches div small{display:block;font-weight:400;color:var(--muted)}
+.calc label{display:block;font:600 14px/1.3 var(--sans);margin:12px 0 4px}
+.calc label output{float:right;color:var(--accent);font-variant-numeric:tabular-nums}
+.calc input[type=range]{width:100%;accent-color:var(--accent)}
+.calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;font:14px/1.3 var(--sans);min-width:0}
+.res strong{display:block;font-size:20px;margin-top:4px;font-variant-numeric:tabular-nums}
+.res small{display:block;color:var(--muted);margin-top:3px}
+.res .full{grid-column:1/-1}
+.res .good{background:var(--accent-soft)} .res .good strong{color:var(--accent)}
+.res .lost{background:var(--bad-soft)} .res .lost strong{color:var(--bad)}
+.res .calm{background:var(--cash-soft)} .res .calm strong{color:var(--cash)}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--bad);text-align:center;background:var(--bad-soft);border-radius:50%;width:28px;height:28px}
+.step p{margin:0;min-width:0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 5 · Apuntes de estudio</div>
+  <h1>Inversión de largo plazo: DCA o Lump Sum</h1>
+  <p class="sub">Si tienes un dinero para invertir, ¿lo metes todo de golpe, lo repartes en varias compras o esperas a que baje la bolsa? Qué dicen los datos y por qué nuestra cabeza se resiste a hacerles caso.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li><b>Lump Sum</b> (todo de golpe) gana en la mayoría de los casos: según Vanguard, más del 65%. El mercado tiende a subir y el dinero fuera no crece.</li>
+    <li><b>DCA</b> (repartir las compras) rinde algo menos de media, pero reduce el riesgo de entrar justo antes de una caída. Es una herramienta <span class="mark">psicológica</span>.</li>
+    <li>El autor, siguiendo a Bernstein, repartió una suma grande en <b>seis tramos mensuales</b>.</li>
+    <li><b>Esperar "el mejor momento"</b> no es DCA: es market timing, y históricamente sale peor que invertir ya.</li>
+    <li>Elegir acciones tampoco funciona: ~95% de los gestores activos pierde contra el índice a 20 años, y solo un 4% de las acciones explica la riqueza creada por la bolsa.</li>
+    <li>Seguimos intentándolo por sesgos: ilusión de control, dopamina, sesgo de disponibilidad, aversión a la inacción y ego.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Tres formas de entrar en el mercado</h2>
+<p>Recibes una herencia, un bonus o vendes un piso. Tienes tres caminos:</p>
+<div class="three">
+  <div class="opt ls"><b>Lump Sum</b><span>Invertir el 100% el mismo día que tienes el dinero.</span></div>
+  <div class="opt dca"><b>DCA</b><span><i>Dollar Cost Averaging</i>: dividir el dinero en varias compras a lo largo de unos meses.</span></div>
+  <div class="opt wait"><b>Esperar</b><span>Guardar el dinero en liquidez hasta que "baje la bolsa". Es intentar adivinar el mercado.</span></div>
+</div>
+<p>El capítulo analiza las tres desde los datos históricos y las matemáticas.</p>
+
+<h2><span class="n">02</span>Lump Sum: la opción que gana más veces</h2>
+<p>Los estudios de <b>Vanguard</b> muestran que invertir de golpe da más rentabilidad que repartir las compras en <b>más del 65% de los casos</b>. La razón es simple: los mercados suben a largo plazo, así que cuanto antes entra el dinero, antes empieza a componer.</p>
+<p>Si la bolsa sube de media un 7% al año, cada día que el dinero espera fuera es crecimiento que te pierdes.</p>
+<div class="card">
+  <p><b>Ojo con lo que significa "65%".</b> Que Lump Sum gane dos de cada tres veces también quiere decir que <b>una de cada tres veces gana el DCA</b>. Y cuando pierde Lump Sum, suele ser porque la caída llega justo después de invertir. Ese tercio es el que da miedo, y por eso existe el DCA.</p>
+</div>
+
+<h2><span class="n">03</span>DCA: la opción psicológicamente más segura</h2>
+<p>El DCA no es la estrategia más rentable de media, pero reduce el riesgo de entrar en mal momento. Sirve sobre todo a:</p>
+<ul>
+  <li>Inversores con mucha aversión al riesgo, que podrían entrar en pánico si el mercado cae justo después de una inversión grande.</li>
+  <li>Quien invierte ingresos recurrentes (por ejemplo, parte del sueldo cada mes).</li>
+  <li>Quien tiene dificultades emocionales para meter una suma grande de una vez.</li>
+</ul>
+<h3>La regla de decisión del libro</h3>
+<div class="tw"><table>
+  <tr><th>Si tu prioridad es…</th><th>Usa</th></tr>
+  <tr><td>Maximizar la rentabilidad a largo plazo</td><td><b style="color:var(--accent)">Lump Sum</b></td></tr>
+  <tr><td>Reducir el impacto de la volatilidad (y del susto)</td><td><b style="color:var(--cash)">DCA</b></td></tr>
+</table></div>
+
+<h2><span class="n">04</span>La receta de Bernstein: seis meses</h2>
+<p><b>William Bernstein</b>, neurólogo y autor muy conocido en finanzas personales, reconoce que estadísticamente gana invertir de golpe. Pero también que mucha gente se beneficia emocionalmente de fraccionar la entrada. Su recomendación está pensada para sumas inesperadas o grandes: una herencia, una indemnización o la venta de un inmueble.</p>
+<p>El autor siguió ese consejo con el dinero de la venta de un inmueble: lo repartió en <b>seis tramos mensuales</b>.</p>
+<div class="tranches" aria-label="Seis tramos mensuales de un sexto cada uno">
+  <div>Mes 1<small>1/6</small></div><div>Mes 2<small>1/6</small></div><div>Mes 3<small>1/6</small></div>
+  <div>Mes 4<small>1/6</small></div><div>Mes 5<small>1/6</small></div><div>Mes 6<small>1/6</small></div>
+</div>
+<p class="foot">Lo bastante corto para no sacrificar mucha rentabilidad. Lo bastante largo para suavizar el golpe si el mercado cae justo después de empezar.</p>
+<div class="vs" style="margin-top:14px">
+  <div class="card">
+    <h3>DCA por elección</h3>
+    <p>Tienes una suma grande disponible hoy y decides repartirla. Aquí sí hay una decisión estratégica: seis meses es un buen equilibrio.</p>
+  </div>
+  <div class="card">
+    <h3>DCA por obligación</h3>
+    <p>Inviertes cada mes una parte del sueldo. No es una elección: es la única opción, porque el dinero se genera poco a poco. Lo único que hay que hacer es invertirlo cuando llega.</p>
+  </div>
+</div>
+<p style="margin-top:12px">A alguno le parecerá agresivo meter una cifra de seis dígitos en solo seis meses. El autor insiste: hay que sobreponerse a las emociones y decidir con la estadística en la mano.</p>
+
+<h3>Pruébalo tú: todo de golpe o en tramos</h3>
+<div class="card calc">
+  <label for="nm">Meses en los que repartes la compra <output id="oNm"></output></label>
+  <input id="nm" type="range" min="2" max="24" step="1" value="6">
+  <label for="mu">Rentabilidad media de la bolsa <output id="oMu"></output></label>
+  <input id="mu" type="range" min="2" max="10" step="0.5" value="7">
+  <label for="sg">Volatilidad anual <output id="oSg"></output></label>
+  <input id="sg" type="range" min="5" max="25" step="1" value="15">
+  <label for="cs">Interés de la liquidez mientras esperas <output id="oCs"></output></label>
+  <input id="cs" type="range" min="0" max="4" step="0.5" value="2">
+  <label for="am">Dinero a invertir <output id="oAm"></output></label>
+  <input id="am" type="range" min="10000" max="500000" step="10000" value="100000">
+  <div class="res">
+    <div class="good">Lump Sum acaba por delante<strong id="r1"></strong><small>% de escenarios</small></div>
+    <div class="calm">El DCA acaba por delante<strong id="r2"></strong><small>% de escenarios</small></div>
+    <div>Ventaja típica de Lump Sum<strong id="r3"></strong><small>mediana, al terminar el reparto</small></div>
+    <div class="lost">Mal escenario para Lump Sum<strong id="r4"></strong><small>el 10% de casos en que más pierde</small></div>
+  </div>
+  <p class="foot">4.000 escenarios aleatorios. Se compara el valor de las dos opciones el mes en que el DCA termina de invertir; a partir de ahí las dos carteras evolucionan igual. Con los valores por defecto el modelo da a Lump Sum algo menos del 65% de Vanguard (que usó datos históricos reales y carteras mixtas), pero la conclusión es la misma: gana más veces, y el DCA te compra tranquilidad a cambio de un pequeño coste medio.</p>
+</div>
+
+<h2><span class="n">05</span>El peor error: no invertir</h2>
+<p class="quote">Entre Lump Sum y DCA, cualquiera de las dos. Entre DCA y dejar el dinero parado, siempre DCA.</p>
+<p>Si alguien duda tanto que el miedo le paraliza, es mejor repartir las compras que tener el dinero sin invertir de forma indefinida.</p>
+
+<h2><span class="n">06</span>Esperar "el mejor momento" no es DCA</h2>
+<p>Mucha gente cae en la tentación de esperar a que el mercado baje para entrar. Eso es <b>market timing</b>: decisiones basadas en emociones y noticias alarmistas. Guardar liquidez "para aprovechar las caídas" no es una forma prudente de DCA; en la práctica acaba repartiendo la inversión a lo largo de varios años.</p>
+<h3>El experimento del libro (S&amp;P 500, 30 años)</h3>
+<div class="tw"><table>
+  <tr><th>Estrategia</th><th>Resultado según el libro</th></tr>
+  <tr><td><b>Invertir todo de inmediato</b></td><td>La mejor de media. 10.000 € llegan a unos 35.700 €.</td></tr>
+  <tr><td><b>Esperar caídas del 10%</b> (acertando siempre el momento)</td><td>Prácticamente el mismo valor final. Lo que ganas comprando más barato lo pierdes por el tiempo fuera.</td></tr>
+  <tr><td><b>Repartir la entrada en 10 años</b></td><td>Claramente menos capital: buena parte del dinero estuvo años sin invertir.</td></tr>
+</table></div>
+<p style="margin-top:12px">Fíjate en la segunda fila: incluso con una bola de cristal perfecta que avisa de cada corrección, esperar no aporta nada. En la vida real nadie acierta siempre, así que esperar suele salir peor.</p>
+<div class="card note">
+  <b>Ojo con las cifras de este ejemplo.</b> El libro dice que, con un 8% anual medio y un 15% de volatilidad, 10.000 € llegan a unos 35.700 € en 30 años. Eso equivale a solo un 4,3% anual. Al 8% salen unos <b>100.600 €</b>; descontando la penalización de la volatilidad (capítulo 2), unos <b>75.300 €</b>. Para la opción de repartir en 10 años (1.000 € al año), el libro habla de unos 3.500 € de diferencia; con los mismos supuestos se quedaría en unos <b>56.700 €</b>, casi 19.000 € menos que invertir todo de golpe. La conclusión del libro aguanta, y con números correctos es más fuerte. Cálculo propio.
+</div>
+
+<h2><span class="n">07</span>Elegir acciones tampoco funciona</h2>
+<p>Otra idea muy común: con buen análisis puedo elegir empresas mejores que el mercado. Los datos dicen otra cosa.</p>
+<div class="card bars">
+  <p style="margin:0 0 6px"><b>Informes SPIVA</b> (comparan fondos activos con su índice), a 20 años:</p>
+  <div class="bar-row"><span>Pierden vs índice</span><div class="bar"><i style="width:95%;background:var(--bad)"></i></div><span>≈ 95%</span></div>
+  <div class="bar-row"><span>Baten al índice</span><div class="bar"><i style="width:5%;background:var(--accent)"></i></div><span>≈ 5%</span></div>
+  <p class="foot">Si los profesionales, con más información y recursos, no lo consiguen, aún es menos probable que lo consiga un particular de forma constante.</p>
+</div>
+<div class="card bars">
+  <p style="margin:0 0 6px"><b>Hendrik Bessembinder</b> (profesor de finanzas, estudio de 2017):</p>
+  <div class="bar-row"><span>4% de acciones</span><div class="bar"><i style="width:4%;background:var(--accent)"></i></div><span>casi todo</span></div>
+  <div class="bar-row"><span>96% restante</span><div class="bar"><i style="width:96%;background:var(--line)"></i></div><span>≈ nada</span></div>
+  <p class="foot">Ese 4% de las acciones cotizadas explica la riqueza neta creada por la bolsa estadounidense. La mayoría de acciones, a lo largo de su vida, rindieron menos que la renta fija más segura.</p>
+</div>
+<p>Elegir acciones es como buscar una aguja: la probabilidad de escoger una que lo haga peor que el mercado es muy alta, y la de dar con una de las pocas ganadoras, muy baja. Con un índice tienes las agujas seguro, porque compras todo el pajar.</p>
+<div class="card note">
+  <b>Un matiz al dato de Bessembinder.</b> El libro dice que ese 4% generó "la mayor parte" de la rentabilidad. El estudio original (EE. UU., 1926–2016) es todavía más contundente: ese 4% explica <b>toda</b> la riqueza neta creada; el resto, en conjunto, apenas igualó a las letras del Tesoro. Y el dato del 95% es aproximado: depende de la categoría de fondos y del año del informe.
+</div>
+
+<h2><span class="n">08</span>Por qué seguimos intentándolo</h2>
+<p>Analistas, medios, gurús y especuladores intentan prever subidas y bajadas. Fallan de forma sistemática, e incluso cuando aciertan no consiguen superar a quien siempre estuvo invertido. Aun así, millones de personas lo siguen intentando. El libro da cinco motivos psicológicos:</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Ilusión de control.</b> Sobreestimamos nuestra capacidad de influir en lo incierto. Creemos que con suficiente análisis podemos anticipar el mercado. Pero el mercado es caótico: miles de variables y millones de participantes. Comprar, vender o predecir da la sensación de "estar haciendo algo".</p></div>
+  <div class="step"><b class="k">2</b><p><b>Dopamina.</b> Especular activa los mismos circuitos que el juego. Apostar por una acción emociona como una mesa de casino. Si sale bien, aunque sea por suerte, el cerebro lo atribuye a la habilidad y pide repetir. Así nace el exceso de confianza.</p></div>
+  <div class="step"><b class="k">3</b><p><b>Sesgo de disponibilidad.</b> Recordamos los éxitos y olvidamos los fracasos. Se habla de quien compró Apple o Amazon al principio, no de los miles que apostaron por empresas que desaparecieron. La prensa destaca al gurú que acertó una crisis, no a los cientos que fallaron.</p></div>
+  <div class="step"><b class="k">4</b><p><b>Aversión a la inacción.</b> En un mundo que premia la acción, quedarse quieto parece no hacer nada. La mejor estrategia es la más simple y aburrida: comprar y mantener. Moverse da sensación de progreso aunque no aporte valor.</p></div>
+  <div class="step"><b class="k">5</b><p><b>Ego.</b> Aceptar que el mercado es impredecible y que lo mejor es seguir un índice supone admitir que no tienes ventaja sobre los demás. Choca con el ego; preferimos creer que nuestra inteligencia o instinto nos harán ganar. Los datos dicen que ni los profesionales lo consiguen.</p></div>
+</div>
+
+<h2><span class="n">09</span>La conclusión del capítulo</h2>
+<div class="card tldr">
+  <p>La mejor estrategia no es prever caídas ni elegir acciones. Es <b>invertir cuanto antes y quedarse invertido</b>. El mercado premia la paciencia, la diversificación y la constancia; la especulación y la caza de oportunidades suelen dar peores resultados.</p>
+  <p>Lo racional va contra nuestros instintos, y por eso cuesta tanto.</p>
+</div>
+<p class="quote">No se trata de batir al mercado, sino de ser el propio mercado.</p>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Lump Sum</dt><dd>Invertir todo el capital disponible de una sola vez.</dd>
+  <dt>DCA (Dollar Cost Averaging)</dt><dd>Repartir la inversión en varias compras periódicas, por importes iguales.</dd>
+  <dt>Market timing</dt><dd>Intentar entrar y salir del mercado adivinando cuándo subirá o bajará.</dd>
+  <dt>Corrección</dt><dd>Caída de la bolsa de en torno a un 10% desde máximos.</dd>
+  <dt>SPIVA</dt><dd>Informes de S&amp;P Dow Jones Indices que comparan fondos de gestión activa con sus índices de referencia.</dd>
+  <dt>Ilusión de control</dt><dd>Creer que podemos influir en resultados que dependen sobre todo del azar.</dd>
+  <dt>Sesgo de disponibilidad</dt><dd>Juzgar lo probable que es algo por lo fácil que nos viene a la memoria.</dd>
+  <dt>Aversión a la inacción</dt><dd>Incomodidad ante no hacer nada, aunque no hacer nada sea lo mejor.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Por qué Lump Sum gana la mayoría de las veces?</summary><p>Porque el mercado tiende a subir. El dinero que espera fuera no compone, y eso pesa más que el riesgo de entrar justo antes de una caída.</p></details>
+<details><summary>Entonces, ¿para qué sirve el DCA?</summary><p>Para reducir el riesgo de entrar en mal momento y el impacto emocional de una caída justo después de invertir. Cuesta algo de rentabilidad media a cambio de tranquilidad.</p></details>
+<details><summary>¿Qué hizo el autor con una suma grande?</summary><p>La repartió en seis tramos mensuales, siguiendo a William Bernstein.</p></details>
+<details><summary>¿Invertir parte del sueldo cada mes es una decisión de DCA?</summary><p>No. Es la única opción, porque el dinero llega poco a poco. Lo correcto es invertirlo cuando llega.</p></details>
+<details><summary>¿Guardar liquidez para aprovechar caídas es DCA?</summary><p>No, es market timing. Incluso acertando siempre las correcciones del 10%, el resultado es prácticamente igual a invertir ya; en la realidad suele ser peor.</p></details>
+<details><summary>¿Qué dicen SPIVA y Bessembinder sobre elegir acciones?</summary><p>Que a 20 años ~95% de los gestores activos pierde contra el índice, y que solo un 4% de las acciones crea la riqueza de la bolsa. Comprar el índice te garantiza tenerlas.</p></details>
+<details><summary>Si dudas mucho entre Lump Sum y DCA, ¿qué haces?</summary><p>DCA antes que dejar el dinero parado. El peor error es no invertir.</p></details>
+
+<footer>Apuntes del Capítulo 5 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 45–49). Las notas marcadas como «ojo» son comprobaciones propias, no del libro. No es asesoramiento financiero.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var pct=function(n,d){return n.toLocaleString('es-ES',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})+' %'};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function run(){
+    var N=+$('nm').value,mu=+$('mu').value/100,sg=+$('sg').value/100,cs=+$('cs').value/100,A=+$('am').value;
+    $('oNm').textContent=N+' meses'; $('oMu').textContent=pct(mu*100,1); $('oSg').textContent=pct(sg*100);
+    $('oCs').textContent=pct(cs*100,1); $('oAm').textContent=eur(A);
+    var mm=Math.pow(1+mu,1/12)-1, ss=sg/Math.sqrt(12), cm=Math.pow(1+cs,1/12)-1;
+    var rand=rng(551977), S=4000, win=0, diffs=[];
+    for(var k=0;k<S;k++){
+      var L=1,inv=0,cash=1;
+      for(var i=0;i<N;i++){
+        inv+=1/N; cash-=1/N;
+        var u1=rand()||1e-9,u2=rand(),z=Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2);
+        var r=Math.max(-0.9,mm+ss*z);
+        L*=1+r; inv*=1+r; cash*=1+cm;
+      }
+      var d=L-(inv+cash); if(d>0)win++; diffs.push(d);
+    }
+    diffs.sort(function(a,b){return a-b});
+    var med=diffs[Math.floor(S/2)], p10=diffs[Math.floor(S*0.1)];
+    $('r1').textContent=Math.round(win/S*100)+' %';
+    $('r2').textContent=Math.round((1-win/S)*100)+' %';
+    $('r3').textContent=(med>=0?'+':'−')+eur(Math.abs(med*A));
+    $('r4').textContent=(p10>=0?'+':'−')+eur(Math.abs(p10*A));
+  }
+  ['nm','mu','sg','cs','am'].forEach(function(id){$(id).addEventListener('input',run)});
+  run();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-4-tasa-retirada.html"><small>← Anterior · Cap. 4</small>Tasa de retirada segura</a><a class="next" href="capitulo-6-psicologia-financiera.html"><small>Siguiente · Cap. 6 →</small>Psicología financiera</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-5-dca-lump-sum",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

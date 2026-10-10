@@ -1,0 +1,592 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 11 · 11 de 18</span></div></nav>
+<title>Capítulo 11 · Finanzas personales</title>
+<style>
+/* Mismo sistema que los capítulos 1–10: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --em:#8a5aa8; --em-soft:#f1e8f6;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+    --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+  --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:21px;line-height:1.4;text-align:center;padding:22px 18px;background:var(--accent-soft);border-color:transparent}
+.quote small{display:block;margin-top:8px;font:13px/1.4 var(--sans);color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs.three{grid-template-columns:repeat(3,1fr)}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+.vs .blue{background:var(--cash-soft);border-color:transparent} .vs .blue h3{color:var(--cash)}
+.vs .em{background:var(--em-soft);border-color:transparent} .vs .em h3{color:var(--em)}
+@media (max-width:620px){.vs.three{grid-template-columns:1fr}}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.vs p{font:15px/1.5 var(--sans);margin:0}
+.big{font:700 26px/1.1 var(--sans);font-variant-numeric:tabular-nums;margin:2px 0 6px}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--accent);text-align:center;background:var(--accent-soft);border-radius:50%;width:28px;height:28px}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font:14px/1.4 var(--sans);min-width:460px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Barra 50/20/30 */
+.split{display:flex;height:44px;border-radius:10px;overflow:hidden;margin:14px 0 6px}
+.split div{display:flex;align-items:center;justify-content:center;font:700 13px/1 var(--sans);color:var(--bg);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;min-width:0}
+.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.legend div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0;font:13px/1.35 var(--sans);color:var(--muted)}
+.legend b{display:block;font:700 19px/1.15 var(--sans);font-variant-numeric:tabular-nums;color:var(--ink)}
+@media (max-width:480px){.legend{grid-template-columns:1fr}}
+
+/* Calculadoras */
+.calc label{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px/1.3 var(--sans);margin:12px 0 0}
+.calc label output{font-variant-numeric:tabular-nums;color:var(--accent)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.res.two{grid-template-columns:repeat(2,1fr)}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.res b{display:block;font:700 21px/1.15 var(--sans);font-variant-numeric:tabular-nums}
+.res small{font:13px/1.35 var(--sans);color:var(--muted)}
+.res .g b{color:var(--accent)} .res .r b{color:var(--bad)} .res .c b{color:var(--cash)}
+@media (max-width:480px){.res,.res.two{grid-template-columns:1fr}}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.seg button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Escalera de niveles */
+.ladder{display:grid;gap:6px;margin:12px 0}
+.lv{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;text-align:left;font:15px/1.45 var(--sans);color:var(--ink);width:100%}
+.lv .k{font:700 14px/36px var(--sans);text-align:center;width:36px;height:36px;border-radius:50%;background:var(--bg);color:var(--muted);font-variant-numeric:tabular-nums}
+.lv .t{font-weight:700;display:block}
+.lv .d{color:var(--muted);font-size:14px;display:block;margin-top:2px}
+.lv.past{background:var(--accent-soft);border-color:transparent}
+.lv.past .k{background:var(--card);color:var(--accent)}
+.lv.here{border-color:var(--accent);border-width:2px;padding:9px 11px}
+.lv.here .k{background:var(--accent);color:var(--bg)}
+.lv:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lv .tag{display:inline-block;margin-left:6px;font:700 11px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+
+/* Test */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 11 · Apuntes de estudio</div>
+  <h1>Finanzas personales</h1>
+  <p class="sub">Antes de invertir hay que ordenar la casa. Este capítulo baja todo lo anterior a tierra: cómo repartir lo que entra, por qué empezar pronto, qué cuesta de verdad lo que compras, los diez niveles hacia la independencia financiera y por qué los planes de pensiones tradicionales y los seguros "indexados" suelen jugar en tu contra.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li><b>Regla 50/20/30:</b> 50 % necesidades, 20 % ahorro e inversión, 30 % deseos.</li>
+    <li>Antes de invertir, un <b>colchón de emergencia</b> de 3 a 6 meses de gastos fijos, líquido y fuera de bolsa.</li>
+    <li><b>Págate primero:</b> el ahorro sale por transferencia automática el día de cobro, no "lo que sobre".</li>
+    <li>El <b>interés compuesto</b> premia a quien empieza pronto. El dinero parado pierde frente a la inflación.</li>
+    <li>Cada compra se paga con <span class="mark">horas de tu vida</span>. La riqueza se mide en activos y en años de libertad, no en sueldo.</li>
+    <li>Hay <b>10 niveles</b> hacia la independencia financiera. El 8 llega con 25 veces tus gastos anuales invertidos.</li>
+    <li>Los planes de pensiones y seguros "indexados" de la banca suelen ser <b>caros y rígidos</b>. El plan de pensiones indexado y barato solo tiene sentido como herramienta fiscal puntual.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>La regla 50/20/30</h2>
+<p>Una forma sencilla de repartir los ingresos <b>netos</b> en tres cajas. No es una ley, es un punto de partida para que cada euro tenga un destino.</p>
+<div class="vs three">
+  <div class="card blue">
+    <h3>50 % necesidades</h3>
+    <p>Lo que no puedes eludir: vivienda, comida, suministros, transporte.</p>
+  </div>
+  <div class="card good">
+    <h3>20 % ahorro e inversión</h3>
+    <p>Primero el colchón de emergencia. Después, inversión sistemática en fondos indexados.</p>
+  </div>
+  <div class="card em">
+    <h3>30 % deseos</h3>
+    <p>Estilo de vida: ocio, viajes, cenas fuera, hobbies. Lo que no es estrictamente necesario.</p>
+  </div>
+</div>
+
+<h3>Calculadora del reparto</h3>
+<div class="card calc">
+  <label for="inc">Ingresos netos al mes <output id="oInc"></output><input id="inc" type="range" min="800" max="10000" step="50" value="1500"></label>
+  <label for="fix">Gastos fijos imprescindibles al mes <output id="oFix"></output><input id="fix" type="range" min="300" max="6000" step="50" value="1000"></label>
+  <div class="split" aria-hidden="true">
+    <div id="bN" style="background:var(--cash)"></div>
+    <div id="bS" style="background:var(--accent)"></div>
+    <div id="bW" style="background:var(--em)"></div>
+  </div>
+  <div class="legend">
+    <div><b id="vN"></b>Necesidades (50 %)</div>
+    <div><b id="vS"></b>Ahorro e inversión (20 %)</div>
+    <div><b id="vW"></b>Deseos (30 %)</div>
+  </div>
+  <div class="res two">
+    <div class="c"><b id="vCol"></b><small>Colchón de emergencia recomendado (3–6 meses de gastos fijos)</small></div>
+    <div><b id="vMes"></b><small id="vMesTxt">meses para llenarlo con el 20 %</small></div>
+  </div>
+  <p class="foot" id="fixWarn">Con los valores de partida es el ejemplo del libro: 1.500 € netos dan 750 / 300 / 450 €, y con 1.000 € de gastos el colchón sería de unos 3.000 €.</p>
+</div>
+
+<div class="card note">
+  <b>Ojo con el nombre.</b> La versión original de esta regla (de la senadora estadounidense Elizabeth Warren) se suele citar como <b>50/30/20</b>: necesidades, deseos y ahorro. Es la misma regla con otro orden. Si la buscas por internet, la encontrarás así.
+</div>
+
+<h2><span class="n">02</span>El colchón de emergencia</h2>
+<p>Antes de invertir un euro, un fondo de dinero líquido para imprevistos: entre <b>3 y 6 meses de gastos fijos</b>, en cuenta corriente o remunerada. Nunca en bolsa, porque tiene que estar ahí el día que lo necesites, aunque el mercado esté hundido.</p>
+<p>Su función es doble: cubre el golpe (una avería, un mes sin ingresos) y te evita <b>vender inversiones en mal momento</b>. Es la base que te deja seguir invirtiendo tranquilo.</p>
+
+<h2><span class="n">03</span>Págate primero: el preahorro</h2>
+<div class="vs">
+  <div class="card bad">
+    <h3>Ahorro tradicional</h3>
+    <p>Cobras, gastas, y a fin de mes ahorras lo que sobra. Normalmente sobra poco o nada.</p>
+  </div>
+  <div class="card good">
+    <h3>Preahorro</h3>
+    <p>El día de cobro sale una transferencia automática a la cuenta de inversión. Gastas lo que queda.</p>
+  </div>
+</div>
+<p style="margin-top:12px">Si el dinero no está en la cuenta corriente, no te tienta. La transferencia automática hace que el ahorro no dependa de noticias, impulsos ni del humor del día (lo mismo que vimos en el capítulo 10 con la disciplina).</p>
+
+<h2><span class="n">04</span>Empezar pronto: el interés compuesto</h2>
+<p>Los rendimientos generan a su vez rendimientos. Cuanto más tiempo está el dinero invertido, más crece, y el efecto se acelera con los años. Por eso la edad a la que empiezas pesa más que casi cualquier otra decisión.</p>
+<div class="card calc">
+  <label for="mon">Ahorro mensual <output id="oMon"></output><input id="mon" type="range" min="50" max="2000" step="25" value="417"></label>
+  <label for="age">Edad a la que empiezas <output id="oAge"></output><input id="age" type="range" min="18" max="55" step="1" value="20"></label>
+  <label for="ret">Rentabilidad anual <output id="oRet"></output><input id="ret" type="range" min="2" max="10" step="0.5" value="7"></label>
+  <div class="res">
+    <div class="g"><b id="vEnd"></b><small id="vEndTxt">a los 60 años</small></div>
+    <div><b id="vPut"></b><small>puesto de tu bolsillo</small></div>
+    <div class="r"><b id="vLate"></b><small id="vLateTxt">al mes si empiezas 20 años más tarde para llegar a lo mismo</small></div>
+  </div>
+  <p class="foot">Aportación al inicio de cada mes con interés compuesto mensual, sin comisiones ni impuestos. 417 € al mes son unos 5.000 € al año, el ejemplo del libro.</p>
+</div>
+
+<div class="card note">
+  <b>Ojo, la cifra de los 40 años se queda corta.</b> El libro dice que con 5.000 € al año desde los 20 se llega a unos 1,1 millones a los 60 al 7 %. Eso cuadra (sale entre 1,0 y 1,07 millones según cuándo aportes). Pero luego dice que quien empieza a los 40 necesitaría unos 15.000 € al año, el triple. Al calcularlo, <b>15.000 € al año durante 20 años dan unos 615.000–660.000 €</b>, poco más de la mitad. Para llegar al mismo millón harían falta unos <b>24.300 € al año, casi cinco veces más</b>. La conclusión del libro sale reforzada: empezar tarde cuesta aún más de lo que dice.
+</div>
+
+<h2><span class="n">05</span>La inflación: el impuesto invisible</h2>
+<p>Ahorrar no basta si el dinero se queda quieto en el banco. El libro pone el caso de una pareja con 30.000 € ahorrados (lo normal en España, según dice, está entre 10.000 y 15.000 € por persona) y los deja 20 años de dos formas:</p>
+<div class="vs">
+  <div class="card good">
+    <h3>Invertidos al 5 % anual</h3>
+    <div class="big">79.599 €</div>
+    <p>El capital se multiplica por más de 2,6 gracias al interés compuesto.</p>
+  </div>
+  <div class="card bad">
+    <h3>Parados con un 3 % de inflación</h3>
+    <div class="big">16.610 €</div>
+    <p>Siguen siendo 30.000 € en la cuenta, pero compran lo que hoy comprarían 16.610 €. Casi la mitad.</p>
+  </div>
+</div>
+<p class="foot">He comprobado las dos cifras y son correctas. Un matiz: la primera es nominal y la segunda real. Si descuentas también la inflación a los 79.599 €, equivalen a unos 44.000 € de hoy. Aun así, la diferencia sigue siendo enorme.</p>
+<p>La lección: la inflación no se ve ni duele, pero erosiona en silencio. No invertir también es una decisión, y tiene un riesgo invisible.</p>
+
+<h2><span class="n">06</span>Lo que cuesta de verdad: horas de tu vida</h2>
+<p>El dinero es tiempo que has entregado: horas de trabajo, esfuerzo, renuncias. Cuando lo miras así, cada compra cambia. La pregunta deja de ser "¿me lo puedo permitir?" y pasa a ser "¿vale las horas que me cuesta?".</p>
+<div class="card calc">
+  <label for="price">Precio de lo que quieres comprar <output id="oPrice"></output><input id="price" type="range" min="10" max="60000" step="10" value="50000"></label>
+  <label for="net">Sueldo neto mensual <output id="oNet"></output><input id="net" type="range" min="800" max="10000" step="50" value="1500"></label>
+  <label for="hrs">Horas trabajadas al mes <output id="oHrs"></output><input id="hrs" type="range" min="80" max="260" step="5" value="160"></label>
+  <div class="res">
+    <div class="r"><b id="vHrs"></b><small>horas de trabajo</small></div>
+    <div class="r"><b id="vYrs"></b><small>años de sueldo íntegro</small></div>
+    <div class="g"><b id="vRent"></b><small>de renta al año si lo inviertes al 5 % (sin tocar el capital)</small></div>
+  </div>
+  <p class="foot">Con los valores de partida es el ejemplo del coche del libro: 50.000 € con 1.500 € netos al mes son casi tres años de sueldo, sin contar seguro, impuestos, mantenimiento y combustible. Invertidos al 5 % darían 2.500 € al año para siempre.</p>
+</div>
+<p>No se trata de demonizar el coche ni nada en concreto. Si es una herramienta que necesitas o que te mejora la vida, adelante. Si es un símbolo para aparentar, estás cambiando libertad futura por una satisfacción pasajera.</p>
+
+<h2><span class="n">07</span>Las recomendaciones del capítulo</h2>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Vive por debajo de tus posibilidades.</b> Gastar menos de lo que entra es la regla de oro.</p></div>
+  <div class="step"><b class="k">2</b><p><b>Evita el consumo ostentoso.</b> Los lujos para aparentar se comen tu futuro.</p></div>
+  <div class="step"><b class="k">3</b><p><b>Tu tiempo es tu activo más valioso.</b> Muchos placeres sencillos son gratis.</p></div>
+  <div class="step"><b class="k">4</b><p><b>Automatiza el ahorro.</b> Una parte fija de los ingresos a inversión antes de gastar.</p></div>
+  <div class="step"><b class="k">5</b><p><b>Evita las deudas innecesarias.</b> Las de consumo (tarjetas, préstamos para coches o caprichos) son enemigas del patrimonio. La única razonable es una hipoteca prudente.</p></div>
+  <div class="step"><b class="k">6</b><p><b>Elimina los gastos hormiga</b> y suscripciones que no usas. Uno solo es poco; muchos drenan.</p></div>
+  <div class="step"><b class="k">7</b><p><b>Controla tus gastos</b> para ver dónde se va el dinero.</p></div>
+  <div class="step"><b class="k">8</b><p><b>Si sube el sueldo, no subas el nivel de vida</b> al mismo ritmo. La estabilidad viene de los hábitos, no de ganar mucho.</p></div>
+</div>
+
+<h2><span class="n">08</span>Los 10 niveles hacia la independencia</h2>
+<p>Una escalera para medir en qué punto estás. Toca el nivel en el que te encuentras hoy.</p>
+<div class="ladder" id="ladder"></div>
+<p class="foot" id="ladderTxt">Tu marca solo se guarda en este navegador.</p>
+
+<h2><span class="n">09</span>Tu número de independencia (regla del 4 %)</h2>
+<p>El nivel 8 se calcula así: gastos anuales ÷ 0,04, o lo que es igual, <b>gastos anuales × 25</b>. Es la cartera que, retirando un 4 % al año, debería cubrir tus gastos (lo vimos a fondo en el capítulo 4). Cuanto más joven te retires, más larga tiene que durar la cartera y más prudente conviene ser, por ejemplo un 3 %.</p>
+<div class="card calc">
+  <label for="exp">Gastos mensuales <output id="oExp"></output><input id="exp" type="range" min="500" max="8000" step="50" value="1500"></label>
+  <div class="seg" role="group" aria-label="Tasa de retirada">
+    <button type="button" id="r4" data-r="4" aria-pressed="true">4 % · clásica</button>
+    <button type="button" id="r35" data-r="3.5" aria-pressed="false">3,5 %</button>
+    <button type="button" id="r3" data-r="3" aria-pressed="false">3 % · retiro joven</button>
+  </div>
+  <div class="res">
+    <div><b id="vAnn"></b><small>gastos al año</small></div>
+    <div class="g"><b id="vFI"></b><small>nivel 8 · independencia</small></div>
+    <div class="c"><b id="vFlex"></b><small>nivel 7 · flexibilidad (50 %)</small></div>
+  </div>
+  <p class="foot">Ejemplo del libro: 1.500 € al mes son 18.000 € al año, y 18.000 / 0,04 = 450.000 €. Cifra comprobada.</p>
+</div>
+
+<h2><span class="n">10</span>Riqueza no es sueldo</h2>
+<p>La gente suele medirse por lo que cobra. Pero el sueldo no dice cuánta libertad tienes: alguien que gana mucho y lo gasta todo es menos libre que alguien con un sueldo modesto y un patrimonio bien gestionado. La métrica útil es <b>activos menos deudas</b>, y el tiempo que podrías vivir sin trabajar.</p>
+<div class="vs">
+  <div class="card bad">
+    <h3>Lo que vende la cultura popular</h3>
+    <ul>
+      <li>Coches de alta gama, mansiones, viajes de lujo.</li>
+      <li>Rico es quien gasta mucho.</li>
+      <li>El sueño de la lotería que lo arregla todo.</li>
+    </ul>
+  </div>
+  <div class="card good">
+    <h3>Lo que dicen los datos</h3>
+    <ul>
+      <li>La mayoría de millonarios no llevan vida ostentosa.</li>
+      <li>Ahorran con disciplina durante años e invierten.</li>
+      <li>Priorizan acumular activos sobre consumir hoy.</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:12px">El libro se apoya en <i>El millonario de la puerta de al lado</i>, de Thomas J. Stanley y William D. Danko: el millonario típico es un empresario, un profesional o un inversor prudente que vive por debajo de sus posibilidades. Y una persona que hereda o gana una gran suma sin educación financiera tiende a perderla: el problema no es la cantidad, sino la mentalidad con que se maneja.</p>
+<p>El contraejemplo: con 2 millones invertidos al 5 % se obtienen unos 100.000 € al año sin tocar el capital. Una cartera bien repartida entre renta variable y renta fija daría para vivir con holgura toda la vida.</p>
+
+<div class="card note">
+  <b>Ojo con la estadística de la lotería.</b> El libro dice que entre el 70 % y el 75 % de los ganadores se arruina en cinco años. Esa cifra circula muchísimo, pero no tiene un estudio sólido detrás: la fundación estadounidense a la que se suele atribuir ha dicho que nunca la publicó. Los estudios serios que hay (por ejemplo, con ganadores de Florida) encuentran algo más matizado: un premio mediano a menudo solo retrasa los problemas de quien ya iba mal. La idea de fondo del libro sí se sostiene; el número concreto, no.
+</div>
+
+<div class="card quote">
+  La independencia financiera no llega con un golpe de suerte, sino con paciencia, disciplina y control emocional.
+  <small>Idea central del capítulo, que el autor apoya en la filosofía de John Bogle</small>
+</div>
+
+<h2><span class="n">11</span>¿Plan de pensiones o cartera de fondos?</h2>
+<p>A la hora de planificar la jubilación, muchos dudan entre las dos. Ambas pueden compartir filosofía (indexada, barata, diversificada), pero las diferencias son profundas.</p>
+<div class="tbl card" style="padding:6px 10px">
+<table>
+  <thead><tr><th>&nbsp;</th><th>Cartera de fondos indexados</th><th>Plan de pensiones</th></tr></thead>
+  <tbody>
+    <tr><td><b>Liquidez</b></td><td>Vendes cuando quieras, parcial o total.</td><td>Bloqueado hasta la jubilación, salvo supuestos tasados (paro de larga duración, enfermedad grave…) o aportaciones con más de 10 años.</td></tr>
+    <tr><td><b>Al rescatar</b></td><td>Solo tributa la ganancia, como rendimiento del ahorro (19–30 %).</td><td>Todo lo rescatado tributa como salario, en tu tramo de IRPF.</td></tr>
+    <tr><td><b>Aportar</b></td><td>Sin límite.</td><td>Límite anual (1.500 € en territorio común). Desgrava al aportar.</td></tr>
+    <tr><td><b>Mover el dinero</b></td><td>Traspaso entre fondos sin tributar.</td><td>Traspaso entre planes sin tributar.</td></tr>
+    <tr><td><b>Coste típico</b></td><td>0,1–0,5 % en indexados.</td><td>1,5 % o más en los de banca; 0,3–0,5 % en los indexados.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>La "desgravación" no es un regalo</h3>
+<p>El banco vende el plan con un solo argumento: te devuelven dinero en la renta. Pero se calla que, al rescatarlo, pagas impuestos sobre <b>todo</b> lo que sacas, capital incluido, como si fuera sueldo. No te ahorras el impuesto, lo <b>aplazas</b>. Solo sale bien si tu tipo de IRPF al aportar es mayor que el que tendrás al rescatar (por ejemplo, aportas estando en el 30 % o más y rescatas por tramos en la jubilación, con menos ingresos). Es arbitraje fiscal, y bien hecho funciona; mal hecho, sale caro.</p>
+
+<div class="card note">
+  <b>Si vives en Gipuzkoa, los límites son otros.</b> El libro habla del límite de 1.500 € al año del territorio común. La normativa foral de Gipuzkoa permite reducir bastante más (hasta 5.000 € al año de aportación propia), y también cambian las reglas del rescate. Antes de decidir, confírmalo con tu asesor para tu caso concreto.
+</div>
+
+<h3>Un gran negocio para las gestoras</h3>
+<p>Durante décadas, los planes de pensiones en España han sido sobre todo un producto para generar ingresos recurrentes a la entidad. La diferencia de comisión parece pequeña, pero en el largo plazo es letal:</p>
+<div class="vs">
+  <div class="card good">
+    <h3>Plan indexado</h3>
+    <div class="big">≈ 0,5 %</div>
+    <p>Replica un índice. No necesita equipo de "expertos". Aburrido y rentable.</p>
+  </div>
+  <div class="card bad">
+    <h3>Plan de banca (gestión activa)</h3>
+    <div class="big">≈ 1,5 %</div>
+    <p>Un punto más al año se come entre un 20 % y un 30 % del capital a 30 años.</p>
+  </div>
+</div>
+<p style="margin-top:12px">¿Por qué siguen vendiéndose? El libro da varias razones: falta de educación financiera, argumento fiscal mal explicado, redes de distribución con productos propios, planes de empresa atados a convenios, e inercia. La gestión activa no sobrevive por su eficacia, sino porque la vende quien la cobra. Y cuando un fondo activo solo enseña datos de 3 o 5 años, suele ser porque son los años que le favorecen: a 10 años, la mayoría no bate a su índice.</p>
+
+<h2><span class="n">12</span>Los seguros "indexados": cuidado con el envoltorio</h2>
+<p>En España se venden PIAS, unit linked y otros seguros "de inversión" con la etiqueta de indexados. Parecen lo mismo que un fondo, pero la estructura es otra:</p>
+<div class="vs">
+  <div class="card good">
+    <h3>Fondo UCITS</h3>
+    <ul>
+      <li>Las participaciones están a <b>tu nombre</b>.</li>
+      <li>Los activos están separados del balance de la gestora, custodiados por un depositario.</li>
+      <li>Si la gestora quiebra, se trasladan a otra.</li>
+      <li>Traspasos libres sin peajes fiscales.</li>
+      <li>Coste: desde 0,15 %.</li>
+    </ul>
+  </div>
+  <div class="card bad">
+    <h3>Producto asegurador</h3>
+    <ul>
+      <li>El dueño de los activos es la <b>aseguradora</b>; tú tienes un contrato.</li>
+      <li>Si quiebra, eres un acreedor más y la recuperación puede tardar meses o años.</li>
+      <li>Para salir hay que rescatar y tributar.</li>
+      <li>Capas de comisiones: producto, administración, fondo, retrocesiones, penalizaciones.</li>
+      <li>Coste total: 1,5–2 %.</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:12px">Poner la palabra "indexado" a un producto que cuesta diez veces más que el fondo de dentro rompe el principio básico Boglehead. Lo que se paga es el envoltorio, no la inversión. El libro lo resume así: no es un fraude, es un error estructural que reduce seguridad y eficiencia sin aportar nada a cambio.</p>
+
+<h2><span class="n">13</span>Conclusión</h2>
+<p>La verdadera riqueza no es el dinero, sino saber gestionarlo. Ordenar los ingresos con una regla sencilla, tener un colchón, automatizar el ahorro, empezar pronto, mirar cada compra en horas de vida y elegir vehículos baratos y transparentes. Con eso se sube la escalera, nivel a nivel, hacia la independencia financiera.</p>
+<div class="chips">
+  <span class="chip">50 / 20 / 30</span>
+  <span class="chip">Colchón primero</span>
+  <span class="chip">Págate primero</span>
+  <span class="chip">Empieza pronto</span>
+  <span class="chip">Horas de vida</span>
+  <span class="chip">Gastos × 25</span>
+  <span class="chip">Huye de comisiones altas</span>
+</div>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿verdad o mito?</h2>
+<p>Decide si cada frase encaja con el capítulo.</p>
+<div class="card score"><span id="score">0 de 8 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Regla 50/20/30</dt><dd>Reparto de los ingresos netos: 50 % necesidades, 20 % ahorro e inversión, 30 % deseos.</dd>
+  <dt>Colchón de emergencia</dt><dd>De 3 a 6 meses de gastos fijos en dinero líquido, fuera de las inversiones.</dd>
+  <dt>Preahorro</dt><dd>Apartar el ahorro el día de cobro, antes de gastar, normalmente con una transferencia automática.</dd>
+  <dt>Gastos hormiga</dt><dd>Pequeños gastos recurrentes que uno a uno parecen nada y juntos suman mucho.</dd>
+  <dt>Coast FIRE</dt><dd>Tener ya ahorrado lo suficiente para que, solo con el interés compuesto, llegue a ser tu cartera de jubilación aunque no aportes más.</dd>
+  <dt>Regla del 4 %</dt><dd>Con una cartera de 25 veces tus gastos anuales, retirar un 4 % al año debería cubrirlos de forma sostenible.</dd>
+  <dt>Años de libertad</dt><dd>El tiempo que podrías mantener tu nivel de vida sin trabajar. La medida de riqueza que propone el libro.</dd>
+  <dt>PIAS / unit linked</dt><dd>Seguros de vida-ahorro que invierten en fondos. El dueño de los activos es la aseguradora y los costes suelen ser altos.</dd>
+  <dt>UCITS</dt><dd>Fondo de inversión regulado en la UE. Tus participaciones están a tu nombre y separadas del balance de la gestora.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Qué va en cada parte de la regla 50/20/30?</summary><p>50 % a necesidades (vivienda, comida, suministros, transporte), 20 % a ahorro e inversión (primero el colchón) y 30 % a deseos (ocio, viajes, caprichos).</p></details>
+<details><summary>¿Por qué el colchón de emergencia no debe estar invertido?</summary><p>Porque tiene que estar disponible siempre y no puede depender del mercado. Su función es justo evitar que tengas que vender inversiones en un mal momento.</p></details>
+<details><summary>¿Qué diferencia hay entre ahorro tradicional y preahorro?</summary><p>En el tradicional ahorras lo que sobra a fin de mes. En el preahorro apartas el ahorro al cobrar, con una transferencia automática, y gastas lo que queda.</p></details>
+<details><summary>¿Por qué tener el dinero parado en el banco es perder dinero?</summary><p>Porque la inflación reduce su poder de compra cada año. 30.000 € parados 20 años con un 3 % de inflación compran como 16.600 € de hoy.</p></details>
+<details><summary>¿Cómo se calcula el número de la independencia financiera?</summary><p>Gastos anuales divididos entre 0,04, que es lo mismo que gastos anuales por 25. Con 1.500 € al mes: 18.000 × 25 = 450.000 €.</p></details>
+<details><summary>¿Por qué la desgravación del plan de pensiones no es un regalo?</summary><p>Porque al rescatar tributa todo lo que sacas, capital incluido, como si fuera sueldo. Solo aplazas el impuesto. Compensa si tu tipo al aportar es mayor que al rescatar.</p></details>
+<details><summary>¿Qué riesgo tiene un seguro "indexado" frente a un fondo indexado?</summary><p>Los activos son de la aseguradora, no tuyos. Si quiebra eres un acreedor más. Además cuesta mucho más, no permite traspasos sin tributar y te ata a su catálogo.</p></details>
+
+<footer>Apuntes del Capítulo 11 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 85–103). Las calculadoras, la escalera interactiva, el test, la corrección de la cifra de los 40 años, el matiz sobre la inflación, la nota sobre la lotería y la nota sobre Gipuzkoa son añadidos propios, no del libro. No es asesoramiento financiero ni fiscal.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  var pct=function(n){return n.toLocaleString('es-ES',{maximumFractionDigits:1})+' %'};
+  var num=function(n,d){return n.toLocaleString('es-ES',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
+
+  /* 50/20/30 */
+  function split(){
+    var I=+$('inc').value,F=+$('fix').value;
+    $('oInc').textContent=eur(I); $('oFix').textContent=eur(F);
+    var N=I*.5,S=I*.2,W=I*.3;
+    $('vN').textContent=eur(N); $('vS').textContent=eur(S); $('vW').textContent=eur(W);
+    $('bN').style.width='50%'; $('bS').style.width='20%'; $('bW').style.width='30%';
+    $('bN').textContent=eur(N); $('bS').textContent=eur(S); $('bW').textContent=eur(W);
+    $('vCol').textContent=eur(F*3)+' – '+eur(F*6);
+    var m=Math.ceil(F*3/S);
+    $('vMes').textContent=m+' meses';
+    $('vMesTxt').textContent='para llegar a 3 meses de colchón ahorrando el 20 %';
+    $('fixWarn').textContent=F>N
+      ? 'Tus gastos fijos ('+eur(F)+') superan el 50 % de los ingresos ('+eur(N)+'). La regla avisa de que hay que recortar fijos o subir ingresos.'
+      : 'Con 1.500 € netos y 1.000 € de gastos fijos es el ejemplo del libro: 750 / 300 / 450 €, y un colchón de unos 3.000 €.';
+  }
+  ['inc','fix'].forEach(function(id){$(id).addEventListener('input',split)}); split();
+
+  /* Interés compuesto */
+  function fv(m,months,r){var rm=Math.pow(1+r,1/12)-1;return rm===0?m*months:m*(Math.pow(1+rm,months)-1)/rm*(1+rm);}
+  function comp(){
+    var M=+$('mon').value,A=+$('age').value,R=+$('ret').value/100;
+    $('oMon').textContent=eur(M)+' ('+eur(M*12)+'/año)'; $('oAge').textContent=A+' años'; $('oRet').textContent=pct(R*100);
+    var n=(60-A)*12, end=fv(M,n,R);
+    $('vEnd').textContent=eur(end); $('vEndTxt').textContent='a los 60 años, tras '+(60-A)+' años';
+    $('vPut').textContent=eur(M*n);
+    var late=A+20;
+    if(late>=58){ $('vLate').textContent='—'; $('vLateTxt').textContent='empezando 20 años más tarde ya no da tiempo'; }
+    else { var need=end/fv(1,(60-late)*12,R); $('vLate').textContent=eur(need); $('vLateTxt').textContent='al mes empezando a los '+late+' para llegar a lo mismo ('+num(need/M,1)+' veces más)'; }
+  }
+  ['mon','age','ret'].forEach(function(id){$(id).addEventListener('input',comp)}); comp();
+
+  /* Horas de vida */
+  function life(){
+    var P=+$('price').value,N=+$('net').value,H=+$('hrs').value;
+    $('oPrice').textContent=eur(P); $('oNet').textContent=eur(N); $('oHrs').textContent=H+' h';
+    $('vHrs').textContent=num(P/(N/H))+' h';
+    $('vYrs').textContent=num(P/(N*12),1);
+    $('vRent').textContent=eur(P*.05);
+  }
+  ['price','net','hrs'].forEach(function(id){$(id).addEventListener('input',life)}); life();
+
+  /* Escalera */
+  var LV=[
+    ['Dependencia financiera','Dependes de otros (padres, ayudas) para cubrir lo básico.'],
+    ['Solvencia financiera','Cubres tus gastos básicos sin ayuda, pero sin ahorro: si pierdes el empleo, hay problemas.'],
+    ['Estabilidad financiera','Tienes un colchón de 3 a 6 meses de gastos. Momento de empezar a invertir.'],
+    ['Libre de deudas','Además del colchón, has pagado hipoteca, coche y demás deudas.'],
+    ['Coast FIRE','Lo ahorrado, solo con el interés compuesto, llegará a ser tu cartera de jubilación aunque no aportes más.'],
+    ['Seguridad financiera','Tus rentas pasivas cubren los gastos básicos. Sin empleo podrías vivir de forma austera.'],
+    ['Flexibilidad financiera','Tienes invertido el 50 % de lo necesario para la independencia.'],
+    ['Independencia financiera','Tienes invertido 25 veces tus gastos anuales (regla del 4 %).'],
+    ['Libertad financiera','Tus rentas pasivas cubren de sobra todos los gastos de tu estilo de vida.'],
+    ['Abundancia financiera','Tienes mucho más dinero del que realmente necesitas.']
+  ];
+  var KEY='cap11-nivel', here=-1;
+  try{var s=localStorage.getItem(KEY); if(s!==null) here=+s;}catch(e){}
+  var lad=$('ladder');
+  LV.forEach(function(l,i){
+    var b=document.createElement('button'); b.type='button'; b.className='lv'; b.id='lv'+(i+1);
+    b.innerHTML='<span class="k">'+(i+1)+'</span><span><span class="t">'+l[0]+'<span class="tag" hidden>Estoy aquí</span></span><span class="d">'+l[1]+'</span></span>';
+    b.addEventListener('click',function(){ here=(here===i)?-1:i; try{localStorage.setItem(KEY,String(here));}catch(e){} paint(); });
+    lad.appendChild(b);
+  });
+  function paint(){
+    lad.querySelectorAll('.lv').forEach(function(b,i){
+      b.classList.toggle('past',here>=0&&i<here); b.classList.toggle('here',i===here);
+      b.setAttribute('aria-pressed',String(i===here)); b.querySelector('.tag').hidden=(i!==here);
+    });
+    $('ladderTxt').textContent= here<0 ? 'Toca un nivel para marcar dónde estás. Tu marca solo se guarda en este navegador.'
+      : 'Estás en el nivel '+(here+1)+'. '+(here<9?'Siguiente escalón: '+LV[here+1][0].toLowerCase()+'. ':'')+'Tu marca solo se guarda en este navegador.';
+  }
+  paint();
+
+  /* Número FI */
+  var rate=4;
+  function fi(){
+    var E=+$('exp').value; $('oExp').textContent=eur(E);
+    var A=E*12, T=A/(rate/100);
+    $('vAnn').textContent=eur(A); $('vFI').textContent=eur(T); $('vFlex').textContent=eur(T/2);
+  }
+  document.querySelectorAll('.seg button').forEach(function(b){
+    b.addEventListener('click',function(){
+      rate=+b.getAttribute('data-r');
+      document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+      fi();
+    });
+  });
+  $('exp').addEventListener('input',fi); fi();
+
+  /* Test */
+  var items=[
+    ['Hay que empezar a invertir antes de tener un colchón de emergencia, para no perder tiempo.','M','Primero el colchón. Sin él, cualquier imprevisto te obliga a vender en mal momento.'],
+    ['En la regla 50/20/30, el 20 % va al ahorro y la inversión.','V','El 50 % a necesidades y el 30 % a deseos.'],
+    ['Lo más eficaz es ahorrar lo que sobra a fin de mes.','M','Al revés: págate primero, con una transferencia automática el día de cobro.'],
+    ['Tener el dinero en la cuenta corriente es no correr ningún riesgo.','M','Hay un riesgo invisible: la inflación le quita poder de compra cada año.'],
+    ['Con 18.000 € de gastos al año, el número de la independencia es unos 450.000 €.','V','18.000 × 25 = 450.000 €, según la regla del 4 %.'],
+    ['El plan de pensiones te ahorra impuestos para siempre.','M','Solo los aplaza. Al rescatar tributa todo como si fuera sueldo.'],
+    ['Un punto más de comisión al año puede comerse un 20–30 % del capital a 30 años.','V','Por eso el plan indexado barato y el de banca dan resultados tan distintos.'],
+    ['En un seguro "indexado" los activos están a tu nombre, igual que en un fondo.','M','Son de la aseguradora. En un fondo UCITS las participaciones son tuyas y están separadas de la gestora.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'v" data-v="V">Verdad</button><button type="button" id="q'+n+'m" data-v="M">Mito</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick'); w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='V'?'Verdad':'Mito')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-10-control-emocional.html"><small>← Anterior · Cap. 10</small>El control emocional</a><a class="next" href="capitulo-12-aleatoriedad-predicciones.html"><small>Siguiente · Cap. 12 →</small>Aleatoriedad y predicciones</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-11-finanzas-personales",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

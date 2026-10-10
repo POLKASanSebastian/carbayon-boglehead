@@ -1,0 +1,274 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 3 · 3 de 18</span></div></nav>
+<title>Capítulo 3 · Frontera eficiente</title>
+<style>
+/* Mismo sistema que los capítulos 1 y 2: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --bond:#3d6a9e; --bond-soft:#e4edf7;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --bond:#86b2e3; --bond-soft:#1f2b3a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --bond:#86b2e3; --bond-soft:#1f2b3a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font:15px/1.4 var(--sans)}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.hi td{background:var(--accent-soft)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+.chart svg{width:100%;height:auto;display:block}
+.chart text{font-family:var(--sans)}
+.calc label{display:block;font:600 14px/1.3 var(--sans);margin:12px 0 4px}
+.calc label output{float:right;color:var(--accent);font-variant-numeric:tabular-nums}
+.calc input[type=range]{width:100%;accent-color:var(--accent)}
+.calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.pill{display:inline-block;font:600 13px/1 var(--sans);background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:6px 10px;margin-top:10px}
+.band{position:relative;height:44px;border-radius:10px;background:var(--bond-soft);margin:14px 0 6px;overflow:hidden;font:600 13px/1 var(--sans)}
+.band .zone{position:absolute;left:25%;width:50%;top:0;bottom:0;background:var(--accent-soft);border-left:2px solid var(--accent);border-right:2px solid var(--accent)}
+.band .tick{position:absolute;top:14px;transform:translateX(-50%);color:var(--ink);white-space:nowrap}
+.band .tick.edge-l{transform:none;left:8px!important}
+.band .tick.edge-r{transform:translateX(-100%)}
+.band-l{display:flex;justify-content:space-between;font:13px/1.4 var(--sans);color:var(--muted);gap:8px}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--bad);text-align:center;background:var(--bad-soft);border-radius:50%;width:28px;height:28px}
+.step p{margin:0;min-width:0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 3 · Apuntes de estudio</div>
+  <h1>Frontera eficiente y optimización del riesgo</h1>
+  <p class="sub">Cómo combinar activos para sacar la máxima rentabilidad por cada unidad de riesgo, y por qué el FOMO te empuja a romper esa lógica.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>No basta con mirar la rentabilidad: hay que mirar <b>cuánto riesgo</b> asumes para conseguirla.</li>
+    <li>Markowitz (1952) demostró que <span class="mark">diversificar reduce el riesgo sin sacrificar rentabilidad</span>.</li>
+    <li>La frontera eficiente reúne las mejores combinaciones posibles de riesgo y rentabilidad.</li>
+    <li>La 60/40 se ha comportado históricamente como un punto de equilibrio muy razonable.</li>
+    <li>La regla de Graham: entre <b>25% y 75%</b> en acciones. Para retirar un 4%, al menos un 50%.</li>
+    <li>Tu tolerancia real al riesgo suele ser menor de lo que crees. El FOMO de las redes la infla.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Markowitz y la frontera eficiente</h2>
+<p>En 1952 Harry Markowitz (premio Nobel de Economía en 1990) creó la <b>teoría moderna de carteras</b>. Su idea central: una cartera bien diversificada puede darte la máxima rentabilidad esperada para un nivel de riesgo dado.</p>
+<p>La <b>frontera eficiente</b> es la curva que une esas mejores combinaciones. Cualquier cartera sobre la curva es la mejor opción posible para su nivel de volatilidad. Las que quedan por debajo son ineficientes: asumen riesgo sin cobrar por él.</p>
+<p>La clave es la <b>correlación</b>. Si dos activos no se mueven a la vez, sus vaivenes se compensan en parte, y la mezcla oscila menos que la media de los dos.</p>
+
+<h3>Juega con la frontera</h3>
+<div class="card chart calc">
+  <svg id="fr" viewBox="0 0 360 270" role="img" aria-label="Frontera eficiente de carteras entre acciones y bonos"></svg>
+  <label for="co">Correlación entre acciones y bonos <output id="oCo"></output></label>
+  <input id="co" type="range" min="-0.5" max="0.8" step="0.1" value="0.1">
+  <span class="pill" id="minv"></span>
+  <p class="foot">Supuestos ilustrativos, no del libro: acciones 7% anual con 16% de volatilidad; bonos 3% con 5%. El tramo verde marca la banda 25–75 de Graham. Baja la correlación y verás cómo la curva se dobla hacia la izquierda: eso es la diversificación trabajando.</p>
+</div>
+<p>Fíjate en un detalle curioso: con correlaciones bajas, una cartera 100% bonos <b>no es la de menor riesgo</b>. Añadir un poco de acciones baja la volatilidad y además sube la rentabilidad. Es la demostración más clara de que diversificar es "gratis".</p>
+
+<h2><span class="n">02</span>Todos convivimos con el riesgo</h2>
+<p>El autor recuerda que el riesgo no es cosa solo de las finanzas: está en el trabajo, al conducir, al cruzar la calle o al elegir profesión. No se puede eliminar, pero sí gestionar con sensatez. Igual que usamos el cinturón de seguridad, en inversión tenemos herramientas para controlarlo. La diversificación es la principal.</p>
+
+<h2><span class="n">03</span>La 60/40 como punto de equilibrio</h2>
+<p>Según los estudios que cita el libro, la 60/40 ha sido históricamente el punto óptimo entre riesgo y rentabilidad: lo bastante agresiva para capturar el crecimiento del mercado, con un colchón que evita las caídas extremas.</p>
+<div class="tw"><table>
+  <tr><th>Cartera</th><th>Qué pasa</th></tr>
+  <tr><td><b>80/20 o 100/0</b></td><td>Mucha volatilidad. Caídas que cuesta mucho aguantar.</td></tr>
+  <tr class="hi"><td><b>60/40</b></td><td>Volatilidad contenida sin renunciar a una rentabilidad atractiva.</td></tr>
+  <tr><td><b>40/60 o 20/80</b></td><td>Menos volatilidad, pero menos rentabilidad. Puede no bastar para un retiro largo.</td></tr>
+</table></div>
+<p style="margin-top:12px">Matiz técnico: la frontera eficiente no señala un único punto ganador. Te dice qué carteras son eficientes; cuál te conviene depende del riesgo que puedas soportar. El libro lo reconoce justo después.</p>
+
+<h2><span class="n">04</span>Nadie sabe qué mezcla irá mejor</h2>
+<p>Habrá décadas en las que gane una 75/25 y otras en las que gane una 50/50. No se puede predecir y no hay que intentarlo.</p>
+<div class="card">
+  <p><b>El objetivo no es acertar la combinación de los próximos diez años.</b> Es construir una cartera diversificada que puedas mantener con convicción cuando la bolsa caiga fuerte.</p>
+  <p>La mejor asignación para ti es la que aguantas en todos los ciclos: sin cargar más acciones por euforia en las subidas, ni huir a los bonos por miedo en las bajadas.</p>
+</div>
+
+<h2><span class="n">05</span>La regla 75/25 de Benjamin Graham</h2>
+<p>El autor es partidario de mantener el peso de acciones y bonos dentro de estos límites:</p>
+<div class="band" role="img" aria-label="Banda de Graham entre 25% y 75% de acciones">
+  <div class="zone"></div>
+  <span class="tick edge-l" style="left:0">0%</span>
+  <span class="tick" style="left:25%">25%</span>
+  <span class="tick" style="left:50%">50%</span>
+  <span class="tick" style="left:75%">75%</span>
+  <span class="tick edge-r" style="left:calc(100% - 8px)">100%</span>
+</div>
+<div class="band-l"><span>← Más bonos</span><span>% en acciones</span><span>Más acciones →</span></div>
+<div class="vs" style="margin-top:14px">
+  <div class="card">
+    <h3>Inversor arriesgado</h3>
+    <p>Como máximo <b>75% acciones / 25% bonos</b>.</p>
+  </div>
+  <div class="card">
+    <h3>Inversor defensivo</h3>
+    <p>Como mínimo <b>25% acciones / 75% bonos</b>, para quien tiene mucha aversión a la volatilidad.</p>
+  </div>
+</div>
+<div class="card note">
+  <b>Pero si vas a vivir de la cartera…</b> Para aplicar con éxito la regla del 4% de retirada (se ve en el capítulo 4), el autor pide <b>al menos un 50% en renta variable</b>. Así que, en la práctica, la banda útil para un retiro queda entre el 50% y el 75%.
+</div>
+
+<h2><span class="n">06</span>La renta fija también fluctúa</h2>
+<p>Los bonos cotizan en el mercado, así que su precio también sube y baja, aunque mucho menos que las acciones. Lo "fijo" es el cupón que cobras y lo que recuperas al vencimiento. Por eso también hay que mantenerlos a largo plazo sin dejarse llevar por los nervios.</p>
+
+<h2><span class="n">07</span>Tu tolerancia al riesgo, sobreestimada</h2>
+<p>El autor avisa de que casi todo el mundo cree aguantar más de lo que aguanta. Cuenta que ha visto a gurús con miles de seguidores perder los nervios en las caídas y dudar de sus propias inversiones.</p>
+<p>Elegir una cartera más agresiva por miedo a perderte rentabilidad es justo el error a evitar: <b>no caer en el FOMO</b>.</p>
+
+<h2><span class="n">08</span>El FOMO y las redes sociales</h2>
+<p>El FOMO (<i>Fear of Missing Out</i>, miedo a quedarse fuera) ha cambiado la forma en que mucha gente invierte. El mecanismo, paso a paso:</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Escaparate de éxitos.</b> Las redes muestran ganancias y vidas ideales, a menudo poco reales o nada representativas.</p></div>
+  <div class="step"><b class="k">2</b><p><b>Vendedores de humo.</b> Personas que monetizan su curso, método o canal posando con coches de lujo para captar a quien quiere hacerse rico rápido.</p></div>
+  <div class="step"><b class="k">3</b><p><b>Comparación constante.</b> Solo se enseñan los momentos de euforia. El usuario medio siente que tiene que copiarlos, aunque su situación sea muy distinta.</p></div>
+  <div class="step"><b class="k">4</b><p><b>Decisiones precipitadas.</b> Entrar en activos volátiles y modas especulativas sin análisis, para no perder la "gran oportunidad" que está a un clic.</p></div>
+</div>
+<p>El efecto alcanza tanto a novatos como a inversores con experiencia.</p>
+
+<h2><span class="n">09</span>Cuando el FOMO llega a las plataformas y al mercado</h2>
+<ul>
+  <li><b>Las plataformas ceden.</b> Para competir y captar usuarios, añaden criptomonedas, derivados, apalancamiento y otros productos especulativos que no aportan valor a largo plazo.</li>
+  <li><b>Más volatilidad.</b> Los precios se mueven por rumores y tendencias del momento, no por análisis.</li>
+  <li><b>Burbujas.</b> Algunos activos se inflan artificialmente y, cuando llega la realidad, las pérdidas son severas.</li>
+  <li><b>Las instituciones también.</b> Acaban priorizando la inmediatez y la popularidad sobre la solidez.</li>
+</ul>
+<div class="vs" style="margin-top:12px">
+  <div class="card">
+    <h3>Tulipomanía, siglo XVII</h3>
+    <p>Concentrada en un lugar y en pocos inversores. Hubo pérdidas, pero no una crisis mundial.</p>
+  </div>
+  <div class="card">
+    <h3>Hoy</h3>
+    <p>La información, verdadera o exagerada, vuela al instante por todo el mundo. Una burbuja en un sector puede contagiar a otros países y activos.</p>
+  </div>
+</div>
+<p style="margin-top:12px">La salida que propone el autor: <b>educación financiera seria y estrategias basadas en datos</b>, no en impulsos.</p>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Teoría moderna de carteras</dt><dd>Marco de Markowitz (1952) para combinar activos buscando la mejor relación rentabilidad/riesgo.</dd>
+  <dt>Frontera eficiente</dt><dd>Curva con las carteras que dan la máxima rentabilidad esperada para cada nivel de volatilidad.</dd>
+  <dt>Volatilidad</dt><dd>Cuánto oscila la rentabilidad de un año a otro. Es la medida de riesgo habitual.</dd>
+  <dt>Correlación</dt><dd>Grado en que dos activos se mueven juntos. Cuanto más baja, más útil es combinarlos.</dd>
+  <dt>Regla 75/25 de Graham</dt><dd>Mantener entre un 25% y un 75% en acciones, y el resto en bonos.</dd>
+  <dt>Cupón</dt><dd>El interés que paga un bono. Es la parte "fija" de la renta fija.</dd>
+  <dt>FOMO</dt><dd>Miedo a quedarse fuera de una subida, que empuja a invertir por impulso.</dd>
+  <dt>Burbuja especulativa</dt><dd>Subida de precio muy por encima del valor real, alimentada por expectativas, que termina en caída fuerte.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Qué es una cartera "eficiente"?</summary><p>La que da la máxima rentabilidad esperada posible para su nivel de riesgo. Si existe otra con la misma volatilidad y más rentabilidad, la tuya no es eficiente.</p></details>
+<details><summary>¿Por qué diversificar reduce el riesgo sin bajar la rentabilidad?</summary><p>Porque activos que no se mueven a la vez compensan parte de sus oscilaciones. La rentabilidad de la mezcla es la media, pero su volatilidad es menor que la media.</p></details>
+<details><summary>¿Cuál es la mejor combinación para los próximos diez años?</summary><p>Nadie lo sabe. Lo importante es una cartera diversificada que puedas mantener en cualquier ciclo.</p></details>
+<details><summary>¿Qué dice la regla 75/25 de Graham?</summary><p>Que las acciones deben estar entre el 25% (inversor defensivo) y el 75% (inversor arriesgado) de la cartera.</p></details>
+<details><summary>¿Cuánta renta variable pide el autor para retirar un 4% anual?</summary><p>Al menos un 50%.</p></details>
+<details><summary>¿Los bonos no se mueven de precio?</summary><p>Sí se mueven, aunque menos que las acciones. Lo fijo es el cupón y el reembolso al vencimiento.</p></details>
+<details><summary>¿Cómo te afecta el FOMO?</summary><p>Te empuja a carteras más agresivas y a modas especulativas por miedo a perderte ganancias, justo lo contrario de una estrategia que puedas mantener.</p></details>
+
+<footer>Apuntes del Capítulo 3 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas. El gráfico de la frontera usa supuestos ilustrativos propios.</footer>
+</div>
+
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg', svg=document.getElementById('fr');
+  var RV={r:7,s:16}, RF={r:3,s:5};
+  var L=44,R=346,T=14,B=232, x0=0,x1=18,y0=2,y1=8;
+  var X=function(v){return L+(v-x0)/(x1-x0)*(R-L)}, Y=function(v){return B-(v-y0)/(y1-y0)*(B-T)};
+  function el(t,a,txt){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e;}
+  function pt(w,c){var r=w*RV.r+(1-w)*RF.r;var v=Math.sqrt(Math.pow(w*RV.s,2)+Math.pow((1-w)*RF.s,2)+2*c*w*(1-w)*RV.s*RF.s);return {r:r,s:v};}
+  function draw(){
+    var c=+document.getElementById('co').value;
+    document.getElementById('oCo').textContent=c.toLocaleString('es-ES',{minimumFractionDigits:1});
+    while(svg.firstChild)svg.removeChild(svg.firstChild);
+    [0,5,10,15].forEach(function(v){el('line',{x1:X(v),x2:X(v),y1:T,y2:B,stroke:'var(--line)','stroke-width':1});el('text',{x:X(v),y:B+16,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},v+'%');});
+    [2,4,6,8].forEach(function(v){el('line',{x1:L,x2:R,y1:Y(v),y2:Y(v),stroke:'var(--line)','stroke-width':1});el('text',{x:L-6,y:Y(v)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)'},v+'%');});
+    el('text',{x:(L+R)/2,y:262,'text-anchor':'middle','font-size':12,fill:'var(--muted)'},'Volatilidad (riesgo)');
+    el('text',{x:12,y:(T+B)/2,'text-anchor':'middle','font-size':12,fill:'var(--muted)',transform:'rotate(-90 12 '+(T+B)/2+')'},'Rentabilidad esperada');
+    var all=[],band=[];
+    for(var i=0;i<=100;i++){var p=pt(i/100,c);var s=X(p.s)+','+Y(p.r);all.push(s);if(i>=25&&i<=75)band.push(s);}
+    el('polyline',{points:all.join(' '),fill:'none',stroke:'var(--muted)','stroke-width':2});
+    el('polyline',{points:band.join(' '),fill:'none',stroke:'var(--accent)','stroke-width':5,'stroke-linecap':'round'});
+    var minW=0,minS=99;for(var j=0;j<=100;j++){var q=pt(j/100,c);if(q.s<minS){minS=q.s;minW=j;}}
+    [[0,'0/100'],[25,'25/75'],[40,'40/60'],[60,'60/40'],[75,'75/25'],[100,'100/0']].forEach(function(a){
+      var p=pt(a[0]/100,c), hi=a[0]===60, right=a[0]===100;
+      el('circle',{cx:X(p.s),cy:Y(p.r),r:hi?6:4,fill:hi?'var(--accent)':'var(--card)',stroke:hi?'var(--accent)':'var(--ink)','stroke-width':1.5});
+      el('text',{x:X(p.s)+(right?-9:9),y:Y(p.r)+4,'text-anchor':right?'end':'start','font-size':12,'font-weight':hi?700:500,fill:'var(--ink)'},a[1]);
+    });
+    document.getElementById('minv').textContent='Cartera de menor riesgo: '+minW+'% acciones · '+minS.toLocaleString('es-ES',{maximumFractionDigits:1})+'% de volatilidad';
+  }
+  document.getElementById('co').addEventListener('input',draw);
+  draw();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-2-asignacion-60-40.html"><small>← Anterior · Cap. 2</small>Una asignación probada: la cartera 60/40</a><a class="next" href="capitulo-4-tasa-retirada.html"><small>Siguiente · Cap. 4 →</small>Tasa de retirada segura</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-3-frontera-eficiente",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

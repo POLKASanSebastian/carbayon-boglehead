@@ -1,0 +1,377 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 9 · 9 de 18</span></div></nav>
+<title>Capítulo 9 · La diversificación geográfica</title>
+<style>
+/* Mismo sistema que los capítulos 1–8: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --gone:#b9b3a6; --em:#8a5aa8; --em-soft:#f1e8f6;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+    --gone:#4a4f57; --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+  --gone:#4a4f57; --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+.vs .blue{background:var(--cash-soft);border-color:transparent} .vs .blue h3{color:var(--cash)}
+.vs .em{background:var(--em-soft);border-color:transparent} .vs .em h3{color:var(--em)}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.vs p{font:15px/1.5 var(--sans)}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--bad);text-align:center;background:var(--bad-soft);border-radius:50%;width:28px;height:28px}
+.step.ok b.k{color:var(--accent);background:var(--accent-soft)}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+
+/* Comparador de carteras */
+.toggle{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 14px}
+.toggle button{font:600 14px/1.2 var(--sans);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.toggle button:focus-visible,.qi button:focus-visible,.dec button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bar{display:flex;height:34px;border-radius:8px;overflow:hidden;background:var(--line)}
+.bar span{display:block;height:100%;transition:width .35s}
+@media (prefers-reduced-motion:reduce){.bar span{transition:none}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font:14px/1.4 var(--sans);margin:10px 0 0}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.stats div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.stats b{display:block;font:700 22px/1.1 var(--sans);font-variant-numeric:tabular-nums}
+.stats small{font:13px/1.35 var(--sans);color:var(--muted)}
+@media (max-width:480px){.stats{grid-template-columns:1fr}}
+.verdict{font:15px/1.5 var(--sans);margin:12px 0 0;padding:10px 12px;border-radius:10px}
+.verdict.bad{background:var(--bad-soft)} .verdict.good{background:var(--accent-soft)} .verdict.mid{background:var(--warn-soft)}
+
+/* Líderes por década */
+.dec{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+@media (max-width:560px){.dec{grid-template-columns:repeat(2,1fr)}}
+.dec button{font:600 15px/1.2 var(--sans);text-align:left;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-width:0}
+.dec button span{display:block;font:600 12px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.dec button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.dec button[aria-pressed="true"] span{color:var(--accent)}
+.decTxt{font:15px/1.55 var(--sans);margin:0}
+
+/* Test */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 9 · Apuntes de estudio</div>
+  <h1>La garantía de la diversificación geográfica</h1>
+  <p class="sub">Repartir entre renta variable y renta fija no basta. También hay que repartir entre países y continentes, porque ninguna región gana siempre y el inversor europeo tiene motivos propios para no copiar al estadounidense.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Diversificar por <b>geografía</b> es un pilar, igual que diversificar entre RV y RF.</li>
+    <li>El consejo de Bogle de invertir solo en EE.UU. tenía sentido <b>para un estadounidense</b>. Un europeo vive otro contexto fiscal y de mercado.</li>
+    <li>Concentrarse en un país añade un <b>riesgo innecesario</b>: los ciclos cambian y el líder de hoy no tiene por qué serlo mañana.</li>
+    <li>Los <b>emergentes</b> son más volátiles, pero aportan crecimiento que no está en los mercados desarrollados.</li>
+    <li>Los imperios nacen y mueren. <span class="mark">Ningún continente tiene garantizado crecer más para siempre.</span></li>
+    <li>La forma sencilla: <b>fondos indexados globales</b> (MSCI ACWI, FTSE All-World) o un roboadvisor que reparta por ti.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Un pilar más de la cartera</h2>
+<p>En los capítulos anteriores vimos cómo repartir entre las dos grandes clases de activos: renta variable y renta fija. Este capítulo añade otra dimensión: <b>dónde</b> están esas inversiones.</p>
+<p>Repartir entre regiones hace dos cosas a la vez:</p>
+<div class="vs">
+  <div class="card good">
+    <h3>Reduce riesgo</h3>
+    <p>Si un país o un continente entra en crisis, no arrastra toda tu cartera. Eventos políticos o sociales de una sola nación pueden pesar mucho si todo está allí.</p>
+  </div>
+  <div class="card blue">
+    <h3>Captura crecimiento</h3>
+    <p>Te expones a las oportunidades de todo el mundo, incluidos los mercados emergentes, en lugar de apostar a que una sola zona crecerá más.</p>
+  </div>
+</div>
+
+<h2><span class="n">02</span>El consejo de Bogle, fuera de contexto</h2>
+<p>John Bogle defendía invertir solo en el mercado de EE.UU. El autor explica que esa idea se malinterpreta cuando se saca de su contexto. Bogle hablaba a un inversor estadounidense, que:</p>
+<ul>
+  <li>Disfruta de ventajas fiscales dentro de su propio mercado.</li>
+  <li>Vive en una economía que es una parte enorme del mercado mundial.</li>
+</ul>
+<p>Un europeo que copie esa receta al pie de la letra asume dos problemas:</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Concentración excesiva.</b> Todo depende de un solo país, que además no es el suyo.</p></div>
+  <div class="step"><b class="k">2</b><p><b>Más impuestos de los necesarios.</b> Los dividendos de empresas de EE.UU. sufren una <b>doble imposición</b>: retención allí y tributación aquí. Una cartera global reparte esa exposición y permite usar fondos que optimizan la retención en origen.</p></div>
+</div>
+<p>Para un europeo, la diversificación internacional no es opcional: es lo más sensato. Es adaptar el espíritu de Bogle (bajo coste, sencillez, comprar el mercado entero) a la realidad europea. Así lo hacen los Bogleheads actuales.</p>
+
+<div class="card note">
+  <b>Ojo, para un inversor en España.</b> Si tienes acciones de EE.UU. directamente, allí retienen un 15% del dividendo (con el formulario W-8BEN) y aquí puedes deducirte esa retención, con límites. Los fondos y ETFs domiciliados en Irlanda soportan un 15% dentro del fondo, que no recuperas pero tampoco ves. Y algo más importante en la práctica: en España los <b>fondos indexados</b> se pueden traspasar entre sí sin pagar impuestos; los ETFs no. Es una razón de peso para preferir fondos frente a ETFs a largo plazo.
+</div>
+
+<h2><span class="n">03</span>Compara: un país frente al mundo</h2>
+<p>Pulsa cada cartera para ver cuánto depende de una sola región.</p>
+<div class="card">
+  <div class="toggle" role="group" aria-label="Elegir cartera">
+    <button id="pUS" type="button" aria-pressed="true">Solo EE.UU.</button>
+    <button id="pES" type="button" aria-pressed="false">Solo España</button>
+    <button id="pGL" type="button" aria-pressed="false">Global (tipo ACWI)</button>
+  </div>
+  <div class="bar" id="bar" aria-hidden="true"></div>
+  <div class="legend">
+    <span><i style="background:var(--cash)"></i>EE.UU.</span>
+    <span><i style="background:var(--accent)"></i>Europa</span>
+    <span><i style="background:var(--warn)"></i>Japón y resto desarrollados</span>
+    <span><i style="background:var(--em)"></i>Emergentes</span>
+  </div>
+  <div class="stats">
+    <div><b id="sCo">~500</b><small>empresas</small></div>
+    <div><b id="sPa">1</b><small>países</small></div>
+    <div><b id="sMax">100 %</b><small>en la región con más peso</small></div>
+  </div>
+  <p class="verdict bad" id="verdict"></p>
+  <p class="foot">Cifras aproximadas y redondeadas para ilustrar la idea. El peso de cada región en un índice global cambia cada año con los precios.</p>
+</div>
+
+<h2><span class="n">04</span>Los ciclos cambian de líder</h2>
+<p>Ha habido épocas en que EE.UU. lideró y otras en que el resto del mundo lo igualó o lo superó. Toca cada década:</p>
+<div class="card">
+  <div class="dec" role="group" aria-label="Elegir década">
+    <button type="button" data-d="0" aria-pressed="true"><span>Años 80</span>Japón</button>
+    <button type="button" data-d="1" aria-pressed="false"><span>Años 90</span>EE.UU.</button>
+    <button type="button" data-d="2" aria-pressed="false"><span>2000–2009</span>Emergentes</button>
+    <button type="button" data-d="3" aria-pressed="false"><span>2010–2020s</span>EE.UU.</button>
+  </div>
+  <p class="decTxt" id="decTxt" aria-live="polite"></p>
+  <p class="foot">Ejemplos propios, no del libro, para ilustrar la idea del capítulo.</p>
+</div>
+<p>Basar toda la estrategia en un único país, por dominante que parezca, introduce un riesgo que no hace falta correr.</p>
+
+<h2><span class="n">05</span>El papel de los emergentes</h2>
+<div class="vs">
+  <div class="card bad">
+    <h3>Lo malo</h3>
+    <ul>
+      <li>Más volátiles que los desarrollados.</li>
+      <li>Más riesgo político y de divisa.</li>
+    </ul>
+  </div>
+  <div class="card em">
+    <h3>Lo bueno</h3>
+    <ul>
+      <li>Mayor potencial de crecimiento en ciertas épocas.</li>
+      <li>Oportunidades que no existen en los mercados desarrollados.</li>
+      <li>Suavizan el impacto de las crisis locales.</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:12px">La combinación de desarrollados y emergentes reparte el riesgo y mejora el rendimiento global de la cartera a largo plazo.</p>
+
+<h2><span class="n">06</span>La trampa del ganador eterno</h2>
+<p>Es fácil creer que una región tendrá siempre mejores resultados. Pero los mercados son cíclicos y ningún continente tiene asegurado un crecimiento perpetuo. Diversificar evita que te dejes llevar por pronósticos sesgados o por la idea de que un área siempre será mejor que otra.</p>
+<p>Los imperios nacen y mueren. La hegemonía de una nación nunca es eterna, y eso refuerza la diversificación global. Creer que la supremacía de una zona durará indefinidamente es ingenuo.</p>
+<p>Durante las últimas décadas, mientras un mercado atravesaba una crisis, otros seguían creciendo. En frenazos de Europa o EE.UU., Asia o los emergentes mostraron recuperación o crecimiento, y eso estabilizó las carteras repartidas por el mundo.</p>
+<div class="card">
+  <p style="margin:0">Frases como <b>"EE.UU. siempre crecerá más"</b> o <b>"Europa se recuperará peor"</b> son pronósticos. Y, como vimos en el capítulo 8, un pronóstico es especulación. <span class="mark">El rendimiento a largo plazo llega con una diversificación equilibrada, no apostando a un solo territorio.</span></p>
+</div>
+
+<h2><span class="n">07</span>Cómo hacerlo en la práctica</h2>
+<div class="steps">
+  <div class="step ok"><b class="k">A</b><p><b>Fondos indexados globales.</b> Los que replican el <b>MSCI ACWI</b> o el <b>FTSE All-World</b> invierten en miles de empresas de muchas regiones, de mercados desarrollados a emergentes. Si una región sufre, otras compensan.</p></div>
+  <div class="step ok"><b class="k">B</b><p><b>Roboadvisors.</b> Gestionan el reparto geográfico de forma automática, controlan que no haya demasiado peso en una sola región y limitan el riesgo de una burbuja o crisis local. En España, por ejemplo, Indexa Capital.</p></div>
+</div>
+<div class="chips">
+  <span class="chip">Un solo fondo global ya diversifica</span>
+  <span class="chip">Desarrollados + emergentes</span>
+  <span class="chip">Sin apostar por regiones</span>
+  <span class="chip">Fondos mejor que ETFs en España (traspasos)</span>
+</div>
+
+<div class="card note">
+  <b>Ojo, global no significa equilibrado al 50/50.</b> Un índice global pondera por tamaño de mercado, y hoy EE.UU. pesa en torno a dos tercios del MSCI ACWI. Seguir siendo "global" implica aceptar ese peso, no forzarlo a la baja. Lo que el capítulo critica es tener el <b>100%</b> en un país por convicción, no que EE.UU. tenga mucho peso por ser el mercado más grande.
+</div>
+
+<h2><span class="n">08</span>Conclusión</h2>
+<p>La diversificación geográfica no sirve solo para reducir riesgos: es la forma de capturar el crecimiento allí donde ocurra. Con un reparto global entre mercados desarrollados y emergentes evitas la sobreexposición a riesgos regionales y aprovechas que unos mercados aguantan cuando otros caen. Aunque las noticias sugieran que un continente lo hará mejor que otro, la diversificación sigue siendo la mejor baza para una cartera de largo plazo.</p>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿verdad o mito?</h2>
+<p>Decide si cada frase encaja con el capítulo.</p>
+<div class="card score"><span id="score">0 de 8 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Diversificación geográfica</dt><dd>Repartir las inversiones entre países y continentes para no depender de uno solo.</dd>
+  <dt>Riesgo de concentración</dt><dd>El que asumes al tener mucho dinero en un solo país, sector o empresa.</dd>
+  <dt>Mercados desarrollados</dt><dd>Economías maduras con mercados grandes y estables: EE.UU., Europa, Japón, Australia, Canadá…</dd>
+  <dt>Mercados emergentes</dt><dd>Economías en crecimiento rápido y más volátiles: China, India, Brasil, Taiwán…</dd>
+  <dt>Doble imposición</dt><dd>Pagar impuestos por el mismo dividendo dos veces: retención en el país de la empresa y tributación en el tuyo.</dd>
+  <dt>Retención en origen</dt><dd>Lo que el país de la empresa se queda del dividendo antes de que llegue a ti.</dd>
+  <dt>MSCI ACWI</dt><dd>Índice mundial de acciones de mercados desarrollados y emergentes. ACWI significa "All Country World Index".</dd>
+  <dt>FTSE All-World</dt><dd>Índice global parecido, de otro proveedor, que también cubre desarrollados y emergentes.</dd>
+  <dt>Roboadvisor</dt><dd>Gestora automatizada que construye y reequilibra una cartera indexada por ti.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Por qué el consejo de Bogle no sirve tal cual a un europeo?</summary><p>Porque lo daba a un estadounidense, con ventajas fiscales en su propio mercado. Un europeo sufre doble imposición en los dividendos de EE.UU. y concentraría todo en un país que no es el suyo.</p></details>
+<details><summary>¿Qué dos cosas consigue la diversificación geográfica?</summary><p>Reduce el riesgo de que una crisis local hunda la cartera y te permite capturar crecimiento en todo el mundo.</p></details>
+<details><summary>¿Por qué incluir emergentes si son más volátiles?</summary><p>Porque aportan un potencial de crecimiento que no está en los desarrollados y se mueven distinto, lo que suaviza el impacto de las crisis.</p></details>
+<details><summary>¿Qué es la "trampa del ganador eterno"?</summary><p>Creer que una región tendrá siempre mejores resultados. Los mercados son cíclicos y ninguna hegemonía dura para siempre.</p></details>
+<details><summary>¿Cuál es la forma más sencilla de diversificar por geografía?</summary><p>Un fondo indexado global (MSCI ACWI o FTSE All-World) o un roboadvisor que haga el reparto automáticamente.</p></details>
+<details><summary>¿Tener mucho peso en EE.UU. dentro de un fondo global contradice el capítulo?</summary><p>No. Ese peso refleja el tamaño de su mercado y se ajusta solo con el tiempo. Lo que el capítulo critica es apostar el 100% a un país por convicción.</p></details>
+
+<footer>Apuntes del Capítulo 9 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 80–82). Las notas «ojo», el comparador de carteras, los ejemplos por década y el test son añadidos propios, no del libro. No es asesoramiento financiero ni fiscal.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+
+  /* Comparador de carteras: pesos aproximados por región */
+  var P={
+    pUS:{w:[100,0,0,0],co:'~500',pa:'1',max:'100 %',cls:'bad',
+      t:'Todo depende de un país. Si EE.UU. vive una década mala, toda tu cartera la vive contigo. Y como europeo, pagas doble imposición en los dividendos.'},
+    pES:{w:[0,100,0,0],co:'~35',pa:'1',max:'100 %',cls:'bad',
+      t:'Es el sesgo local: invertir solo en lo de casa. Muy pocas empresas, muy concentradas en bancos y energía, y además ligadas a tu propio empleo y economía.'},
+    pGL:{w:[64,13,11,12],co:'~2.500',pa:'47',max:'~64 %',cls:'good',
+      t:'Miles de empresas en desarrollados y emergentes. EE.UU. pesa mucho por tamaño, pero si una región sufre, las demás compensan. Es lo que defiende el capítulo.'}
+  };
+  var cols=['var(--cash)','var(--accent)','var(--warn)','var(--em)'];
+  var bar=$('bar');
+  cols.forEach(function(c){var s=document.createElement('span');s.style.background=c;s.style.width='0';bar.appendChild(s);});
+  function show(id){
+    Object.keys(P).forEach(function(k){$(k).setAttribute('aria-pressed',String(k===id));});
+    var p=P[id];
+    bar.querySelectorAll('span').forEach(function(s,i){s.style.width=p.w[i]+'%';});
+    $('sCo').textContent=p.co; $('sPa').textContent=p.pa; $('sMax').textContent=p.max;
+    var v=$('verdict'); v.className='verdict '+p.cls; v.textContent=p.t;
+  }
+  Object.keys(P).forEach(function(k){$(k).addEventListener('click',function(){show(k)});});
+  show('pUS');
+
+  /* Líderes por década */
+  var D=[
+    'En 1989 la bolsa japonesa llegó a ser más del 40% de la capitalización mundial y parecía imparable. El Nikkei tocó máximos a finales de ese año y tardó unos 34 años, hasta 2024, en recuperarlos. Quien solo tenía Japón perdió décadas.',
+    'Boom tecnológico. EE.UU. arrasa y se instala la idea de que es el único mercado que importa. La década acaba con la burbuja puntocom en su punto más alto.',
+    'La "década perdida" de EE.UU.: el S&P 500 terminó estos diez años con una rentabilidad total ligeramente negativa. Mientras, los emergentes multiplicaron su valor. Un europeo 100% en EE.UU. habría pasado diez años sin ganar nada.',
+    'EE.UU., impulsado por las grandes tecnológicas, vuelve a liderar con claridad. Es justo el momento en que más gente dice que no hace falta nada más. El capítulo pide no confundir una racha con una ley.'
+  ];
+  var btns=document.querySelectorAll('.dec button');
+  function dec(i){btns.forEach(function(b,j){b.setAttribute('aria-pressed',String(j===i));});$('decTxt').textContent=D[i];}
+  btns.forEach(function(b,i){b.addEventListener('click',function(){dec(i)});});
+  dec(0);
+
+  /* Test */
+  var items=[
+    ['Para un europeo, invertir solo en EE.UU. es lo mismo que para un estadounidense.','M','No: el europeo sufre doble imposición en los dividendos y concentra todo en un país que no es el suyo.'],
+    ['Diversificar por geografía sirve para reducir riesgo y también para capturar crecimiento.','V','Son las dos funciones que destaca el capítulo.'],
+    ['Si EE.UU. ha sido el mejor mercado en la última década, lo seguirá siendo.','M','Es un pronóstico. Japón en los 80 o EE.UU. en 2000–2009 muestran que el líder cambia.'],
+    ['Los emergentes son más volátiles, pero aportan oportunidades que no están en los desarrollados.','V','Por eso el autor los incluye en la cartera.'],
+    ['Un fondo que replica el MSCI ACWI ya está diversificado geográficamente.','V','Cubre miles de empresas de desarrollados y emergentes.'],
+    ['Diversificar bien significa poner el mismo porcentaje en cada continente.','M','Un índice global pondera por tamaño de mercado. Repartir a partes iguales sería otra forma de apostar.'],
+    ['La hegemonía económica de un país dura para siempre.','M','Los imperios nacen y mueren; ninguna hegemonía es eterna.'],
+    ['Invertir solo en empresas de mi propio país es una buena forma de reducir riesgo.','M','Es el sesgo local: concentra la cartera y la liga a la misma economía de la que depende tu trabajo.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'v" data-v="V">Verdad</button><button type="button" id="q'+n+'m" data-v="M">Mito</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick');
+          w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='V'?'Verdad':'Mito')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-8-riesgos-especulacion.html"><small>← Anterior · Cap. 8</small>Los riesgos de la especulación</a><a class="next" href="capitulo-10-control-emocional.html"><small>Siguiente · Cap. 10 →</small>El control emocional</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-9-diversificacion-geografica",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

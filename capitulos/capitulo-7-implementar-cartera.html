@@ -1,0 +1,381 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 7 · 7 de 18</span></div></nav>
+<title>Capítulo 7 · Implementar la cartera</title>
+<style>
+/* Mismo sistema que los capítulos 1–6: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+.vs .blue{background:var(--cash-soft);border-color:transparent} .vs .blue h3{color:var(--cash)}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.pc{font:14px/1.45 var(--sans)}
+.pc ul{margin:6px 0 0;padding-left:18px}
+.pc .plus li::marker{content:"+  ";color:var(--accent);font-weight:700}
+.pc .minus li::marker{content:"−  ";color:var(--bad);font-weight:700}
+.pc .lab{display:block;font-weight:700;margin-top:10px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font:15px/1.4 var(--sans)}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{font:14px/1.3 var(--sans)}
+.bar-row{display:grid;grid-template-columns:132px 1fr 96px;gap:8px;align-items:center;margin:8px 0}
+.bar-row > span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.bar{height:16px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px;transition:width .25s}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+@media (max-width:480px){.bar-row{grid-template-columns:96px 1fr 84px}}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+/* Cartera 60/40 dibujada como barra partida */
+.split{display:flex;height:44px;border-radius:10px;overflow:hidden;font:600 14px/44px var(--sans);margin:10px 0}
+.split span{padding:0 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.split .rv{flex:60;background:var(--accent);color:var(--card)}
+.split .rf{flex:40;background:var(--cash);color:var(--card)}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:10px;font:14px/1.45 var(--sans)}
+.legend > div{min-width:0}
+.legend b{display:block}
+@media (max-width:540px){.legend{grid-template-columns:1fr}}
+/* Muralla: quién guarda tu dinero */
+.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.wall > div{border-radius:12px;padding:12px;font:14px/1.4 var(--sans);min-width:0}
+.wall b{display:block;font-size:15px;margin-bottom:4px}
+.wall .you{background:var(--accent-soft)} .wall .you b{color:var(--accent)}
+.wall .g{background:var(--cash-soft)} .wall .g b{color:var(--cash)}
+.wall .d{background:var(--warn-soft)} .wall .d b{color:var(--warn)}
+@media (max-width:540px){.wall{grid-template-columns:1fr}}
+.calc label{display:block;font:600 14px/1.3 var(--sans);margin:12px 0 4px}
+.calc label output{float:right;color:var(--accent);font-variant-numeric:tabular-nums}
+.calc input[type=range]{width:100%;accent-color:var(--accent)}
+.calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;font:14px/1.3 var(--sans);min-width:0}
+.res strong{display:block;font-size:20px;margin-top:4px;font-variant-numeric:tabular-nums}
+.res small{display:block;color:var(--muted);margin-top:3px}
+.res .lost{background:var(--bad-soft)} .res .lost strong{color:var(--bad)}
+.res .calm{background:var(--cash-soft)} .res .calm strong{color:var(--cash)}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--bad);text-align:center;background:var(--bad-soft);border-radius:50%;width:28px;height:28px}
+.step.ok b.k{color:var(--accent);background:var(--accent-soft)}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.chip.no{background:var(--bad-soft);color:var(--bad)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 7 · Apuntes de estudio</div>
+  <h1>Cómo implementar la cartera</h1>
+  <p class="sub">La teoría ya está. Ahora toca lo práctico: con qué montas la cartera, cuánto te cuesta cada opción, si tu dinero está seguro y por qué el producto importa menos que la forma de usarlo.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Dos caminos: montar tú la cartera con <b>fondos indexados</b> o dejarla a un <b>roboadvisor</b>. Un tercero, más simple: un <b>único fondo mixto</b>.</li>
+    <li>Manual es lo más barato y te da control total, pero exige saber, disciplina y tiempo. El roboadvisor cuesta algo más y te quita trabajo y emociones.</li>
+    <li>Las comisiones no son un detalle: un 2% anual frente a un 0,25% puede costar más de 400.000 € en 20 años sobre medio millón.</li>
+    <li>El autor prefiere roboadvisor por la <b>optimización fiscal</b> y el rebalanceo automático.</li>
+    <li>Un fondo no es dinero "en el banco": es patrimonio separado. El único riesgo real es el del mercado.</li>
+    <li>Antes de invertir, un <b>fondo de emergencia</b>. Y no a la cartera ISR/ESG.</li>
+    <li>Fondo indexado o ETF: lo que cuenta es <span class="mark">cómo lo usas</span>. Indexarse es una técnica; ser Boglehead es una mentalidad.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Opción 1: invertir tú mismo en fondos indexados</h2>
+<p>Abres una cuenta en un bróker o neobanco con plataforma de fondos y haces tú todo el trabajo:</p>
+<div class="steps">
+  <div class="step ok"><b class="k">1</b><p>Eliges los fondos: uno de renta variable y uno de renta fija.</p></div>
+  <div class="step ok"><b class="k">2</b><p>Decides la asignación de activos, por ejemplo 60/40.</p></div>
+  <div class="step ok"><b class="k">3</b><p>Rebalanceas una vez al año para volver a esa proporción.</p></div>
+  <div class="step ok"><b class="k">4</b><p>Gestionas aportaciones y retiradas: a qué fondo va cada euro nuevo y de cuál sacas.</p></div>
+</div>
+
+<div class="card pc">
+  <span class="lab" style="margin-top:0">A favor</span>
+  <ul class="plus">
+    <li><b>Más barato.</b> No pagas la comisión de gestión del roboadvisor.</li>
+    <li><b>Control total.</b> Eliges la asignación exacta y los fondos concretos.</li>
+  </ul>
+  <span class="lab">En contra</span>
+  <ul class="minus">
+    <li><b>Exige conocimiento y disciplina.</b> Tienes que saber elegir, mantener la estrategia y rebalancear cuando toca.</li>
+    <li><b>Te lleva tiempo.</b> Es pasivo, pero hay tareas periódicas.</li>
+    <li><b>Errores emocionales.</b> Al tener el mando, es fácil caer en la tentación de adivinar el mercado o hacer cambios impulsivos.</li>
+  </ul>
+</div>
+
+<h3>Ejemplo del libro: una 60/40 hecha a mano</h3>
+<div class="split" aria-label="60% renta variable, 40% renta fija"><span class="rv">60% renta variable</span><span class="rf">40% renta fija</span></div>
+<div class="legend">
+  <div><b style="color:var(--accent)">Renta variable</b>Un indexado global de acciones, como el Vanguard Global Stock Index o el Amundi MSCI World.</div>
+  <div><b style="color:var(--cash)">Renta fija</b>Un indexado global de bonos, como el Vanguard Global Bond Index, o uno de bonos de gobierno.</div>
+</div>
+<p style="margin-top:12px">Cada año revisas si la proporción se ha desviado mucho y rebalanceas. También decides de qué fondo sacas cuando retiras capital, a cuál mandas las aportaciones nuevas y cómo afecta todo a tus impuestos.</p>
+
+<h2><span class="n">02</span>La versión más sencilla: un único fondo</h2>
+<p>Si quieres aún menos trabajo, puedes usar un solo fondo que ya trae la mezcla hecha, como el <b>Vanguard LifeStrategy 60% Equity</b> (60% acciones, 40% bonos).</p>
+<div class="vs">
+  <div class="card good"><h3>Ventaja</h3><p>Se rebalancea solo, dentro del propio fondo. Tú solo aportas.</p></div>
+  <div class="card bad"><h3>Desventaja</h3><p>Su comisión total (TER) suele ser algo más alta que la de una cartera de fondos sueltos.</p></div>
+</div>
+
+<h2><span class="n">03</span>Opción 2: invertir con un roboadvisor</h2>
+<p>Un roboadvisor es una plataforma que monta y gestiona la cartera por ti, con fondos indexados y diversificación global. El proceso:</p>
+<div class="steps">
+  <div class="step ok"><b class="k">1</b><p>Respondes un cuestionario sobre tu perfil de riesgo.</p></div>
+  <div class="step ok"><b class="k">2</b><p>La plataforma te asigna una cartera ajustada a ese perfil.</p></div>
+  <div class="step ok"><b class="k">3</b><p>Se encarga del rebalanceo y de toda la gestión. Tú solo aportas dinero de forma periódica.</p></div>
+</div>
+<p>El sistema reparte cada aportación entre los fondos para que los porcentajes se mantengan, y rebalancea cuando las oscilaciones del mercado sacan algún fondo de su margen permitido. En algunas plataformas puedes subir o bajar a mano tu nivel de riesgo.</p>
+
+<div class="card pc">
+  <span class="lab" style="margin-top:0">A favor</span>
+  <ul class="plus">
+    <li><b>Sencillo y automático.</b> No eliges fondos ni rebalanceas.</li>
+    <li><b>Menos sesgos.</b> Al estar automatizado, evita decisiones impulsivas en los momentos de nervios.</li>
+    <li><b>Optimización fiscal.</b> Al rebalancear, intenta compensar ganancias con pérdidas para pagar menos impuestos. Todo queda declarado y no te complicas con Hacienda.</li>
+    <li>Ideal si no quieres gestionar nada: ahorrar e invertir sin líos.</li>
+  </ul>
+  <span class="lab">En contra</span>
+  <ul class="minus">
+    <li><b>Comisión adicional.</b> Barata, pero existe: entre <b>0,15% y 0,60% al año</b>, según el libro.</li>
+    <li><b>Menos personalización.</b> No eliges los fondos exactos, solo la cartera que te asignan.</li>
+  </ul>
+</div>
+
+<h2><span class="n">04</span>Lo que de verdad cuestan las comisiones</h2>
+<p>El libro compara tres formas de invertir <b>500.000 €</b> durante <b>20 años</b>, con una rentabilidad bruta del <b>6% anual</b>:</p>
+<div class="tw"><table>
+  <tr><th>Cómo inviertes</th><th class="num">Coste anual</th><th class="num">A 20 años</th><th class="num">Diferencia</th></tr>
+  <tr><td>Indexados por tu cuenta</td><td class="num">≈ 0,25 %</td><td class="num">≈ 1.530.000 €</td><td class="num">—</td></tr>
+  <tr><td>Roboadvisor</td><td class="num">≈ 0,50 %</td><td class="num">≈ 1.459.000 €</td><td class="num">−71.000 €</td></tr>
+  <tr><td>Gestión activa de banco</td><td class="num">≈ 2 %</td><td class="num">≈ 1.096.000 €</td><td class="num">−434.000 €</td></tr>
+</table></div>
+<div class="card note">
+  <b>Ojo con las cifras del libro.</b> El libro da 1.552.000 € y 1.466.000 € para las dos primeras opciones (unos 85.000 € de diferencia). Rehaciendo la cuenta (6% menos la comisión, 20 años) salen las cifras de la tabla, algo más bajas. La de gestión activa sí coincide. El mensaje no cambia: un cuarto de punto ya se nota, y un 2% se come casi una tercera parte del resultado.
+</div>
+
+<h3>Y es el caso optimista</h3>
+<p>Ese cálculo da por hecho que el fondo activo consigue la misma rentabilidad bruta que el mercado antes de comisiones. En la práctica, la mayoría ni se acerca. Para justificar lo que cobra, el gestor tiene que asumir más riesgo, mover mucho la cartera y hacer apuestas grandes. A menudo eso acaba en resultados peores, y además más caros.</p>
+<p>Las comisiones no son la letra pequeña. Son la diferencia entre una jubilación holgada y una justa, entre la independencia financiera y depender del banco. Para el autor, invertir barato no es solo un consejo técnico: es una forma de <b>soberanía económica</b>.</p>
+
+<h3>Pruébalo tú: cuánto te cuesta cada punto de comisión</h3>
+<div class="card calc">
+  <label for="cap">Capital inicial <output id="oCap"></output></label>
+  <input id="cap" type="range" min="10000" max="1000000" step="10000" value="500000">
+  <label for="yrs">Años invertido <output id="oYrs"></output></label>
+  <input id="yrs" type="range" min="5" max="40" step="1" value="20">
+  <label for="ret">Rentabilidad bruta anual <output id="oRet"></output></label>
+  <input id="ret" type="range" min="2" max="10" step="0.5" value="6">
+  <div class="bars" style="margin-top:16px">
+    <div class="bar-row"><span>Indexados 0,25%</span><div class="bar"><i id="b1" style="background:var(--accent)"></i></div><span id="v1"></span></div>
+    <div class="bar-row"><span>Roboadvisor 0,50%</span><div class="bar"><i id="b2" style="background:var(--cash)"></i></div><span id="v2"></span></div>
+    <div class="bar-row"><span>Activo 2%</span><div class="bar"><i id="b3" style="background:var(--bad)"></i></div><span id="v3"></span></div>
+  </div>
+  <div class="res">
+    <div class="calm">Robo frente a manual<strong id="d1"></strong><small>el precio de no tener que hacer nada</small></div>
+    <div class="lost">Activo frente a manual<strong id="d2"></strong><small>y eso si el gestor iguala al mercado</small></div>
+  </div>
+  <p class="foot">Modelo simple: rentabilidad bruta menos comisión, compuesta cada año, sin aportaciones ni impuestos. Cálculo propio.</p>
+</div>
+
+<h2><span class="n">05</span>¿Manual o roboadvisor?</h2>
+<div class="vs">
+  <div class="card good"><h3>Manual</h3><p>Si quieres la máxima personalización y las comisiones más bajas.</p></div>
+  <div class="card blue"><h3>Roboadvisor</h3><p>Si prefieres no preocuparte, tener todo automatizado y aprovechar la optimización fiscal.</p></div>
+</div>
+<p style="margin-top:12px">El autor usa un roboadvisor. Cree que el servicio compensa lo que cuesta por lo que hace por él:</p>
+<div class="chips">
+  <span class="chip">Optimización fiscal</span><span class="chip">Rebalanceo automático</span><span class="chip">Compensar pérdidas (tax loss harvesting)</span><span class="chip">Límite a la sobreexposición geográfica</span><span class="chip">Cero líos con Hacienda</span>
+</div>
+<p>La idea de fondo: automatizar aportaciones y rebalanceos con reglas fijadas de antemano es lo que te protege de los sesgos y te desengancha emocionalmente del mercado.</p>
+<div class="card note">
+  <b>Nota propia, no del libro.</b> En España hay otra razón práctica para los fondos (manuales o vía roboadvisor): puedes pasar el dinero de un fondo a otro sin pagar impuestos hasta que vendas (los traspasos). Con ETFs eso no existe para un inversor particular residente: cada cambio tributa.
+</div>
+
+<h2><span class="n">06</span>"¿Y si invierto más de 100.000 € y quiebra el banco?"</h2>
+<p>La duda es lógica, y la respuesta es clara: <b>es seguro</b>. El miedo viene del <b>Fondo de Garantía de Depósitos (FGD)</b>, que cubre hasta 100.000 € por entidad y titular en cuentas corrientes, cuentas remuneradas y depósitos. Ese límite no se aplica a los fondos de inversión, y no porque estén desprotegidos, sino porque no les hace falta.</p>
+<p>Cuando inviertes en un fondo, tu dinero no se queda en el banco. Compras participaciones de una cartera de activos que pertenece a los partícipes y que está separada del balance de todas las entidades que intervienen:</p>
+<div class="wall">
+  <div class="you"><b>Tú y los demás partícipes</b>Sois los dueños de la cartera (acciones, bonos…).</div>
+  <div class="g"><b>La gestora</b>Decide cómo invertir según las reglas. Si quiebra, las participaciones siguen ahí y pasan a otra gestora.</div>
+  <div class="d"><b>El banco depositario</b>Guarda los activos y vigila a la gestora. No puede tocarlos ni usarlos. Si quiebra, se cambia de depositario.</div>
+</div>
+<p>Todo está regulado por la <b>CNMV</b> y supervisado bajo las directivas europeas <b>UCITS</b>. La seguridad legal de los fondos es muy alta.</p>
+<h3>Entonces, ¿dónde está el riesgo?</h3>
+<p>En el mercado. Las inversiones pueden bajar. Ese es el riesgo normal que aceptas al invertir, no el de perder el dinero porque se hunda un banco. Por eso tener más de 100.000 € en fondos no solo es seguro: es más prudente que dejarlos parados en una cuenta corriente.</p>
+
+<h2><span class="n">07</span>¿Cuándo empezar?</h2>
+<p>El mejor momento fue el día en que naciste. El segundo mejor, ayer. El tercero, hoy.</p>
+<p>Pero antes hay que tener una cosa: un <b>fondo de emergencia</b>. Es dinero disponible en tu cuenta corriente que cubre varios meses de gastos habituales. Sirve para una avería del coche, perder el trabajo o un gasto médico, sabiendo que tus inversiones no se tocan.</p>
+
+<h2><span class="n">08</span>¿Cartera ISR (inversión "responsable")?</h2>
+<p>Muchas plataformas ofrecen carteras con sesgo ISR (socialmente responsable, también llamado ESG). La respuesta del libro es <b>no</b>:</p>
+<div class="chips">
+  <span class="chip no">Deja fuera sectores enteros</span><span class="chip no">Menos diversificación</span><span class="chip no">Comisiones más altas</span>
+</div>
+<p>Excluye empresas importantes (tabaco, defensa…) y, según el autor, en la práctica lo único que consigue es empeorar la rentabilidad.</p>
+
+<h2><span class="n">09</span>Fondo indexado o ETF</h2>
+<p>Muchos principiantes creen que son lo mismo. Los dos replican un índice, tienen comisiones bajas y diversifican mucho. La diferencia está en <b>cómo se compran y venden</b>, y eso cambia el comportamiento del inversor.</p>
+<div class="vs">
+  <div class="card good">
+    <h3>Fondo indexado</h3>
+    <p>No cotiza en bolsa. Se compra y vende al precio de cierre del día (valor liquidativo). No puedes comprar a las 15:32 y vender a las 10:47 del día siguiente. Parece una pega, pero te protege de ti mismo.</p>
+  </div>
+  <div class="card bad">
+    <h3>ETF</h3>
+    <p>Cotiza como una acción, en tiempo real, con un clic. Esa liquidez es un arma de doble filo: si lo usas con mentalidad de trader, destruyes el espíritu Boglehead desde dentro.</p>
+  </div>
+</div>
+<p style="margin-top:12px">Los ETFs no son malos. Muchos Bogleheads los usan, sobre todo en países donde los fondos indexados no están tan extendidos o tributan peor. Pero hay que usarlos igual: comprar y mantener, reinvertir dividendos y aportar cada cierto tiempo. Así, la diferencia entre uno y otro casi desaparece.</p>
+<div class="card">
+  <p style="margin:0"><b>La pregunta correcta</b> no es cuál es más barato o más flexible, sino <span class="mark">cuál te ayuda a comportarte mejor</span>. ¿De verdad necesitas poder vender en mitad de la sesión? Muchas veces lo que importa no es qué eliges, sino cómo lo usas.</p>
+</div>
+
+<h2><span class="n">10</span>Indexarse no te convierte en Boglehead</h2>
+<p>Comprar un fondo indexado no te hace inversor pasivo. Indexarse es una <b>técnica</b>; ser Boglehead es una <b>filosofía</b>. Pueden ir juntas, pero no son lo mismo. Bogle no predicaba "compra un fondo del S&amp;P 500". Predicaba humildad ante lo que no sabemos del futuro y preferir lo simple a lo complejo. Para él la inversión pasiva no era una forma de ganar más, sino de vivir con menos estrés, menos costes, menos errores y más libertad.</p>
+
+<div class="vs">
+  <div class="card bad">
+    <h3>Indexado por moda</h3>
+    <ul style="margin:0;padding-left:18px">
+      <li>Cartera desequilibrada, a menudo 100% renta variable global.</li>
+      <li>Compra por gráficos de redes o porque "todos lo hacen".</li>
+      <li>Cree que el MSCI World siempre sube.</li>
+      <li>En la primera caída del 20% vende o cambia de estrategia y busca "el nuevo índice ganador".</li>
+    </ul>
+  </div>
+  <div class="card good">
+    <h3>Boglehead de verdad</h3>
+    <ul style="margin:0;padding-left:18px">
+      <li>Cartera diversificada y ajustada a su perfil de riesgo.</li>
+      <li>Sabe para qué sirve cada activo: la renta fija no está para ganar más, sino para suavizar caídas y dormir tranquilo.</li>
+      <li>No persigue rentabilidades pasadas ni intenta anticipar el mercado.</li>
+      <li>Automatiza aportaciones, decide lo mínimo y tiene un plan.</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:12px">Lo primero es especulación disfrazada de racionalidad: la misma impulsividad con la que antes se compraban criptomonedas o acciones de moda. Los índices también se pueden usar de forma activa (entrar y salir según noticias, rotar entre índices, ajustar por intuición), y eso no es inversión pasiva.</p>
+<p>El enemigo no está fuera, está dentro. Lo difícil no es elegir un fondo indexado, sino mantenerse firme con él durante años. Lo que marca la diferencia es la mentalidad:</p>
+<div class="chips">
+  <span class="chip">Paciencia</span><span class="chip">Humildad</span><span class="chip">Control emocional</span><span class="chip">Fidelidad al plan</span>
+</div>
+<p>Y eso no se compra ni se aprende de golpe. Se cultiva.</p>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Roboadvisor</dt><dd>Plataforma automatizada que monta y gestiona una cartera de fondos indexados según tu perfil de riesgo.</dd>
+  <dt>Rebalancear</dt><dd>Volver a la proporción elegida (por ejemplo 60/40) cuando el mercado la ha movido.</dd>
+  <dt>TER</dt><dd>Gastos corrientes totales de un fondo, en porcentaje anual sobre lo invertido.</dd>
+  <dt>Tax loss harvesting</dt><dd>Vender con pérdidas en el momento adecuado para compensar ganancias y pagar menos impuestos.</dd>
+  <dt>FGD</dt><dd>Fondo de Garantía de Depósitos: cubre hasta 100.000 € por entidad y titular en cuentas y depósitos. No aplica a fondos, que son patrimonio separado.</dd>
+  <dt>Gestora y depositario</dt><dd>La gestora decide las inversiones; el depositario guarda los activos y la vigila. Ninguno es dueño de tu dinero.</dd>
+  <dt>UCITS</dt><dd>Marco europeo que regula los fondos de inversión armonizados y protege al partícipe.</dd>
+  <dt>Valor liquidativo</dt><dd>Precio de una participación de un fondo, calculado una vez al día al cierre.</dd>
+  <dt>ISR / ESG</dt><dd>Inversión con filtros sociales, medioambientales o de gobierno corporativo, que excluye ciertas empresas o sectores.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Cuáles son las dos formas principales de montar la cartera?</summary><p>Hacerlo tú con fondos indexados en un bróker o neobanco, o delegarlo en un roboadvisor. La tercera vía es un único fondo mixto que se rebalancea solo.</p></details>
+<details><summary>¿Qué tienes que hacer tú si inviertes de forma manual?</summary><p>Elegir los fondos, fijar la asignación, rebalancear cada año y gestionar aportaciones, retiradas e impuestos.</p></details>
+<details><summary>¿Qué cobra un roboadvisor y qué te da a cambio?</summary><p>Entre 0,15% y 0,60% anual según el libro. A cambio: automatización, rebalanceo, menos decisiones impulsivas y optimización fiscal.</p></details>
+<details><summary>¿Por qué el ejemplo de comisiones es "optimista" con la gestión activa?</summary><p>Porque supone que el gestor activo iguala al mercado antes de comisiones, y la mayoría no lo consigue.</p></details>
+<details><summary>¿Te cubre el FGD si tienes más de 100.000 € en fondos?</summary><p>El FGD no se aplica a fondos, pero no hace falta: el fondo es patrimonio de los partícipes, separado de la gestora y del depositario. Si alguno quiebra, tus participaciones siguen existiendo.</p></details>
+<details><summary>¿Qué necesitas antes de empezar a invertir?</summary><p>Un fondo de emergencia en la cuenta corriente que cubra varios meses de gastos.</p></details>
+<details><summary>¿Cuál es la diferencia práctica entre un fondo indexado y un ETF?</summary><p>El fondo se compra y vende una vez al día al valor liquidativo; el ETF, en tiempo real en bolsa. Esa inmediatez puede empujarte a operar por impulso.</p></details>
+<details><summary>¿Por qué indexarse no te hace Boglehead?</summary><p>Porque indexarse es una técnica y Boglehead es una mentalidad: diversificación ajustada a tu perfil, un plan y la disciplina de no tocarlo en las caídas.</p></details>
+
+<footer>Apuntes del Capítulo 7 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 59–66). Las cifras recalculadas, el simulador y las notas «ojo» y «nota propia» son añadidos propios, no del libro. No es asesoramiento financiero.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  function run(){
+    var C=+$('cap').value, Y=+$('yrs').value, R=+$('ret').value/100;
+    $('oCap').textContent=eur(C); $('oYrs').textContent=Y+' años';
+    $('oRet').textContent=(R*100).toLocaleString('es-ES')+' %';
+    var f=function(c){return C*Math.pow(1+R-c,Y)};
+    var a=f(.0025), b=f(.005), c=f(.02), max=a;
+    $('v1').textContent=eur(a); $('v2').textContent=eur(b); $('v3').textContent=eur(c);
+    $('b1').style.width=(a/max*100)+'%'; $('b2').style.width=(b/max*100)+'%'; $('b3').style.width=(c/max*100)+'%';
+    $('d1').textContent='−'+eur(a-b); $('d2').textContent='−'+eur(a-c);
+  }
+  ['cap','yrs','ret'].forEach(function(id){$(id).addEventListener('input',run)});
+  run();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-6-psicologia-financiera.html"><small>← Anterior · Cap. 6</small>Psicología financiera</a><a class="next" href="capitulo-8-riesgos-especulacion.html"><small>Siguiente · Cap. 8 →</small>Los riesgos de la especulación</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-7-implementar-cartera",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

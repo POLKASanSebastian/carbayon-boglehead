@@ -1,0 +1,394 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 15 · 15 de 18</span></div></nav>
+<title>Capítulo 15 · El mito del ladrillo</title>
+<style>
+/* Mismo sistema que los capítulos 1–11: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --brick:#a8553a; --brick-soft:#f6e6df;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+    --brick:#e0906f; --brick-soft:#3a2720; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+  --brick:#e0906f; --brick-soft:#3a2720; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:21px;line-height:1.4;text-align:center;padding:22px 18px;background:var(--accent-soft);border-color:transparent}
+.quote small{display:block;margin-top:8px;font:13px/1.4 var(--sans);color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+.vs .brick{background:var(--brick-soft);border-color:transparent} .vs .brick h3{color:var(--brick)}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.vs p{font:15px/1.5 var(--sans);margin:0}
+.big{font:700 26px/1.1 var(--sans);font-variant-numeric:tabular-nums;margin:2px 0 6px}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--brick);text-align:center;background:var(--brick-soft);border-radius:50%;width:28px;height:28px}
+.step p{margin:0;min-width:0;font:15px/1.5 var(--sans)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font:14px/1.4 var(--sans);min-width:460px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+/* Cuadrícula de concentración: 100 casillas = 100 % del dinero */
+.grids{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+@media (max-width:540px){.grids{grid-template-columns:1fr}}
+.gbox{min-width:0}
+.gbox h3{margin:0 0 8px}
+.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;max-width:260px}
+.dots i{display:block;aspect-ratio:1;border-radius:3px;background:var(--accent-soft)}
+.dots i.re{background:var(--brick)}
+.dots.one i{background:var(--brick)}
+.gbox p{font:13px/1.45 var(--sans);color:var(--muted);margin:8px 0 0}
+
+/* Calculadora */
+.calc label{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px/1.3 var(--sans);margin:12px 0 0}
+.calc label output{font-variant-numeric:tabular-nums;color:var(--brick)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--brick)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.res b{display:block;font:700 21px/1.15 var(--sans);font-variant-numeric:tabular-nums}
+.res small{font:13px/1.35 var(--sans);color:var(--muted)}
+.res .g b{color:var(--accent)} .res .r b{color:var(--bad)} .res .k b{color:var(--brick)}
+@media (max-width:480px){.res{grid-template-columns:1fr}}
+.leak{margin-top:14px;display:grid;gap:6px;font:13px/1.3 var(--sans)}
+.leak .row{display:grid;grid-template-columns:150px 1fr 64px;gap:8px;align-items:center}
+.leak .row span:first-child{color:var(--muted)}
+.leak .bar{height:14px;border-radius:4px;background:var(--line);overflow:hidden}
+.leak .bar div{height:100%;background:var(--brick)}
+.leak .row span:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+@media (max-width:480px){.leak .row{grid-template-columns:110px 1fr 56px}}
+
+/* Test */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 15 · Apuntes de estudio</div>
+  <h1>Desmontando el mito del ladrillo</h1>
+  <p class="sub">En España comprar pisos para alquilar se ve como la inversión segura por excelencia. El capítulo lo compara con una cartera de fondos indexados en cinco frentes: impuestos, liquidez, diversificación, riesgos y tiempo de gestión.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li><b>Impuestos:</b> el alquiler tributa cada año y comprar o vender un piso cuesta impuestos altos. En un fondo solo pagas al vender y puedes traspasar sin tributar.</li>
+    <li><b>Liquidez:</b> un fondo lo vendes en días, entero o en parte. Un piso puede tardar meses o años.</li>
+    <li><b>Diversificación:</b> un fondo global reparte el dinero en miles de empresas. Un piso lo concentra en un solo activo, en una sola calle.</li>
+    <li><b>Riesgos propios del ladrillo:</b> impagos, gastos de mantenimiento, reformas, seguros y cambios de leyes.</li>
+    <li><b>REITs y SOCIMIs:</b> un fondo global ya lleva su parte de inmobiliario. Añadir más es sobreponderar un sector.</li>
+    <li><b>Tiempo:</b> el alquiler es una <span class="mark">actividad semi-laboral</span>. La inversión indexada se automatiza.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>El mito</h2>
+<p>La cultura inmobiliaria está muy arraigada en España. Mucha gente da por hecho que un piso alquilado es una forma segura y rentable de tener ingresos pasivos. El autor no niega que el ladrillo haya creado patrimonio, pero sostiene que, puesto al lado de una cartera indexada y equilibrada, sale perdiendo en casi todo lo que importa a quien busca la independencia financiera.</p>
+
+<h2><span class="n">02</span>Fiscalidad: cuándo y cuánto pagas</h2>
+<p>El argumento central es <b>cuándo</b> se paga. El piso paga al comprar, paga cada año por las rentas y paga al vender. El fondo, mientras no vendes, no paga nada, y el dinero que no se va en impuestos sigue componiendo.</p>
+<div class="tbl card" style="padding:6px 10px">
+<table>
+  <thead><tr><th>&nbsp;</th><th>Piso para alquilar</th><th>Fondo indexado</th></tr></thead>
+  <tbody>
+    <tr><td><b>Al comprar</b></td><td>ITP (usado) o IVA + AJD (nuevo), notaría, registro, gestoría.</td><td>Nada.</td></tr>
+    <tr><td><b>Cada año</b></td><td>Las rentas netas tributan en el IRPF. Además, IBI.</td><td>Nada, si el fondo es de acumulación.</td></tr>
+    <tr><td><b>Al cambiar de activo</b></td><td>Vender, tributar, volver a comprar y pagar otra vez impuestos de compra.</td><td>Traspaso entre fondos sin tributar.</td></tr>
+    <tr><td><b>Al vender</b></td><td>Ganancia en IRPF + plusvalía municipal + gastos de venta.</td><td>Solo la ganancia, en la base del ahorro.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card note">
+  <b>Ojo, cada impuesto lo paga quien lo paga.</b> El libro mete en el mismo saco ITP, AJD y plusvalía municipal. Para precisar: el <b>ITP</b> lo paga el comprador de una vivienda usada; si es nueva, en su lugar paga IVA (10 %) y AJD. La <b>plusvalía municipal</b> la paga el vendedor. Y el ITP cambia mucho según dónde esté el piso: un 4 % en el País Vasco frente a un 10 % o más en otras comunidades. Un matiz más: la ganancia al vender un piso tributa en la misma base del ahorro que la de un fondo. La ventaja fiscal del fondo está en todo lo demás: sin impuestos de entrada, sin tributar por las rentas cada año y con traspasos libres.
+</div>
+
+<div class="card note">
+  <b>Si vives en Gipuzkoa, el alquiler tributa distinto.</b> El libro dice que las rentas del alquiler tributan a tipos marginales altos. Eso vale para el territorio común, y aun ahí hay reducciones por alquilar vivienda habitual al inquilino. En Gipuzkoa, el alquiler de vivienda va a la <b>base del ahorro</b>, no a la general, con una bonificación sobre lo cobrado (del 30 % en el caso general tras la reforma de 2025) y muy pocos gastos deducibles, básicamente los intereses de la financiación. El resultado puede ser bastante mejor o peor que en territorio común según el caso. Confírmalo con tu asesor antes de hacer números.
+</div>
+
+<h2><span class="n">03</span>Liquidez</h2>
+<div class="vs">
+  <div class="card good">
+    <h3>Fondo indexado</h3>
+    <div class="big">2–4 días</div>
+    <p>Vendes cuando quieras, la parte que necesites, sin malvender y con costes mínimos.</p>
+  </div>
+  <div class="card brick">
+    <h3>Piso</h3>
+    <div class="big">meses o años</div>
+    <p>No se vende por trozos. Si necesitas dinero rápido, toca bajar precio o endeudarte.</p>
+  </div>
+</div>
+<p style="margin-top:12px">La liquidez da agilidad: puedes reequilibrar, retirar un 4 % al año o atender un imprevisto sin desmontar tu patrimonio. Con un piso, sacar 10.000 € significa vender el piso entero.</p>
+
+<h2><span class="n">04</span>Diversificación</h2>
+<p>Un fondo global reparte tu dinero entre miles de empresas de todos los sectores y países. Un piso lo pone todo en un activo, en una ciudad y en una calle. Eso lo expone a riesgos que en el fondo apenas se notan: que caigan los precios de esa zona, que cambie la ley de alquileres, o que el inquilino deje de pagar.</p>
+<div class="card">
+  <div class="grids">
+    <div class="gbox">
+      <h3 style="color:var(--accent)">100 € en un fondo global</h3>
+      <div class="dots" id="dotsFund" aria-hidden="true"></div>
+      <p>Cada casilla es 1 €. Las de color ladrillo son el sector inmobiliario cotizado que ya lleva dentro el fondo: en torno a 2–3 €.</p>
+    </div>
+    <div class="gbox">
+      <h3 style="color:var(--brick)">100 € en un piso</h3>
+      <div class="dots one" id="dotsFlat" aria-hidden="true"></div>
+      <p>Los 100 € en un único inmueble. Si esa zona o ese inquilino fallan, falla todo.</p>
+    </div>
+  </div>
+  <p class="foot">El peso del inmobiliario en los índices globales (tipo MSCI ACWI o FTSE All-World) ronda el 2–3 % y cambia con el mercado. Dato añadido, no del libro.</p>
+</div>
+
+<h2><span class="n">05</span>Impagos y gastos: la rentabilidad que se queda por el camino</h2>
+<p>La rentabilidad que se anuncia (alquiler anual entre precio) es la bruta. De ahí hay que quitar los meses vacíos o sin cobrar, los gastos de cada año y los impuestos, y además los gastos de compra hacen la inversión más cara de lo que dice el precio. Mueve los valores:</p>
+<div class="card calc">
+  <label for="price">Precio del piso <output id="oPrice"></output><input id="price" type="range" min="60000" max="600000" step="5000" value="200000"></label>
+  <label for="buy">Impuestos y gastos de compra <output id="oBuy"></output><input id="buy" type="range" min="4" max="14" step="0.5" value="10"></label>
+  <label for="rent">Alquiler mensual <output id="oRent"></output><input id="rent" type="range" min="300" max="3000" step="25" value="900"></label>
+  <label for="vac">Meses al año sin cobrar (vacío o impago) <output id="oVac"></output><input id="vac" type="range" min="0" max="4" step="0.5" value="0.5"></label>
+  <label for="exp">Gastos anuales (IBI, comunidad, seguro, mantenimiento) <output id="oExp"></output><input id="exp" type="range" min="0" max="8000" step="100" value="1800"></label>
+  <label for="tax">Impuesto efectivo sobre lo que ganas <output id="oTax"></output><input id="tax" type="range" min="0" max="45" step="1" value="20"></label>
+  <div class="res">
+    <div class="k"><b id="vGross"></b><small>rentabilidad bruta (la que se anuncia)</small></div>
+    <div><b id="vNet"></b><small>neta antes de impuestos</small></div>
+    <div class="r"><b id="vAfter"></b><small>neta después de impuestos</small></div>
+  </div>
+  <div class="leak" id="leak"></div>
+  <p class="foot">Sin hipoteca y sin contar la revalorización del piso, que puede sumar o restar. Con los valores de partida: 900 € al mes sobre 200.000 € es un 5,4 % bruto, que se queda en algo más del 3 % neto tras gastos e impuestos. Calculadora añadida, no del libro.</p>
+</div>
+
+<h2><span class="n">06</span>¿Y los REITs o SOCIMIs?</h2>
+<p>Hay quien propone invertir en inmobiliario sin gestionar pisos, a través de REITs (o SOCIMIs, su versión española): empresas cotizadas que poseen y alquilan inmuebles. El autor responde que un fondo global <b>ya incluye</b> esas empresas, en la proporción que el mercado les da. Comprar más inmobiliario, sea en pisos o en REITs, es sobreponderar un sector a costa de la diversificación.</p>
+<p>Y hay un argumento de fondo: el mercado ya refleja cuánto pesa el inmobiliario en la economía mundial. Apostar por más es suponer que sabes más que el conjunto del mercado, justo lo que la inversión pasiva evita hacer (capítulo 1).</p>
+
+<h2><span class="n">07</span>Gestión activa frente a gestión pasiva</h2>
+<p>Para quien busca la independencia financiera, el autor ve dos sistemas muy distintos. La cartera de fondos casi no pide tiempo, y sus rentas se organizan con una tasa de retirada segura (capítulo 4). El piso exige trabajo continuo:</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Buscar inquilinos</b> y filtrar a quién le alquilas.</p></div>
+  <div class="step"><b class="k">2</b><p><b>Mantenimiento</b>: averías, reparaciones, reformas entre inquilinos.</p></div>
+  <div class="step"><b class="k">3</b><p><b>Gestionar impagos</b>, que en tiempos de crisis pueden alargarse.</p></div>
+  <div class="step"><b class="k">4</b><p><b>Renegociar contratos</b> y seguir los cambios de la normativa.</p></div>
+</div>
+<p>Por eso el libro lo llama una actividad <b>semi-laboral</b>. Va contra la idea de automatizar y simplificar que sostiene todo el método Boglehead.</p>
+
+<h2><span class="n">08</span>Lo que el capítulo no cuenta</h2>
+<p>Para tener la foto completa, conviene saber qué argumentos usan los defensores del ladrillo. No cambian la conclusión del libro para quien busca sencillez, pero ayudan a entender por qué tanta gente sigue eligiéndolo.</p>
+<div class="vs">
+  <div class="card brick">
+    <h3>A favor del ladrillo</h3>
+    <ul>
+      <li><b>Apalancamiento:</b> con hipoteca compras un activo grande con poco dinero propio. Multiplica la ganancia, y también la pérdida.</li>
+      <li>Las rentas suelen subir con la inflación.</li>
+      <li>Es tangible y fácil de entender.</li>
+      <li>Al no cotizar cada día, obliga a no vender por pánico.</li>
+    </ul>
+  </div>
+  <div class="card good">
+    <h3>La respuesta indexada</h3>
+    <ul>
+      <li>El apalancamiento también se puede usar mal, y con un solo activo el riesgo se concentra.</li>
+      <li>Las empresas del índice también trasladan la inflación a sus precios.</li>
+      <li>Que el piso no muestre su precio cada día no lo hace menos volátil: solo lo esconde.</li>
+      <li>La disciplina se consigue automatizando (capítulos 6 y 10).</li>
+    </ul>
+  </div>
+</div>
+<p class="foot">Además, la vivienda en la que vives es otro asunto: es consumo e inversión a la vez. El capítulo habla de pisos para alquilar. Sección añadida, no del libro.</p>
+
+<h2><span class="n">09</span>Conclusión</h2>
+<p>El ladrillo tiene fama de seguro en España, pero comparado con frialdad, los fondos indexados globales ganan en fiscalidad, diversificación, liquidez y sencillez. Para quien quiere la independencia financiera, el autor ve la inversión indexada como un camino más eficiente y menos arriesgado para obtener rentabilidades ajustadas al riesgo durante décadas.</p>
+<div class="chips">
+  <span class="chip">Paga impuestos tarde</span>
+  <span class="chip">Liquidez total</span>
+  <span class="chip">Miles de empresas</span>
+  <span class="chip">El índice ya lleva inmobiliario</span>
+  <span class="chip">Bruto ≠ neto</span>
+  <span class="chip">Sin semi-trabajo</span>
+</div>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿verdad o mito?</h2>
+<p>Decide si cada frase encaja con el capítulo.</p>
+<div class="card score"><span id="score">0 de 8 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>ITP</dt><dd>Impuesto sobre Transmisiones Patrimoniales. Lo paga quien compra una vivienda usada. El tipo depende de la comunidad.</dd>
+  <dt>AJD</dt><dd>Actos Jurídicos Documentados. Grava la escritura, sobre todo en vivienda nueva y en hipotecas.</dd>
+  <dt>Plusvalía municipal</dt><dd>Impuesto del ayuntamiento sobre la subida de valor del suelo. Lo paga quien vende.</dd>
+  <dt>Rentabilidad bruta</dt><dd>Alquiler anual dividido entre el precio del piso. La cifra que se anuncia.</dd>
+  <dt>Rentabilidad neta</dt><dd>Lo que queda tras restar vacíos, impagos, gastos e impuestos, sobre todo lo invertido (precio más gastos de compra).</dd>
+  <dt>REIT / SOCIMI</dt><dd>Empresa cotizada que posee y alquila inmuebles. SOCIMI es la figura española.</dd>
+  <dt>Sobreponderar</dt><dd>Tener en un sector más peso del que le da el mercado.</dd>
+  <dt>Apalancamiento</dt><dd>Invertir con dinero prestado. Aumenta tanto las ganancias como las pérdidas.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Cuál es la gran ventaja fiscal del fondo frente al piso?</summary><p>Que solo tributa al vender y se puede traspasar sin pagar impuestos, así que el dinero sigue componiendo. El piso paga al comprar, cada año por las rentas y al vender.</p></details>
+<details><summary>¿Por qué la liquidez importa tanto?</summary><p>Porque te deja sacar justo lo que necesitas, cuando lo necesitas, sin malvender. Un piso no se vende por partes y puede tardar meses o años.</p></details>
+<details><summary>¿Qué riesgos tiene el piso que el fondo apenas tiene?</summary><p>Los de concentración: que caigan los precios de la zona, que cambie la ley o que el inquilino no pague. Más los gastos de mantenimiento, reformas y seguros.</p></details>
+<details><summary>¿Por qué el libro desaconseja añadir REITs a un fondo global?</summary><p>Porque el fondo ya incluye el sector inmobiliario en su peso de mercado. Añadir más es sobreponderarlo y apostar a que sabes más que el mercado.</p></details>
+<details><summary>¿Qué diferencia hay entre rentabilidad bruta y neta?</summary><p>La bruta es alquiler entre precio. La neta descuenta vacíos, impagos, gastos e impuestos, y divide entre todo lo invertido, incluidos los gastos de compra. Un 5,4 % bruto puede quedarse en un 3 % neto.</p></details>
+<details><summary>¿Por qué se dice que alquilar es "semi-laboral"?</summary><p>Porque exige buscar inquilinos, mantener, cobrar impagos y renegociar. La cartera indexada, en cambio, se automatiza.</p></details>
+
+<footer>Apuntes del Capítulo 15 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 121–122). La cuadrícula de diversificación, la calculadora de rentabilidad, el test, las notas sobre quién paga cada impuesto y sobre Gipuzkoa, y la sección "Lo que el capítulo no cuenta" son añadidos propios, no del libro. No es asesoramiento financiero ni fiscal.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  var pct=function(n,d){return n.toLocaleString('es-ES',{minimumFractionDigits:d===undefined?1:d,maximumFractionDigits:d===undefined?1:d})+' %'};
+
+  /* Cuadrículas */
+  var f=$('dotsFund'), p=$('dotsFlat');
+  for(var i=0;i<100;i++){
+    var a=document.createElement('i'); if(i>=97) a.className='re'; f.appendChild(a);
+    p.appendChild(document.createElement('i'));
+  }
+
+  /* Calculadora */
+  function calc(){
+    var P=+$('price').value, B=+$('buy').value/100, R=+$('rent').value, V=+$('vac').value, E=+$('exp').value, T=+$('tax').value/100;
+    $('oPrice').textContent=eur(P); $('oBuy').textContent=pct(B*100)+' · '+eur(P*B);
+    $('oRent').textContent=eur(R)+' ('+eur(R*12)+'/año)'; $('oVac').textContent=V.toLocaleString('es-ES')+(V===1?' mes':' meses');
+    $('oExp').textContent=eur(E); $('oTax').textContent=pct(T*100,0);
+    var gross=R*12, cash=R*(12-V), net=cash-E, after=net>0?net*(1-T):net, inv=P*(1+B);
+    $('vGross').textContent=pct(gross/P*100,2);
+    $('vNet').textContent=pct(net/inv*100,2);
+    $('vAfter').textContent=pct(after/inv*100,2);
+    var lost=[
+      ['Vacíos e impagos', R*V],
+      ['Gastos anuales', E],
+      ['Impuestos', net>0?net*T:0],
+      ['Te queda', Math.max(after,0)]
+    ];
+    var html='';
+    lost.forEach(function(l,ix){
+      var w=gross>0?Math.max(0,Math.min(100,l[1]/gross*100)):0;
+      html+='<div class="row"><span>'+l[0]+'</span><div class="bar"><div style="width:'+w+'%;'+(ix===3?'background:var(--accent)':'')+'"></div></div><span>'+eur(l[1])+'</span></div>';
+    });
+    $('leak').innerHTML='<div class="foot" style="margin:0">De cada '+eur(gross)+' de alquiler anual:</div>'+html;
+  }
+  ['price','buy','rent','vac','exp','tax'].forEach(function(id){$(id).addEventListener('input',calc)}); calc();
+
+  /* Test */
+  var items=[
+    ['Con un fondo indexado de acumulación pagas impuestos cada año, aunque no vendas.','M','Solo tributas al reembolsar. Y entre fondos puedes traspasar sin pagar.'],
+    ['Un piso se puede vender por partes si necesitas algo de dinero.','M','Se vende entero, y puede tardar meses o años.'],
+    ['Un fondo indexado global ya incluye empresas inmobiliarias.','V','En la proporción que les da el mercado, en torno a un 2–3 %.'],
+    ['Añadir REITs a una cartera global mejora su diversificación.','M','Según el libro, la empeora: sobrepondera un sector.'],
+    ['La rentabilidad bruta de un alquiler es la que realmente te llevas.','M','Hay que restar vacíos, impagos, gastos e impuestos, y sumar al coste los gastos de compra.'],
+    ['El ITP lo paga quien compra una vivienda usada.','V','La plusvalía municipal, en cambio, la paga quien vende.'],
+    ['Alquilar pisos exige una gestión activa: inquilinos, reparaciones, impagos.','V','Por eso el libro lo llama una actividad semi-laboral.'],
+    ['Que el precio de un piso no se vea cada día significa que tiene menos riesgo.','M','Solo significa que su volatilidad no se ve. El riesgo sigue ahí.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'v" data-v="V">Verdad</button><button type="button" id="q'+n+'m" data-v="M">Mito</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick'); w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='V'?'Verdad':'Mito')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-14-cartera-mono.html"><small>← Anterior · Cap. 14</small>La cartera del mono</a><a class="next" href="capitulo-16-movimiento-fire.html"><small>Siguiente · Cap. 16 →</small>El movimiento F.I.R.E.</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-15-mito-ladrillo",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

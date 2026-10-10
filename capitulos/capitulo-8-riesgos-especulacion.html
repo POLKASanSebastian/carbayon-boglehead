@@ -1,0 +1,480 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 8 · 8 de 18</span></div></nav>
+<title>Capítulo 8 · Los riesgos de la especulación</title>
+<style>
+/* Mismo sistema que los capítulos 1–7: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --gone:#b9b3a6;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+    --gone:#4a4f57; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+  --gone:#4a4f57; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{border-left:3px solid var(--line);padding-left:14px;color:var(--muted);font-style:italic;margin:12px 0}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+.vs .blue{background:var(--cash-soft);border-color:transparent} .vs .blue h3{color:var(--cash)}
+.vs .warn{background:var(--warn-soft);border-color:transparent} .vs .warn h3{color:var(--warn)}
+.vs.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:540px){.vs,.vs.three{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.vs p{font:15px/1.5 var(--sans)}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--bad);text-align:center;background:var(--bad-soft);border-radius:50%;width:28px;height:28px}
+.step.ok b.k{color:var(--accent);background:var(--accent-soft)}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.chip.no{background:var(--bad-soft);color:var(--bad)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+/* Línea de burbujas */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.timeline > div{background:var(--bad-soft);border-radius:12px;padding:12px;font:14px/1.4 var(--sans);min-width:0}
+.timeline b{display:block;color:var(--bad);font-size:15px}
+.timeline span{display:block;font:600 12px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+@media (max-width:540px){.timeline{grid-template-columns:1fr}}
+/* Ciclo de la manipulación */
+.cycle svg{width:100%;height:auto;display:block}
+.cycle .axis{stroke:var(--line);stroke-width:2;fill:none}
+.cycle .real{stroke:var(--muted);stroke-width:2;stroke-dasharray:6 6;fill:none}
+.cycle .price{stroke:var(--bad);stroke-width:4;fill:none;stroke-linecap:round}
+.cycle .area{fill:var(--bad-soft);stroke:none}
+.cycle .dot{fill:var(--card);stroke:var(--bad);stroke-width:3}
+.cycle .num{fill:var(--bad);font:700 17px var(--sans)}
+.cycle .lbl{fill:var(--muted);font:600 16px var(--sans)}
+/* Sesgo de supervivencia */
+.toggle{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 12px}
+.toggle button{font:600 14px/1.2 var(--sans);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.toggle button:focus-visible,.q button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;max-width:340px}
+.dots i{aspect-ratio:1;border-radius:50%;transition:opacity .25s,transform .25s}
+.dots i.win{background:var(--accent)}
+.dots i.lose{background:var(--cash)}
+.dots i.gone{background:var(--gone)}
+.dots.hide i.gone{opacity:.08;transform:scale(.5)}
+@media (prefers-reduced-motion:reduce){.dots i{transition:none}}
+.dotwrap{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:18px;align-items:center}
+@media (max-width:600px){.dotwrap{grid-template-columns:1fr}}
+.key{font:14px/1.5 var(--sans);display:grid;gap:6px}
+.key span{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:-1px}
+.big{font:700 34px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--accent);margin-top:8px}
+.big small{display:block;font:400 14px/1.4 var(--sans);color:var(--muted);margin-top:6px}
+/* Test interactivo */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 8 · Apuntes de estudio</div>
+  <h1>Los riesgos de la especulación</h1>
+  <p class="sub">Saber qué es invertir exige saber también qué no lo es. Este capítulo separa la inversión de la especulación, el juego y la estafa, y enseña a reconocer las trampas antes de caer en ellas.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Todo pronóstico (la bolsa subirá, la Fed provocará una recesión) es <b>especulación</b> disfrazada de análisis.</li>
+    <li>Especular no es solo comprar cripto: es una <b>actitud</b>. Creer que sabes más que el mercado.</li>
+    <li>Graham: invertir es lo que, tras analizarlo a fondo, protege el capital y da un rendimiento razonable. Lo demás es especular.</li>
+    <li><b>Activos productivos</b> (empresas, bonos, inmuebles en alquiler) generan valor. Los <b>improductivos</b> (oro, cripto, arte) dependen de que otro pague más: la <b>teoría del más tonto</b>.</li>
+    <li>La manipulación sigue un ciclo: promoción, euforia, inflado y desplome. Pierden los últimos en entrar.</li>
+    <li>El <b>sesgo de supervivencia</b> hace que la gestión activa parezca mejor de lo que es: los fondos que fracasan desaparecen de las estadísticas.</li>
+    <li><span class="mark">Precio no es valor.</span> Invertir a largo plazo en algo especulativo sigue siendo apostar.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Qué no es invertir</h2>
+<p>Muchos artículos financieros los escriben periodistas que buscan clics, no expertos. Necesitan mantener viva una historia, y esa historia casi siempre se apoya en predicciones: qué hará la bolsa tras las elecciones, qué marcará el petróleo, qué hará la Fed.</p>
+<p>El autor propone un reflejo: cada vez que oigas un pronóstico, piensa en la palabra <b>especulación</b>. Son conjeturas vestidas de análisis.</p>
+<h3>La especulación está en la actitud</h3>
+<p>No hace falta comprar criptomonedas para especular. Basta con pensar que sabes más que el mercado, que este año será distinto o que puedes anticipar lo que viene. Esa es la raíz del problema.</p>
+<p>Por eso el inversor pasivo no solo evita productos especulativos: <b>elimina la mentalidad especulativa</b>. La inversión pasiva rechaza la arrogancia del pronóstico y acepta la humildad de no saber. Bien entendida, invertir es renunciar a esa fe.</p>
+
+<h2><span class="n">02</span>La definición de Benjamin Graham</h2>
+<p>Graham, padre del <i>value investing</i> y mentor de Warren Buffett, dejó la definición más usada. Una operación es inversión si cumple tres condiciones:</p>
+<div class="steps">
+  <div class="step ok"><b class="k">1</b><p><b>Análisis a fondo.</b> Sabes qué compras y por qué tiene valor.</p></div>
+  <div class="step ok"><b class="k">2</b><p><b>Seguridad del capital.</b> Hay una base de valor que protege lo que pones.</p></div>
+  <div class="step ok"><b class="k">3</b><p><b>Rendimiento adecuado.</b> Razonable y previsible, no un pelotazo.</p></div>
+</div>
+<p>Si falla alguna, es especulación. Con este criterio, comprar algo que no tiene una base de valor ni da un rendimiento previsible es especular. Y si tu beneficio depende <b>solo</b> de vendérselo a otro más caro, sin que el activo produzca nada, también.</p>
+
+<h2><span class="n">03</span>Activos productivos e improductivos</h2>
+<div class="vs">
+  <div class="card good">
+    <h3>Productivos</h3>
+    <p>Generan valor por sí mismos: empresas que fabrican y venden, bonos que pagan intereses, inmuebles que dan rentas.</p>
+    <ul>
+      <li>Acciones de empresas con beneficios</li>
+      <li>Fondos indexados (crecen con la productividad de las empresas y los cupones de los bonos)</li>
+      <li>Bonos que pagan intereses</li>
+      <li>Inmuebles alquilados</li>
+    </ul>
+  </div>
+  <div class="card bad">
+    <h3>Improductivos</h3>
+    <p>No generan nada. Su precio solo depende de que alguien quiera pagar más por ellos mañana.</p>
+    <ul>
+      <li>Criptomonedas</li>
+      <li>Oro</li>
+      <li>Arte y coleccionables</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:12px">Buffett lo explicaba con humor: sacamos oro de la tierra en África, lo fundimos, lo volvemos a enterrar en una cámara y pagamos a gente para que lo vigile. Un marciano que nos viera no entendería para qué sirve.</p>
+
+<h2><span class="n">04</span>La teoría del más tonto</h2>
+<p>Los activos especulativos funcionan bajo la <b>Greater Fool Theory</b>: compras algo sin valor propio esperando que otro te lo compre más caro.</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p>Da igual que el activo no produzca nada ni vaya a servir para nada.</p></div>
+  <div class="step"><b class="k">2</b><p>Solo necesitas encontrar a alguien que pague más que tú.</p></div>
+  <div class="step"><b class="k">3</b><p>Así nacen las burbujas. Cuando estallan, los últimos en comprar se quedan atrapados.</p></div>
+</div>
+<div class="timeline">
+  <div><span>Siglo XVII</span><b>Tulipanes</b>En Holanda se pagaron fortunas por un bulbo, hasta que el precio se hundió.</div>
+  <div><span>Hacia el 2000</span><b>Puntocom</b>Empresas de internet sin beneficios valían miles de millones.</div>
+  <div><span>Década de 2020</span><b>NFTs y cripto</b>Precios disparados en activos sin flujo de caja.</div>
+</div>
+<p>Cuando alguien te diga que un activo "no para de subir", lo que en realidad te está diciendo es que depende de que sigan llegando compradores. Esa mentalidad es lo contrario de invertir, y acaba arruinando a muchos pequeños inversores.</p>
+
+<h2><span class="n">05</span>En qué no especula el autor, y por qué</h2>
+<div class="vs three">
+  <div class="card bad">
+    <h3>Criptomonedas</h3>
+    <ul>
+      <li>No generan ingresos ni flujo de caja.</li>
+      <li>Su valor depende solo de la oferta y la demanda especulativa.</li>
+      <li>Son muy volátiles: caídas del 80–90%.</li>
+      <li>No cumplen la definición de Graham.</li>
+    </ul>
+  </div>
+  <div class="card warn">
+    <h3>Metales preciosos</h3>
+    <ul>
+      <li>No producen beneficios ni intereses.</li>
+      <li>Generan gastos de custodia y comisiones.</li>
+      <li>Han protegido contra la inflación, pero no han sido una inversión rentable por sí mismos a largo plazo.</li>
+      <li>Su precio depende del miedo y de cómo lo perciba el mercado.</li>
+    </ul>
+  </div>
+  <div class="card blue">
+    <h3>Acciones sueltas</h3>
+    <ul>
+      <li>Elegir ganadoras de forma constante es casi imposible.</li>
+      <li>La mayoría de gestores profesionales pierde contra el mercado a largo plazo.</li>
+      <li>Es más eficiente comprar índices diversificados.</li>
+    </ul>
+  </div>
+</div>
+
+<h3>El caso del oro</h3>
+<p>Se ve como reserva de valor, pero entre 1980 y 1999 llegó a perder un <b>70%</b>. Pasó de estrella del boom inflacionario a perder casi dos décadas. Sirve de refugio frente a la inflación y las crisis, pero no lleva a la independencia financiera. Su papel se parece más al de un <b>seguro</b> que al de una inversión: no paga intereses ni rentas, solo conserva poder adquisitivo con muchos altibajos. Puede ser un elemento de diversificación, nunca el pilar de una cartera.</p>
+<div class="card note">
+  <b>Ojo con las cifras.</b> La caída del 70% es correcta en dólares nominales (de unos 850 $ la onza en enero de 1980 a unos 250 $ en 1999). Descontando la inflación, la pérdida real fue mayor, en torno al 85%. Y el oro también ha tenido épocas muy buenas, como 2001–2011. Lo que no cambia es el argumento: no produce nada, así que todo depende del precio que otro quiera pagar.
+</div>
+<p>Los activos especulativos atraen a quien busca ganancias rápidas con la ilusión de grandes rentabilidades sin riesgos. Su volatilidad puede llevar a pérdidas fuertes en poco tiempo. Y el marketing interesado los presenta como la vía rápida al éxito financiero.</p>
+
+<h2><span class="n">06</span>Inversión, juego y estafa</h2>
+<p>Mucha gente mete estas tres cosas en el mismo saco. Esa confusión da miedo y paraliza: unos no invierten nunca, y otros acaban en juegos o estafas creyendo que invierten.</p>
+<div class="vs three">
+  <div class="card warn">
+    <h3>Juego</h3>
+    <p>Del casino a la lotería, está diseñado para que la casa gane siempre. Matemáticamente, el jugador a largo plazo pierde. Se vende como entretenimiento.</p>
+  </div>
+  <div class="card bad">
+    <h3>Estafa</h3>
+    <p>Esquemas Ponzi, criptos dudosas y "expertos" que garantizan grandes rentabilidades en poco tiempo y sin riesgo. Viven de la falta de conocimientos.</p>
+  </div>
+  <div class="card good">
+    <h3>Inversión</h3>
+    <p>Pone el capital a trabajar en activos que generan valor. Hay volatilidad por el camino, pero a largo plazo la rentabilidad es positiva.</p>
+  </div>
+</div>
+<p style="margin-top:12px">El miedo que nace de esta confusión lleva a dos errores: dejar el dinero en cuentas que rinden menos que la inflación, o caer en modas especulativas y promesas imposibles.</p>
+
+<h2><span class="n">07</span>Educación financiera y crédito fácil</h2>
+<p>La salida es la <b>educación financiera</b>: entender el interés compuesto, distinguir riesgo de volatilidad y no dejarse llevar por el miedo. Con eso puedes adoptar una estrategia como la inversión periódica y diversificada, y reducir el peso de las emociones.</p>
+<p>El autor sostiene que esta carencia no es casual. Según él, a bancos, gobiernos y élites económicas les conviene una sociedad poco formada en finanzas y dependiente.</p>
+<div class="vs">
+  <div class="card bad">
+    <h3>La trampa del crédito fácil</h3>
+    <p>Tarjetas, préstamos preaprobados y "cómodas cuotas" que esconden intereses altísimos. Una compra pequeña puede convertirse en una deuda eterna, pagando durante años algo que valía mucho menos. Muchos no entienden el efecto de los intereses compuestos en su contra.</p>
+  </div>
+  <div class="card good">
+    <h3>Una población formada</h3>
+    <p>Distinguiría invertir de especular, activos de pasivos e interés simple de compuesto. Evitaría deudas innecesarias, buscaría alternativas mejores para su dinero y dependería menos del Estado para su jubilación.</p>
+  </div>
+</div>
+<p style="margin-top:12px">La conclusión del autor: nadie te va a regalar esta formación. Es responsabilidad de cada uno. Ignorarla tiene un precio, y se paga con la propia libertad.</p>
+<div class="card note">
+  <b>Nota propia.</b> La parte sobre intereses de élites y gobiernos es la opinión del autor, no un dato. La idea práctica sí es sólida y no depende de ella: entender el interés compuesto te protege tanto al invertir como al endeudarte.
+</div>
+
+<h2><span class="n">08</span>El ciclo de la manipulación</h2>
+<p>Influencers, figuras mediáticas y celebridades aprovechan su alcance para promocionar activos sin valor real. El patrón casi siempre es el mismo:</p>
+<div class="card cycle">
+  <svg viewBox="0 0 640 270" role="img" aria-label="Curva de precio: sube lenta, se dispara, toca techo y se desploma por debajo de donde empezó">
+    <line class="axis" x1="20" y1="240" x2="620" y2="240"/>
+    <path class="area" d="M20 205 C90 205 140 200 170 192 C230 175 280 150 320 125 C380 95 420 40 450 32 C480 28 500 120 530 170 C560 210 590 220 620 222 L620 240 L20 240 Z"/>
+    <line class="real" x1="20" y1="215" x2="620" y2="215"/>
+    <text class="lbl" x="24" y="234">valor real</text>
+    <path class="price" d="M20 205 C90 205 140 200 170 192 C230 175 280 150 320 125 C380 95 420 40 450 32 C480 28 500 120 530 170 C560 210 590 220 620 222"/>
+    <circle class="dot" cx="100" cy="204" r="15"/><text class="num" x="100" y="210" text-anchor="middle">1</text>
+    <circle class="dot" cx="250" cy="163" r="15"/><text class="num" x="250" y="169" text-anchor="middle">2</text>
+    <circle class="dot" cx="400" cy="78" r="15"/><text class="num" x="400" y="84" text-anchor="middle">3</text>
+    <circle class="dot" cx="540" cy="186" r="15"/><text class="num" x="540" y="192" text-anchor="middle">4</text>
+    <text class="lbl" x="455" y="22" text-anchor="middle">los primeros venden</text>
+  </svg>
+</div>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Promoción engañosa.</b> Alguien influyente menciona un activo, asegura que tiene "futuro" o insinúa que está a punto de dispararse.</p></div>
+  <div class="step"><b class="k">2</b><p><b>Euforia y compra masiva.</b> Miles de seguidores compran por FOMO, creyendo que es una oportunidad única, sin analizar nada.</p></div>
+  <div class="step"><b class="k">3</b><p><b>Inflado artificial.</b> La demanda dispara el precio y se forma la burbuja. Los primeros (incluido el promotor) empiezan a vender con beneficio.</p></div>
+  <div class="step"><b class="k">4</b><p><b>Desplome.</b> Cuando los de dentro ya han vendido, el precio se hunde. El activo vuelve a su valor real, que muchas veces es casi cero, y los pequeños inversores se quedan atrapados.</p></div>
+</div>
+
+<h3>Cripto: el ejemplo perfecto</h3>
+<p>En la última década, influencers y famosos han promocionado tokens sin valor como Dogecoin o Shiba Inu. Elon Musk llegó a mover el precio de Dogecoin con un simple tuit. Ganan quienes compraron barato antes de la promoción. Lo mismo ha pasado con muchas altcoins vendidas como "el futuro de las finanzas", que desaparecieron con millones de inversores dentro. Bastantes resultaron ser estafas o esquemas piramidales.</p>
+
+<h3>GameStop, 2021</h3>
+<p>Una cadena de tiendas físicas de videojuegos en claro declive, con la acción en torno a 5 dólares. Varios hedge funds apostaban a que caería. Miles de usuarios del foro r/WallStreetBets se coordinaron para comprar y forzar un <i>short squeeze</i>: una subida tan rápida que obligara a esos fondos a recomprar con pérdidas. Lo consiguieron. La acción pasó de 5 a más de 400 dólares, sin que cambiara nada en el negocio. Pura especulación.</p>
+<p>Se vendió como la "venganza del pequeño inversor", pero la realidad fue otra: unos pocos ganaron mucho y la mayoría perdió. Muchos entraron tarde, a precios inflados, y quedaron atrapados al estallar la burbuja. La historia llegó al cine en 2023 con <i>Dumb Money</i>, de Craig Gillespie.</p>
+<div class="card note">
+  <b>Ojo con las cifras.</b> Los 5 y 400 dólares son precios de antes del desdoblamiento 4 a 1 de 2022. En gráficos actuales verás aproximadamente 1 y 120 dólares. Además, la subida desde 5 dólares llevó varios meses (agosto 2020 a enero 2021); lo de "pocas semanas" fue el tramo final, en enero de 2021, cuando el máximo intradía rozó los 480 dólares.
+</div>
+<p>Mientras otros juegan a la ruleta financiera, el inversor racional sigue acumulando riqueza real en silencio. Mientras haya gente dispuesta a apostar sin entender, habrá presas fáciles. La única defensa es la educación financiera y el escepticismo ante promesas de riqueza rápida.</p>
+
+<h2><span class="n">09</span>El sesgo de supervivencia</h2>
+<p>Afecta a quien invierte en acciones sueltas y, sobre todo, a quien cree en la gestión activa. Muchos eligen "fondos estrella" por su rentabilidad pasada sin darse cuenta de que esa información está sesgada.</p>
+<p>Los estudios y rankings solo muestran los fondos que siguen vivos. Una enorme cantidad se cerró, se fusionó o cambió de estrategia porque iba mal. Al no contarlos, parece que muchos gestores baten al mercado, cuando en realidad la mayoría no lo consigue.</p>
+
+<div class="card">
+  <div class="toggle" role="group" aria-label="Qué fondos ver">
+    <button id="tAll" type="button" aria-pressed="true">Todos los fondos que nacieron</button>
+    <button id="tSurv" type="button" aria-pressed="false">Solo los que sobreviven</button>
+  </div>
+  <div class="dotwrap">
+    <div id="dots" class="dots" aria-hidden="true"></div>
+    <div>
+      <div class="key">
+        <div><span style="background:var(--accent)"></span>Bate a su índice</div>
+        <div><span style="background:var(--cash)"></span>Sigue vivo, pero no lo bate</div>
+        <div><span style="background:var(--gone)"></span>Cerrado o fusionado</div>
+      </div>
+      <div class="big" id="pct">8 %<small id="pctTxt"></small></div>
+    </div>
+  </div>
+  <p class="foot">Ejemplo ilustrativo con 100 fondos a 20 años: 8 baten al índice, 42 sobreviven sin batirlo y 50 desaparecen. Proporciones propias, en línea con el orden de magnitud de SPIVA, no datos exactos.</p>
+</div>
+
+<h3>Lo que dice SPIVA</h3>
+<p>El informe SPIVA (S&amp;P Indices Versus Active), citado por el libro:</p>
+<ul>
+  <li>A 20 años, <b>más del 90%</b> de los fondos activos de renta variable no bate a su índice de referencia.</li>
+  <li>A 10 años, el porcentaje de fondos que desaparecen o se fusionan es enorme, así que los resultados de los supervivientes están <b>sobrevalorados</b>.</li>
+</ul>
+
+<h3>Haber batido al mercado no predice nada</h3>
+<p>Aunque encuentres un fondo que lo hizo en el pasado, no hay garantía de que lo repita. La evidencia dice que la rentabilidad pasada no es buen indicador de la futura. Tres motivos:</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>La ventaja no dura.</b> El gestor pudo tener suerte o aprovechar un momento concreto del mercado que no se repite.</p></div>
+  <div class="step"><b class="k">2</b><p><b>Las comisiones se comen la rentabilidad.</b> Gestión, éxito y costes de compraventa reducen mucho lo que te llega.</p></div>
+  <div class="step"><b class="k">3</b><p><b>El éxito atrae demasiado dinero.</b> Con miles de millones nuevos, el fondo ya no puede aplicar la misma estrategia. Les pasó a muchos de los mejores fondos de los 90 y 2000.</p></div>
+</div>
+<p>Cómo evitarlo:</p>
+<div class="steps">
+  <div class="step ok"><b class="k">1</b><p>No guiarte por la rentabilidad pasada.</p></div>
+  <div class="step ok"><b class="k">2</b><p>No buscar al "gestor estrella". Ni los más famosos han demostrado que su éxito se repita a largo plazo.</p></div>
+  <div class="step ok"><b class="k">3</b><p>Optar por gestión pasiva y fondos indexados. En vez de buscar la aguja en el pajar, compra el pajar entero: menos riesgo de apostar por un gestor, menos comisiones y más probabilidades de éxito.</p></div>
+</div>
+
+<h2><span class="n">10</span>Precio no es valor</h2>
+<p>Mucha gente entra en los mercados buscando ganancias rápidas y acaba atrapada en esquemas que no entiende. La base para no caer:</p>
+<div class="chips">
+  <span class="chip">Activos productivos con rendimiento propio</span>
+  <span class="chip">Nada de burbujas ni modas</span>
+  <span class="chip">Cartera diversificada y disciplinada</span>
+  <span class="chip">Ni avaricia ni miedo</span>
+</div>
+<div class="card">
+  <p style="margin:0">Un activo puede subir de precio por pronósticos irracionales y seguir siendo basura. <span class="mark">El precio no le da valor ni utilidad real.</span></p>
+</div>
+<h3>No hay atajos</h3>
+<p>La riqueza se construye con tiempo y disciplina. Que algo pueda darte dinero no lo convierte en inversión: apostar en el casino no lo es, y comprar cripto u otros activos especulativos tampoco.</p>
+<p>Y "a largo plazo" no lo arregla todo. Mantener años un activo especulativo no lo convierte en inversión. Quien usa invertir y especular como sinónimos demuestra una de dos cosas: que no ha entendido lo básico, o que tiene intereses ocultos. Lo primero es ignorancia; lo segundo, manipulación.</p>
+<p>Si no aprendes a distinguir entre invertir y especular, no estarás invirtiendo. Estarás apostando, y serás carne de cañón para el mercado.</p>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿inversión o especulación?</h2>
+<p>Clasifica cada caso con el criterio del capítulo.</p>
+<div class="card score"><span id="score">0 de 9 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Especulación</dt><dd>Comprar esperando que el precio suba, sin que el activo genere valor o sin un análisis que proteja el capital. También la actitud de creer que puedes predecir el mercado.</dd>
+  <dt>Activo productivo</dt><dd>El que genera valor por sí mismo: beneficios, intereses o rentas.</dd>
+  <dt>Activo improductivo</dt><dd>El que no produce nada; su precio solo depende de lo que otro quiera pagar.</dd>
+  <dt>Teoría del más tonto</dt><dd>Comprar algo sin valor propio confiando en que alguien pagará más después.</dd>
+  <dt>FOMO</dt><dd>Miedo a quedarse fuera: comprar porque todos compran, sin analizar.</dd>
+  <dt>Short squeeze</dt><dd>Subida rápida que obliga a quienes apostaban a la baja a recomprar, lo que empuja el precio aún más arriba.</dd>
+  <dt>Esquema Ponzi</dt><dd>Estafa que paga a los primeros con el dinero de los que llegan después, hasta que dejan de llegar.</dd>
+  <dt>Sesgo de supervivencia</dt><dd>Sacar conclusiones mirando solo lo que ha sobrevivido, olvidando todo lo que desapareció.</dd>
+  <dt>SPIVA</dt><dd>Informe periódico de S&amp;P que compara los fondos de gestión activa con sus índices.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Por qué un pronóstico de mercado es especulación?</summary><p>Porque es una conjetura sobre el futuro presentada como análisis. Nadie puede anticipar de forma fiable lo que hará el mercado.</p></details>
+<details><summary>¿Qué tres condiciones pone Graham para que algo sea inversión?</summary><p>Análisis a fondo, seguridad del capital y un rendimiento adecuado. Si falla alguna, es especulación.</p></details>
+<details><summary>¿Qué diferencia un activo productivo de uno improductivo?</summary><p>El productivo genera valor por sí mismo (beneficios, intereses, rentas). El improductivo no genera nada y depende de que otro pague más.</p></details>
+<details><summary>¿Qué papel le da el autor al oro?</summary><p>El de un seguro: refugio ante inflación y crisis, útil para diversificar, pero nunca el pilar de la cartera, porque no produce nada.</p></details>
+<details><summary>¿Cuáles son las cuatro fases del ciclo de la manipulación?</summary><p>Promoción engañosa, euforia y compra masiva, inflado artificial del precio y desplome con pérdidas para los últimos en entrar.</p></details>
+<details><summary>¿Por qué los rankings de fondos engañan?</summary><p>Por el sesgo de supervivencia: solo muestran los fondos vivos. Los que fracasaron se cerraron o fusionaron y no aparecen, así que la media parece mejor de lo que es.</p></details>
+<details><summary>¿Por qué un fondo que batió al mercado puede dejar de hacerlo?</summary><p>Porque pudo ser suerte, porque las comisiones se comen la ventaja y porque el éxito atrae tanto dinero que la estrategia deja de funcionar.</p></details>
+<details><summary>¿Mantener cripto diez años la convierte en inversión?</summary><p>No. El plazo no cambia la naturaleza del activo. Si no produce nada y dependes de que otro pague más, sigue siendo especulación.</p></details>
+
+<footer>Apuntes del Capítulo 8 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 67–79). Las notas «ojo» y «nota propia», el ejemplo de los 100 fondos y el test son añadidos propios, no del libro. No es asesoramiento financiero.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+
+  /* Sesgo de supervivencia: 100 fondos en orden fijo y mezclado */
+  var kinds=[], i;
+  for(i=0;i<100;i++){kinds.push(i<8?'win':(i<50?'lose':'gone'));}
+  var seed=7; function rnd(){seed=(seed*9301+49297)%233280;return seed/233280;}
+  for(i=kinds.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=kinds[i];kinds[i]=kinds[j];kinds[j]=t;}
+  var box=$('dots');
+  kinds.forEach(function(k){var d=document.createElement('i');d.className=k;box.appendChild(d);});
+  function setView(surv){
+    $('tAll').setAttribute('aria-pressed',String(!surv));
+    $('tSurv').setAttribute('aria-pressed',String(surv));
+    box.classList.toggle('hide',surv);
+    $('pct').firstChild.nodeValue=(surv?'16 %':'8 %');
+    $('pctTxt').textContent=surv
+      ?'8 de los 50 supervivientes baten al índice. Es lo que parece mirando un ranking.'
+      :'8 de los 100 fondos que nacieron baten al índice. Es la realidad completa.';
+  }
+  $('tAll').addEventListener('click',function(){setView(false)});
+  $('tSurv').addEventListener('click',function(){setView(true)});
+  setView(false);
+
+  /* Test */
+  var items=[
+    ['Un fondo indexado global de acciones, con aportaciones cada mes','I','Posees un trozo de miles de empresas que generan beneficios.'],
+    ['Bitcoin, "porque no para de subir"','E','No produce flujos de caja. Dependes de que otro pague más.'],
+    ['Un piso comprado para alquilarlo','I','Es un activo productivo: genera rentas.'],
+    ['Lingotes de oro en una caja de seguridad','E','Para el autor no produce nada y cuesta custodiarlo. Puede servir como seguro, no como inversión.'],
+    ['Un bono del Estado a 10 años','I','Paga intereses y devuelve el capital al vencimiento.'],
+    ['Comprar GameStop en enero de 2021 tras leer r/WallStreetBets','E','El negocio no había cambiado. Solo importaba que otro comprara más caro.'],
+    ['Un NFT de arte digital','E','No genera nada. Su precio depende de la moda y del siguiente comprador.'],
+    ['Acciones de una empresa rentable, compradas tras analizar sus cuentas y mantenidas años','I','Cumple a Graham: análisis, base de valor y rendimiento razonable. Aun así, el autor prefiere índices por lo difícil que es acertar.'],
+    ['Un fondo indexado que compras y vendes cada semana según las noticias','E','El activo es productivo, pero la actitud es especulativa: intentas predecir el mercado.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'i" data-v="I">Inversión</button><button type="button" id="q'+n+'e" data-v="E">Especulación</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick');
+          w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='I'?'Inversión':'Especulación')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-7-implementar-cartera.html"><small>← Anterior · Cap. 7</small>Cómo implementar la cartera</a><a class="next" href="capitulo-9-diversificacion-geografica.html"><small>Siguiente · Cap. 9 →</small>La diversificación geográfica</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-8-riesgos-especulacion",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

@@ -1,0 +1,353 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 6 · 6 de 18</span></div></nav>
+<title>Capítulo 6 · Psicología del inversor</title>
+<style>
+/* Mismo sistema que los capítulos 1–5: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:20px;line-height:1.4;font-style:italic;border-left:4px solid var(--accent);padding:4px 0 4px 16px;margin:18px 0}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font:15px/1.4 var(--sans)}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars{font:14px/1.3 var(--sans)}
+.bar-row{display:grid;grid-template-columns:132px 1fr 64px;gap:8px;align-items:center;margin:8px 0}
+.bar-row > span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.bar{height:16px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+/* Escalera de Ferri: cuatro peldaños que suben */
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:end;margin:14px 0 6px}
+.rung{border-radius:12px;padding:12px 10px;min-width:0;font:14px/1.35 var(--sans)}
+.rung b{display:block;font-size:15px;margin-bottom:2px}
+.rung small{display:block;color:var(--muted);font-style:italic;margin-bottom:6px}
+.rung:nth-child(1){background:var(--bad-soft);min-height:110px} .rung:nth-child(1) b{color:var(--bad)}
+.rung:nth-child(2){background:var(--cash-soft);min-height:140px} .rung:nth-child(2) b{color:var(--cash)}
+.rung:nth-child(3){background:var(--warn-soft);min-height:170px} .rung:nth-child(3) b{color:var(--warn)}
+.rung:nth-child(4){background:var(--accent-soft);min-height:200px} .rung:nth-child(4) b{color:var(--accent)}
+@media (max-width:540px){.ladder{grid-template-columns:1fr 1fr}.rung{min-height:0!important}}
+.calc label{display:block;font:600 14px/1.3 var(--sans);margin:12px 0 4px}
+.calc label output{float:right;color:var(--accent);font-variant-numeric:tabular-nums}
+.calc input[type=range]{width:100%;accent-color:var(--accent)}
+.calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;font:14px/1.3 var(--sans);min-width:0}
+.res strong{display:block;font-size:20px;margin-top:4px;font-variant-numeric:tabular-nums}
+.res small{display:block;color:var(--muted);margin-top:3px}
+.res .full{grid-column:1/-1}
+.res .good{background:var(--accent-soft)} .res .good strong{color:var(--accent)}
+.res .lost{background:var(--bad-soft)} .res .lost strong{color:var(--bad)}
+.res .calm{background:var(--cash-soft)} .res .calm strong{color:var(--cash)}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--bad);text-align:center;background:var(--bad-soft);border-radius:50%;width:28px;height:28px}
+.step.ok b.k{color:var(--accent);background:var(--accent-soft)}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.chip.no{background:var(--bad-soft);color:var(--bad)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 6 · Apuntes de estudio</div>
+  <h1>Psicología financiera: filosofía y actitud del inversor</h1>
+  <p class="sub">Elegir bien la cartera es la parte fácil. Lo difícil es no estropearla cuando el mercado cae y el cuerpo te pide huir. Por qué nos pasa y cómo mantenerse firme.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Lo que más decide tus resultados no es la cartera, es tu <span class="mark">comportamiento</span> a lo largo de los años.</li>
+    <li>El cerebro trata una caída de la bolsa como un peligro físico. Su instinto es huir; la inversión pasiva pide justo lo contrario: quedarse quieto.</li>
+    <li>Tres sesgos (Kahneman y Tversky) nos hacen fallar: sobreconfianza, sesgo de acción y aversión a las pérdidas.</li>
+    <li>Los inversores en fondos ganan menos que los propios fondos, porque compran y venden por emociones. El problema es el usuario, no el producto.</li>
+    <li>Rick Ferri describe cuatro etapas: oscuridad, iluminación, complejidad y simplicidad. El destino es una cartera sencilla.</li>
+    <li>Estoicismo y taoísmo dan la actitud: acepta lo que no controlas y céntrate en lo que sí (costes y emociones).</li>
+    <li>Cuatro reglas para las caídas: son temporales, no mires la cuenta cada día, no cambies la estrategia en plena caída, piensa como propietario.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Datos frente a comportamiento</h2>
+<p>Los estudios lo repiten año tras año: la mayoría de gestores activos no bate a su índice a largo plazo. Aun así, el inversor medio sigue prefiriendo la gestión activa. La explicación no es financiera, es humana: invertir de forma pasiva va contra nuestra naturaleza.</p>
+
+<h3>El cerebro no distingue la bolsa de un león</h3>
+<p>La neurociencia ha visto que ante pérdidas de dinero se activan zonas del cerebro muy parecidas a las del dolor y el miedo. Si la cartera cae un 10%, el instinto no es aguantar, es escapar. La inversión pasiva te pide tres cosas que el cuerpo rechaza:</p>
+<div class="chips">
+  <span class="chip">No tocar nada</span><span class="chip">Soportar la incomodidad</span><span class="chip">Confiar en el largo plazo</span>
+</div>
+
+<h3>La explicación evolutiva</h3>
+<p>Nuestro cerebro se formó para sobrevivir en la sabana, con peligros inmediatos y recursos escasos. Allí funcionaba reaccionar rápido, evitar riesgos y actuar ante cualquier duda. En los mercados, esas mismas reacciones son trampas. Comprar un fondo indexado global y no tocarlo en veinte años es, para un cerebro de cazador, casi antinatural.</p>
+
+<h2><span class="n">02</span>Los tres sesgos de Kahneman y Tversky</h2>
+<p><b>Daniel Kahneman</b> (Nobel de Economía) y <b>Amos Tversky</b> estudiaron cómo decidimos cuando hay incertidumbre. En inversión, tres de sus sesgos hacen mucho daño:</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Sobreconfianza.</b> Creemos que somos más listos que el mercado y que nuestro análisis nos da ventaja.</p></div>
+  <div class="step"><b class="k">2</b><p><b>Sesgo de acción.</b> Sentimos que hacer algo siempre es mejor que no hacer nada, aunque quedarse quieto sea lo correcto.</p></div>
+  <div class="step"><b class="k">3</b><p><b>Aversión a las pérdidas.</b> Perder duele mucho más de lo que alegra ganar lo mismo. Por eso vendemos en el peor momento, solo para que deje de doler.</p></div>
+</div>
+
+<h2><span class="n">03</span>El problema es el usuario, no el producto</h2>
+<p>Los informes de <b>Morningstar</b> y <b>Dalbar</b> muestran que los inversores en fondos obtienen menos rentabilidad que los fondos en los que invierten. El fondo rinde bien; el inversor entra cuando ya ha subido y sale cuando ha caído. A esa diferencia se le llama <b>brecha de rentabilidad</b> (<i>behavior gap</i>).</p>
+<div class="card bars">
+  <p style="margin:0 0 6px"><b>Morningstar, Mind the Gap 2025</b> (fondos de EE. UU., 10 años hasta dic. 2024), rentabilidad anual:</p>
+  <div class="bar-row"><span>Lo que dio el fondo</span><div class="bar"><i style="width:82%;background:var(--accent)"></i></div><span>8,2 %</span></div>
+  <div class="bar-row"><span>Lo que ganó el inversor</span><div class="bar"><i style="width:70%;background:var(--bad)"></i></div><span>7,0 %</span></div>
+  <p class="foot">Dato añadido, no del libro. Parece poco, pero compuesto pesa: 100.000 € a 20 años serían unos 484.000 € al 8,2% y unos 387.000 € al 7,0%. Casi 97.000 € perdidos solo por el momento de comprar y vender. Cálculo propio.</p>
+</div>
+
+<h2><span class="n">04</span>Una cuestión de madurez</h2>
+<p>Por todo esto, el autor ve la inversión pasiva como algo más que una estrategia: es un ejercicio de madurez emocional. Supone aceptar que el mundo es incierto, que no controlas lo que pasa y que no pasa nada por ello.</p>
+<div class="chips">
+  <span class="chip">Humildad intelectual</span><span class="chip">Paciencia radical</span><span class="chip">Fe razonada en el futuro</span>
+</div>
+<p>Y una paradoja: cuanto más racional se vuelve un inversor, más simple es su cartera.</p>
+
+<h2><span class="n">05</span>Las cuatro etapas de Rick Ferri</h2>
+<p><b>Rick Ferri</b>, asesor, presentador del podcast <i>Bogleheads on Investing</i> y autor de seis libros sobre indexación, describe en <i>The Power of Passive Investing</i> el camino que suelen recorrer quienes acaban en la inversión pasiva:</p>
+<div class="ladder" aria-label="Cuatro etapas, de oscuridad a simplicidad">
+  <div class="rung"><b>1. Oscuridad</b><small>Darkness</small>No conoce la inversión pasiva. Elige acciones o intenta adivinar el mercado.</div>
+  <div class="rung"><b>2. Iluminación</b><small>Enlightenment</small>Descubre los datos y entiende que batir al mercado de forma constante es muy improbable.</div>
+  <div class="rung"><b>3. Complejidad</b><small>Complexity</small>Ya indexa, pero complica la cartera: muchos fondos, estrategias sofisticadas, optimizar sin parar.</div>
+  <div class="rung"><b>4. Simplicidad</b><small>Simplicity</small>Cartera sencilla, diversificada y barata. Sin especular, sin cambios continuos.</div>
+</div>
+<p class="foot">El viaje va de las estrategias activas a una filosofía pasiva cada vez más limpia. La tercera etapa es la trampa típica de quien ya "sabe": volver a complicarse con otro disfraz.</p>
+
+<p class="quote">El mayor enemigo del inversor es él mismo.</p>
+<p class="foot" style="margin-top:-8px">Benjamin Graham, <i>El inversor inteligente</i>.</p>
+
+<h2><span class="n">06</span>Euforia, miedo y el ciclo de las malas decisiones</h2>
+<p>En las subidas aparece la <b>euforia y la codicia</b>: asumimos más riesgo del que podemos aguantar. En las caídas llegan el <b>miedo y el pánico</b>: vendemos en el peor momento. Este vaivén explica por qué muchos inversores ganan menos que el mercado. No es falta de conocimiento, es no poder sostener la estrategia cuando cuesta.</p>
+
+<h3>Dos mentalidades</h3>
+<div class="vs">
+  <div class="card bad">
+    <h3>Mentalidad de escasez</h3>
+    <p>Se fija en la pérdida inmediata. Ve la volatilidad como una amenaza. No entra en las caídas, o vende, esperando "el momento adecuado".</p>
+  </div>
+  <div class="card good">
+    <h3>Mentalidad de abundancia</h3>
+    <p>Se fija en el crecimiento a largo plazo. Ve la volatilidad como una oportunidad. Sabe que las caídas son temporales y que los mercados tienden a subir.</p>
+  </div>
+</div>
+<p style="margin-top:12px">En la crisis de <b>2008</b>, muchos vendieron en mínimos convencidos de que la bolsa no se recuperaría. Quienes siguieron invirtiendo obtuvieron rentabilidades extraordinarias en la década siguiente.</p>
+
+<h2><span class="n">07</span>Las tres preguntas antes de actuar</h2>
+<p>El inversor Boglehead ve la inversión como ver crecer la hierba: lento y aburrido. No mira la cartera cada día, no reacciona a cada noticia, no intenta "hacer algo" a todas horas. Cuando dudes, el libro propone preguntarte:</p>
+<div class="steps">
+  <div class="step ok"><b class="k">1</b><p>¿Por qué invertimos?</p></div>
+  <div class="step ok"><b class="k">2</b><p>¿Qué estrategia hemos elegido?</p></div>
+  <div class="step ok"><b class="k">3</b><p>¿Estoy decidiendo por miedo o por euforia?</p></div>
+</div>
+<p>La información externa (noticias, previsiones, titulares alarmistas) es el gran enemigo: solo genera incertidumbre y empuja a decidir con emoción. Invertir no es competir contra otros, es competir contra tus propias reacciones.</p>
+
+<h2><span class="n">08</span>Estoicismo y wu wei</h2>
+<p>Dos filosofías antiguas encajan con la mentalidad Boglehead:</p>
+<div class="vs">
+  <div class="card">
+    <h3>Estoicismo</h3>
+    <p>Marco Aurelio y Epicteto: acepta lo que no puedes controlar y céntrate en tu propia conducta. El inversor estoico sabe que habrá crisis, pero también que pasan. Su tarea es aguantar y confiar en el proceso.</p>
+  </div>
+  <div class="card">
+    <h3>Wu wei (taoísmo)</h3>
+    <p>"Acción sin esfuerzo": fluir con lo que pasa en vez de forzarlo. En inversión significa no predecir el mercado, no cambiar la cartera a cada rato y no buscar estrategias complicadas cuando lo simple funciona.</p>
+  </div>
+</div>
+<p style="margin-top:12px">El mercado sube y baja por ciclos. Lo mejor es dejarlo correr y centrarse en lo único que controlas:</p>
+<div class="chips">
+  <span class="chip">Los costes</span><span class="chip">Tus emociones</span>
+  <span class="chip no">El mercado</span><span class="chip no">Las caídas</span><span class="chip no">El futuro</span>
+</div>
+
+<h2><span class="n">09</span>Las cuatro reglas para las caídas</h2>
+<p>Las caídas son inevitables. Lo que importa no es evitarlas, es saber qué hacer cuando llegan:</p>
+<div class="steps">
+  <div class="step ok"><b class="k">1</b><p><b>Recuerda que son temporales.</b> Ha habido crisis, guerras, burbujas y recesiones, y el mercado siempre ha seguido creciendo a largo plazo.</p></div>
+  <div class="step ok"><b class="k">2</b><p><b>No mires la cuenta todos los días.</b> Cuanto más miras, más emociones, y más ganas de hacer una tontería.</p></div>
+  <div class="step ok"><b class="k">3</b><p><b>No cambies la estrategia en plena caída.</b> Vender convierte una pérdida temporal en una permanente.</p></div>
+  <div class="step ok"><b class="k">4</b><p><b>Piensa como propietario, no como especulador.</b> Con un índice compras un trozo de miles de empresas reales. Si crees en el crecimiento económico a largo plazo, no hay motivo para salir corriendo.</p></div>
+</div>
+<p>Incluso con la asignación de activos, el libro advierte: se cambia por tu edad, tu situación y tus objetivos, nunca por el pánico del momento.</p>
+
+<h2><span class="n">10</span>Una crisis, tres inversores</h2>
+<p>Imagina una recesión y una caída del <b>30%</b>. Cada inversor reacciona a su manera:</p>
+<div class="tw"><table>
+  <tr><th>Inversor</th><th>Qué hace</th><th>Resultado</th></tr>
+  <tr><td><b>Emocional</b></td><td>Vende presa del pánico.</td><td>Pierde dinero y la recuperación.</td></tr>
+  <tr><td><b>Activo</b></td><td>Intenta adivinar el suelo: compra lo que cree mejor o vende lo que cree peor. Otro activo hace lo contrario. El que cobra seguro es el intermediario.</td><td>Ha pagado comisiones en un juego de suma cero.</td></tr>
+  <tr><td><b>Boglehead</b></td><td>Nada. Sabe que su estrategia funciona y que la recuperación llegará antes o después.</td><td>Mantiene su patrimonio y recoge la subida.</td></tr>
+</table></div>
+<p style="margin-top:12px">Los inversores con éxito no son los más listos ni los que más información tienen, sino los que tienen paciencia y disciplina.</p>
+
+<h3>Pruébalo tú: lo que cuesta vender en pánico</h3>
+<div class="card calc">
+  <label for="cd">Caída del mercado <output id="oCd"></output></label>
+  <input id="cd" type="range" min="10" max="60" step="5" value="30">
+  <label for="rb">Cuánto ha rebotado desde el suelo cuando te atreves a volver <output id="oRb"></output></label>
+  <input id="rb" type="range" min="0" max="60" step="5" value="20">
+  <label for="cp">Tu cartera antes de la caída <output id="oCp"></output></label>
+  <input id="cp" type="range" min="10000" max="500000" step="10000" value="100000">
+  <div class="res">
+    <div class="calm">Subida necesaria para recuperar<strong id="q1"></strong><small>desde el suelo, solo para volver a cero</small></div>
+    <div>Tu cartera en el suelo<strong id="q2"></strong><small>pérdida temporal, si no vendes</small></div>
+    <div class="good">Si aguantas<strong id="q3"></strong><small>cuando el mercado vuelve al máximo anterior</small></div>
+    <div class="lost">Si vendes y vuelves tarde<strong id="q4"></strong><small id="q5"></small></div>
+  </div>
+  <p class="foot">Modelo simple: vendes justo en el suelo (el mejor caso para quien vende) y vuelves a comprar cuando el mercado ya ha rebotado lo que indiques. Se compara el día en que el mercado recupera su máximo. En la realidad, quien vende por miedo rara vez lo hace justo en el mínimo. Cálculo propio.</p>
+</div>
+
+<h2><span class="n">11</span>Nadie sabe nada</h2>
+<p>El mayor rendimiento de la bolsa se concentra en pocos días, imposibles de prever. Si no estás invertido justo entonces, tu rentabilidad se resiente mucho. Las caídas suelen ir seguidas de subidas, y quien vende en pánico se las pierde.</p>
+<p>Los mercados exageran con las noticias. Un titular puede provocar ventas masivas, pero esas reacciones suelen ser pasajeras. Decidir por titulares es rendirse al miedo y alejarse del plan. La volatilidad no es una anomalía: es el precio de aspirar a más rentabilidad.</p>
+<p>Al principio de su carrera, alguien le dijo a <b>John Bogle</b> una frase que nunca olvidó: <span class="mark">en este mundo, nadie sabe nada</span>. Fingir que sabes lo que va a pasar es jugar a algo peligroso. La humildad de aceptarlo te protege del exceso de confianza.</p>
+
+<div class="card">
+  <h3 style="margin-top:0">La historia de Fidelity</h3>
+  <p>Circula desde hace años un rumor: un análisis interno de Fidelity habría encontrado que sus clientes con mejores resultados eran personas que se habían olvidado de su cuenta o que habían fallecido. El libro reconoce que no hay ningún estudio oficial que lo respalde, pero lo cuenta porque su enseñanza es real: <b>no tocar la cartera</b> suele funcionar mejor que tocarla.</p>
+</div>
+<div class="card note">
+  <b>Ojo con la anécdota de Fidelity.</b> Trátala como una leyenda útil, no como un dato. Cuando la prensa preguntó a Fidelity, la gestora dijo que no le constaba ese estudio. La evidencia seria de lo mismo está en los informes de brecha de rentabilidad (punto 03).
+</div>
+
+<h2><span class="n">12</span>Indexarse es una renuncia consciente al ego</h2>
+<p>La inversión pasiva no promete emociones ni subidones a corto plazo. Ofrece algo más valioso: participar en el crecimiento del mundo sin tener que acertar. En inversión, como en la vida, no gana el más listo, sino el más paciente.</p>
+<ul>
+  <li>Te aprovechas de la fuerza más poderosa del dinero: el <b>interés compuesto</b>.</li>
+  <li>No compites contra profesionales con más herramientas, información y recursos.</li>
+  <li>La gestión activa tiene su papel: fija precios y descubre valor. Pero eso no te obliga a jugar a su juego.</li>
+  <li>Indexarse es admitir que no sabes más que los demás y que no puedes prever el futuro. Por eso eliges una estrategia que no depende de tener razón.</li>
+</ul>
+
+<h3>El ejemplo del autor</h3>
+<p>El autor reconoce que no puede saber si su cartera bajará 250.000 € mañana. Si pasa, no cambiaría nada: no porque no sienta miedo, sino porque no actúa en función de él. Siente las emociones, las observa y las deja pasar.</p>
+<p>Durante una caída no hace falta ser más listo que el mercado: basta con no hacer tonterías. Cuando llegan las caídas fuertes, la mayoría se mueve sin rumbo, vende en mínimos, cambia de estrategia y busca salvavidas que no existen. Ahí se pierde el capital y, sobre todo, la tranquilidad.</p>
+<p>La forma más racional de invertir en un mundo irracional es mantenerse fiel al plan.</p>
+
+<h2><span class="n">13</span>El miedo después de la independencia financiera</h2>
+<p>Ni siquiera al alcanzar la independencia financiera desaparecen las dudas. Cuando pasas de acumular a vivir de la cartera, cada caída se siente como si te estuvieras comiendo el patrimonio, aunque sea temporal. A eso se suman la culpa por "no producir" y la presión de justificar una vida que muchos no entienden.</p>
+<p>La clave es cambiar el marco mental: dejar de pensar en "gastar ahorros" y ver la cartera como un <b>sistema que genera rentas sostenibles</b>. Lo que ayuda, según el libro:</p>
+<div class="steps">
+  <div class="step ok"><b class="k">✓</b><p>Un plan de retiradas con respaldo empírico, como una <b>tasa de retirada segura (SWR)</b> conservadora (capítulo 4).</p></div>
+  <div class="step ok"><b class="k">✓</b><p>No mirar el valor de la cartera a diario.</p></div>
+  <div class="step ok"><b class="k">✓</b><p>Tener <b>de uno a dos años de gastos en efectivo</b> como colchón emocional.</p></div>
+  <div class="step ok"><b class="k">✓</b><p>Rodearte de gente con valores parecidos y aceptar que no todo el mundo entenderá tu forma de vida.</p></div>
+  <div class="step ok"><b class="k">✓</b><p>Volver de vez en cuando a los motivos que te llevaron a buscar la independencia.</p></div>
+</div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Sesgo de sobreconfianza</dt><dd>Creer que sabemos o acertamos más de lo que en realidad acertamos.</dd>
+  <dt>Sesgo de acción</dt><dd>Preferir hacer algo antes que nada, aunque lo mejor sea no actuar.</dd>
+  <dt>Aversión a las pérdidas</dt><dd>Una pérdida duele bastante más de lo que alegra una ganancia del mismo tamaño.</dd>
+  <dt>Brecha de rentabilidad (behavior gap)</dt><dd>Diferencia entre lo que rinde un fondo y lo que gana de verdad quien invierte en él, por comprar y vender en mal momento.</dd>
+  <dt>Juego de suma cero</dt><dd>Lo que uno gana lo pierde otro. Entre inversores activos, antes de comisiones; después de comisiones, el conjunto pierde.</dd>
+  <dt>Wu wei</dt><dd>Concepto taoísta de "no acción" o acción sin esfuerzo: fluir con lo que ocurre en vez de forzarlo.</dd>
+  <dt>SWR (Safe Withdrawal Rate)</dt><dd>Porcentaje de la cartera que puedes retirar cada año con baja probabilidad de quedarte sin dinero.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Por qué cuesta tanto invertir en pasivo si los datos están a favor?</summary><p>Porque va contra el instinto. El cerebro trata las pérdidas como un peligro y pide huir o actuar; la inversión pasiva pide quedarse quieto y aguantar.</p></details>
+<details><summary>¿Cuáles son los tres sesgos de Kahneman que cita el libro?</summary><p>Sobreconfianza, sesgo de acción y aversión a las pérdidas.</p></details>
+<details><summary>¿Por qué los inversores ganan menos que sus fondos?</summary><p>Porque compran después de subir y venden después de caer. El fondo funciona; falla el comportamiento. Según Morningstar, unos 1,2 puntos al año en la última década.</p></details>
+<details><summary>¿Cuáles son las cuatro etapas de Ferri y cuál es la trampa?</summary><p>Oscuridad, iluminación, complejidad y simplicidad. La trampa es la tercera: ya indexas pero vuelves a complicarte con muchos fondos o estrategias "optimizadas".</p></details>
+<details><summary>¿Qué controlas de verdad como inversor?</summary><p>Los costes y tus emociones. No controlas el mercado, las caídas ni el futuro.</p></details>
+<details><summary>¿Cuándo es correcto cambiar la asignación de activos?</summary><p>Cuando cambian tu edad, tu situación o tus objetivos. Nunca por el pánico de una caída.</p></details>
+<details><summary>Si el mercado cae un 50%, ¿cuánto tiene que subir para recuperar?</summary><p>Un 100%. Por eso vender en el suelo y volver tarde sale tan caro.</p></details>
+<details><summary>¿Qué ayuda a mantener la calma cuando ya vives de la cartera?</summary><p>Un plan de retiradas conservador, no mirar la cartera a diario, uno o dos años de gastos en efectivo, un entorno afín y recordar tus motivos.</p></details>
+
+<footer>Apuntes del Capítulo 6 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 50–57). El dato de Morningstar y las notas marcadas como «ojo» son añadidos propios, no del libro. No es asesoramiento financiero.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  var pct=function(n){return Math.round(n).toLocaleString('es-ES')+' %'};
+  function run(){
+    var c=+$('cd').value/100, r=+$('rb').value/100, V=+$('cp').value;
+    $('oCd').textContent='−'+pct(c*100); $('oRb').textContent='+'+pct(r*100); $('oCp').textContent=eur(V);
+    var seller=V/(1+r);
+    $('q1').textContent='+'+pct((1/(1-c)-1)*100);
+    $('q2').textContent=eur(V*(1-c));
+    $('q3').textContent=eur(V);
+    $('q4').textContent=eur(seller);
+    $('q5').textContent=r>0?('pierdes '+eur(V-seller)+' para siempre'):'si vuelves justo en el suelo, no pierdes nada (casi imposible)';
+  }
+  ['cd','rb','cp'].forEach(function(id){$(id).addEventListener('input',run)});
+  run();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-5-dca-lump-sum.html"><small>← Anterior · Cap. 5</small>DCA o Lump Sum</a><a class="next" href="capitulo-7-implementar-cartera.html"><small>Siguiente · Cap. 7 →</small>Cómo implementar la cartera</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-6-psicologia-financiera",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

@@ -1,0 +1,385 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 14 · 14 de 18</span></div></nav>
+<title>Capítulo 14 · La cartera del mono</title>
+<style>
+/* Mismo sistema que los capítulos 1–11: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --em:#8a5aa8; --em-soft:#f1e8f6; --dot:#d9d4c8;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+    --em:#c79be0; --em-soft:#2f2438; --dot:#363b43; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+  --em:#c79be0; --em-soft:#2f2438; --dot:#363b43; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:21px;line-height:1.4;text-align:center;padding:22px 18px;background:var(--accent-soft);border-color:transparent}
+.quote small{display:block;margin-top:8px;font:13px/1.4 var(--sans);color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.vs p{font:15px/1.5 var(--sans);margin:0}
+.big{font:700 26px/1.1 var(--sans);font-variant-numeric:tabular-nums;margin:2px 0 6px}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--accent);text-align:center;background:var(--accent-soft);border-radius:50%;width:28px;height:28px}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font:14px/1.4 var(--sans);min-width:460px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Calculadoras */
+.calc label{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px/1.3 var(--sans);margin:12px 0 0}
+.calc label output{font-variant-numeric:tabular-nums;color:var(--accent)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.res b{display:block;font:700 21px/1.15 var(--sans);font-variant-numeric:tabular-nums}
+.res small{font:13px/1.35 var(--sans);color:var(--muted)}
+.res .g b{color:var(--accent)} .res .r b{color:var(--bad)} .res .c b{color:var(--cash)}
+@media (max-width:480px){.res{grid-template-columns:1fr}}
+.btn{font:600 14px/1 var(--sans);padding:10px 14px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:var(--bg);cursor:pointer}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Rejilla de la suerte */
+.dots{display:grid;grid-template-columns:repeat(25,1fr);gap:3px;margin:14px 0 6px;max-width:340px}
+.dots i{display:block;aspect-ratio:1;border-radius:50%;background:var(--dot);transition:background .25s}
+.dots i.on{background:var(--accent)}
+@media (prefers-reduced-motion:reduce){.dots i{transition:none}}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-top:12px}
+
+/* Test */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 14 · Apuntes de estudio</div>
+  <h1>La cartera del mono</h1>
+  <p class="sub">Si elegir acciones al azar da resultados parecidos a los de los profesionales, ¿qué valor tiene el "experto"? Este capítulo parte del famoso experimento de Malkiel para desmontar a los gurús de redes, explicar la reversión a la media y mostrar cómo el ego reacciona cuando la racha se acaba.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Malkiel (1973) dijo que un <b>mono con los ojos vendados lanzando dardos</b> elegiría una cartera tan buena como la de los expertos.</li>
+    <li>El Wall Street Journal lo puso a prueba durante años. La lección que sobrevive: <b>los profesionales no baten al índice de forma fiable</b>.</li>
+    <li>Los "gurús" de redes enseñan 3 o 4 años buenos, sin comparar con un índice adecuado y <b>sin enseñar los años malos</b>.</li>
+    <li>La <span class="mark">reversión a la media</span>: lo que sube demasiado suele volver a su promedio histórico.</li>
+    <li>Las <b>pérdidas pesan más</b> que las ganancias: tras caer un 50 % necesitas subir un 100 % para volver al inicio.</li>
+    <li>Cuando la racha se acaba, el discurso cambia: la culpa es del mercado "irracional", nunca del propio proceso. Es el ego hablando.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>El experimento del mono</h2>
+<p>En <b>1973</b>, Burton Malkiel publicó <i>A Random Walk Down Wall Street</i> (Un paseo aleatorio por Wall Street). La idea más provocadora del libro: un mono que lanza dardos a la página de cotizaciones de un periódico podría montar una cartera tan buena como la de los gestores profesionales. No era una broma, era una crítica a toda la industria basada en datos.</p>
+<p>El <b>Wall Street Journal</b> recogió el guante. En vez de monos usaron a periodistas lanzando dardos a una tabla de cotizaciones, y compararon esas acciones aleatorias con las elegidas por expertos. Repitieron el concurso durante años (de 1988 a 2002, en rondas de seis meses).</p>
+
+<div class="vs">
+  <div class="card bad">
+    <h3>Lo que cuenta el libro</h3>
+    <p>La cartera del mono superó claramente a la de los expertos, y años después, al revisar los datos, el resultado fue un empate técnico. Conclusión: con todos sus recursos, los profesionales no han logrado batir con claridad al azar.</p>
+  </div>
+  <div class="card good">
+    <h3>La lección que se sostiene</h3>
+    <p>La gestión activa, con todo su análisis, intervención y recursos, sigue sin batir al mercado de forma constante. Y si no lo bate, no justifica lo que cobra.</p>
+  </div>
+</div>
+
+<div class="card note">
+  <b>Ojo, los datos del concurso no dicen exactamente eso.</b> El libro habla de que el mono superó a los expertos en un 85 %. Al buscarlo, los resultados publicados del concurso del Wall Street Journal van al revés: en 142 rondas, los profesionales ganaron a los dardos <b>87 veces</b> y los dardos ganaron <b>55</b>. Lo realmente incómodo para los expertos es otra cosa: <b>frente al índice</b> (el Dow Jones) su ventaja fue mínima y estadísticamente no significativa; en las primeras 100 rondas quedaron 51 a 49. Además, parte de su ventaja se explicaba porque las acciones subían al publicarse la recomendación en el periódico. Tampoco he podido confirmar la revisión de Malkiel en 2022 que menciona el libro. La conclusión del capítulo sigue en pie, pero por el motivo correcto: los expertos no baten al índice, que es contra lo que tú inviertes.
+</div>
+
+<h2><span class="n">02</span>¿Habilidad o suerte? Pruébalo tú</h2>
+<p>Cada punto es un inversor que, cada año, bate o no al mercado <b>por pura suerte</b>, como lanzar una moneda. Mueve los años y mira cuántos siguen "invictos". Esos serían los gurús que abren cuenta en redes para vender su método.</p>
+<div class="card calc">
+  <label for="yrs">Años seguidos batiendo al mercado <output id="oYrs"></output><input id="yrs" type="range" min="1" max="6" step="1" value="4"></label>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+  <div class="res">
+    <div class="g"><b id="vWin"></b><small>de 500 lo consiguen solo con suerte (en este sorteo)</small></div>
+    <div><b id="vExp"></b><small>lo que sale de media por azar</small></div>
+    <div class="c"><b id="vPct"></b><small>probabilidad de cada uno</small></div>
+  </div>
+  <div class="row">
+    <p class="foot" style="margin:0">Con miles de inversores en redes, siempre habrá decenas con 3 o 4 años brillantes. No demuestra talento.</p>
+    <button class="btn" id="redo" type="button">Nuevo sorteo</button>
+  </div>
+</div>
+
+<h2><span class="n">03</span>Los gurús de redes y sus trucos</h2>
+<p>En foros y redes sociales abundan los aficionados que comparten sus "victorias" como si hubieran dado con una estrategia infalible. Muchas veces confunden la suerte con el talento, igual que el jugador de casino que acierta al rojo cuatro veces y cree que ha descubierto un patrón. Los fallos típicos de esas publicaciones:</p>
+<div class="steps">
+  <div class="step"><b class="k">1</b><p><b>Periodos cortos.</b> Enseñan tres o cuatro años. Casi nadie enseña la rentabilidad anualizada a 10 años, que es la que cuenta.</p></div>
+  <div class="step"><b class="k">2</b><p><b>Índice mal elegido.</b> Si tu cartera es casi toda tecnológica, compararte con el MSCI World es hacerte trampas. Lo justo sería compararte con el Nasdaq.</p></div>
+  <div class="step"><b class="k">3</b><p><b>Se borran los años malos.</b> Los años bajistas desaparecen de la historia y queda una imagen de invulnerabilidad que no es real.</p></div>
+  <div class="step"><b class="k">4</b><p><b>No se mira cómo caen.</b> ¿Por qué no enseñan qué pasó cuando el mercado bajó un 30 % o más? Porque ahí no batieron al índice ni evitaron la caída.</p></div>
+</div>
+<p>Es decir: muchos solo han tenido suerte en un ciclo favorable, y la confunden con habilidad.</p>
+
+<h2><span class="n">04</span>La reversión a la media</h2>
+<p>Muchos inversores, aficionados y también profesionales, no tienen en cuenta este concepto. Se entusiasman con unos años de rentabilidades extraordinarias y creen que eso es sostenible y repetible. Pero los mercados no funcionan así: lo que sube demasiado suele corregir, y lo que se aleja mucho de su promedio histórico tiende a volver a él.</p>
+<p>No es una teoría abstracta, es una especie de ley no escrita de los mercados. Pone en evidencia a quienes se creen capaces de superar al sistema con intuición y apuestas concentradas. Por eso la diversificación global y la indexación no buscan deslumbrar, sino <b>resistir</b>. El objetivo no es ganar cada año, sino evitar perderlo todo en uno solo.</p>
+
+<div class="vs">
+  <div class="card bad">
+    <h3>Apuesta concentrada en un sector de moda</h3>
+    <ul>
+      <li>Años de ganancias espectaculares.</li>
+      <li>Lo ganado en tres años puede evaporarse en uno.</li>
+      <li>Te hace sentir genio… hasta que deja de funcionar.</li>
+    </ul>
+  </div>
+  <div class="card good">
+    <h3>Cartera indexada y diversificada</h3>
+    <ul>
+      <li>Rentabilidad cercana a la del mercado, sin fuegos artificiales.</li>
+      <li>Caídas más suaves.</li>
+      <li>Aguanta los ciclos sin depender de acertar.</li>
+    </ul>
+  </div>
+</div>
+
+<h2><span class="n">05</span>Las matemáticas no perdonan</h2>
+<p>Las pérdidas y las ganancias no son simétricas. Si pierdes un porcentaje, necesitas ganar <b>más</b> que ese porcentaje para volver al punto de partida, porque partes de una base más pequeña. Prueba con distintos ciclos de subida y bajada:</p>
+<div class="card calc">
+  <label for="gain">Subida en cada ciclo <output id="oGain"></output><input id="gain" type="range" min="0" max="200" step="5" value="50"></label>
+  <label for="loss">Bajada en cada ciclo <output id="oLoss"></output><input id="loss" type="range" min="0" max="80" step="5" value="50"></label>
+  <label for="cyc">Número de ciclos <output id="oCyc"></output><input id="cyc" type="range" min="1" max="10" step="1" value="3"></label>
+  <div class="res">
+    <div id="bEnd"><b id="vEnd"></b><small>quedan de 10.000 € iniciales</small></div>
+    <div class="c"><b id="vNeed"></b><small>de subida necesaria para recuperar esa bajada</small></div>
+    <div><b id="vAvg"></b><small>media aritmética de los dos movimientos (la que engaña)</small></div>
+  </div>
+  <p class="foot" id="aFoot"></p>
+</div>
+
+<div class="card note">
+  <b>Ojo con el ejemplo del libro.</b> El libro dice que si duplicas el dinero y luego pierdes la mitad vuelves al punto de partida (correcto: ×2 × 0,5 = ×1), pero que si repites ese ciclo varias veces acabas por debajo de donde empezaste. Eso no es así: repitiendo +100 % y −50 % <b>siempre vuelves exactamente al inicio</b>, ni más ni menos. La idea que quiere transmitir sí es cierta con otros números: con <b>+50 % y −50 %</b> (que parecen compensarse) pierdes un 25 % en cada ciclo, y tras tres ciclos te queda menos de la mitad. Puedes comprobarlo en la calculadora de arriba.
+</div>
+
+<h2><span class="n">06</span>Cuando baja la marea</h2>
+<p>Tarde o temprano el mercado se da la vuelta y deja ver quién estaba realmente bien posicionado y quién solo iba a favor de la corriente. Es la idea que Warren Buffett popularizó: cuando baja la marea se ve quién nadaba desnudo. En ese momento, los años brillantes del pasado ya no sirven de nada.</p>
+
+<h3>El giro del discurso</h3>
+<p>Justo cuando la reversión a la media hace su trabajo y las rentabilidades se desinflan, estos inversores cambian de tono. Las certezas arrogantes se convierten en quejas y excusas:</p>
+<div class="vs">
+  <div class="card good">
+    <h3>Cuando el mercado les da la razón</h3>
+    <ul>
+      <li>Se sienten genios incomprendidos.</li>
+      <li>Hablan de talento y de aciertos.</li>
+      <li>La inversión pasiva es "aburrida" y "poco rentable".</li>
+    </ul>
+  </div>
+  <div class="card bad">
+    <h3>Cuando el mercado les lleva la contraria</h3>
+    <ul>
+      <li>El mercado es irracional o está manipulado.</li>
+      <li>"No reconoce el valor" de lo que compraron.</li>
+      <li>La culpa es de los bancos centrales, la política monetaria o los algoritmos.</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:12px">En lugar de revisar su proceso o aceptar que apostaron mal, buscan siempre una excusa externa. El libro lo llama por su nombre: <b>es el ego hablando</b>. Duele aceptar que te has equivocado en una inversión o que tu estrategia no es constante con el tiempo. Es más cómodo acusar al mercado de irracional que reconocer que no tenías el control ni el conocimiento que creías.</p>
+<p>Esta fase es muy típica entre quienes antes despreciaban la inversión pasiva, cuando sus carteras empiezan a fallar y se enfrentan a la realidad.</p>
+
+<div class="card quote">
+  El objetivo no es ganar cada año, sino no perderlo todo en uno solo.
+  <small>Idea central del capítulo, resumida con palabras propias</small>
+</div>
+
+<h2><span class="n">07</span>Cómo aplicarlo a tu caso</h2>
+<div class="steps">
+  <div class="step"><b class="k">→</b><p><b>Mide a cualquiera a 10 años o más</b>, nunca por 3 o 4 años buenos. Y pregunta siempre qué hizo en 2008, 2020 o 2022.</p></div>
+  <div class="step"><b class="k">→</b><p><b>Compara con el índice correcto.</b> Una cartera tecnológica, con el Nasdaq; una global, con el MSCI World o el ACWI.</p></div>
+  <div class="step"><b class="k">→</b><p><b>Desconfía de tu propia racha.</b> Si una apuesta te ha salido muy bien, piensa primero en la suerte y en la reversión a la media antes que en tu talento.</p></div>
+  <div class="step"><b class="k">→</b><p><b>Cuando falle algo, revisa el proceso</b> antes de culpar al mercado.</p></div>
+</div>
+<div class="chips">
+  <span class="chip">El mono no es tonto</span>
+  <span class="chip">Suerte ≠ talento</span>
+  <span class="chip">Reversión a la media</span>
+  <span class="chip">−50 % pide +100 %</span>
+  <span class="chip">Índice correcto</span>
+  <span class="chip">Revisa tu proceso</span>
+</div>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿verdad o mito?</h2>
+<p>Decide si cada frase encaja con el capítulo.</p>
+<div class="card score"><span id="score">0 de 7 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Paseo aleatorio (random walk)</dt><dd>Idea de que los precios de la bolsa se mueven de forma impredecible a corto plazo, por lo que es muy difícil anticiparlos de forma constante.</dd>
+  <dt>Cartera del mono</dt><dd>Cartera de acciones elegidas al azar. Sirve de vara de medir: si un experto no la bate, su análisis no aporta valor.</dd>
+  <dt>Índice de referencia (benchmark)</dt><dd>El índice con el que se compara una cartera. Tiene que parecerse a lo que la cartera invierte de verdad.</dd>
+  <dt>Reversión a la media</dt><dd>Tendencia de las rentabilidades extremas a volver con el tiempo a su promedio histórico.</dd>
+  <dt>Sesgo de supervivencia</dt><dd>Solo vemos a los que les fue bien (los que siguen publicando); los que fracasaron desaparecen y no cuentan en la estadística.</dd>
+  <dt>Rentabilidad anualizada</dt><dd>La rentabilidad media compuesta por año en un periodo largo. Es la cifra honesta para comparar estrategias.</dd>
+  <dt>Ilusión de control</dt><dd>Creer que dominamos lo que en realidad depende en buena parte del azar.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Qué dijo Malkiel sobre el mono y los dardos?</summary><p>Que un mono con los ojos vendados lanzando dardos a la página de cotizaciones elegiría una cartera tan buena como la de los expertos. Era una crítica a la gestión activa.</p></details>
+<details><summary>¿Cuál es la conclusión real del concurso del Wall Street Journal?</summary><p>Los profesionales ganaron a los dardos más veces que al revés, pero frente al índice su ventaja fue mínima y no significativa. Es decir, no batieron al mercado de forma fiable.</p></details>
+<details><summary>¿Por qué no fiarse de alguien que enseña 3 o 4 años brillantes?</summary><p>Porque entre miles de inversores, por pura suerte, decenas consiguen rachas así. Además suelen elegir mal el índice y no enseñan los años bajistas.</p></details>
+<details><summary>¿Qué es la reversión a la media?</summary><p>Que lo que se aleja mucho de su promedio histórico (por ejemplo, un sector que sube demasiado) tiende a volver a él. Por eso las rachas extraordinarias no suelen durar.</p></details>
+<details><summary>Si pierdes un 50 %, ¿cuánto tienes que ganar para recuperarte?</summary><p>Un 100 %. Partes de la mitad del dinero, así que tienes que duplicarlo para volver al inicio.</p></details>
+<details><summary>¿Qué hace el ego cuando una estrategia empieza a fallar?</summary><p>Busca culpables fuera: el mercado irracional, la manipulación, los bancos centrales o los algoritmos. Lo sano es revisar el propio proceso y aceptar el error.</p></details>
+
+<footer>Apuntes del Capítulo 14 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas. El simulador de suerte, la calculadora de pérdidas y ganancias, el test, la nota sobre los resultados reales del concurso del Wall Street Journal y la corrección del ejemplo de duplicar y perder la mitad son añadidos propios, no del libro. No es asesoramiento financiero.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  var pct=function(n,d){return n.toLocaleString('es-ES',{maximumFractionDigits:d==null?1:d})+' %'};
+
+  /* Simulador de suerte */
+  var N=500, streak=[], dots=$('dots');
+  for(var i=0;i<N;i++){dots.appendChild(document.createElement('i'));}
+  function draw(){ streak=[]; for(var i=0;i<N;i++){var s=0; while(s<6 && Math.random()<.5) s++; streak.push(s);} luck(); }
+  function luck(){
+    var Y=+$('yrs').value, w=0;
+    $('oYrs').textContent=Y+(Y===1?' año':' años');
+    dots.querySelectorAll('i').forEach(function(d,i){var on=streak[i]>=Y; d.classList.toggle('on',on); if(on)w++;});
+    $('vWin').textContent=w;
+    $('vExp').textContent='≈ '+(N/Math.pow(2,Y)).toLocaleString('es-ES',{maximumFractionDigits:1});
+    $('vPct').textContent=pct(100/Math.pow(2,Y),2);
+  }
+  $('yrs').addEventListener('input',luck); $('redo').addEventListener('click',draw); draw();
+
+  /* Asimetría */
+  function asym(){
+    var G=+$('gain').value/100, L=+$('loss').value/100, C=+$('cyc').value;
+    $('oGain').textContent='+'+pct(G*100,0); $('oLoss').textContent='−'+pct(L*100,0); $('oCyc').textContent=C;
+    var f=Math.pow((1+G)*(1-L),C), end=10000*f;
+    $('vEnd').textContent=eur(end);
+    $('bEnd').className=f>1.0001?'g':(f<0.9999?'r':'');
+    $('vNeed').textContent=L>0?'+'+pct((1/(1-L)-1)*100,1):'—';
+    $('vAvg').textContent=((G-L)/2*100>=0?'+':'')+pct((G-L)/2*100,1);
+    var per=((1+G)*(1-L)-1)*100;
+    $('aFoot').textContent='Cada ciclo multiplica el dinero por '+((1+G)*(1-L)).toLocaleString('es-ES',{maximumFractionDigits:3})+' ('+(per>=0?'+':'')+pct(per,1)+'). Con +50 % y −50 % la media parece 0 %, pero pierdes un 25 % por ciclo. Con +100 % y −50 % vuelves siempre al mismo sitio.';
+  }
+  ['gain','loss','cyc'].forEach(function(id){$(id).addEventListener('input',asym)}); asym();
+
+  /* Test */
+  var items=[
+    ['Malkiel sugirió que un mono lanzando dardos lo haría tan bien como los expertos.','V','Es la idea central de Un paseo aleatorio por Wall Street (1973).'],
+    ['Si alguien bate al mercado 4 años seguidos, demuestra que tiene talento.','M','Entre miles de inversores, alrededor de 1 de cada 16 lo consigue solo con suerte.'],
+    ['Una cartera muy tecnológica debería compararse con el Nasdaq, no con el MSCI World.','V','El índice de referencia tiene que parecerse a lo que inviertes.'],
+    ['Lo que sube mucho durante años suele seguir subiendo al mismo ritmo.','M','La reversión a la media suele devolverlo hacia su promedio histórico.'],
+    ['Tras perder un 50 %, basta con ganar un 50 % para recuperarte.','M','Necesitas un 100 %, porque partes de la mitad.'],
+    ['La diversificación global busca ganar cada año más que nadie.','M','Busca resistir y no perderlo todo en un solo año.'],
+    ['Culpar al mercado de irracional suele ser una forma de no revisar el propio proceso.','V','El libro lo llama el ego hablando.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'v" data-v="V">Verdad</button><button type="button" id="q'+n+'m" data-v="M">Mito</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick'); w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='V'?'Verdad':'Mito')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-13-value-era-informacion.html"><small>← Anterior · Cap. 13</small>Value en la era de la información</a><a class="next" href="capitulo-15-mito-ladrillo.html"><small>Siguiente · Cap. 15 →</small>Desmontando el mito del ladrillo</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-14-cartera-mono",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

@@ -1,0 +1,421 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo 10 · 10 de 18</span></div></nav>
+<title>Capítulo 10 · El control emocional</title>
+<style>
+/* Mismo sistema que los capítulos 1–9: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --gone:#b9b3a6; --em:#8a5aa8; --em-soft:#f1e8f6;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+    --gone:#4a4f57; --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a;
+  --gone:#4a4f57; --em:#c79be0; --em-soft:#2f2438; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:21px;line-height:1.4;text-align:center;padding:22px 18px;background:var(--accent-soft);border-color:transparent}
+.quote small{display:block;margin-top:8px;font:13px/1.4 var(--sans);color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs.three{grid-template-columns:repeat(3,1fr)}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+.vs .blue{background:var(--cash-soft);border-color:transparent} .vs .blue h3{color:var(--cash)}
+.vs .em{background:var(--em-soft);border-color:transparent} .vs .em h3{color:var(--em)}
+@media (max-width:620px){.vs.three{grid-template-columns:1fr}}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.vs p{font:15px/1.5 var(--sans);margin:0}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--bad);text-align:center;background:var(--bad-soft);border-radius:50%;width:28px;height:28px}
+.step.ok b.k{color:var(--accent);background:var(--accent-soft)}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+
+/* Ciclo emocional */
+.cyc{overflow-x:auto}
+.cyc svg{display:block;width:100%;min-width:520px;height:auto}
+.cyc .pt{cursor:pointer}
+.cyc .pt circle{fill:var(--card);stroke:var(--ink);stroke-width:2}
+.cyc .pt.on circle{fill:var(--ink)}
+.cyc .pt text{font:600 12px var(--sans);fill:var(--ink)}
+.cyc .pt:focus{outline:none}
+.cyc .pt:focus-visible circle{stroke:var(--accent);stroke-width:4}
+.phase{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.phase div{border-radius:10px;padding:10px 12px;font:15px/1.5 var(--sans);min-width:0}
+.phase .body{background:var(--bad-soft)} .phase .plan{background:var(--accent-soft)}
+.phase small{display:block;font:700 12px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.phase .body small{color:var(--bad)} .phase .plan small{color:var(--accent)}
+@media (max-width:480px){.phase{grid-template-columns:1fr}}
+
+/* Barras de los mejores días */
+.hbars{display:grid;gap:10px;margin:6px 0 0}
+.hb{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;font:14px/1.3 var(--sans)}
+.hb .tr{background:var(--bg);border-radius:6px;height:30px;position:relative;min-width:0}
+.hb .fl{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font:700 13px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--bg);white-space:nowrap}
+@media (max-width:480px){.hb{grid-template-columns:1fr}}
+
+/* Simulador */
+.calc label{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px/1.3 var(--sans);margin:12px 0 0}
+.calc label output{font-variant-numeric:tabular-nums;color:var(--accent)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.res b{display:block;font:700 21px/1.15 var(--sans);font-variant-numeric:tabular-nums}
+.res small{font:13px/1.35 var(--sans);color:var(--muted)}
+.res .g b{color:var(--accent)} .res .r b{color:var(--bad)}
+@media (max-width:480px){.res{grid-template-columns:1fr}}
+
+/* Plan en frío */
+.plan-list{display:grid;gap:8px;margin:12px 0}
+.plan-list label{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans);cursor:pointer}
+.plan-list input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent)}
+.plan-list label:has(input:checked){background:var(--accent-soft);border-color:transparent}
+
+/* Test */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo 10 · Apuntes de estudio</div>
+  <h1>El control emocional</h1>
+  <p class="sub">Saber qué cartera tener ya lo hemos visto. Este capítulo trata de lo difícil: no estropearla. Paciencia, control emocional y disciplina son lo que separa al inversor que llega del que se baja a mitad de camino.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Hay <b>tres virtudes</b> que todo inversor debe cultivar: paciencia, control emocional y disciplina.</li>
+    <li><b>Paciencia:</b> invertir da frutos en años o décadas. El tiempo es el gran aliado del inversor pasivo.</li>
+    <li>Comprar y vender sin parar para ir más rápido solo trae frustración: el corto plazo no es ni constante ni predecible.</li>
+    <li><b>Control emocional:</b> la avaricia empuja a arriesgar más en las subidas y el miedo paraliza en las caídas.</li>
+    <li><b>Disciplina:</b> seguir el plan. Las decisiones se toman <span class="mark">antes, en frío, no en el calor del momento.</span></li>
+    <li>La mejor herramienta: <b>automatizar</b> aportaciones y retiradas para que la emoción no tenga voto.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Las tres virtudes</h2>
+<p>En un entorno lleno de incertidumbre, volatilidad y ruido, estas tres cualidades son las que te permiten tomar decisiones racionales y seguir en el camino.</p>
+<div class="vs three">
+  <div class="card good">
+    <h3>Paciencia</h3>
+    <p>Dejar que el tiempo trabaje. Aceptar que los frutos tardan años.</p>
+  </div>
+  <div class="card blue">
+    <h3>Control emocional</h3>
+    <p>Que la avaricia y el miedo no tomen las decisiones por ti.</p>
+  </div>
+  <div class="card em">
+    <h3>Disciplina</h3>
+    <p>Seguir el plan escrito pase lo que pase en el mercado.</p>
+  </div>
+</div>
+
+<h2><span class="n">02</span>Paciencia: el tiempo trabaja para ti</h2>
+<p>Los mercados son volátiles a corto plazo, pero a largo plazo tienden a dar rendimientos positivos. Por eso el tiempo es el principal aliado del inversor pasivo.</p>
+<p>El gran error es querer <b>acelerar</b> los resultados: comprar y vender constantemente buscando rentabilidad rápida. Como los rendimientos a corto plazo no son ni consistentes ni predecibles, esa prisa acaba en frustración y agotamiento. La recompensa de la inversión pasiva está en mantener el rumbo durante años.</p>
+
+<div class="card quote">
+  «El tiempo es tu amigo; el impulso, tu enemigo.»
+  <small>John Bogle, fundador de Vanguard</small>
+</div>
+
+<p>La paciencia da tiempo a que las inversiones crezcan y te protege de la tentación de los movimientos rápidos y la especulación (lo que vimos en el capítulo 8).</p>
+
+<h2><span class="n">03</span>Control emocional: avaricia y miedo</h2>
+<p>La psicología humana juega en tu contra al invertir. Las dos emociones que más daño hacen son opuestas y aparecen en momentos opuestos:</p>
+<div class="vs">
+  <div class="card bad">
+    <h3>Avaricia, en las subidas</h3>
+    <ul>
+      <li>Te empuja a asumir más riesgo justo cuando todo está caro.</li>
+      <li>"Esto no para de subir, meto más."</li>
+    </ul>
+  </div>
+  <div class="card blue">
+    <h3>Miedo, en las caídas</h3>
+    <ul>
+      <li>Te paraliza o te hace vender cuando todo está barato.</li>
+      <li>"Esto se hunde, mejor salgo y ya volveré."</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:12px">El inversor con experiencia sabe que los altibajos son <b>normales</b>. La clave es mantener la vista en el objetivo de largo plazo y no dejarse arrastrar por lo que pasa hoy. El mercado no se puede predecir, y los mejores momentos llegan cuando menos se esperan.</p>
+
+<h3>El ciclo de las emociones</h3>
+<p>Toca cada punto del ciclo para ver qué te pide el cuerpo y qué dice el plan.</p>
+<div class="card">
+  <div class="cyc">
+    <svg viewBox="0 0 620 230" role="group" aria-label="Ciclo de emociones del inversor">
+      <path d="M20 190 C 90 190, 110 60, 190 40 S 290 30, 330 90 S 400 210, 450 205 S 560 120, 600 110" fill="none" stroke="var(--line)" stroke-width="5" stroke-linecap="round"/>
+      <line x1="20" y1="215" x2="600" y2="215" stroke="var(--line)" stroke-width="1"/>
+      <text x="20" y="228" font-family="system-ui,sans-serif" font-size="11" fill="var(--muted)">tiempo →</text>
+      <text x="560" y="228" font-family="system-ui,sans-serif" font-size="11" fill="var(--muted)" text-anchor="end">precio del mercado ↑</text>
+    </svg>
+  </div>
+  <div class="phase">
+    <div class="body"><small>Lo que te pide el cuerpo</small><span id="phBody"></span></div>
+    <div class="plan"><small>Lo que dice el plan</small><span id="phPlan"></span></div>
+  </div>
+  <p class="foot">Esquema propio para ilustrar el capítulo, inspirado en el clásico "ciclo de emociones del inversor". No está a escala.</p>
+</div>
+
+<h3>El precio de no estar</h3>
+<p>Si los mejores días llegan cuando menos se esperan, salir del mercado "hasta que se calme" sale carísimo. Esto es lo que habrían sido 10.000 $ en el S&amp;P 500 durante 20 años (2005–2024):</p>
+<div class="card">
+  <div class="hbars">
+    <div class="hb"><span>Siempre invertido</span><div class="tr"><div class="fl" style="width:100%;background:var(--accent)">71.750 $ · 10,4 %</div></div></div>
+    <div class="hb"><span>Sin los 10 mejores días</span><div class="tr"><div class="fl" style="width:45.8%;background:var(--warn)">32.871 $ · 6,1 %</div></div></div>
+    <div class="hb"><span>Sin los 20 mejores días</span><div class="tr"><div class="fl" style="width:28.3%;background:var(--bad)">≈20.300 $ · 3,6 %</div></div></div>
+  </div>
+  <p class="foot">Datos de la <i>Guide to the Markets</i> de J.P. Morgan. Rentabilidad anual entre paréntesis. El valor sin los 20 mejores días lo he calculado a partir de su 3,6 % anual.</p>
+</div>
+
+<div class="card note">
+  <b>Ojo, los mejores días viven pegados a los peores.</b> En ese mismo estudio, 7 de los 10 mejores días cayeron a menos de dos semanas de alguno de los 10 peores. Es decir: el que vende por miedo en plena caída suele perderse también el rebote. No se puede esquivar lo malo sin perder lo bueno. Esto no lo dice el libro con cifras, pero es exactamente la idea de la página 83.
+</div>
+
+<h2><span class="n">04</span>Disciplina: mantener el rumbo</h2>
+<p>La disciplina es seguir un plan financiero estructurado sin desviarte ni por la tentación de ganar rápido ni por el miedo a las caídas. Uno de los mejores consejos de Bogle se resume en dos palabras: <b>mantener el rumbo</b>.</p>
+<div class="card">
+  <p style="margin:0">La regla de oro del capítulo: <span class="mark">las decisiones de inversión se toman antes, cuando estás tranquilo.</span> En plena caída no se decide; se ejecuta lo que ya decidiste.</p>
+</div>
+
+<h3>Automatizar: quitarle el voto a la emoción</h3>
+<p>La mejor forma de mantener la disciplina es automatizar el plan. Si las aportaciones (o las retiradas, en la jubilación) se hacen solas cada mes, no hay decisión que tomar y no hay emoción que se cuele.</p>
+<div class="steps">
+  <div class="step ok"><b class="k">A</b><p><b>Aportación periódica automática.</b> Una cantidad fija al mes que entra en la cartera suba o baje el mercado. En las caídas compras más participaciones con el mismo dinero (el DCA del capítulo 5).</p></div>
+  <div class="step ok"><b class="k">B</b><p><b>Retirada automática.</b> En la fase de disfrute, un reembolso programado según la tasa de retirada que elegiste (capítulo 4), sin vender de golpe por miedo.</p></div>
+  <div class="step ok"><b class="k">C</b><p><b>Rebalanceo por reglas.</b> Un roboadvisor o una fecha fija al año vuelven a poner la cartera en su reparto objetivo sin que tengas que opinar sobre el mercado.</p></div>
+</div>
+
+<h2><span class="n">05</span>Simulador: lo que cuesta el impulso</h2>
+<p>Morningstar mide cada año la diferencia entre lo que ganan los fondos y lo que ganan de verdad sus inversores, que entran y salen en mal momento. En la década hasta 2024 los fondos dieron un 8,2 % anual y sus inversores un 7,0 %: <b>1,2 puntos perdidos al año</b> solo por el comportamiento. Mueve los valores:</p>
+<div class="card calc">
+  <label for="mon">Aportación mensual <output id="oMon"></output><input id="mon" type="range" min="50" max="2000" step="50" value="300"></label>
+  <label for="yrs">Años invirtiendo <output id="oYrs"></output><input id="yrs" type="range" min="5" max="40" step="1" value="25"></label>
+  <label for="ret">Rentabilidad anual del fondo <output id="oRet"></output><input id="ret" type="range" min="3" max="10" step="0.1" value="8.2"></label>
+  <label for="gap">Puntos perdidos al año por impulsos <output id="oGap"></output><input id="gap" type="range" min="0" max="3" step="0.1" value="1.2"></label>
+  <div class="res">
+    <div class="g"><b id="vDis"></b><small>Inversor disciplinado</small></div>
+    <div class="r"><b id="vImp"></b><small>Inversor impulsivo</small></div>
+    <div><b id="vDif"></b><small id="vPct">perdido por el impulso</small></div>
+  </div>
+  <p class="foot">Aportación al inicio de cada mes con interés compuesto mensual. Sin comisiones ni impuestos. Es una simplificación para ver el orden de magnitud.</p>
+</div>
+
+<h2><span class="n">06</span>Tu plan, escrito en frío</h2>
+<p>El capítulo insiste en decidir antes de que llegue la tormenta. Una forma práctica es tener estas reglas por escrito. Marca las que ya tienes claras:</p>
+<div class="plan-list" id="plan">
+  <label><input type="checkbox" id="pl1"><span><b>Mi reparto objetivo</b> (por ejemplo 80/20) y por qué es el mío.</span></label>
+  <label><input type="checkbox" id="pl2"><span><b>Cuánto aporto y cuándo</b>, programado de forma automática.</span></label>
+  <label><input type="checkbox" id="pl3"><span><b>Cuándo rebalanceo</b>: una fecha al año o al desviarse X puntos.</span></label>
+  <label><input type="checkbox" id="pl4"><span><b>Qué hago si la bolsa cae un 30 %</b>: nada distinto. Seguir aportando.</span></label>
+  <label><input type="checkbox" id="pl5"><span><b>Qué hago si sube un 30 %</b>: tampoco nada distinto. No meto más por euforia.</span></label>
+  <label><input type="checkbox" id="pl6"><span><b>Mi colchón de emergencia</b> fuera de la cartera, para no tener que vender en una caída.</span></label>
+  <label><input type="checkbox" id="pl7"><span><b>Cada cuánto miro la cartera</b>. Cuanto menos, mejor.</span></label>
+</div>
+<p class="foot">Lista propia, no del libro. Las marcas solo se guardan en este navegador.</p>
+
+<h2><span class="n">07</span>Conclusión</h2>
+<p>Paciencia, control emocional y disciplina son las armas para llegar a la independencia financiera. Con una estrategia racional y sistemática alcanzas tus objetivos sin caer en la especulación ni en el pánico. Automatizar las decisiones y mantener el rumbo, como aconsejaba Bogle, es el camino más seguro hacia la libertad financiera a largo plazo.</p>
+<div class="chips">
+  <span class="chip">Decide en frío</span>
+  <span class="chip">Automatiza</span>
+  <span class="chip">Mira poco la cartera</span>
+  <span class="chip">Las caídas son normales</span>
+  <span class="chip">Mantén el rumbo</span>
+</div>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿verdad o mito?</h2>
+<p>Decide si cada frase encaja con el capítulo.</p>
+<div class="card score"><span id="score">0 de 8 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Mantener el rumbo</dt><dd>Seguir el plan de inversión pase lo que pase en el mercado. Es el consejo más repetido de Bogle ("stay the course").</dd>
+  <dt>Volatilidad</dt><dd>Lo mucho que suben y bajan los precios a corto plazo. Es el ruido que pone a prueba las emociones.</dd>
+  <dt>Aportación periódica</dt><dd>Invertir una cantidad fija cada cierto tiempo, normalmente programada de forma automática.</dd>
+  <dt>Market timing</dt><dd>Intentar entrar y salir del mercado adivinando cuándo subirá o bajará. El capítulo lo desaconseja.</dd>
+  <dt>Brecha de comportamiento</dt><dd>La diferencia entre lo que gana un fondo y lo que ganan de media sus inversores por entrar y salir en mal momento.</dd>
+  <dt>Rebalanceo</dt><dd>Volver a dejar la cartera en su reparto objetivo vendiendo lo que más ha subido y comprando lo que menos.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Cuáles son las tres virtudes del inversor según el capítulo?</summary><p>Paciencia, control emocional y disciplina.</p></details>
+<details><summary>¿Por qué es un error comprar y vender constantemente?</summary><p>Porque el corto plazo no es consistente ni predecible. Esa prisa solo trae frustración y agotamiento; la recompensa está en mantener el rumbo durante años.</p></details>
+<details><summary>¿Qué emoción aparece en las subidas y cuál en las caídas?</summary><p>La avaricia en las subidas, que empuja a arriesgar más. El miedo y la ansiedad en las caídas, que paralizan o hacen vender.</p></details>
+<details><summary>¿Cuándo hay que tomar las decisiones de inversión?</summary><p>Antes, cuando estás tranquilo. En el calor del momento solo se ejecuta lo decidido.</p></details>
+<details><summary>¿Por qué automatizar ayuda a la disciplina?</summary><p>Porque elimina la decisión. Si la aportación o la retirada se hacen solas, la emoción del día no puede cambiarlas.</p></details>
+<details><summary>¿Por qué salir del mercado "hasta que se calme" sale caro?</summary><p>Porque los mejores días suelen llegar muy cerca de los peores. Quien sale por miedo suele perderse también el rebote.</p></details>
+
+<footer>Apuntes del Capítulo 10 del libro sobre inversión pasiva (enfoque Bogleheads). Resumen y explicaciones propias a partir de las páginas fotografiadas (pp. 83–84). El ciclo de emociones, los datos de J.P. Morgan y Morningstar, el simulador, la lista del plan y el test son añadidos propios, no del libro. No es asesoramiento financiero.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+
+  /* Ciclo de emociones */
+  var PH=[
+    {x:70,y:150,n:'Optimismo',b:'Empieza a subir. "Quizá debería meter más."',p:'Sigue con tu aportación de siempre. Ni más ni menos.'},
+    {x:190,y:40,n:'Euforia',b:'"Esto no tiene techo. Todos ganan. Meto los ahorros."',p:'Es el punto de máximo riesgo. Rebalancea si te has desviado y no cambies el reparto.'},
+    {x:330,y:90,n:'Ansiedad',b:'"Es solo una corrección… ¿o no?"',p:'Las caídas son normales. No mires la cartera cada día.'},
+    {x:450,y:205,n:'Pánico',b:'"Vendo todo antes de perderlo todo."',p:'Lo decidiste en frío: seguir aportando. Ahora compras más barato.'},
+    {x:575,y:116,n:'Esperanza',b:'"Esperaré a que vuelva al precio de antes para entrar."',p:'Los mejores días ya están pasando. Quien se quedó, los cobra.'}
+  ];
+  var svg=document.querySelector('.cyc svg'), NS='http://www.w3.org/2000/svg', nodes=[];
+  PH.forEach(function(p,i){
+    var g=document.createElementNS(NS,'g'); g.setAttribute('class','pt'); g.setAttribute('tabindex','0'); g.setAttribute('role','button');
+    g.setAttribute('aria-label',p.n);
+    var c=document.createElementNS(NS,'circle'); c.setAttribute('cx',p.x); c.setAttribute('cy',p.y); c.setAttribute('r',9);
+    var t=document.createElementNS(NS,'text'); t.setAttribute('x',p.x); t.setAttribute('y',p.y<60?p.y+26:p.y-16); t.setAttribute('text-anchor','middle'); t.textContent=p.n;
+    g.appendChild(c); g.appendChild(t); svg.appendChild(g); nodes.push(g);
+    g.addEventListener('click',function(){ph(i)});
+    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();ph(i);}});
+  });
+  function ph(i){
+    nodes.forEach(function(g,j){g.classList.toggle('on',j===i);g.setAttribute('aria-pressed',String(j===i));});
+    $('phBody').textContent=PH[i].b; $('phPlan').textContent=PH[i].p;
+  }
+  ph(3);
+
+  /* Simulador del impulso */
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+  var pct=function(n){return n.toLocaleString('es-ES',{minimumFractionDigits:1,maximumFractionDigits:1})+' %'};
+  function fv(m,y,r){var rm=Math.pow(1+r,1/12)-1,n=y*12;return rm===0?m*n:m*(Math.pow(1+rm,n)-1)/rm*(1+rm);}
+  function run(){
+    var M=+$('mon').value,Y=+$('yrs').value,R=+$('ret').value/100,G=+$('gap').value/100;
+    $('oMon').textContent=eur(M); $('oYrs').textContent=Y+' años'; $('oRet').textContent=pct(R*100); $('oGap').textContent=pct(G*100);
+    var a=fv(M,Y,R), b=fv(M,Y,Math.max(R-G,0));
+    $('vDis').textContent=eur(a); $('vImp').textContent=eur(b); $('vDif').textContent='−'+eur(a-b);
+    $('vPct').textContent='perdido por el impulso ('+Math.round((a-b)/a*100)+' % del total)';
+  }
+  ['mon','yrs','ret','gap'].forEach(function(id){$(id).addEventListener('input',run)});
+  run();
+
+  /* Plan en frío: recordar marcas en este navegador */
+  var KEY='cap10-plan';
+  var saved={}; try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  document.querySelectorAll('#plan input').forEach(function(cb){
+    cb.checked=!!saved[cb.id];
+    cb.addEventListener('change',function(){saved[cb.id]=cb.checked;try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}});
+  });
+
+  /* Test */
+  var items=[
+    ['Si la bolsa cae un 25 %, lo prudente es vender y volver a entrar cuando se calme.','M','Es la trampa del miedo. Además, los mejores días suelen llegar muy cerca de los peores.'],
+    ['Las decisiones de inversión hay que tomarlas antes, cuando estás tranquilo.','V','Es la idea central de la disciplina en el capítulo.'],
+    ['Comprar y vender a menudo permite acelerar los resultados.','M','El corto plazo no es predecible. Solo lleva a frustración y agotamiento.'],
+    ['La avaricia nos empuja a asumir más riesgo cuando los mercados suben.','V','Y el miedo nos paraliza cuando bajan.'],
+    ['Automatizar las aportaciones elimina decisiones emocionales.','V','Si se hacen solas, la emoción del día no puede cambiarlas.'],
+    ['Un inversor con experiencia ya no sufre caídas.','M','Las sufre igual. La diferencia es que sabe que son normales y no reacciona.'],
+    ['Cuanto más miro la cartera, mejor la controlo.','M','Mirarla a diario multiplica las ocasiones de actuar por impulso.'],
+    ['Para Bogle, el tiempo es tu amigo y el impulso tu enemigo.','V','Es la frase que resume el capítulo.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'v" data-v="V">Verdad</button><button type="button" id="q'+n+'m" data-v="M">Mito</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick');
+          w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='V'?'Verdad':'Mito')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-9-diversificacion-geografica.html"><small>← Anterior · Cap. 9</small>La diversificación geográfica</a><a class="next" href="capitulo-11-finanzas-personales.html"><small>Siguiente · Cap. 11 →</small>Finanzas personales</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-10-control-emocional",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>

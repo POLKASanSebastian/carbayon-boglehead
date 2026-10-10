@@ -1,0 +1,347 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><style id="cb-nav-style">
+.cbnav{--cbn:#2f4a72;--cbn2:#243a5a;--cbw:#f4f6fa;position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--cbn);color:var(--cbw);font:600 14px/1.2 system-ui,-apple-system,sans-serif}
+.cbnav .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.cbnav a{color:var(--cbw);text-decoration:none}
+.cbnav a:hover,.cbnav a:focus-visible{text-decoration:underline}
+.cbnav .pos{opacity:.75;font-weight:500;font-variant-numeric:tabular-nums}
+.cbfoot{max-width:760px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font:15px/1.3 system-ui,-apple-system,sans-serif}
+.cbfoot a,.cbfoot button{display:block;border-radius:12px;padding:14px 16px;text-decoration:none;border:1px solid #2f4a72;color:inherit;background:transparent;font:inherit;text-align:left;cursor:pointer;min-width:0}
+.cbfoot small{display:block;opacity:.65;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.cbfoot .next{text-align:right}
+.cbfoot .done{grid-column:1/-1;text-align:center;background:#2f4a72;color:#f4f6fa;font-weight:600}
+.cbfoot .done[aria-pressed="true"]{background:transparent;color:inherit}
+.cbfoot .empty{visibility:hidden}
+</style>
+</head><body>
+<nav class="cbnav" aria-label="Navegación del libro"><div class="in"><a href="../index.html">← Índice del libro</a><span class="pos">Capítulo final · 18 de 18</span></div></nav>
+<title>Capítulo final · Reflexiones</title>
+<style>
+/* Mismo sistema que los capítulos 1–15: apuntes de estudio, una columna de lectura */
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5f6670; --line:#e4e0d6;
+  --accent:#1f6f5c; --accent-soft:#e3f1ec; --warn:#a15c07; --warn-soft:#fbf0de;
+  --bad:#b4372f; --bad-soft:#fbe7e5; --hl:#fff3a6; --cash:#3d6a9e; --cash-soft:#e4edf7;
+  --serif:Georgia,"Iowan Old Style",serif; --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+    --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+    --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --card:#1e2227; --ink:#e8e6e1; --muted:#a2a9b1; --line:#30353c;
+  --accent:#5cc3a6; --accent-soft:#1d3530; --warn:#e8a54b; --warn-soft:#3a2e1c;
+  --bad:#ef7d74; --bad-soft:#3b2220; --hl:#5a5120; --cash:#86b2e3; --cash-soft:#1f2b3a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--serif);}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-inline:16px}
+.kicker{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:30px;line-height:1.2;margin:8px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px;font-size:16px}
+h2{font:700 21px/1.3 var(--sans);margin:36px 0 10px;display:flex;gap:10px;align-items:baseline;text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px;min-width:24px}
+h3{font:700 16px/1.3 var(--sans);margin:18px 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px}
+li{margin:4px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card > :last-child{margin-bottom:0}
+.tldr{border-left:5px solid var(--accent)}
+.tldr ul{margin:6px 0 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note b{color:var(--warn)}
+.mark{background:var(--hl);padding:0 3px;border-radius:3px}
+.quote{font-size:21px;line-height:1.4;text-align:center;padding:22px 18px;background:var(--accent-soft);border-color:transparent}
+.quote small{display:block;margin-top:8px;font:13px/1.4 var(--sans);color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs .card{margin:0;min-width:0}
+.vs h3{margin-top:0}
+.vs .bad{background:var(--bad-soft);border-color:transparent} .vs .bad h3{color:var(--bad)}
+.vs .good{background:var(--accent-soft);border-color:transparent} .vs .good h3{color:var(--accent)}
+@media (max-width:540px){.vs{grid-template-columns:1fr}}
+.vs ul{margin:0;padding-left:18px;font:14px/1.45 var(--sans)}
+.steps{display:grid;gap:8px;margin:12px 0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.step b.k{font:700 15px/28px var(--sans);color:var(--accent);text-align:center;background:var(--accent-soft);border-radius:50%;width:28px;height:28px}
+.step p{margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.foot{margin:8px 0 0;color:var(--muted);font:13px/1.5 var(--sans)}
+
+/* Mapa del libro */
+.map{display:grid;gap:6px;margin:12px 0}
+.map div{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:baseline;padding:10px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;font:14px/1.45 var(--sans)}
+.map b.c{font:700 14px/1 var(--sans);color:var(--accent);font-variant-numeric:tabular-nums}
+.map span{min-width:0}
+.map strong{display:block;font-size:15px}
+.map .last{background:var(--accent-soft);border-color:transparent}
+
+/* Calculadora */
+.calc label{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:600 14px/1.3 var(--sans);margin:12px 0 0}
+.calc label output{font-variant-numeric:tabular-nums;color:var(--accent)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.res div{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.res b{display:block;font:700 21px/1.15 var(--sans);font-variant-numeric:tabular-nums}
+.res small{font:13px/1.35 var(--sans);color:var(--muted)}
+.res .g b{color:var(--accent)} .res .r b{color:var(--bad)} .res .c b{color:var(--cash)}
+@media (max-width:480px){.res{grid-template-columns:1fr}}
+.bar{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:14px 0 4px;background:var(--line)}
+.bar i{display:block;height:100%}
+.bar .a{background:var(--cash)} .bar .b{background:var(--accent)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font:13px/1.4 var(--sans);color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.legend .la::before{background:var(--cash)} .legend .lb::before{background:var(--accent)}
+
+/* Test */
+.q{display:grid;gap:8px;margin:12px 0}
+.qi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:15px/1.45 var(--sans)}
+.qi .t{font-weight:600}
+.qi .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.qi button{font:600 14px/1.2 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.qi button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qi button:disabled{cursor:default;opacity:.55}
+.qi button.pick{opacity:1}
+.qi .fb{margin:8px 0 0;color:var(--muted)}
+.qi.right{border-color:var(--accent);background:var(--accent-soft)}
+.qi.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.qi.right .fb b{color:var(--accent)} .qi.wrong .fb b{color:var(--bad)}
+.score{font:600 15px/1.4 var(--sans);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.score button{font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font:600 15px/1.4 var(--sans)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details p{margin:10px 0 0}
+dt{font:700 15px/1.3 var(--sans);margin-top:12px}
+dd{margin:2px 0 0;color:var(--muted)}
+footer{margin-top:40px;color:var(--muted);font:13px/1.5 var(--sans)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="kicker">Capítulo final · Apuntes de estudio</div>
+  <h1>Reflexiones</h1>
+  <p class="sub">El cierre del libro no añade técnica nueva. Recoge todo lo anterior en una idea: la teoría es sencilla, lo difícil es mantener el rumbo durante décadas. Y recuerda para qué sirve todo esto: para vivir con libertad, no para acumular por acumular.</p>
+</header>
+
+<div class="card tldr">
+  <b>El capítulo en 30 segundos</b>
+  <ul>
+    <li>Invertir es, sobre todo, <b>una cuestión de mentalidad</b>. Lo que marca la diferencia es mantener el rumbo.</li>
+    <li>El éxito viene de la <b>paciencia y la constancia</b>, no de predecir mercados ni de perseguir rentabilidades extraordinarias.</li>
+    <li>Se mide en <b>décadas</b>. Habrá dudas y tentaciones de cambiar de estrategia; los datos premian a quien se mantiene fiel a un plan basado en evidencias.</li>
+    <li>Tus herramientas contra las emociones: <span class="mark">asignación de activos, diversificación global y automatización</span>.</li>
+    <li>No hace falta ser experto: con fondos indexados y un reparto sensato, cualquiera puede construir una cartera eficiente.</li>
+    <li>El objetivo final es la <b>libertad y la tranquilidad</b>: poder decidir sin depender de un sueldo que te quite el tiempo.</li>
+    <li>Invierte con la cabeza, pero sin olvidar vivir. La inversión es un medio, no una obsesión.</li>
+  </ul>
+</div>
+
+<h2><span class="n">01</span>Lo que de verdad marca la diferencia</h2>
+<p>A lo largo del libro se han tratado los fundamentos de la inversión pasiva, la diversificación, la gestión del riesgo y la disciplina emocional. El autor cierra diciendo que, al final, todo eso se resume en una capacidad: <b>mantener el rumbo</b> cuando las cosas se ponen feas o cuando algo brilla más que tu cartera.</p>
+
+<div class="card quote">
+  "El tiempo es tu amigo; el impulso, tu enemigo."
+  <small>John Bogle, fundador de Vanguard, citado en el libro</small>
+</div>
+
+<p>Para el autor, esta frase lo resume todo. El tiempo hace trabajar al interés compuesto a tu favor. El impulso (vender por miedo, comprar por euforia, cambiar de estrategia cada año) lo destruye.</p>
+
+<h2><span class="n">02</span>El tiempo es tu amigo: compruébalo</h2>
+<p>Mueve los controles. Fíjate en cuánto del resultado final son tus aportaciones y cuánto es crecimiento puro, y en lo que cuesta esperar unos años antes de empezar.</p>
+<div class="card calc">
+  <label for="m">Aportación mensual <output id="oM"></output><input id="m" type="range" min="50" max="2000" step="50" value="300"></label>
+  <label for="r">Rentabilidad real anual (descontada la inflación) <output id="oR"></output><input id="r" type="range" min="1" max="7" step="0.5" value="4"></label>
+  <label for="y">Años invirtiendo <output id="oY"></output><input id="y" type="range" min="5" max="40" step="1" value="25"></label>
+  <label for="d">Años que esperas antes de empezar <output id="oD"></output><input id="d" type="range" min="0" max="10" step="1" value="5"></label>
+  <div class="res">
+    <div class="g"><b id="vF"></b><small>al final, empezando hoy</small></div>
+    <div class="r"><b id="vL"></b><small id="sL">si esperas antes de empezar</small></div>
+    <div class="c"><b id="vG"></b><small>del resultado es crecimiento, no aportación</small></div>
+  </div>
+  <div class="bar" aria-hidden="true"><i class="a" id="bA"></i><i class="b" id="bB"></i></div>
+  <div class="legend"><span class="la">Lo que aportas tú</span><span class="lb">Lo que pone el tiempo</span></div>
+  <p class="foot" id="fN"></p>
+</div>
+
+<h2><span class="n">03</span>Un viaje de décadas, no un camino de rosas</h2>
+<p>El autor insiste en algo que se olvida fácil: las rentabilidades de la inversión indexada son dinero relativamente cómodo de conseguir, pero <b>no son psicológicamente fáciles</b>. Por el camino vas a tener dudas, momentos de incertidumbre y ganas de cambiarlo todo. Lo normal. La historia demuestra una y otra vez que mantenerse fiel a una filosofía basada en evidencias da resultados más sólidos que ir saltando de idea en idea.</p>
+
+<div class="vs">
+  <div class="card bad">
+    <h3>Lo que mueve el impulso</h3>
+    <ul>
+      <li>Vender en una caída "hasta que se calme".</li>
+      <li>Meter más dinero en lo que más ha subido.</li>
+      <li>Cambiar de estrategia por un vídeo o un gurú.</li>
+      <li>Mirar la cartera cada día.</li>
+    </ul>
+  </div>
+  <div class="card good">
+    <h3>Lo que lo frena</h3>
+    <ul>
+      <li><b>Asignación de activos</b> decidida en frío y por escrito.</li>
+      <li><b>Diversificación global</b>: ninguna caída concreta te hunde.</li>
+      <li><b>Automatización</b> de aportaciones y retiradas.</li>
+      <li>Revisar y rebalancear una o dos veces al año, nada más.</li>
+    </ul>
+  </div>
+</div>
+
+<h2><span class="n">04</span>No es cosa de expertos</h2>
+<p>Otra idea que el libro quiere desmontar: que invertir es complicado o solo para profesionales. Con una estrategia sencilla de fondos indexados y un reparto de activos racional, cualquiera puede tener una cartera eficiente sin dedicar su vida a estudiar los mercados.</p>
+<p>Lo difícil no es entender la teoría. Lo difícil es <b>aplicarla sin desviarse</b>. Por eso el autor dice que la verdadera clave del éxito es la actitud del inversor.</p>
+
+<div class="card note">
+  <b>Ojo con el matiz.</b> El libro dice que así se obtienen mejores resultados que los gestores. Es cierto para <b>la gran mayoría</b>, no para todos: los informes SPIVA de S&amp;P, que comparan fondos activos con su índice, muestran año tras año que en plazos de 10 a 15 años en torno a 8 o 9 de cada 10 fondos de gestión activa quedan por detrás. Siempre habrá algún gestor que lo haga mejor que tú, pero es casi imposible saber de antemano cuál será (lo viste en el capítulo de la cartera del mono).
+</div>
+
+<h2><span class="n">05</span>Para qué sirve todo esto</h2>
+<p>El objetivo no es acumular dinero sin sentido. Es <b>libertad y tranquilidad financiera</b>. Para el autor, la independencia financiera no es una cifra concreta en el banco, sino poder tomar decisiones sin estar atado a la necesidad de ganar un sueldo que te robe el tiempo, a aceptar trabajos precarios o a depender de ayudas públicas.</p>
+<p>El tono se vuelve más combativo aquí. Según el autor, lo que has aprendido en el libro no te lo van a enseñar en la educación reglada, ni te lo va a facilitar tu empresa, ni el Estado, ni tu banco, porque a todos les conviene que sigas dependiendo de ellos. Su mensaje: coge las riendas y pon tu dinero a trabajar para ti.</p>
+<div class="card note">
+  <b>Ojo, esto es opinión del autor.</b> La idea de fondo es útil: nadie va a cuidar de tu dinero mejor que tú, y muchos productos bancarios están pensados para que ganen ellos. Pero no es una conspiración. Hay bancos que venden fondos indexados baratos y planes de pensiones de empleo que funcionan bien. Lo sensato es mirar siempre comisiones y conflictos de interés, venga de quien venga el consejo.
+</div>
+
+<h3>Lo esencial: no olvides vivir</h3>
+<p>Las últimas líneas son quizá las más importantes del libro. Invierte con la cabeza, pero también con la vida en mente. Que la obsesión por los mercados no te impida disfrutar del presente. La inversión tiene que ser un medio para vivir mejor, no una carga que no te deje vivir plenamente.</p>
+
+<div class="card quote">
+  Invertir es el medio. Vivir es el fin.
+  <small>Idea central del capítulo, resumida con palabras propias</small>
+</div>
+
+<h2><span class="n">✦</span>El libro entero en 16 frases</h2>
+<p>Un repaso rápido de lo que has ido trabajando capítulo a capítulo, para tenerlo todo junto.</p>
+<div class="map">
+  <div><b class="c">1</b><span><strong>Inversión pasiva</strong>Comprar todo el mercado con fondos indexados baratos y mantenerlo, en vez de intentar batirlo.</span></div>
+  <div><b class="c">2</b><span><strong>La cartera 60/40</strong>El reparto entre acciones y bonos decide cuánto oscila tu cartera y cuánto vas a aguantar.</span></div>
+  <div><b class="c">3</b><span><strong>Frontera eficiente</strong>Para cada nivel de riesgo hay una mejor combinación. Asumir más riesgo para ganar menos es ineficiente.</span></div>
+  <div><b class="c">4</b><span><strong>Tasa de retirada</strong>Cuánto puedes sacar cada año sin quedarte sin dinero, con la regla del 4 % como referencia.</span></div>
+  <div><b class="c">5</b><span><strong>Todo de golpe o poco a poco</strong>Invertir de golpe suele ganar más a menudo; aportar por partes ayuda a dormir tranquilo.</span></div>
+  <div><b class="c">6</b><span><strong>Psicología financiera</strong>Los sesgos de tu cabeza hacen más daño a la cartera que el propio mercado.</span></div>
+  <div><b class="c">7</b><span><strong>Implementar la cartera</strong>Elegir fondos y plataforma, automatizar y dejar que trabaje.</span></div>
+  <div><b class="c">8</b><span><strong>Riesgos de la especulación</strong>Invertir es comprar activos que producen; especular es apostar a que otro pague más.</span></div>
+  <div><b class="c">9</b><span><strong>Diversificación geográfica</strong>Invertir en todo el mundo, no solo en tu país ni en un único mercado.</span></div>
+  <div><b class="c">10</b><span><strong>Control emocional</strong>Decide en frío y automatiza. En el pánico solo ejecutas lo decidido.</span></div>
+  <div><b class="c">11</b><span><strong>Finanzas personales</strong>Ahorro, colchón de emergencia y deudas en orden antes de invertir.</span></div>
+  <div><b class="c">12</b><span><strong>Aleatoriedad y predicciones</strong>Nadie predice el mercado a corto plazo de forma fiable.</span></div>
+  <div><b class="c">13</b><span><strong>El value en la era de la información</strong>Con la información al alcance de todos, encontrar gangas ocultas es cada vez más difícil.</span></div>
+  <div><b class="c">14</b><span><strong>La cartera del mono</strong>Los expertos no baten al índice de forma fiable. Suerte no es talento.</span></div>
+  <div><b class="c">15</b><span><strong>El mito del ladrillo</strong>La vivienda no es la inversión segura y sin riesgo que se suele creer.</span></div>
+  <div class="last"><b class="c">Fin</b><span><strong>Reflexiones</strong>La clave es la actitud: paciencia, constancia y no olvidarte de vivir.</span></div>
+</div>
+
+<h2><span class="n">✦</span>Cómo aplicarlo a tu caso</h2>
+<div class="steps">
+  <div class="step"><b class="k">→</b><p><b>Escribe tu plan en una página</b>: reparto de activos, aportación mensual, cuándo rebalanceas y qué harás si la bolsa cae un 30 %.</p></div>
+  <div class="step"><b class="k">→</b><p><b>Automatiza</b> la aportación el día después de cobrar. Lo que no depende de ti, no lo puede romper el miedo.</p></div>
+  <div class="step"><b class="k">→</b><p><b>Mira la cartera poco</b>. Una o dos revisiones al año bastan.</p></div>
+  <div class="step"><b class="k">→</b><p><b>Ponle un para qué</b>: qué libertad quieres comprar con ese dinero. Te ayudará a aguantar en los años malos.</p></div>
+</div>
+<div class="chips">
+  <span class="chip">El tiempo es tu amigo</span>
+  <span class="chip">El impulso, tu enemigo</span>
+  <span class="chip">Décadas, no meses</span>
+  <span class="chip">Automatiza</span>
+  <span class="chip">Sencillo funciona</span>
+  <span class="chip">Invertir para vivir</span>
+</div>
+
+<h2><span class="n">✦</span>Ponte a prueba: ¿verdad o mito?</h2>
+<p>Decide si cada frase encaja con el capítulo.</p>
+<div class="card score"><span id="score">0 de 7 respondidas</span><button id="reset" type="button">Empezar de nuevo</button></div>
+<div class="q" id="quiz"></div>
+
+<h2><span class="n">✦</span>Glosario rápido</h2>
+<div class="card">
+<dl>
+  <dt>Independencia financiera</dt><dd>Poder decidir cómo usas tu tiempo sin depender de un sueldo. Para el autor no es una cifra, es esa capacidad de elegir.</dd>
+  <dt>Asignación de activos</dt><dd>Cómo repartes tu dinero entre acciones, bonos y liquidez. Es la decisión que más pesa en el resultado y en las caídas.</dd>
+  <dt>Automatización</dt><dd>Programar aportaciones (o retiradas) para que ocurran solas, sin decidir cada mes.</dd>
+  <dt>Interés compuesto</dt><dd>Ganar rentabilidad también sobre lo ya ganado. Por eso el tiempo pesa tanto.</dd>
+  <dt>Inversión basada en evidencias</dt><dd>Decidir según lo que los datos históricos y la investigación muestran que funciona, no según opiniones o modas.</dd>
+</dl>
+</div>
+
+<h2><span class="n">?</span>Repaso: ¿lo has entendido?</h2>
+<details><summary>¿Qué es, según el autor, lo que más marca la diferencia al invertir?</summary><p>La capacidad de mantener el rumbo: paciencia y constancia, no acertar predicciones.</p></details>
+<details><summary>¿Qué quiere decir "el tiempo es tu amigo, el impulso tu enemigo"?</summary><p>Que el interés compuesto trabaja a tu favor si aguantas años, y que las decisiones en caliente (vender por miedo, comprar por euforia) son lo que más daño hace.</p></details>
+<details><summary>¿Qué tres herramientas ayudan a controlar las emociones?</summary><p>La asignación de activos, la diversificación global y la automatización de aportaciones o retiradas.</p></details>
+<details><summary>¿Hay que ser experto para invertir bien?</summary><p>No. Con fondos indexados y un reparto sensato basta. Lo difícil no es la teoría, sino la disciplina para no desviarse.</p></details>
+<details><summary>¿Cómo define el autor la independencia financiera?</summary><p>No como una cifra en el banco, sino como poder decidir sin depender de un trabajo que te quite el tiempo o de terceros.</p></details>
+<details><summary>¿Cuál es el último consejo del libro?</summary><p>Invertir con la cabeza pero sin olvidar vivir: la inversión es un medio para mejorar tu vida, no una obsesión que te impida disfrutarla.</p></details>
+
+<footer>Apuntes del capítulo final del libro sobre inversión pasiva (enfoque Bogleheads), pp. 133–135. Resumen y explicaciones propias a partir de las páginas fotografiadas. La calculadora, el mapa del libro, el test, la nota sobre los datos SPIVA y la nota sobre la opinión del autor son añadidos propios, no del libro. No es asesoramiento financiero.</footer>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var eur=function(n){return Math.round(n).toLocaleString('es-ES')+' €'};
+
+  function fv(m,R,years){
+    if(years<=0) return 0;
+    var rm=Math.pow(1+R,1/12)-1, n=years*12;
+    return rm===0? m*n : m*(Math.pow(1+rm,n)-1)/rm;
+  }
+  function calc(){
+    var m=+$('m').value, R=+$('r').value/100, Y=+$('y').value, D=+$('d').value;
+    $('oM').textContent=eur(m); $('oR').textContent=(+$('r').value).toLocaleString('es-ES')+' %';
+    $('oY').textContent=Y+' años'; $('oD').textContent=D===0?'empiezo ya':D+(D===1?' año':' años');
+    var full=fv(m,R,Y), late=fv(m,R,Math.max(Y-D,0)), put=m*12*Y, growth=full-put;
+    $('vF').textContent=eur(full);
+    $('vL').textContent=D===0?'—':eur(late);
+    $('sL').textContent=D===0?'mueve el último control para comparar':'si esperas '+D+(D===1?' año':' años')+' (mismo horizonte final)';
+    var gp=full>0?growth/full*100:0;
+    $('vG').textContent=Math.round(gp)+' %';
+    $('bA').style.width=(100-gp)+'%'; $('bB').style.width=gp+'%';
+    $('fN').textContent='Aportas '+eur(put)+' en total y el tiempo pone '+eur(growth)+'.'+(D>0?' Esperar '+D+(D===1?' año':' años')+' te cuesta '+eur(full-late)+', aunque solo dejas de aportar '+eur(m*12*Math.min(D,Y))+'.':'');
+  }
+  ['m','r','y','d'].forEach(function(id){$(id).addEventListener('input',calc)}); calc();
+
+  var items=[
+    ['La independencia financiera es llegar a una cifra concreta en el banco.','M','Para el autor es poder decidir sin depender de un sueldo que te robe el tiempo.'],
+    ['Lo más difícil de invertir es entender la teoría.','M','La teoría es sencilla. Lo difícil es la disciplina para aplicarla sin desviarse.'],
+    ['Automatizar las aportaciones ayuda a quitar emociones de la ecuación.','V','Si la aportación se hace sola, el miedo del día no la puede cambiar.'],
+    ['Para invertir bien hay que dedicar muchas horas a estudiar los mercados.','M','Con fondos indexados y un reparto sensato basta.'],
+    ['Una cartera indexada bate siempre a todos los gestores.','M','Bate a la gran mayoría a largo plazo, no a todos ni cada año.'],
+    ['La inversión es un viaje que se mide en décadas.','V','Semanas y meses son ruido; el interés compuesto necesita años.'],
+    ['Invertir debe ser un medio para vivir mejor, no una obsesión.','V','Es el último consejo del libro.']
+  ];
+  var quiz=$('quiz'), done=0, ok=0;
+  function upd(){$('score').textContent=done<items.length?(done+' de '+items.length+' respondidas · '+ok+' aciertos'):('Resultado: '+ok+' de '+items.length+' aciertos');}
+  function build(){
+    quiz.innerHTML=''; done=0; ok=0;
+    items.forEach(function(it,n){
+      var w=document.createElement('div'); w.className='qi';
+      w.innerHTML='<div class="t">'+it[0]+'</div><div class="btns"><button type="button" id="q'+n+'v" data-v="V">Verdad</button><button type="button" id="q'+n+'m" data-v="M">Mito</button></div>';
+      var fb=document.createElement('p'); fb.className='fb'; fb.hidden=true; w.appendChild(fb);
+      w.querySelectorAll('button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var right=b.getAttribute('data-v')===it[1];
+          w.querySelectorAll('button').forEach(function(x){x.disabled=true;});
+          b.classList.add('pick'); w.classList.add(right?'right':'wrong');
+          fb.innerHTML='<b>'+(right?'Correcto. ':'No. ')+(it[1]==='V'?'Verdad':'Mito')+'.</b> '+it[2];
+          fb.hidden=false; done++; if(right)ok++; upd();
+        });
+      });
+      quiz.appendChild(w);
+    });
+    upd();
+  }
+  $('reset').addEventListener('click',build);
+  build();
+})();
+</script>
+
+<nav class="cbfoot" aria-label="Capítulos"><button type="button" class="done" id="cb-done" aria-pressed="false">Marcar como leído</button><a class="prev" href="capitulo-17-legado-hijos.html"><small>← Anterior · Cap. 17</small>Legado y educación de los hijos</a><a class="next" href="../index.html"><small>Fin del libro</small>Volver al índice</a></nav>
+<script>(function(){var K="cb-leidos",id="capitulo-final-reflexiones",b=document.getElementById("cb-done");
+function get(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}
+function paint(){var on=get().indexOf(id)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"✓ Leído · tocar para desmarcar":"Marcar como leído"}
+b.addEventListener("click",function(){var l=get(),k=l.indexOf(id);if(k>-1)l.splice(k,1);else l.push(id);try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}paint()});paint()})();</script>
+</body></html>
